@@ -1,0 +1,95 @@
+/* ACORDEÓN*/
+.acordeon-section {
+  display: flex;
+  background-color: #383838;
+  justify-content: center;
+  gap: 4rem;
+  padding:0 6rem;
+  padding-left: 0;
+  flex-wrap: wrap;
+}
+
+.img-acordeon {
+  flex: 1;
+  display: flex;
+  justify-content:left;
+   z-index: 2;
+}
+
+.img-acordeon img {
+  max-width: 80%;
+  height: auto; 
+}
+
+.accordion-box {
+  flex: 1;
+  display: flex;
+  padding-top: 1.5rem ;
+  padding-bottom: 1.5rem;
+}
+
+.accordion {
+  overflow: hidden;
+}
+
+.accordion-item {
+  border-bottom: 1px solid #ddd;
+}
+
+.accordion-title {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  font-size: 1.2rem;
+  
+  border: none;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0);
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+  color: #ddd;
+}
+
+.accordion-title:hover {
+  background-color: #444444;
+}
+
+.accordion-title span {
+  font-size: 1.5rem;
+  color: #e29025;
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s ease;
+  padding: 0 1.5rem;
+}
+
+.accordion-content.open {
+  padding: 1rem 1.5rem;
+  max-height: 500px;
+}
+
+.accordion-content p {
+  margin: 0;
+  color: wheat;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px){
+.acordeon-section{
+  padding: 0 0 2rem 0;
+  gap: 0;
+
+}
+
+.img-acordeon img {
+  width: auto;
+}
+
+}
