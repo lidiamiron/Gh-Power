@@ -2,10 +2,12 @@ import { useState, useEffect, useRef } from 'react';
 import banner from "../assets/banner.svg";
 import generador from "../assets/generador.png"; 
 import { FaTools, FaHammer, FaShieldAlt } from "react-icons/fa";
-import workerImage from "../assets/generadores.png";
+import workerImage from "../assets/generadores.jpg";
 import "../Pages/Home.css"
 import Acordeon from "../components/Acordeon";
 import Config from "../assets/configuracion.png";
+import FeaturedProducts from '../components/FeaturedProducts';
+import Contact from './Contacto';
 
 
 
@@ -89,7 +91,7 @@ export default function Home() {
               <h2 className={`subtitle ${textAnimationStarted ? 'animate' : ''}`}>
                 Soluciones Energéticas de Alta Calidad
               </h2>
-              <a href="http://localhost:5173/Contacto"><button className={`presupuesto presupuesto1 ${textAnimationStarted ? 'animate' : ''}`}>Solicita tu presupuesto</button></a>
+              <a href="/Contacto"><button className={`presupuesto presupuesto1 ${textAnimationStarted ? 'animate' : ''}`}>Solicita tu presupuesto</button></a>
             </div>
             <div className="generador-image">
               <img className="generator" src={generador} alt="foto-generador" />
@@ -113,7 +115,7 @@ export default function Home() {
           <h2 className="about-title">SOBRE NOSOTROS</h2>
           <h1 className="about-heading">GH POWER</h1>
           <h2 className="about-subtitle">Generadores Eléctricos: Soluciones Energéticas Innovadoras y Personalizadas</h2>
-          <p className="contact-us"><a href="http://localhost:5173/Contacto">CONTACTANÓS</a></p>
+          <p className="contact-us"><a href="/Contacto">CONTACTANÓS</a></p>
         </div>
 
         <div className="about-right">
@@ -148,6 +150,13 @@ export default function Home() {
         </div>
         <div className="accordion-box"><Acordeon /></div> 
       </section>
+
+       <section className='featureProducts'> 
+              <FeaturedProducts />
+            </section>
+      <section className='contact'> 
+              <Contact />
+            </section>
       
     </main>
   );

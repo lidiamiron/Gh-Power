@@ -59,7 +59,7 @@
 
 .accordion-title span {
   font-size: 1.5rem;
-  color: #e29025;
+  color: #e33329;
 }
 
 .accordion-content {
@@ -76,7 +76,7 @@
 
 .accordion-content p {
   margin: 0;
-  color: wheat;
+  color: #f0e5e6;
   font-size: 1rem;
   line-height: 1.6;
 }
