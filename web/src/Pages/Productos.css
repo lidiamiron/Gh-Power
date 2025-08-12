@@ -26,16 +26,16 @@
 
 .filter-group button {
   padding: 6px 12px;
-  border: 1px solid #e29025;
+  border: 1px solid #e22a33;
   background: white;
-  color: #e29025;
+  color: #e22a33;
   border-radius: 5px;
   cursor: pointer;
 }
 
 .filter-group button.active,
 .search-button {
-  background-color: #e29025;
+  background-color: #e22a33;
   color: white;
 }
 
@@ -113,7 +113,7 @@
 }
 
 .product-name:hover{
-  color:#ce7807;
+  color:#e22a33;
 
 }
 
