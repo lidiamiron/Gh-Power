@@ -21,6 +21,7 @@ import GHG7000E from "../assets/GHG7000E.png";
 import GHG7500E from "../assets/GHG7500E.png";
 import GHG9000E from "../assets/GHG9000E.png";
 import GHG10000E from "../assets/GHG10000E.png";
+import GHPOWER from "../assets/gh-power.png";
 
 const products = [
   { name: "4x1", powerKVA: "", powerValueKVA: 21, powerKW: "16.8kW", powerValueKW: 16.8, powerW: "5500W", powerValueW: 5500, type: "Monofásico", fuel: "Gasolina", frequencies: ["50", "60"], voltage: ["220V"], phase: "Monofásico", image: generador },
@@ -42,6 +43,41 @@ const products = [
   { name: "GHG7500E", powerKVA: "", powerValueKVA: 36, powerKW: "6/6.5", powerValueKW: 6.5, powerW: "", powerValueW: 28800, type: "Monofásico", fuel: "Gasolina", frequencies: ["50", "60"], voltage: ["230V"], phase: "Monofásico", image: GHG7500E },
   { name: "GHG9000E", powerKVA: "", powerValueKVA: 36, powerKW: "7/7.5", powerValueKW: 7.5, powerW: "", powerValueW: 28800, type: "Monofásico", fuel: "Gasolina", frequencies: ["50", "60"], voltage: ["230V"], phase: "Monofásico", image: GHG9000E },
   { name: "GHG10000E", powerKVA: "", powerValueKVA: 36, powerKW: "8/8.5", powerValueKW: 8.5, powerW: "", powerValueW: 28800, type: "Monofásico", fuel: "Gasolina", frequencies: ["50", "60"], voltage: ["230V"], phase: "Monofásico", image: GHG10000E },
+  { name: "GH10GSX", powerKVA: "", powerValueKVA: 10, powerKW: "8", powerValueKW: 8, type: "Trifásico", fuel: "Diesel", frequencies: ["50"], voltage: ["400V"], phase: "Trifásico", image: GHPOWER, engineBrand: "GH-Power", engineModel: "GH380D" },
+  { name: "GH11GSX", powerKVA: "", powerValueKVA: 11, powerKW: "9", powerValueKW: 9, type: "Trifásico", fuel: "Diesel", frequencies: ["50"], voltage: ["400V"], phase: "Trifásico", image: GHPOWER, engineBrand: "GH-Power", engineModel: "GH385D" },
+  { name: "GH14GSX", powerKVA: "", powerValueKVA: 14, powerKW: "11", powerValueKW: 11, type: "Trifásico", fuel: "Diesel", frequencies: ["50"], voltage: ["400V"], phase: "Trifásico", image: GHPOWER, engineBrand: "GH-Power", engineModel: "GH480D" },
+  { name: "GH18GSX", powerKVA: "", powerValueKVA: 18, powerKW: "14", powerValueKW: 14, type: "Trifásico", fuel: "Diesel", frequencies: ["50"], voltage: ["400V"], phase: "Trifásico", image: GHPOWER, engineBrand: "GH-Power", engineModel: "GH485D" },
+  { name: "GH21GSX", powerKVA: "", powerValueKVA: 21, powerKW: "17", powerValueKW: 17, type: "Trifásico", fuel: "Diesel", frequencies: ["50"], voltage: ["400V"], phase: "Trifásico", image: GHPOWER, engineBrand: "GH-Power", engineModel: "GH490D" },
+  { name: "GH22GSX", powerKVA: "", powerValueKVA: 22, powerKW: "18", powerValueKW: 18, type: "Trifásico", fuel: "Diesel", frequencies: ["50"], voltage: ["400V"], phase: "Trifásico", image: GHPOWER, engineBrand: "GH-Power", engineModel: "GH490D" },
+  { name: "GH26GSX", powerKVA: "", powerValueKVA: 26, powerKW: "21", powerValueKW: 21, type: "Trifásico", fuel: "Diesel", frequencies: ["50"], voltage: ["400V"], phase: "Trifásico", image: GHPOWER, engineBrand: "GH-Power", engineModel: "GH490D" },
+  { name: "GH28GSX", powerKVA: "", powerValueKVA: 28, powerKW: "22", powerValueKW: 22, type: "Trifásico", fuel: "Diesel", frequencies: ["50"], voltage: ["400V"], phase: "Trifásico", image: GHPOWER, engineBrand: "GH-Power", engineModel: "GH495D" },
+  { name: "GH28GSX2", powerKVA: "", powerValueKVA: 22, powerKW: "18", powerValueKW: 18, type: "Trifásico", fuel: "Diesel", frequencies: ["50"], voltage: ["400V"], phase: "Trifásico", image: GHPOWER, engineBrand: "GH-Power", engineModel: "GH4100D" },
+  { name: "GH28GSX3", powerKVA: "", powerValueKVA: 22, powerKW: "18", powerValueKW: 18, type: "Trifásico", fuel: "Diesel", frequencies: ["50"], voltage: ["400V"], phase: "Trifásico", image: GHPOWER, engineBrand: "GH-Power", engineModel: "GH4040-23N" },
+  { name: "GH36GSX", powerKVA: "", powerValueKVA: 36, powerKW: "29", powerValueKW: 29, type: "Trifásico", fuel: "Diesel", frequencies: ["50"], voltage: ["400V"], phase: "Trifásico", image: GHPOWER, engineBrand: "GH-Power", engineModel: "GH4044-23N" },
+  { name: "GH41GSX", powerKVA: "", powerValueKVA: 41, powerKW: "33", powerValueKW: 33, type: "Trifásico", fuel: "Diesel", frequencies: ["50"], voltage: ["400V"], phase: "Trifásico", image: GHPOWER, engineBrand: "GH-Power", engineModel: "GH4054-23N" },
+  { name: "GH44GSX", powerKVA: "", powerValueKVA: 44, powerKW: "35", powerValueKW: 35, type: "Trifásico", fuel: "Diesel", frequencies: ["50"], voltage: ["400V"], phase: "Trifásico", image: GHPOWER, engineBrand: "GH-Power", engineModel: "GH4054-23N" },
+  { name: "GH55GSX", powerKVA: "", powerValueKVA: 55, powerKW: "44", powerValueKW: 44, type: "Trifásico", fuel: "Diesel", frequencies: ["50"], voltage: ["400V"], phase: "Trifásico", image: GHPOWER, engineBrand: "GH-Power", engineModel: "GH4068-23N" }, 
+  { name: "GH76GSX", powerKVA: "", powerValueKVA: 76, powerKW: "61", powerValueKW: 61, type: "Trifásico", fuel: "Diesel", frequencies: ["50"], voltage: ["400V"], phase: "Trifásico", image: GHPOWER, engineBrand: "GH-Power", engineModel: "GH4088-23T" },
+  { name: "GH83GSX", powerKVA: "", powerValueKVA: 83, powerKW: "66", powerValueKW: 66, type: "Trifásico", fuel: "Diesel", frequencies: ["50"], voltage: ["400V"], phase: "Trifásico", image: GHPOWER, engineBrand: "GH-Power", engineModel: "GH4092-23T" },
+  { name: "GH88GSX", powerKVA: "", powerValueKVA: 88, powerKW: "70", powerValueKW: 70, type: "Trifásico", fuel: "Diesel", frequencies: ["50"], voltage: ["400V"], phase: "Trifásico", image: GHPOWER, engineBrand: "GH-Power", engineModel: "GH4A3L-D" },
+  { name: "GH100GSX", powerKVA: "", powerValueKVA: 100, powerKW: "80", powerValueKW: 80, type: "Trifásico", fuel: "Diesel", frequencies: ["50"], voltage: ["400V"], phase: "Trifásico", image: GHPOWER, engineBrand: "GH-Power", engineModel: "GH4A3L-D" },
+  { name: "GH103GSX", powerKVA: "", powerValueKVA: 103, powerKW: "83", powerValueKW: 83, type: "Trifásico", fuel: "Diesel", frequencies: ["50"], voltage: ["400V"], phase: "Trifásico", image: GHPOWER, engineBrand: "GH-Power", engineModel: "GH4A3L-D" },
+  { name: "GH124GSX", powerKVA: "", powerValueKVA: 124, powerKW: "99", powerValueKW: 99, type: "Trifásico", fuel: "Diesel", frequencies: ["50"], voltage: ["400V"], phase: "Trifásico", image: GHPOWER, engineBrand: "GH-Power", engineModel: "GH4A3L-D" },
+  { name: "GH138GSX", powerKVA: "", powerValueKVA: 138, powerKW: "110", powerValueKW: 110, type: "Trifásico", fuel: "Diesel", frequencies: ["50"], voltage: ["400V"], phase: "Trifásico", image: GHPOWER, engineBrand: "GH-Power", engineModel: "GH4M3L-DA" },
+  { name: "GH165GSX", powerKVA: "", powerValueKVA: 165, powerKW: "132", powerValueKW: 132, type: "Trifásico", fuel: "Diesel", frequencies: ["50"], voltage: ["400V"], phase: "Trifásico", image: GHPOWER, engineBrand: "GH-Power", engineModel: "GH4M3L-D88" },
+  { name: "GH179GSX", powerKVA: "", powerValueKVA: 179, powerKW: "143", powerValueKW: 143, type: "Trifásico", fuel: "Diesel", frequencies: ["50"], voltage: ["400V"], phase: "Trifásico", image: GHPOWER, engineBrand: "GH-Power", engineModel: "GH6B3L-D" },
+  { name: "GH198GSX", powerKVA: "", powerValueKVA: 198, powerKW: "158", powerValueKW: 158, type: "Trifásico", fuel: "Diesel", frequencies: ["50"], voltage: ["400V"], phase: "Trifásico", image: GHPOWER, engineBrand: "GH-Power", engineModel: "GH6M3L-D" },
+  { name: "GH206GSX", powerKVA: "", powerValueKVA: 206, powerKW: "165", powerValueKW: 165, type: "Trifásico", fuel: "Diesel", frequencies: ["50"], voltage: ["400V"], phase: "Trifásico", image: GHPOWER, engineBrand: "GH-Power", engineModel: "GH6M3L-D" },
+  { name: "GH220GSX", powerKVA: "", powerValueKVA: 220, powerKW: "176", powerValueKW: 176, type: "Trifásico", fuel: "Diesel", frequencies: ["50"], voltage: ["400V"], phase: "Trifásico", image: GHPOWER, engineBrand: "GH-Power", engineModel: "GH6M3L-15-196A" },
+  { name: "GH220GSX2", powerKVA: "", powerValueKVA: 220, powerKW: "176", powerValueKW: 176, type: "Trifásico", fuel: "Diesel", frequencies: ["50"], voltage: ["400V"], phase: "Trifásico", image: GHPOWER, engineBrand: "GH-Power", engineModel: "GH6M3L-15-196A" },
+  { name: "GH248GSX", powerKVA: "", powerValueKVA: 248, powerKW: "198", powerValueKW: 198, type: "Trifásico", fuel: "Diesel", frequencies: ["50"], voltage: ["400V"], phase: "Trifásico", image: GHPOWER, engineBrand: "GH-Power", engineModel: "GH6H4L-D" },
+  { name: "GH275GSX", powerKVA: "", powerValueKVA: 275, powerKW: "220", powerValueKW: 220, type: "Trifásico", fuel: "Diesel", frequencies: ["50"], voltage: ["400V"], phase: "Trifásico", image: GHPOWER, engineBrand: "GH-Power", engineModel: "GH6H4LF-D" },
+  { name: "GH303GSX", powerKVA: "", powerValueKVA: 303, powerKW: "242", powerValueKW: 242, type: "Trifásico", fuel: "Diesel", frequencies: ["50"], voltage: ["400V"], phase: "Trifásico", image: GHPOWER, engineBrand: "GH-Power", engineModel: "GH6S4L-D" },
+  { name: "GH344GSX", powerKVA: "", powerValueKVA: 344, powerKW: "275", powerValueKW: 275, type: "Trifásico", fuel: "Diesel", frequencies: ["50"], voltage: ["400V"], phase: "Trifásico", image: GHPOWER, engineBrand: "GH-Power", engineModel: "GH6S9L-D" },
+  { name: "GH385GSX", powerKVA: "", powerValueKVA: 385, powerKW: "308", powerValueKW: 308, type: "Trifásico", fuel: "Diesel", frequencies: ["50"], voltage: ["400V"], phase: "Trifásico", image: GHPOWER, engineBrand: "GH-Power", engineModel: "GH6S9L-DB" },
+  { name: "GH413GSX", powerKVA: "", powerValueKVA: 413, powerKW: "330", powerValueKW: 330, type: "Trifásico", fuel: "Diesel", frequencies: ["50"], voltage: ["400V"], phase: "Trifásico", image: GHPOWER, engineBrand: "GH-Power", engineModel: "GH6S9LF-D"},
+  { name: "GH440GSX", powerKVA: "", powerValueKVA: 440, powerKW: "352", powerValueKW: 352, type: "Trifásico", fuel: "Diesel", frequencies: ["50"], voltage: ["400V"], phase: "Trifásico", image: GHPOWER, engineBrand: "GH-Power", engineModel: "GH6S9LF-DA" },
+
 ];
 
 function ProductGrid() {
@@ -52,6 +88,8 @@ function ProductGrid() {
   const [selectedPower, setSelectedPower] = useState("All");
   const [selectedPowerUnit, setSelectedPowerUnit] = useState("kVA"); // Default to kVA
   const [applyFilters, setApplyFilters] = useState(false);
+  const [selectedEngineBrand, setSelectedEngineBrand] = useState("All");
+const [selectedEngineModel, setSelectedEngineModel] = useState("All");
 
   const handleSearch = () => setApplyFilters(true);
 
@@ -73,9 +111,12 @@ function ProductGrid() {
       selectedPowerUnit === "kVA" ? product.powerValueKVA === parseFloat(selectedPower) :
       selectedPowerUnit === "kW" ? product.powerValueKW === parseFloat(selectedPower) :
       product.powerValueW === parseFloat(selectedPower)
+      
     );
+     const matchesEngineBrand = selectedEngineBrand === "All" || product.engineBrand === selectedEngineBrand;
+  const matchesEngineModel = selectedEngineModel === "All" || product.engineModel === selectedEngineModel;
 
-    return matchesFuel && matchesFrequency && matchesVoltage && matchesPhase && matchesPower;
+    return matchesFuel && matchesFrequency && matchesVoltage && matchesPhase && matchesPower && matchesEngineBrand && matchesEngineModel;
   });
 
   return (
@@ -115,6 +156,8 @@ function ProductGrid() {
               <option value="110/240V">110/240V</option>
               <option value="230/400V">230/400V</option>
               <option value="230V">230V</option>
+              <option value="400V">400V</option>
+              <option value="480V">480V</option>
             </select>
           </div>
 
@@ -143,6 +186,42 @@ function ProductGrid() {
               ))}
             </select>
           </div>
+
+          <div className="filter-group">
+  <label>Marca del Motor:</label>
+  <select 
+    value={selectedEngineBrand} 
+    onChange={(e) => {
+      setSelectedEngineBrand(e.target.value);
+      setSelectedEngineModel("All"); // reset modelo al cambiar marca
+    }}
+  >
+    <option value="All">Todas</option>
+    <option value="GH-Power">GH-Power</option>
+    <option value="Cummins">Cummins</option>
+    <option value="Perkins">Perkins</option>
+    <option value="Baudouin">Baudouin</option>
+    <option value="Doosan">Doosan</option>
+    <option value="Yanmar">Yanmar</option>
+    <option value="Fawde">Fawde</option>
+  </select>
+</div>
+
+<div className="filter-group">
+  <label>Modelo del Motor:</label>
+  <select 
+    value={selectedEngineModel} 
+    onChange={(e) => setSelectedEngineModel(e.target.value)}
+  >
+    <option value="All">Todos</option>
+    {[...new Set(products
+      .filter(p => selectedEngineBrand === "All" || p.engineBrand === selectedEngineBrand)
+      .map(p => p.engineModel)
+    )].map((model, idx) => (
+      <option key={idx} value={model}>{model}</option>
+    ))}
+  </select>
+</div>
 
           <div className="filter-group">
             <button onClick={handleSearch} className="search-button">Buscar</button>
