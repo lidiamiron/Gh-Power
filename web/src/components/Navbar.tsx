@@ -54,18 +54,14 @@ export default function Navbar() {
               </a>
               <div className={`submenu-container ${openDropdown === 'productos' ? 'open' : ''}`}>
                 <ul className="submenu">
-                  <li><a href="/productos/">LK21B</a></li>
-                  <li><a href="/productos/">LK25B</a></li>
-                  <li><a href="/productos/">LK36B</a></li>
-                  <li><a href="/productos/">LK44B</a></li>
-                  <li><a href="/productos/">LK50B</a></li>
-                  <li><a href="/productos/">LK72B</a></li>
-                  <li><a href="/productos/">LK88B</a></li>
-                  <li><a href="/productos/">LK110B</a></li>
-                  <li><a href="/productos/">LK150B</a></li>
-                  <li><a href="/productos/">LK165B</a></li>
-                  <li><a href="/productos/">LK188B</a></li>
-                  <li><a href="/productos/">LK250B</a></li>
+                  <li><a href="/productos/gh-power">Gh-power</a></li>
+                  <li><a href="/productos/cummins">Cummins</a></li>
+                  <li><a href="/productos/perkins">Perkins</a></li>
+                  <li><a href="/productos/baudouin">Baudouin</a></li>
+                  <li><a href="/productos/doosan">Doosan</a></li>
+                  <li><a href="/productos/fawde">Fawde</a></li>
+                  <li><a href="/productos/yanmar">Yanmar</a></li>
+                  
                 </ul>
               </div>
             </li>

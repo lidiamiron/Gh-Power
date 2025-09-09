@@ -3,7 +3,7 @@
   margin: 0;
   box-sizing: border-box;
 }
-/* Navbar Fijo (para Home) */
+
 .fixed-header {
   background: rgba(255, 255, 255, 0.664);
   backdrop-filter: blur(10px);
@@ -25,8 +25,6 @@
   z-index: 1000;
   padding: 1.5rem 0;
 }
-
-
 
 .nav-link {
   display: flex;
@@ -174,11 +172,11 @@ a {
 
 @media (max-width: 768px) {
   .dropdown-wrapper::after {
-    display: none; /* Ocultamos el área de hover en mobile */
+    display: none;
   }
   
   .dropdown-wrapper:hover .submenu-container {
-    display: none; /* Desactivamos el hover en mobile */
+    display: none; 
   }
   
   .nav-link li {
@@ -191,7 +189,7 @@ a {
     border: none;
     background-color: transparent;
     padding-left: 1rem;
-    display: none; /* Oculto por defecto */
+    display: none; 
     height: 0;
     overflow: hidden;
     transition: height 0.3s ease;
