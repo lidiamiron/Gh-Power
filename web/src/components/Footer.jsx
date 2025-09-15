@@ -30,9 +30,8 @@ const Footer = () => {
         <div className="footer-column">
           <h3 className="footer-title">Síguenos</h3>
           <ul className="footer-links ">
-             <a href="https://www.facebook.com/profile.php?id=61577861317109"><li><FaFacebookSquare className="redes" />Facebook</li></a>
-             <a href="https://www.instagram.com/lkenergyofficial/"><li><FaInstagram className="redes" />Instagram</li></a>
-             <a href="https://www.linkedin.com/company/lk-energy/?viewAsMember=true"><li><FaLinkedin className="redes"/>Linkedin</li></a>
+             <a href="https://www.facebook.com/ghpowergenerators"><li><FaFacebookSquare className="redes" />Facebook</li></a>
+             <a href="https://www.linkedin.com/company/gh-power"><li><FaLinkedin className="redes"/>Linkedin</li></a>
             
           </ul>
         </div>
@@ -41,9 +40,9 @@ const Footer = () => {
         <div className="footer-column contact-column">
           <h3 className="footer-title">Contacto</h3>
           <div className="contact-dirrection">
-            <p><FontAwesomeIcon icon={faMapMarkerAlt} /> Dirección: C/ Tramuntana, 2 - Pi Can Mascaró, La Palma de Cervelló, 08756, Barcelona</p>
-            <p><FontAwesomeIcon icon={faPhone} /> Teléfono: +34 936 84 66 35 </p>
-            <p><FontAwesomeIcon icon={faEnvelope} /> Email: info@lkpower.es</p>
+            <p><FontAwesomeIcon icon={faMapMarkerAlt} /> Dirección: Carrer del Ponent, 10, 08756 La Palma de Cervelló, Barcelona</p>
+            <p><FontAwesomeIcon icon={faPhone} /> Teléfono: +34 934 185 173 </p>
+            <p><FontAwesomeIcon icon={faEnvelope} /> Email: info@gh-power.com</p>
           </div>
           <div className="map-container">
             <iframe 
@@ -66,7 +65,7 @@ const Footer = () => {
           
         </div>
         <div className="copyright">
-          Copyright © {new Date().getFullYear()} Power10. Todos los derechos reservados.
+          Copyright © {new Date().getFullYear()} GH-POWER. Todos los derechos reservados.
         </div>
       </div>
     </footer>

@@ -26,15 +26,14 @@ export default function Contact() {
 
       <div className="contact-info">
         <h3>Información de <span>Contacto</span></h3>
-        <p> Carrer Tramuntana, 2 - Pi Can Mascaró <br />08756 La Palma de Cervelló,<br /> Barcelona</p>
-        <p><strong>Llámanos</strong> 936 84 66 35</p>
+        <p> Carrer del Ponent, 10<br />08756 La Palma de Cervelló,<br /> Barcelona</p>
+        <p><strong>Llámanos</strong> +34 934 185 173</p>
         <p>Estamos abiertos de Lunes a Viernes<br />09:00 - 18:30</p>
         <h4>Follow Us</h4>
         
 <div className="social-links">
-  <a href="https://www.facebook.com/profile.php?id=61577861317109" target="_blank" rel="noopener noreferrer"><FaFacebookSquare /></a>
-  <a href="https://www.instagram.com/lkenergyofficial" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
-  <a href="https://www.linkedin.com/company/lk-energy/?viewAsMember=true" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
+  <a href="https://www.facebook.com/ghpowergenerators" target="_blank" rel="noopener noreferrer"><FaFacebookSquare /></a>
+  <a href="https://www.linkedin.com/company/gh-power" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
 </div>
       </div>
     </section>

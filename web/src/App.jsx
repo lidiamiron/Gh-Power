@@ -14,6 +14,24 @@ import BAUDOUIN from './Pages/Baudouin.jsx';
 import Doosan from './Pages/Doosan.jsx';
 import Yanmar from './Pages/Yanmar.jsx';
 import Fawde from './Pages/Fawde.jsx';
+import GHD2000E from './Pages/GHD2000E.jsx';
+import GHD3000E from './Pages/GHD3000E.jsx';
+import GHD6000E from './Pages/GHD6000E.jsx';
+import GHD8000E from './Pages/GHD8000E.jsx';
+import GHD10000E from './Pages/GHD10000E.jsx';
+import GHD12000E from './Pages/GHD12000E.jsx';
+import GHD13000E from './Pages/GHD13000E.jsx';
+import GHD13500E from './Pages/GHD13500E.jsx';
+import GHD14000E from './Pages/GHD14000E.jsx';
+import GHG2500E from './Pages/GHG2500E.jsx';
+import GHG3000E from './Pages/GHG3000E.jsx';
+import GHG3500E from './Pages/GHG3500E.jsx';
+import GHG3800E from './Pages/GHG3800E.jsx';
+import GHG6000E from './Pages/GHG6000E.jsx';
+import GHG7000E from './Pages/GHG7000E.jsx';
+import GHG7500E from './Pages/GHG7500E.jsx';
+import GHG9000E from './Pages/GHG9000E.jsx';
+import GHD10000E from './Pages/GHD10000E.jsx';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -33,6 +51,26 @@ function App() {
          <Route path="/productos/doosan" element={<Doosan />} />
          <Route path="/productos/yanmar" element={<Yanmar />} />
          <Route path="/productos/fawde" element={<Fawde />} />
+         <Route path="/productos/diesel/GHD2000E" element={<GHD2000E />} />
+         <Route path="/productos/diesel/GHD3000E" element={<GHD3000E />} />
+         <Route path="/productos/diesel/GHD6000E" element={<GHD6000E />} />
+         <Route path="/productos/diesel/GHD8000E" element={<GHD8000E />} />
+         <Route path="/productos/diesel/GHD10000E" element={<GHD10000E />} />
+         <Route path="/productos/diesel/GHD12000E" element={<GHD12000E />} />
+         <Route path="/productos/diesel/GHD13000E" element={<GHD13000E />} />
+         <Route path="/productos/diesel/GHD13500E" element={<GHD13500E />} />
+         <Route path="/productos/diesel/GHD14000E" element={<GHD14000E />} />
+         <Route path="/productos/diesel/GHG2500E" element={<GHG2500E />} />
+         <Route path="/productos/diesel/GHG3000E" element={<GHG3000E />} />
+         <Route path="/productos/diesel/GHG3500E" element={<GHG3500E />} />
+         <Route path="/productos/diesel/GHG3800E" element={<GHG3800E />} />
+         <Route path="/productos/diesel/GHG6000E" element={<GHG6000E />} />
+         <Route path="/productos/diesel/GHG7000E" element={<GHG7000E />} />
+         <Route path="/productos/diesel/GHG7500E" element={<GHG7500E />} />
+         <Route path="/productos/diesel/GHG9000E" element={<GHG9000E />} />
+         <Route path="/productos/diesel/GHG10000E" element={<GHG10000E />} />
+
+
 
 
         </Routes>

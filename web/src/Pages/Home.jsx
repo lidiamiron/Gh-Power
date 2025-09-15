@@ -83,13 +83,13 @@ export default function Home() {
                 </span>
                 <br/>
                 <span className={`title-line title-line-2 ${textAnimationStarted ? 'animate' : ''}`}>
-                  GENERADORES ELÉCTRICOS
+                  GRUPOS ELECTRÓGENOS
                 </span>
                 <br/>
                 
               </h1>
               <h2 className={`subtitle ${textAnimationStarted ? 'animate' : ''}`}>
-                Soluciones Energéticas de Alta Calidad
+              Soluciones Energéticas para Cada Uso
               </h2>
               <a href="/Contacto"><button className={`presupuesto presupuesto1 ${textAnimationStarted ? 'animate' : ''}`}>Solicita tu presupuesto</button></a>
             </div>
@@ -121,7 +121,7 @@ export default function Home() {
         <div className="about-right">
           <div className="about-description">
             <p>
-             GH POWER es líder en la fabricación de generadores eléctricos y ofrece una amplia gama de soluciones energéticas diseñadas para satisfacer las necesidades de diversos mercados. Con presencia en más de 30 países y una robusta red de distribuidores, expandimos nuestra huella global año tras año, consolidándonos como referente en el sector energético. Nuestra fortaleza radica en la versatilidad para crear productos a medida, adaptados a las demandas específicas de cada mercado. En GH POWER, garantizamos tiempos de respuesta inmediatos y un soporte técnico-comercial de primer nivel, lo que nos ha permitido alcanzar la satisfacción de más de 5000 clientes en todo el mundo. Confíe en GH POWER para soluciones energéticas confiables, innovadoras y respaldadas por un servicio excepcional. ¡Contáctenos hoy y descubra cómo podemos potenciar su energía!
+             GH POWER es líder en la fabricación de generadores eléctricos y ofrece una amplia gama de soluciones energéticas diseñadas para satisfacer las necesidades de diversos mercados. Con presencia en más de 30 países y una robusta red de distribuidores, expandimos nuestra huella global año tras año, consolidándonos como referente en el sector energético. Nuestra fortaleza radica en la versatilidad para crear productos a medida, adaptados a las demandas específicas de cada mercado. En GH POWER, garantizamos tiempos de respuesta inmediatos y un soporte técnico-comercial de primer nivel, lo que nos ha permitido alcanzar la satisfacción de más de 1000 clientes en todo el mundo. Confíe en GH POWER para soluciones energéticas confiables, innovadoras y respaldadas por un servicio excepcional. ¡Contáctenos hoy y descubra cómo podemos potenciar su energía!
             </p>
           </div>
           <div className="about-image">
