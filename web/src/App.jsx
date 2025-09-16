@@ -31,7 +31,7 @@ import GHG6000E from './Pages/GHG6000E.jsx';
 import GHG7000E from './Pages/GHG7000E.jsx';
 import GHG7500E from './Pages/GHG7500E.jsx';
 import GHG9000E from './Pages/GHG9000E.jsx';
-import GHD10000E from './Pages/GHD10000E.jsx';
+import GHG10000E from './Pages/GHD10000E.jsx';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -51,27 +51,24 @@ function App() {
          <Route path="/productos/doosan" element={<Doosan />} />
          <Route path="/productos/yanmar" element={<Yanmar />} />
          <Route path="/productos/fawde" element={<Fawde />} />
-         <Route path="/productos/diesel/GHD2000E" element={<GHD2000E />} />
-         <Route path="/productos/diesel/GHD3000E" element={<GHD3000E />} />
-         <Route path="/productos/diesel/GHD6000E" element={<GHD6000E />} />
-         <Route path="/productos/diesel/GHD8000E" element={<GHD8000E />} />
-         <Route path="/productos/diesel/GHD10000E" element={<GHD10000E />} />
-         <Route path="/productos/diesel/GHD12000E" element={<GHD12000E />} />
-         <Route path="/productos/diesel/GHD13000E" element={<GHD13000E />} />
-         <Route path="/productos/diesel/GHD13500E" element={<GHD13500E />} />
-         <Route path="/productos/diesel/GHD14000E" element={<GHD14000E />} />
-         <Route path="/productos/diesel/GHG2500E" element={<GHG2500E />} />
-         <Route path="/productos/diesel/GHG3000E" element={<GHG3000E />} />
-         <Route path="/productos/diesel/GHG3500E" element={<GHG3500E />} />
-         <Route path="/productos/diesel/GHG3800E" element={<GHG3800E />} />
-         <Route path="/productos/diesel/GHG6000E" element={<GHG6000E />} />
-         <Route path="/productos/diesel/GHG7000E" element={<GHG7000E />} />
-         <Route path="/productos/diesel/GHG7500E" element={<GHG7500E />} />
-         <Route path="/productos/diesel/GHG9000E" element={<GHG9000E />} />
-         <Route path="/productos/diesel/GHG10000E" element={<GHG10000E />} />
-
-
-
+         <Route path="/productos/generadores-portatiles/diesel/GHD2000E" element={<GHD2000E />} />
+         <Route path="/productos/generadores-portatiles/diesel/GHD3000E" element={<GHD3000E />} />
+         <Route path="/productos/generadores-portatiles/diesel/GHD6000E" element={<GHD6000E />} />
+         <Route path="/productos/generadores-portatiles/diesel/GHD8000E" element={<GHD8000E />} />
+         <Route path="/productos/generadores-portatiles/diesel/GHD10000E" element={<GHD10000E />} />
+         <Route path="/productos/generadores-portatiles/diesel/GHD12000E" element={<GHD12000E />} />
+         <Route path="/productos/generadores-portatiles/diesel/GHD13000E" element={<GHD13000E />} />
+         <Route path="/productos/generadores-portatiles/diesel/GHD13500E" element={<GHD13500E />} />
+         <Route path="/productos/generadores-portatiles/diesel/GHD14000E" element={<GHD14000E />} />
+         <Route path="/productos/generadores-portatiles/gasolina/GHG2500E" element={<GHG2500E />} />
+         <Route path="/productos/generadores-portatiles/gasolina/GHG3000E" element={<GHG3000E />} />
+         <Route path="/productos/generadores-portatiles/gasolina/GHG3500E" element={<GHG3500E />} />
+         <Route path="/productos/generadores-portatiles/gasolina/GHG3800E" element={<GHG3800E />} />
+         <Route path="/productos/generadores-portatiles/gasolina/GHG6000E" element={<GHG6000E />} />
+         <Route path="/productos/generadores-portatiles/gasolina/GHG7000E" element={<GHG7000E />} />
+         <Route path="/productos/generadores-portatiles/gasolina/GHG7500E" element={<GHG7500E />} />
+         <Route path="/productos/generadores-portatiles/gasolina/GHG9000E" element={<GHG9000E />} />
+         <Route path="/productos/generadores-portatiles/gasolina/GHG10000E" element={<GHG10000E />} />
 
         </Routes>
       </MainLayout>
