@@ -1,179 +1,150 @@
-import React from 'react';
-import "../pages/Descargas.css"
+import React, { useState, useEffect } from 'react';
+import { createClient } from '@supabase/supabase-js';
 import { FaDownload } from "react-icons/fa";
+import "./Descargas.css";
 
-
-const data = [
-  {
-    modelo: 'LK21B',
-    kva: 21,
-    kilovatios: 17,
-    tipoMotor: 'Diésel',
-    dimension: '1970 x 800 x 1075',
-    descarga: 'Ficha Tecnica',
-    descarga2: 'Manual de usuario',
-    ficha: 'LK21B.pdf',
-    manual: 'LK21B-m.pdf',
-  },
-  {
-    modelo: 'LK25B',
-    kva: 25,
-    kilovatios: 20,
-    tipoMotor: 'Diésel',
-    dimension: '1970 x 800 x 1075',
-    descarga: 'Ficha Tecnica',
-    descarga2: 'Manual de usuario',
-    ficha: 'LK25B.pdf',
-    manual: 'LK25B-m.pdf',
-  },
-  {
-    modelo: 'LK36B',
-    kva: 36,
-    kilovatios: 29,
-    tipoMotor: 'Diésel',
-    dimension: '2170 x 850 x 1075',
-    descarga: 'Ficha Tecnica',
-    descarga2: 'Manual de usuario',
-    ficha: 'LK36B.pdf',
-    manual: 'LK36B-m.pdf',
-  },
-  {
-    modelo: 'LK44B',
-    kva: 44,
-    kilovatios: 35,
-    tipoMotor: 'Diésel',
-    dimension: '2170 x 850 x 1075',
-    descarga: 'Ficha Tecnica',
-    descarga2: 'Manual de usuario',
-    ficha: 'LK44B.pdf',
-    manual: 'LK44B-m.pdf',
-  },
-  {
-    modelo: 'LK50B',
-    kva: 50,
-    kilovatios: 40,
-    tipoMotor: 'Diésel',
-    dimension: '2270 xx 960 x 1200',
-    descarga: 'Ficha Tecnica',
-    descarga2: 'Manual de usuario',
-    ficha: 'LK50B.pdf',
-    manual: 'LK50B-m.pdf',
-  },
-    {
-    modelo: 'LK72B',
-    kva: 72,
-    kilovatios: 57,
-    tipoMotor: 'Diésel',
-    dimension: '2470 x 1010 x 1250',
-    descarga: 'Ficha Tecnica',
-    descarga2: 'Manual de usuario',
-    ficha: 'LK72B.pdf',
-    manual: 'LK72B-m.pdf',
-  },
-    {
-    modelo: 'LK88B',
-    kva: 88,
-    kilovatios: 70,
-    tipoMotor: 'Diésel',
-    dimension: '2470 x 1010 x 1250',
-    descarga: 'Ficha Tecnica',
-    descarga2: 'Manual de usuario',
-    ficha: 'LK88B.pdf',
-    manual: 'LK88B-m.pdf',
-  },
-    {
-    modelo: 'LK110B',
-    kva: 110,
-    kilovatios: 88,
-    tipoMotor: 'Diésel',
-    dimension: '2770 x 1080 x 1250',
-    descarga: 'Ficha Tecnica',
-    descarga2: 'Manual de usuario',
-    ficha: 'LK110B.pdf',
-    manual: 'LK110B-m.pdf',
-  },
-    {
-    modelo: 'LK150B',
-    kva: 150,
-    kilovatios: 120,
-    tipoMotor: 'Diésel',
-    dimension: '3070 x 1080 x 1450',
-    descarga: 'Ficha Tecnica',
-    descarga2: 'Manual de usuario',
-    ficha: 'LK150B.pdf',
-    manual: 'LK150B-m.pdf',
-  },
-    {
-    modelo: 'LK165B',
-    kva: 165,
-    kilovatios: 132,
-    tipoMotor: 'Diésel',
-    dimension: '3270 x 1130 x 1650',
-    descarga: 'Ficha Tecnica',
-    descarga2: 'Manual de usuario',
-    ficha: 'LK165B.pdf',
-    manual: 'LK165B-m.pdf',
-  },
-    {
-    modelo: 'LK188B',
-    kva: 188,
-    kilovatios: 150,
-    tipoMotor: 'Diésel',
-    dimension: '3270 x 1130 x 1650',
-    descarga: 'Ficha Tecnica',
-    descarga2: 'Manual de usuario',
-    ficha: 'LK188B.pdf',
-    manual: 'LK188B-m.pdf',
-  },
-    {
-    modelo: 'LK250B',
-    kva: 250,
-    kilovatios: 200,
-    tipoMotor: 'Diésel',
-    dimension: '3920 x 1180 x 1900',
-    descarga: 'Ficha Tecnica',
-    descarga2: 'Manual de usuario',
-    ficha: 'LK250B.pdf',
-    manual: 'LK250B-m.pdf',
-  },
-];
+// Configuración de Supabase
+const supabaseUrl = 'https://mfbwfvyokxanubyxamim.supabase.co';
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1mYndmdnlva3hhbnVieXhhbWltIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTY4ODI1OTQsImV4cCI6MjA3MjQ1ODU5NH0.oFoatF2o44dic8qIkrPeLpv_Zd6mzoWOnEGGDXILUEo';
+const supabase = createClient(supabaseUrl, supabaseKey);
 
 const Descargas = () => {
+  const [generadores, setGeneradores] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchGeneradores = async () => {
+      try {
+        const { data, error } = await supabase
+          .from('generadores')
+          .select('*')
+          .order('marca_motor', { ascending: true })
+          .order('standby_kva', { ascending: true });
+
+        if (error) {
+          throw error;
+        }
+
+        console.log('Datos recibidos de Supabase:', data); // Para depuración
+        
+        // Filtrar productos únicos por modelo_motor
+        const productosUnicos = filtrarProductosUnicos(data);
+        setGeneradores(productosUnicos);
+        setLoading(false);
+      } catch (error) {
+        setError(error.message);
+        setLoading(false);
+      }
+    };
+
+    fetchGeneradores();
+  }, []);
+
+  // Función para filtrar productos únicos por modelo_motor
+  const filtrarProductosUnicos = (data) => {
+    const productosUnicos = [];
+    const modelosVistos = new Set();
+    
+    data.forEach((producto) => {
+      if (!modelosVistos.has(producto.modelo_motor)) {
+        modelosVistos.add(producto.modelo_motor);
+        productosUnicos.push(producto);
+      }
+    });
+    
+    return productosUnicos;
+  };
+
+  // Función para verificar si una URL es válida
+  const esUrlValida = (url) => {
+    if (!url) return false;
+    
+    // Verificar si es una URL válida
+    try {
+      new URL(url);
+      return true;
+    } catch (e) {
+      return false;
+    }
+  };
+
+  if (loading) {
+    return (
+      <div className="table-container">
+        <div className="loading">Cargando datos...</div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="table-container">
+        <div className="error">Error: {error}</div>
+      </div>
+    );
+  }
+
   return (
     <div className="table-container">
       <table className="custom-table">
         <thead>
-  <tr>
-    <th>MODELO</th>
-    <th className="hide-mobile">KVA</th>
-    <th className="hide-mobile">Kilovatios</th>
-    <th className="hide-mobile">Tipo de motor</th>
-    <th className="hide-mobile">Dimensión</th>
-    <th>Descarga</th>
-    <th>Descarga</th>
-  </tr>
-</thead>
-<tbody>
-  {data.map((item, index) => (
-    <tr key={index}>
-      <td>{item.modelo}</td>
-      <td className="hide-mobile">{item.kva}</td>
-      <td className="hide-mobile">{item.kilovatios}</td>
-      <td className="hide-mobile">{item.tipoMotor}</td>
-      <td className="hide-mobile">{item.dimension}</td>
-     <td className="descarga">
-  <a href={`/docs/${item.ficha}`} target="_blank" rel="noreferrer">
-    <FaDownload /><span className='space'>Ficha técnica</span>
-  </a>
-</td>
-<td className="descarga">
-  <a href={`/docs/${item.manual}`} target="_blank" rel="noreferrer">
-    <FaDownload /><span className='space'>Manual de usuario</span>
-  </a>
-</td>
-    </tr>
-  ))}
-</tbody>
+          <tr>
+            <th>MODELO</th>
+            <th className="hide-mobile">STANDBY KVA</th>
+            <th className="hide-mobile">STANDBY KW</th>
+            <th className="hide-mobile">MARCA MOTOR</th>
+            <th className="hide-mobile">MODELO MOTOR</th>
+            <th className="hide-mobile">FASE</th>
+            <th>Descarga</th>
+            <th>Descarga</th>
+          </tr>
+        </thead>
+        <tbody>
+          {generadores.map((item, index) => {
+            // Depuración para ver los valores de los enlaces
+            console.log(`Item ${index}:`, {
+              modelo: item.modelo_motor,
+              ficha_técnica: item.ficha_técnica,
+              manual: item.manual,
+              esFichaValida: esUrlValida(item.ficha_técnica),
+              esManualValido: esUrlValida(item.manual)
+            });
+            
+            return (
+              <tr key={index}>
+                <td>{item.modelo_motor || 'N/A'}</td>
+                <td className="hide-mobile">{item.standby_kva || 'N/A'}</td>
+                <td className="hide-mobile">{item.standby_kw || 'N/A'}</td>
+                <td className="hide-mobile">{item.marca_motor || 'N/A'}</td>
+                <td className="hide-mobile">{item.engine_model || 'N/A'}</td>
+                <td className="hide-mobile">{item.phase || 'N/A'}</td>
+                <td className="descarga">
+                  {esUrlValida(item.ficha_técnica) ? (
+                    <a href={item.ficha_técnica} target="_blank" rel="noreferrer" download>
+                      <FaDownload /><span className='space'>Ficha técnica</span>
+                    </a>
+                  ) : (
+                    <span className="no-disponible">
+                      {item.ficha_técnica ? 'Enlace inválido' : 'No disponible'}
+                    </span>
+                  )}
+                </td>
+                <td className="descarga">
+                  {esUrlValida(item.manual) ? (
+                    <a href={item.manual} target="_blank" rel="noreferrer" download>
+                      <FaDownload /><span className='space'>Manual de usuario</span>
+                    </a>
+                  ) : (
+                    <span className="no-disponible">
+                      {item.manual ? 'Enlace inválido' : 'No disponible'}
+                    </span>
+                  )}
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
       </table>
     </div>
   );

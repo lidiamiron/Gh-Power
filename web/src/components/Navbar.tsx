@@ -100,7 +100,7 @@ export default function Navbar() {
       }
     },
     "Generador 4x1": {
-      path: "/productos/4x1"
+      path: "/productos/generador4x1"
      
     }
   };

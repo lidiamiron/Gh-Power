@@ -32,6 +32,7 @@ import GHG7000E from './Pages/GHG7000E.jsx';
 import GHG7500E from './Pages/GHG7500E.jsx';
 import GHG9000E from './Pages/GHG9000E.jsx';
 import GHG10000E from './Pages/GHD10000E.jsx';
+import Generador4x1 from './Pages/4x1.jsx';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -69,6 +70,9 @@ function App() {
          <Route path="/productos/generadores-portatiles/gasolina/GHG7500E" element={<GHG7500E />} />
          <Route path="/productos/generadores-portatiles/gasolina/GHG9000E" element={<GHG9000E />} />
          <Route path="/productos/generadores-portatiles/gasolina/GHG10000E" element={<GHG10000E />} />
+         <Route path="/productos/generador4x1" element={<Generador4x1 />} />
+
+         
 
         </Routes>
       </MainLayout>
