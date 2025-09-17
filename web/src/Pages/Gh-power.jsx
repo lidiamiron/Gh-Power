@@ -17,7 +17,7 @@ const GHPower = () => {
       try {
         const { data, error } = await supabase
           .from('generadores')
-          .select('prime_power_kw, prime_power_kva, standby_kw, standby_kva, engine_model, marca_motor, modelo_motor, fuel, frequencies, voltage, phase')
+          .select('prime_power_kw, prime_power_kva, standby_kw, standby_kva, engine_model, modelo_motor, frequencies, voltage, phase')
           .eq('marca_motor', 'GH-POWER');
 
         if (error) {
@@ -58,17 +58,16 @@ const GHPower = () => {
         <table className="product-table">
           <thead>
             <tr>
-              <th>Modelo Motor</th>
+              <th>Modelo</th>
               <th className='hide-mobile'>Prime Power KW</th>
               <th className='hide-mobile'>Prime Power KVA</th>
-              <th className='hide-mobile'>Standby KW</th>
-              <th>Standby KVA</th>
-              <th className='hide-mobile'>Engine Model</th>
-              <th className='hide-mobile'>Marca Motor</th>
-              <th className='hide-mobile'>Fuel</th>
-              <th>Frequencies</th>
-              <th>Voltage</th>
-              <th className='hide-mobile'>Phase</th>
+              <th className='hide-mobile'>Standby Power KW</th>
+              <th>Standby Power KVA</th>
+              <th className='hide-mobile'>Modelo Motor</th>
+              
+              <th>Frecuencia</th>
+              <th>Voltaje</th>
+              <th className='hide-mobile'>Fase</th>
             </tr>
           </thead>
           <tbody>
@@ -80,8 +79,8 @@ const GHPower = () => {
                 <td className='hide-mobile'>{product.standby_kw}</td>
                 <td>{product.standby_kva}</td>
                 <td className='hide-mobile'>{product.engine_model}</td>
-                <td className='hide-mobile'>{product.marca_motor}</td>
-                <td className='hide-mobile'>{product.fuel}</td>
+                
+                
                 <td>{product.frequencies}</td>
                 <td>{product.voltage}</td>
                 <td className='hide-mobile'>{product.phase}</td>

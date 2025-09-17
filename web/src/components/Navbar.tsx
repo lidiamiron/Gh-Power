@@ -79,7 +79,8 @@ export default function Navbar() {
             "GHD12000E": "/productos/generadores-portatiles/diesel/GHD12000E",
             "GHD13000E": "/productos/generadores-portatiles/diesel/GHD13000E",
             "GHD13500E": "/productos/generadores-portatiles/diesel/GHD13500E",
-            "GHD14000E": "/productos/generadores-portatiles/diesel/GHD14000E"
+            "GHD14000E": "/productos/generadores-portatiles/diesel/GHD14000E",
+            "GH15000DE": "/productos/generadores-portatiles/diesel/GH15000DE"
           
           }
         },

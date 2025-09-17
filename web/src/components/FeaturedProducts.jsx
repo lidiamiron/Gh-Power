@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import "./FeaturedProducts.css";
 import { createClient } from '@supabase/supabase-js';
+import "./FeaturedProducts.css";
 
 // Configurar cliente de Supabase
 const supabaseUrl = 'https://mfbwfvyokxanubyxamim.supabase.co';
@@ -13,49 +13,87 @@ const FeaturedProducts = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  // Función para generar la URL única para cada producto
+  const generateProductUrl = (productName) => {
+    // Mapeo de nombres de productos a URLs específicas
+    const urlMappings = {
+      'GH1856CSX': '/productos/cummins',
+      'GH2200BSX': '/productos/baudouin',
+      'GHD14000E': '/productos/generadores-portatiles/diesel/GHD14000E',
+      '4x1': '/productos/generador4x1',
+      'GH15000DE': '/productos/generadores-portatiles/diesel/GH15000DE',
+      'GH165DSX': '/productos/doosan'
+    };
+    
+    // Si existe un mapeo específico, usarlo, sino generar una URL por defecto
+    return urlMappings[productName] || `/productos/${encodeURIComponent(productName.toLowerCase().replace(/\s+/g, '-'))}`;
+  };
+
   // Cargar productos desde Supabase
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        console.log('Fetching products from Supabase...'); // Debug: Start of fetch
-        const { data, error } = await supabase
-          .from('generadores')
-          .select('id, modelo_motor, standby_kva, image_url, phase')
-          .eq('phase', 'MONOFÁSICO') // Filter for single-phase (uppercase)
-          .limit(6); // Limit to 6 products
+        console.log('Fetching specific products from Supabase...');
         
-        if (error) {
-          console.error('Supabase query error:', error); // Debug: Log specific error
-          throw error;
+        // Lista de modelos específicos a buscar
+        const targetModels = [
+          'GH1856CSX', 
+          'GH2200BSX', 
+          'GHD14000E', 
+          '4x1', 
+          'GH15000DE',
+          'GH165DSX' 
+        ];
+        
+        // Buscar cada producto individualmente
+        const productPromises = targetModels.map(model => 
+          supabase
+            .from('generadores')
+            .select('id, modelo_motor, standby_kva, image_url, phase')
+            .ilike('modelo_motor', model)
+            .limit(1)
+            .single()
+        );
+        
+        // Ejecutar todas las consultas
+        const results = await Promise.allSettled(productPromises);
+        
+        console.log('All query results:', results);
+
+        // Procesar resultados exitosos
+        const foundProducts = [];
+        for (const result of results) {
+          if (result.status === 'fulfilled' && result.value.data) {
+            foundProducts.push(result.value.data);
+          }
         }
 
-        console.log('Raw Supabase data:', data); // Debug: Log raw data
+        console.log('Found products:', foundProducts);
 
-        if (!data || data.length === 0) {
-          console.warn('No products found matching the criteria.');
-          setError('No se encontraron productos monofásicos.');
+        if (foundProducts.length === 0) {
+          console.warn('No specific products found.');
+          setError('No se encontraron los productos específicos solicitados.');
           setProducts([]);
           return;
         }
 
-        const transformedData = data.map((item, index) => {
-          console.log(`Processing item ${index}:`, item); // Debug: Log each item
+        const transformedData = foundProducts.map((item, index) => {
           return {
-            id: item.id || `temp-id-${index}`, // Fallback ID
+            id: item.id || `temp-id-${index}`,
             name: item.modelo_motor || 'Sin Nombre',
             kva: item.standby_kva != null && !isNaN(parseFloat(item.standby_kva)) 
               ? parseFloat(item.standby_kva) 
               : 0,
-            image: item.image_url || 'https://via.placeholder.com/150', // Fallback image
+            image: item.image_url || 'https://via.placeholder.com/300x200?text=Imagen+no+disponible',
+            url: generateProductUrl(item.modelo_motor) // Añadir URL única
           };
         });
 
-        console.log('Transformed products:', transformedData); // Debug: Log transformed data
-
+        console.log('Final products:', transformedData);
         setProducts(transformedData);
       } catch (error) {
-        console.error('Error fetching products:', error.message, error.details || ''); // Debug: Detailed error
-        setError(`Error al cargar los productos: ${error.message}. Por favor, intenta de nuevo.`);
+        console.error('Error fetching products:', error.message);
+        setError('Error al cargar los productos. Por favor, intenta de nuevo.');
       } finally {
         setLoading(false);
       }
@@ -89,7 +127,9 @@ const FeaturedProducts = () => {
               <img src={product.image} alt={product.name} />
               <h3>{product.name}</h3>
               <p>{product.kva} KVA</p>
-              <Link to={`/productos/${product.name}`} id="ver-mas-btn">Ver más</Link>
+              <Link to={product.url} className="ver-mas-btn">
+                Ver más
+              </Link>
             </div>
           ))
         )}
