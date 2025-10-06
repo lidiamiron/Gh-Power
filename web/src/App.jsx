@@ -1,5 +1,7 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { AuthProvider } from './context/AuthContext'
+
 
 import './App.css'
 import MainLayout from './layouts/MainLayout.jsx';
@@ -34,14 +36,34 @@ import GHG9000E from './Pages/GHG9000E.jsx';
 import GHG10000E from './Pages/GHD10000E.jsx';
 import Generador4x1 from './Pages/4x1.jsx';
 import GH15000DE from './Pages/GH15000DE.jsx';
+import SignUp from './Pages/SignUp.jsx';
+import Login from './Pages/Login.jsx';
+import Homepage from './Pages/Homepage.jsx';
 
 function App() {
   const [count, setCount] = useState(0)
+  const [token, setToken] = useState(false)
 
+  if(token){
+    sessionStorage.setItem('token',JSON.stringify(token))
+  }
+
+  useEffect(() => {
+    if(sessionStorage.getItem('token')){
+      let data = JSON.parse(sessionStorage.getItem('token'))
+      setToken(data)
+    }
+  }, [])
+  
   return (
+    <AuthProvider> 
     <Router>
       <MainLayout>
         <Routes>
+
+        <Route path={'/signup'} element={<SignUp />} />
+         <Route path={'/login'} element={<Login setToken={setToken} />} />
+         {token ? <Route path={'/homepage'} element={<Homepage token={token} />} /> : ""}
          <Route path="/" element={<Home />} />
          <Route path="/descargas" element={<Descargas />} />
          <Route path="/contacto" element={<Contacto />} />
@@ -78,7 +100,8 @@ function App() {
 
         </Routes>
       </MainLayout>
-    </Router> );
+    </Router>
+    </AuthProvider> );
 }
 
 export default App

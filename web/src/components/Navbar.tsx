@@ -1,6 +1,8 @@
 import { useState, useRef, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { FaBars, FaChevronDown, FaChevronRight } from "react-icons/fa";
+import { FaBars, FaChevronDown, FaChevronRight, FaUser, FaUserPlus, FaSignOutAlt } from "react-icons/fa";
+import { useAuth } from '../context/AuthContext'; // Importa useAuth
+import { supabase } from '../client'; // Importa supabase para logout
 import logo from "../assets/logo.svg";
 import "../components/Navbar.css";
 
@@ -11,6 +13,9 @@ export default function Navbar() {
   const location = useLocation();
   const isHomePage = location.pathname === '/' || location.pathname === '/Home';
   const dropdownRef = useRef<HTMLDivElement>(null);
+  
+  // Usa useAuth en lugar del estado local
+  const { user, loading } = useAuth();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -36,6 +41,30 @@ export default function Navbar() {
     }
   };
 
+  const handleLogout = async () => {
+    try {
+      await supabase.auth.signOut();
+      sessionStorage.removeItem('token');
+      // No necesitas setUser porque useAuth manejará el estado automáticamente
+    } catch (error) {
+      console.error('Error al cerrar sesión:', error);
+    }
+  };
+
+  const getUserName = () => {
+    if (!user) return '';
+    
+    if (user.user_metadata?.full_name) {
+      return user.user_metadata.full_name;
+    }
+    
+    if (user.email) {
+      return user.email.split('@')[0];
+    }
+    
+    return 'Usuario';
+  };
+
   // Cerrar menús al hacer clic fuera
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -51,7 +80,7 @@ export default function Navbar() {
     };
   }, []);
 
-  // Estructura de datos para los productos
+  // Estructura de datos para los productos (mantener igual)
   const productosMenu = {
     "Generadores Industriales": {
       path: "/productos/generadores-industriales",
@@ -81,7 +110,6 @@ export default function Navbar() {
             "GHD13500E": "/productos/generadores-portatiles/diesel/GHD13500E",
             "GHD14000E": "/productos/generadores-portatiles/diesel/GHD14000E",
             "GH15000DE": "/productos/generadores-portatiles/diesel/GH15000DE"
-          
           }
         },
         "Gasolina": {
@@ -102,7 +130,6 @@ export default function Navbar() {
     },
     "Generador 4x1": {
       path: "/productos/generador4x1"
-     
     }
   };
 
@@ -117,99 +144,137 @@ export default function Navbar() {
             </a>
           </div>
 
-          {/* Menú de navegación */}
-          <ul className={isOpen ? "nav-link active" : "nav-link"}>
-            <li>
-              <a className={location.pathname === '/' ? 'active' : ''} href="/">
-                Empresa
-              </a>
-            </li>
-            
-            <li 
-              className="dropdown-wrapper"
-              ref={dropdownRef}
-              onMouseEnter={() => window.innerWidth > 768 && setOpenDropdown('productos')}
-              onMouseLeave={() => window.innerWidth > 768 && setOpenDropdown(null)}
-            >
-              <a 
-                href="/productos" 
-                className={`${location.pathname.startsWith('/productos') ? 'active' : ''} ${openDropdown === 'productos' ? 'open' : ''}`}
-                onClick={(e) => {
-                  e.preventDefault();
-                  toggleDropdown('productos');
-                }}
-              >
-                Productos
-                <FaChevronDown className="dropdown-icon" />
-              </a>
+          {/* Contenedor principal del menú */}
+          <div className="nav-main">
+            {/* Menú de navegación */}
+            <ul className={isOpen ? "nav-link active" : "nav-link"}>
+              <li>
+                <a className={location.pathname === '/' ? 'active' : ''} href="/">
+                  Empresa
+                </a>
+              </li>
               
-              {openDropdown === 'productos' && (
-                <div className="submenu-container">
-                  <div className="submenu">
-                    {Object.entries(productosMenu).map(([categoria, datos]) => (
-                      <div 
-                        key={categoria} 
-                        className="submenu-item"
-                        onMouseEnter={() => window.innerWidth > 768 && datos.items && setOpenSubDropdown(categoria)}
-                        onMouseLeave={() => window.innerWidth > 768 && setOpenSubDropdown(null)}
-                      >
+              <li 
+                className="dropdown-wrapper"
+                ref={dropdownRef}
+                onMouseEnter={() => window.innerWidth > 768 && setOpenDropdown('productos')}
+                onMouseLeave={() => window.innerWidth > 768 && setOpenDropdown(null)}
+              >
+                <a 
+                  href="/productos" 
+                  className={`${location.pathname.startsWith('/productos') ? 'active' : ''} ${openDropdown === 'productos' ? 'open' : ''}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    toggleDropdown('productos');
+                  }}
+                >
+                  Productos
+                  <FaChevronDown className="dropdown-icon" />
+                </a>
+                
+                {openDropdown === 'productos' && (
+                  <div className="submenu-container">
+                    <div className="submenu">
+                      {Object.entries(productosMenu).map(([categoria, datos]) => (
                         <div 
-                          className="submenu-title"
-                          onClick={() => datos.items && toggleSubDropdown(categoria)}
+                          key={categoria} 
+                          className="submenu-item"
+                          onMouseEnter={() => window.innerWidth > 768 && datos.items && setOpenSubDropdown(categoria)}
+                          onMouseLeave={() => window.innerWidth > 768 && setOpenSubDropdown(null)}
                         >
-                          <a href={datos.path}>{categoria}</a>
-                          {datos.items && Object.keys(datos.items).length > 0 && (
-                            <FaChevronRight className="dropdown-icon submenu-arrow" />
+                          <div 
+                            className="submenu-title"
+                            onClick={() => datos.items && toggleSubDropdown(categoria)}
+                          >
+                            <a href={datos.path}>{categoria}</a>
+                            {datos.items && Object.keys(datos.items).length > 0 && (
+                              <FaChevronRight className="dropdown-icon submenu-arrow" />
+                            )}
+                          </div>
+                          
+                          {datos.items && openSubDropdown === categoria && Object.keys(datos.items).length > 0 && (
+                            <div className="subsubmenu">
+                              {Object.entries(datos.items).map(([subcategoria, subdatos]) => (
+                                <div key={subcategoria} className="subsubmenu-item">
+                                  {typeof subdatos === 'string' ? (
+                                    <a href={subdatos}>{subcategoria}</a>
+                                  ) : (
+                                    <>
+                                      <div className="subsubmenu-title">
+                                        <a href={subdatos.path}>{subcategoria}</a>
+                                        {Object.keys(subdatos.items).length > 0 && (
+                                          <FaChevronRight className="dropdown-icon" />
+                                        )}
+                                      </div>
+                                      {Object.keys(subdatos.items).length > 0 && (
+                                        <div className="subsubsubmenu">
+                                          {Object.entries(subdatos.items).map(([producto, ruta]) => (
+                                            <div key={producto} className="subsubsubmenu-item">
+                                              <a href={ruta}>{producto}</a>
+                                            </div>
+                                          ))}
+                                        </div>
+                                      )}
+                                    </>
+                                  )}
+                                </div>
+                              ))}
+                            </div>
                           )}
                         </div>
-                        
-                        {datos.items && openSubDropdown === categoria && Object.keys(datos.items).length > 0 && (
-                          <div className="subsubmenu">
-                            {Object.entries(datos.items).map(([subcategoria, subdatos]) => (
-                              <div key={subcategoria} className="subsubmenu-item">
-                                {typeof subdatos === 'string' ? (
-                                  <a href={subdatos}>{subcategoria}</a>
-                                ) : (
-                                  <>
-                                    <div className="subsubmenu-title">
-                                      <a href={subdatos.path}>{subcategoria}</a>
-                                      {Object.keys(subdatos.items).length > 0 && (
-                                        <FaChevronRight className="dropdown-icon" />
-                                      )}
-                                    </div>
-                                    {Object.keys(subdatos.items).length > 0 && (
-                                      <div className="subsubsubmenu">
-                                        {Object.entries(subdatos.items).map(([producto, ruta]) => (
-                                          <div key={producto} className="subsubsubmenu-item">
-                                            <a href={ruta}>{producto}</a>
-                                          </div>
-                                        ))}
-                                      </div>
-                                    )}
-                                  </>
-                                )}
-                              </div>
-                            ))}
-                          </div>
-                        )}
-                      </div>
-                    ))}
+                      ))}
+                    </div>
                   </div>
-                </div>
-              )}
-            </li>
+                )}
+              </li>
 
-            <li>
-              <a className={location.pathname === '/Descargas' ? 'active' : ''} href="/Descargas">
-                Descargas
-              </a>
-            </li>
-            <li>
-              <a className={location.pathname === '/Contacto' ? 'active' : ''} href="/Contacto">
-                Contacto
-              </a>
-            </li>
-          </ul>
+              <li>
+                <a className={location.pathname === '/Descargas' ? 'active' : ''} href="/Descargas">
+                  Descargas
+                </a>
+              </li>
+              <li>
+                <a className={location.pathname === '/Contacto' ? 'active' : ''} href="/Contacto">
+                  Contacto
+                </a>
+              </li>
+            </ul>
+
+            {/* Iconos de autenticación - EN LA MISMA LÍNEA */}
+            <div className="auth-icons">
+              {loading ? (
+                <div className="auth-loading">
+                  <span>Cargando...</span>
+                </div>
+              ) : user ? (
+                <>
+                  <div className="user-welcome">
+                    <FaUser className="user-icon" />
+                    <span className="user-name">Hola, {getUserName()}</span>
+                  </div>
+                  <button 
+                    onClick={handleLogout}
+                    className="auth-icon logout"
+                    title="Cerrar Sesión"
+                  >
+                    <FaSignOutAlt />
+                    <span>Logout</span>
+                  </button>
+                </>
+              ) : (
+                <>
+                  <a href="/login" className="auth-icon" title="Iniciar Sesión">
+                    <FaUser />
+                    <span>Login</span>
+                  </a>
+                  <a href="/signup" className="auth-icon signup" title="Registrarse">
+                    <FaUserPlus />
+                    <span>Sign Up</span>
+                  </a>
+                </>
+              )}
+            </div>
+          </div>
 
           {/* Ícono del menú hamburguesa */}
           <div className="icon" onClick={toggleMenu}>

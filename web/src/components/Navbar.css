@@ -67,17 +67,26 @@ a:hover {
   height: auto;
 }
 
+/* Contenedor principal del menú */
+.nav-main {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  flex: 1;
+  justify-content: flex-end;
+}
+
 .nav-link {
   display: flex;
   align-items: center;
   list-style: none;
   margin: 0;
   padding: 0;
+  gap: 30px;
 }
 
 .nav-link li {
   position: relative;
-  margin: 0 1rem;
 }
 
 .nav-link li a {
@@ -232,31 +241,139 @@ a:hover {
   color: #e22a33;
 }
 
+/* Estilos para los iconos de autenticación */
+.auth-icons {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-shrink: 0;
+}
+
+.auth-icon {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: #333;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+.auth-icon:hover {
+  background-color: #f5f5f5;
+  color: #000;
+  transform: translateY(-1px);
+}
+
+.auth-icon.signup {
+  background-color: #e22a33;
+  color: white;
+  border: 1px solid #e0353e;
+}
+
+.auth-icon.signup:hover {
+  background-color: #e22a33;
+  border-color: #e91823;
+}
+
+.auth-icon svg {
+  font-size: 16px;
+}
+
+/* Estilos para el estado de usuario logueado */
+.user-welcome {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  color: #333;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.user-icon {
+  color: #e22a33;
+}
+
+.user-name {
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+/* Estilos para el botón de logout */
+.auth-icon.logout {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: #e22a33;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  border: 1px solid #e22a33;
+  background: transparent;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.auth-icon.logout:hover {
+  background-color: #e22a33;
+  color: white;
+  transform: translateY(-1px);
+}
+
+/* Estado de carga */
+.auth-loading {
+  padding: 8px 12px;
+  color: #6c757d;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
 /* Mobile styles */
 @media (max-width: 768px) {
   .fixed-header, .sticky-header {
     padding: 0.8rem 0;
   }
   
-  .nav-link {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
+  .nav-main {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 80%;
+    height: 100vh;
     background: white;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    padding: 1rem;
-    z-index: 1000;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 80px 20px 20px;
+    transition: left 0.3s ease;
+    gap: 20px;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+  }
+
+  .nav-main.active {
+    left: 0;
   }
   
-  .nav-link.active {
+  .nav-link {
     display: flex;
+    flex-direction: column;
+    position: static;
+    width: 100%;
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+    gap: 15px;
   }
   
   .nav-link li {
-    margin: 0.5rem 0;
+    margin: 0;
     width: 100%;
   }
   
@@ -301,5 +418,19 @@ a:hover {
   .submenu-title a,
   .subsubmenu-title a {
     font-size: 1rem;
+  }
+
+  /* Auth icons en móvil */
+  .auth-icons {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .auth-icon,
+  .user-welcome {
+    width: 100%;
+    justify-content: center;
   }
 }
