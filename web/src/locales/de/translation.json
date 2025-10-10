@@ -1,1 +1,76 @@
-{}
+{
+"accordion": {
+    "why_choose": "Warum GH POWER wählen?",
+    "why_choose_content": "Bei GH POWER bieten wir zuverlässige Energielösungen mit mehr als 25 Jahren Erfahrung in der Branche. Wir bieten technischen Service von hoher Qualität für alle unsere Händler im ganzen Land.",
+    
+    "energy_efficiency": "Energieeffizienz",
+    "energy_efficiency_content": "Die moderne Industrie arbeitet mit hoher Effizienz dank fortschrittlicher Technologien, präziser Prozesse und hochqualifizierter Arbeitskräfte. Ein Schlüsselfaktor für diese Leistung ist das Just-in-Time-Inventarsystem, bei dem jede Komponente genau zum richtigen Zeitpunkt für die Montage am Fließband eintrifft. Damit dieser Prozess ohne Unterbrechungen funktioniert, ist eine zuverlässige Energieversorgung unerlässlich, die die Produktion auch bei einem Stromausfall aufrechterhält. Bei GH POWER liefern wir die Leistung, die Ihr Betrieb benötigt. Wir bieten ein breites Spektrum an Backup- und Notfall-Energielösungen, die entwickelt wurden, um operative Kontinuität in jeder Situation zu gewährleisten.",
+    
+    "water_treatment": "Wasseraufbereitung",
+    "water_treatment_content": "Die Nachfrage nach Wasser wächst rasant. Der weltweite Wasserverbrauch verdoppelt sich alle 20 Jahre. Daher konzentrieren sich Gemeinden und Behörden darauf, diese Ressource effizienter und intelligenter zu verwalten, durch die Reinigung und Wiederverwendung von Abwasser. Heute mehr denn je müssen Kläranlagen große Wassermengen sammeln, transportieren und verarbeiten, um sie dann wieder in die Umwelt zurückzuführen oder für Aktivitäten wie die Bewässerung wiederzuverwenden. Bei längeren Unterbrechungen kann jedoch eine unzureichende Behandlung schwerwiegende ökologische und finanzielle Folgen haben. GH POWER bietet zuverlässige Energielösungen für den Wassersektor. Die Installation eines Stromerzeugers ermöglicht den kontinuierlichen Betrieb der Anlagen in kritischen Situationen wie Stromausfällen oder Abschaltungen und gewährleistet die Wasserversorgung einer ganzen Stadt auch unter unkontrollierbaren Umständen.",
+    
+    "data_center": "Rechenzentrum",
+    "data_center_content": "Bei GH POWER bieten wir Lösungen für Stromgeneratoren, die für eine stabile und zuverlässige Versorgung auch unter anspruchsvollen Bedingungen konzipiert sind. Unsere Technologien integrieren Cloud-Plattformen und Echtzeit-Virtualisierung, um die operative Kontinuität unserer Kunden mit wartungsfreundlichen Geräten zu verbessern, die für Parallelbetrieb vorbereitet sind. Wir bieten effiziente, maßgeschneiderte Energie-Backup-Lösungen mit einem an die Umgebung angepassten Design, das die visuelle Beeinträchtigung reduziert und die maximale Leistung in jedem Projekt sicherstellt.",
+    
+    "health_sector": "Gesundheitssektor",
+    "health_sector_content": "Wenn in Gesundheitszentren oder Krankenhäusern ein Stromausfall auftritt, können Leben von Patienten, Personal und Besuchern gefährdet sein. Während einer Krise wird ein Krankenhaus zu einem zentralen Punkt für die Gemeinschaft. Besucher gehen nicht weg und viele Menschen kommen auf der Suche nach Schutz, Behandlung, Nahrung und Wasser. Wenn die Notstromaggregate nur für kritische Funktionen dimensioniert sind, kann es bei großen Menschenmengen zu Problemen kommen. Die GH POWER-Generatoren bieten zuverlässige Lösungen zum Schutz jedes Gebäudes vor Stromausfällen oder Notständen und gewährleisten den kontinuierlichen und sicheren Betrieb der Einrichtungen.",
+    
+    "oil_industry": "Erdölindustrie",
+    "oil_industry_content": "Die Erdöl- und Gasindustrie bewegt täglich milliardenschwere Projekte, die Exploration, Bohrungen, Betrieb, Raffination und Vertrieb umfassen. Nach Jahren hoher Kosten steht sie unter starkem Druck, ihre Effizienz, Produktivität zu steigern und ihre Umweltauswirkungen zu reduzieren. GH POWER bietet zuverlässige Lösungen für Stromerzeuger, die für extreme Bedingungen ausgelegt sind. Unsere Geräte gewährleisten kontinuierliche Energie in anspruchsvollen Betriebsumgebungen, ideal für die Anforderungen des Energiesektors.",
+    
+    "construction_sector": "Bausektor",
+    "construction_sector_content": "Die Bauindustrie ist ein wettbewerbsintensiver, dynamischer und wesentlicher Sektor für die wirtschaftliche Entwicklung. Sie treibt das Wachstum durch den Bau von Wohnungen, Tiefbauprojekten und gewerblichen Projekten voran und schafft in jedem Land eine große Anzahl von Arbeitsplätzen. GH POWER ist der ideale Partner, um alle Energieversorgungsbedürfnisse in diesem Sektor zu decken. Wir bieten spezifische und maßgeschneiderte Stromgeneratoren für jede Art von Baustelle, die sich an deren Bedingungen und Anforderungen anpassen. Wir sind ein auf Innovation ausgerichteter Anbieter mit Energielösungen, die einen echten Unterschied auf dem Markt machen. Unsere Erfahrung umfasst zahlreiche erfolgreiche Projekte im globalen Bauwesen."
+  },
+  "featuredProducts": {
+    "title": "Empfohlene Produkte",
+    "loading": "Produkte werden geladen...",
+    "error": "Fehler beim Laden der Produkte. Bitte versuchen Sie es erneut.",
+    "noProducts": "Keine Produkte gefunden.",
+    "noSpecificProducts": "Die angeforderten spezifischen Produkte wurden nicht gefunden.",
+    "viewMore": "Mehr anzeigen",
+    "kva": "KVA"
+  },
+   "footer": {
+    "tagline": "INDUSTRIELLE STROMERZEUGER",
+    "liveSession": "Zuverlässige Energie für Ihr Unternehmen",
+    "menu": "Menü",
+    "company": "Unternehmen",
+    "products": "Produkte",
+    "downloads": "Downloads",
+    "contact": "Kontakt",
+    "followUs": "Folgen Sie uns",
+    "facebook": "Facebook",
+    "linkedin": "LinkedIn",
+    "contactTitle": "Kontakt",
+    "address": "Adresse",
+    "phone": "Telefon",
+    "email": "E-Mail",
+    "addressText": "Carrer del Ponent, 10, 08756 La Palma de Cervelló, Barcelona",
+    "phoneNumber": "+34 934 185 173",
+    "emailAddress": "info@gh-power.com",
+    "privacyTerms": "Datenschutzbestimmungen und Bedingungen",
+    "copyright": "Copyright © {{year}} GH-POWER. Alle Rechte vorbehalten."
+  },
+  "navbar": {
+    "company": "Unternehmen",
+    "products": "Produkte",
+    "downloads": "Downloads",
+    "contact": "Kontakt",
+    "industrialGenerators": "Industrielle Generatoren",
+    "portableGenerators": "Tragbare Generatoren",
+    "generator4x1": "Generator 4x1",
+    "diesel": "Diesel",
+    "gasoline": "Benzin",
+    "loading": "Lädt...",
+    "hello": "Hallo",
+    "user": "Benutzer",
+    "logout": "Abmelden",
+    "login": "Anmelden",
+    "signup": "Registrieren",
+    "logoutTitle": "Abmelden",
+    "loginTitle": "Anmelden",
+    "signupTitle": "Registrieren"
+  }
+
+
+}

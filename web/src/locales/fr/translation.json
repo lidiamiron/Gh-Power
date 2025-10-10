@@ -1,1 +1,75 @@
-{}
+{
+  "accordion": {
+    "why_choose": "Pourquoi choisir GH POWER ?",
+    "why_choose_content": "Chez GH POWER, nous proposons des solutions énergétiques fiables avec plus de 25 ans d'expérience dans le secteur. Nous offrons un service technique de qualité à tous nos distributeurs à travers le pays.",
+    
+    "energy_efficiency": "Efficacité Énergétique",
+    "energy_efficiency_content": "L'industrie moderne fonctionne avec des niveaux d'efficacité élevés grâce aux technologies avancées, aux processus précis et aux travailleurs hautement qualifiés. Un facteur clé de cette performance est le système d'inventaire Juste à Temps, où chaque composant arrive sur la ligne de production juste à temps pour son assemblage. Pour que ce processus fonctionne sans interruption, il est essentiel de disposer d'une alimentation électrique fiable qui maintient la production active même pendant une panne. Chez GH POWER, nous fournissons la puissance dont votre opération a besoin. Nous proposons une large gamme de solutions énergétiques de secours et d'urgence, conçues pour garantir la continuité opérationnelle dans toute situation.",
+    
+    "water_treatment": "Traitement des Eaux",
+    "water_treatment_content": "La demande en eau croît rapidement. La consommation mondiale d'eau double tous les 20 ans. C'est pourquoi les municipalités et les autorités se concentrent sur la gestion de cette ressource de manière plus efficace et intelligente, grâce à la purification et à la réutilisation des eaux usées. Aujourd'hui plus que jamais, les stations d'épuration doivent collecter, transporter et traiter de grands volumes d'eau, pour ensuite les retourner à l'environnement ou les réutiliser dans des activités comme l'irrigation. Cependant, lors d'interruptions prolongées, un traitement insuffisant peut générer de graves conséquences environnementales et financières. GH POWER propose des solutions énergétiques fiables pour le secteur de l'eau. L'installation d'un groupe électrogène permet de maintenir l'opération continue des usines dans des situations critiques comme les pannes ou les coupures de courant, assurant l'approvisionnement en eau de toute une ville même dans des circonstances incontrôlables.",
+    
+    "data_center": "Centre de Données",
+    "data_center_content": "Chez GH POWER, nous proposons des solutions de générateurs électriques conçues pour garantir un approvisionnement stable et fiable même dans des conditions exigeantes. Nos technologies intègrent des plateformes cloud et une virtualisation en temps réel pour améliorer la continuité opérationnelle de nos clients avec des équipements faciles à entretenir et préparés pour fonctionner en parallèle. Nous fournissons une sauvegarde énergétique efficace et personnalisée avec un design adapté à l'environnement, réduisant l'impact visuel et assurant des performances maximales dans chaque projet.",
+    
+    "health_sector": "Secteur Sanitaire",
+    "health_sector_content": "Lorsqu'une panne se produit dans les centres de santé ou les hôpitaux, la vie des patients, du personnel et des visiteurs peut être en danger. Pendant une crise, un hôpital devient un point clé pour la communauté. Les visiteurs ne partent pas et de nombreuses personnes arrivent à la recherche d'un abri, de soins, de nourriture et d'eau. Si les générateurs de secours sont dimensionnés uniquement pour les fonctions critiques, il peut y avoir des problèmes face à de grandes foules. Les générateurs GH POWER offrent des solutions fiables pour protéger tout bâtiment contre les pannes ou les états d'urgence, assurant le fonctionnement continu et sûr des installations.",
+    
+    "oil_industry": "Industrie Pétrolière",
+    "oil_industry_content": "L'industrie pétrolière et gazière déplace quotidiennement des projets de plusieurs milliards de dollars qui englobent l'exploration, le forage, l'opération, le raffinage et la distribution. Après des années de coûts élevés, elle est soumise à une forte pression pour augmenter son efficacité, sa productivité et réduire son impact environnemental. GH POWER propose des solutions fiables en groupes électrogènes conçus pour résister à des conditions extrêmes. Nos équipements garantissent une énergie continue dans des environnements opérationnels exigeants, idéaux pour les besoins du secteur énergétique.",
+    
+    "construction_sector": "Secteur de la Construction",
+    "construction_sector_content": "L'industrie de la construction est un secteur compétitif, dynamique et essentiel au développement économique. Elle stimule la croissance grâce à la construction de logements, d'ouvrages de génie civil et de projets commerciaux, générant une grande quantité d'emplois dans chaque pays. GH POWER est l'allié idéal pour couvrir tous les besoins d'approvisionnement en énergie dans ce secteur. Nous proposons des générateurs électriques spécifiques et personnalisés pour chaque type de chantier, en nous adaptant à leurs conditions et exigences. Nous sommes un fournisseur axé sur l'innovation, avec des solutions énergétiques qui font une réelle différence sur le marché. Notre expérience comprend de nombreux projets réussis dans le domaine de la construction à l'échelle mondiale."
+  },
+   "featuredProducts": {
+    "title": "Produits en Vedette",
+    "loading": "Chargement des produits...",
+    "error": "Erreur lors du chargement des produits. Veuillez réessayer.",
+    "noProducts": "Aucun produit trouvé.",
+    "noSpecificProducts": "Les produits spécifiques demandés n'ont pas été trouvés.",
+    "viewMore": "Voir plus",
+    "kva": "KVA"
+  },
+  "footer": {
+    "tagline": "GÉNÉRATEURS ÉLECTRIQUES INDUSTRIELS",
+    "liveSession": "Énergie Fiable pour Votre Entreprise",
+    "menu": "Menu",
+    "company": "Entreprise",
+    "products": "Produits",
+    "downloads": "Téléchargements",
+    "contact": "Contact",
+    "followUs": "Suivez-nous",
+    "facebook": "Facebook",
+    "linkedin": "LinkedIn",
+    "contactTitle": "Contact",
+    "address": "Adresse",
+    "phone": "Téléphone",
+    "email": "Email",
+    "addressText": "Carrer del Ponent, 10, 08756 La Palma de Cervelló, Barcelona",
+    "phoneNumber": "+34 934 185 173",
+    "emailAddress": "info@gh-power.com",
+    "privacyTerms": "Conditions générales de confidentialité",
+    "copyright": "Copyright © {{year}} GH-POWER. Tous droits réservés."
+  },
+  "navbar": {
+    "company": "Entreprise",
+    "products": "Produits",
+    "downloads": "Téléchargements",
+    "contact": "Contact",
+    "industrialGenerators": "Générateurs Industriels",
+    "portableGenerators": "Générateurs Portables",
+    "generator4x1": "Générateur 4x1",
+    "diesel": "Diesel",
+    "gasoline": "Essence",
+    "loading": "Chargement...",
+    "hello": "Bonjour",
+    "user": "Utilisateur",
+    "logout": "Déconnexion",
+    "login": "Connexion",
+    "signup": "S'inscrire",
+    "logoutTitle": "Déconnexion",
+    "loginTitle": "Connexion",
+    "signupTitle": "S'inscrire"
+  }
+
+}

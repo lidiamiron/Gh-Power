@@ -1,29 +1,30 @@
 import { useState, useRef, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { FaBars, FaChevronDown, FaChevronRight, FaUser, FaUserPlus, FaSignOutAlt } from "react-icons/fa";
-import { useAuth } from '../context/AuthContext'; // Importa useAuth
-import { supabase } from '../client'; // Importa supabase para logout
+import { useAuth } from '../context/AuthContext';
+import { supabase } from '../client';
+import { useTranslation } from "react-i18next";
 import logo from "../assets/logo.svg";
 import "../components/Navbar.css";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-  const [openSubDropdown, setOpenSubDropdown] = useState<string | null>(null);
+  const [openDropdown, setOpenDropdown] = useState(null);
+  const [openSubDropdown, setOpenSubDropdown] = useState(null);
   const location = useLocation();
   const isHomePage = location.pathname === '/' || location.pathname === '/Home';
-  const dropdownRef = useRef<HTMLDivElement>(null);
+  const dropdownRef = useRef(null);
+  const { t } = useTranslation();
   
-  // Usa useAuth en lugar del estado local
   const { user, loading } = useAuth();
-
+  
   const toggleMenu = () => {
     setIsOpen(!isOpen);
     setOpenDropdown(null);
     setOpenSubDropdown(null);
   };
 
-  const toggleDropdown = (dropdownName: string) => {
+  const toggleDropdown = (dropdownName) => {
     if (window.innerWidth <= 768) {
       setOpenDropdown(openDropdown === dropdownName ? null : dropdownName);
       setOpenSubDropdown(null);
@@ -33,7 +34,7 @@ export default function Navbar() {
     }
   };
 
-  const toggleSubDropdown = (subDropdownName: string) => {
+  const toggleSubDropdown = (subDropdownName) => {
     if (window.innerWidth <= 768) {
       setOpenSubDropdown(openSubDropdown === subDropdownName ? null : subDropdownName);
     } else {
@@ -45,7 +46,6 @@ export default function Navbar() {
     try {
       await supabase.auth.signOut();
       sessionStorage.removeItem('token');
-      // No necesitas setUser porque useAuth manejará el estado automáticamente
     } catch (error) {
       console.error('Error al cerrar sesión:', error);
     }
@@ -62,13 +62,13 @@ export default function Navbar() {
       return user.email.split('@')[0];
     }
     
-    return 'Usuario';
+    return t('navbar.user');
   };
 
   // Cerrar menús al hacer clic fuera
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setOpenDropdown(null);
         setOpenSubDropdown(null);
       }
@@ -80,9 +80,9 @@ export default function Navbar() {
     };
   }, []);
 
-  // Estructura de datos para los productos (mantener igual)
+  // Estructura de datos para los productos - Internacionalizada
   const productosMenu = {
-    "Generadores Industriales": {
+    [t('navbar.industrialGenerators')]: {
       path: "/productos/generadores-industriales",
       items: {
         "Gh-power": "/productos/gh-power",
@@ -94,10 +94,10 @@ export default function Navbar() {
         "Yanmar": "/productos/yanmar"
       }
     },
-    "Generadores Portátiles": {
+    [t('navbar.portableGenerators')]: {
       path: "/productos/generadores-portatiles",
       items: {
-        "Diesel": {
+        [t('navbar.diesel')]: {
           path: "/productos/generadores-portatiles/diesel",
           items: {
             "GHD2000E": "/productos/generadores-portatiles/diesel/GHD2000E",
@@ -112,7 +112,7 @@ export default function Navbar() {
             "GH15000DE": "/productos/generadores-portatiles/diesel/GH15000DE"
           }
         },
-        "Gasolina": {
+        [t('navbar.gasoline')]: {
           path: "/productos/generadores-portatiles/gasolina",
           items: {
             "GHG2500E": "/productos/generadores-portatiles/gasolina/GHG2500E",
@@ -128,7 +128,7 @@ export default function Navbar() {
         }
       }
     },
-    "Generador 4x1": {
+    [t('navbar.generator4x1')]: {
       path: "/productos/generador4x1"
     }
   };
@@ -150,7 +150,7 @@ export default function Navbar() {
             <ul className={isOpen ? "nav-link active" : "nav-link"}>
               <li>
                 <a className={location.pathname === '/' ? 'active' : ''} href="/">
-                  Empresa
+                  {t('navbar.company')}
                 </a>
               </li>
               
@@ -168,7 +168,7 @@ export default function Navbar() {
                     toggleDropdown('productos');
                   }}
                 >
-                  Productos
+                  {t('navbar.products')}
                   <FaChevronDown className="dropdown-icon" />
                 </a>
                 
@@ -230,12 +230,12 @@ export default function Navbar() {
 
               <li>
                 <a className={location.pathname === '/Descargas' ? 'active' : ''} href="/Descargas">
-                  Descargas
+                  {t('navbar.downloads')}
                 </a>
               </li>
               <li>
                 <a className={location.pathname === '/Contacto' ? 'active' : ''} href="/Contacto">
-                  Contacto
+                  {t('navbar.contact')}
                 </a>
               </li>
             </ul>
@@ -244,32 +244,32 @@ export default function Navbar() {
             <div className="auth-icons">
               {loading ? (
                 <div className="auth-loading">
-                  <span>Cargando...</span>
+                  <span>{t('navbar.loading')}</span>
                 </div>
               ) : user ? (
                 <>
                   <div className="user-welcome">
                     <FaUser className="user-icon" />
-                    <span className="user-name">Hola, {getUserName()}</span>
+                    <span className="user-name">{t('navbar.hello')}, {getUserName()}</span>
                   </div>
                   <button 
                     onClick={handleLogout}
                     className="auth-icon logout"
-                    title="Cerrar Sesión"
+                    title={t('navbar.logoutTitle')}
                   >
                     <FaSignOutAlt />
-                    <span>Logout</span>
+                    <span>{t('navbar.logout')}</span>
                   </button>
                 </>
               ) : (
                 <>
-                  <a href="/login" className="auth-icon" title="Iniciar Sesión">
+                  <a href="/login" className="auth-icon" title={t('navbar.loginTitle')}>
                     <FaUser />
-                    <span>Login</span>
+                    <span>{t('navbar.login')}</span>
                   </a>
-                  <a href="/signup" className="auth-icon signup" title="Registrarse">
+                  <a href="/signup" className="auth-icon signup" title={t('navbar.signupTitle')}>
                     <FaUserPlus />
-                    <span>Sign Up</span>
+                    <span>{t('navbar.signup')}</span>
                   </a>
                 </>
               )}

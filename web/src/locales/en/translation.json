@@ -1,1 +1,75 @@
-{}
+{
+ "accordion": {
+    "why_choose": "Why choose GH POWER?",
+    "why_choose_content": "At GH POWER we offer reliable energy solutions with more than 25 years of experience in the sector. We provide quality technical service to all our distributors throughout the country.",
+    
+    "energy_efficiency": "Energy Efficiency",
+    "energy_efficiency_content": "The modern industry operates with high levels of efficiency thanks to advanced technologies, precise processes, and highly qualified workers. A key factor in this performance is the Just in Time inventory system, where each component arrives at the production line just in time for assembly. For this process to function without interruptions, it is essential to have a reliable power supply that keeps production active even during a blackout. At GH POWER we provide the power that your operation needs. We offer a wide range of backup and emergency energy solutions, designed to guarantee operational continuity in any situation.",
+    
+    "water_treatment": "Water Treatment",
+    "water_treatment_content": "The demand for water is growing rapidly. Global water consumption doubles every 20 years. That's why municipalities and authorities are focused on managing this resource more efficiently and intelligently, through the purification and reuse of wastewater. Today more than ever, treatment plants must collect, transport, and process large volumes of water, to then return it to the environment or reuse it in activities such as irrigation. However, during prolonged interruptions, insufficient treatment can generate serious environmental and financial consequences. GH POWER offers reliable energy solutions for the water sector. The installation of a generator allows maintaining the continuous operation of plants in critical situations such as blackouts or power cuts, ensuring water supply to an entire city even in uncontrollable circumstances.",
+    
+    "data_center": "Data Center",
+    "data_center_content": "At GH POWER we offer electrical generator solutions designed to guarantee a stable and reliable supply even in demanding conditions. Our technologies integrate cloud platforms and real-time virtualization to improve the operational continuity of our clients with easy-to-maintain equipment prepared to function in parallel. We provide efficient, personalized energy backup with a design adapted to the environment, reducing visual impact and ensuring maximum performance in each project.",
+    
+    "health_sector": "Health Sector",
+    "health_sector_content": "When a blackout occurs in health centers or hospitals, the lives of patients, staff, and visitors can be at risk. During a crisis, a hospital becomes a key point for the community. Visitors don't leave and many people arrive seeking shelter, attention, food, and water. If the emergency generators are sized only for critical functions, there may be problems when facing large crowds. GH POWER generators offer reliable solutions to protect any building against blackouts or emergency states, ensuring the continuous and safe operation of the facilities.",
+    
+    "oil_industry": "Oil Industry",
+    "oil_industry_content": "The oil and gas industry moves multi-billion dollar projects daily that encompass exploration, drilling, operation, refining, and distribution. After years of high costs, it faces strong pressure to increase its efficiency, productivity, and reduce its environmental impact. GH POWER offers reliable solutions in generator sets designed to withstand extreme conditions. Our equipment guarantees continuous energy in demanding operational environments, ideal for the needs of the energy sector.",
+    
+    "construction_sector": "Construction Sector",
+    "construction_sector_content": "The construction industry is a competitive, dynamic, and essential sector for economic development. It drives growth through the construction of housing, civil engineering works, and commercial projects, generating a large amount of employment in each country. GH POWER is the ideal ally to cover all energy supply needs in this sector. We offer specific and customized electrical generators for each type of construction project, adapting to their conditions and requirements. We are a provider focused on innovation, with energy solutions that make a real difference in the market. Our experience includes numerous successful projects in the construction field globally."
+  },
+  "featuredProducts": {
+    "title": "Featured Products",
+    "loading": "Loading products...",
+    "error": "Error loading products. Please try again.",
+    "noProducts": "No products found.",
+    "noSpecificProducts": "The requested specific products were not found.",
+    "viewMore": "View more",
+    "kva": "KVA"
+  },
+  "footer": {
+    "tagline": "INDUSTRIAL ELECTRIC GENERATORS",
+    "liveSession": "Reliable Energy for Your Business",
+    "menu": "Menu",
+    "company": "Company",
+    "products": "Products",
+    "downloads": "Downloads",
+    "contact": "Contact",
+    "followUs": "Follow Us",
+    "facebook": "Facebook",
+    "linkedin": "LinkedIn",
+    "contactTitle": "Contact",
+    "address": "Address",
+    "phone": "Phone",
+    "email": "Email",
+    "addressText": "Carrer del Ponent, 10, 08756 La Palma de Cervelló, Barcelona",
+    "phoneNumber": "+34 934 185 173",
+    "emailAddress": "info@gh-power.com",
+    "privacyTerms": "Privacy terms and conditions",
+    "copyright": "Copyright © {{year}} GH-POWER. All rights reserved."
+  },
+    "navbar": {
+    "company": "Company",
+    "products": "Products",
+    "downloads": "Downloads",
+    "contact": "Contact",
+    "industrialGenerators": "Industrial Generators",
+    "portableGenerators": "Portable Generators",
+    "generator4x1": "Generator 4x1",
+    "diesel": "Diesel",
+    "gasoline": "Gasoline",
+    "loading": "Loading...",
+    "hello": "Hello",
+    "user": "User",
+    "logout": "Logout",
+    "login": "Login",
+    "signup": "Sign Up",
+    "logoutTitle": "Logout",
+    "loginTitle": "Login",
+    "signupTitle": "Sign Up"
+  }
+
+}

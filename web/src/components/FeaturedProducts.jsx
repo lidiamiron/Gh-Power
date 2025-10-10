@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { createClient } from '@supabase/supabase-js';
+import { useTranslation } from "react-i18next";
 import "./FeaturedProducts.css";
 
 // Configurar cliente de Supabase
@@ -12,6 +13,7 @@ const FeaturedProducts = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const { t } = useTranslation();
 
   // Función para generar la URL única para cada producto
   const generateProductUrl = (productName) => {
@@ -72,7 +74,7 @@ const FeaturedProducts = () => {
 
         if (foundProducts.length === 0) {
           console.warn('No specific products found.');
-          setError('No se encontraron los productos específicos solicitados.');
+          setError(t('featuredProducts.noSpecificProducts'));
           setProducts([]);
           return;
         }
@@ -93,23 +95,23 @@ const FeaturedProducts = () => {
         setProducts(transformedData);
       } catch (error) {
         console.error('Error fetching products:', error.message);
-        setError('Error al cargar los productos. Por favor, intenta de nuevo.');
+        setError(t('featuredProducts.error'));
       } finally {
         setLoading(false);
       }
     };
 
     fetchProducts();
-  }, []);
+  }, [t]);
 
   if (loading) {
-    return <div className="gallery-container">Cargando productos...</div>;
+    return <div className="gallery-container">{t('featuredProducts.loading')}</div>;
   }
 
   if (error) {
     return (
       <div className="gallery-container">
-        <h2>Productos Destacados</h2>
+        <h2>{t('featuredProducts.title')}</h2>
         <p>{error}</p>
       </div>
     );
@@ -117,18 +119,18 @@ const FeaturedProducts = () => {
 
   return (
     <div className="gallery-container">
-      <h2>Productos Destacados</h2>
+      <h2>{t('featuredProducts.title')}</h2>
       <div className="product-grid">
         {products.length === 0 ? (
-          <p>No se encontraron productos.</p>
+          <p>{t('featuredProducts.noProducts')}</p>
         ) : (
           products.map((product) => (
             <div className="product-card" key={product.id}>
               <img src={product.image} alt={product.name} />
               <h3>{product.name}</h3>
-              <p>{product.kva} KVA</p>
+              <p>{product.kva} {t('featuredProducts.kva')}</p>
               <Link to={product.url} className="ver-mas-btn">
-                Ver más
+                {t('featuredProducts.viewMore')}
               </Link>
             </div>
           ))

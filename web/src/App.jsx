@@ -39,6 +39,7 @@ import GH15000DE from './Pages/GH15000DE.jsx';
 import SignUp from './Pages/SignUp.jsx';
 import Login from './Pages/Login.jsx';
 import Homepage from './Pages/Homepage.jsx';
+import LanguageSwitcher from './components/LanguageSwitcher.jsx';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -100,6 +101,7 @@ function App() {
 
         </Routes>
       </MainLayout>
+       <LanguageSwitcher />
     </Router>
     </AuthProvider> );
 }
