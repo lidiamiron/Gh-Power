@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { Helmet } from 'react-helmet-async'; // Added for SEO
 import "../pages/Productos.css";
 import { createClient } from '@supabase/supabase-js';
 
@@ -117,6 +118,80 @@ function ProductGrid() {
 
   return (
     <div className="product-wrapper">
+      <Helmet>
+        <title>Generadores Portátiles | GH Power - Soluciones Energéticas</title>
+        <meta
+          name="description"
+          content="Explora nuestra gama de generadores portátiles diesel y gasolina en GH Power. Filtra por combustible, potencia, voltaje y más. Cotiza ahora."
+        />
+        <meta
+          name="keywords"
+          content="generadores portátiles, generadores diesel, generadores gasolina, GH Power, soluciones energéticas, Barcelona"
+        />
+        <meta property="og:title" content="Generadores Portátiles | GH Power" />
+        <meta
+          property="og:description"
+          content="Descubre generadores portátiles diesel y gasolina de GH Power. Filtra por potencia, combustible y más. Cotiza hoy."
+        />
+        <meta property="og:image" content="https://gh-power.com/images/generador.png" />
+        <meta property="og:url" content="https://gh-power.com/productos" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="robots" content="index, follow" />
+        <link rel="alternate" href="https://gh-power.com/productos" hreflang="es" />
+        <link rel="alternate" href="https://gh-power.com/en/productos" hreflang="en" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ProductGroup",
+            "name": "Generadores Portátiles GH Power",
+            "description": "Gama de generadores portátiles diesel y gasolina de GH Power, con opciones para aplicaciones domésticas e industriales.",
+            "brand": {
+              "@type": "Brand",
+              "name": "GH Power"
+            },
+            "image": "https://gh-power.com/images/generador.png",
+            "hasVariant": filteredProducts.map(product => ({
+              "@type": "Product",
+              "name": product.name,
+              "description": `Generador portátil ${product.name} con ${product.powerKVA} de potencia standby y ${product.fuel} como combustible.`,
+              "image": product.image || "https://gh-power.com/images/generador.png",
+              "url": `https://gh-power.com/productos/${product.name}`,
+              "additionalProperty": [
+                {
+                  "@type": "PropertyValue",
+                  "name": "Standby Power kVA",
+                  "value": product.powerKVA
+                },
+                {
+                  "@type": "PropertyValue",
+                  "name": "Prime Power kW",
+                  "value": product.powerKW
+                },
+                {
+                  "@type": "PropertyValue",
+                  "name": "Fuel",
+                  "value": product.fuel
+                },
+                {
+                  "@type": "PropertyValue",
+                  "name": "Phase",
+                  "value": product.phase
+                },
+                {
+                  "@type": "PropertyValue",
+                  "name": "Engine Brand",
+                  "value": product.engineBrand
+                },
+                {
+                  "@type": "PropertyValue",
+                  "name": "Engine Model",
+                  "value": product.engineModel
+                }
+              ]
+            }))
+          })}
+        </script>
+      </Helmet>
       <div className="product-container">
         <h2>{t('products.title')}</h2>
         <p className="product-description">
@@ -127,14 +202,19 @@ function ProductGrid() {
         <div className="filter-panel">
           <div className="filter-group">
             <span>{t('products.filters.fuel')}</span>
-            <button onClick={() => setSelectedFuel("All")} className={selectedFuel === "All" ? "active" : ""}>
+            <button 
+              onClick={() => setSelectedFuel("All")} 
+              className={selectedFuel === "All" ? "active" : ""} 
+              title={t('products.filters.all')}
+            >
               {t('products.filters.all')}
             </button>
             {fuels.map(fuel => (
               <button 
                 key={fuel} 
                 onClick={() => setSelectedFuel(fuel)} 
-                className={selectedFuel === fuel ? "active" : ""}
+                className={selectedFuel === fuel ? "active" : ""} 
+                title={fuel}
               >
                 {fuel}
               </button>
@@ -143,14 +223,19 @@ function ProductGrid() {
 
           <div className="filter-group">
             <span>{t('products.filters.frequency')}</span>
-            <button onClick={() => setSelectedFrequency("All")} className={selectedFrequency === "All" ? "active" : ""}>
+            <button 
+              onClick={() => setSelectedFrequency("All")} 
+              className={selectedFrequency === "All" ? "active" : ""} 
+              title={t('products.filters.allFrequencies')}
+            >
               {t('products.filters.allFrequencies')}
             </button>
             {frequencies.map(freq => (
               <button 
                 key={freq} 
                 onClick={() => setSelectedFrequency(freq)} 
-                className={selectedFrequency === freq ? "active" : ""}
+                className={selectedFrequency === freq ? "active" : ""} 
+                title={`${freq} Hz`}
               >
                 {freq} Hz
               </button>
@@ -159,7 +244,11 @@ function ProductGrid() {
 
           <div className="filter-group">
             <label>{t('products.filters.voltage')}</label>
-            <select value={selectedVoltage} onChange={(e) => setSelectedVoltage(e.target.value)}>
+            <select 
+              value={selectedVoltage} 
+              onChange={(e) => setSelectedVoltage(e.target.value)}
+              title={t('products.filters.voltage')}
+            >
               <option value="All">{t('products.filters.allVoltages')}</option>
               {voltages.map(voltage => (
                 <option key={voltage} value={voltage}>{voltage}</option>
@@ -169,14 +258,19 @@ function ProductGrid() {
 
           <div className="filter-group">
             <span>{t('products.filters.phase')}</span>
-            <button onClick={() => setSelectedPhase("All")} className={selectedPhase === "All" ? "active" : ""}>
+            <button 
+              onClick={() => setSelectedPhase("All")} 
+              className={selectedPhase === "All" ? "active" : ""} 
+              title={t('products.filters.allPhases')}
+            >
               {t('products.filters.allPhases')}
             </button>
             {phases.map(phase => (
               <button 
                 key={phase} 
                 onClick={() => setSelectedPhase(phase)} 
-                className={selectedPhase === phase ? "active" : ""}
+                className={selectedPhase === phase ? "active" : ""} 
+                title={phase}
               >
                 {phase}
               </button>
@@ -191,6 +285,7 @@ function ProductGrid() {
                 console.log('Selected Standby Power:', e.target.value); // Debug: Log selected value
                 setSelectedStandbyPower(e.target.value);
               }}
+              title={t('products.filters.standbyPower')}
             >
               <option value="All">{t('products.filters.allPowers')}</option>
               {standbyPowerValues.map(value => (
@@ -207,6 +302,7 @@ function ProductGrid() {
                 setSelectedEngineBrand(e.target.value);
                 setSelectedEngineModel("All");
               }}
+              title={t('products.filters.engineBrand')}
             >
               <option value="All">{t('products.filters.allBrands')}</option>
               {engineBrands.map(brand => (
@@ -220,6 +316,7 @@ function ProductGrid() {
             <select 
               value={selectedEngineModel} 
               onChange={(e) => setSelectedEngineModel(e.target.value)}
+              title={t('products.filters.engineModel')}
             >
               <option value="All">{t('products.filters.allModels')}</option>
               {engineModels.map(model => (
@@ -229,7 +326,11 @@ function ProductGrid() {
           </div>
 
           <div className="filter-group">
-            <button onClick={handleSearch} className="search-button">
+            <button 
+              onClick={handleSearch} 
+              className="search-button" 
+              title={t('products.filters.search')}
+            >
               {t('products.filters.search')}
             </button>
           </div>
@@ -238,8 +339,17 @@ function ProductGrid() {
         {/* PRODUCTOS */}
         <div className="product-grid">
           {filteredProducts.map((product, index) => (
-            <Link to={`/productos/${product.name}`} className="product-card" key={index}>
-              <img src={product.image} alt={product.name} className="product-image" />
+            <Link 
+              to={`/productos/${product.name}`} 
+              className="product-card" 
+              key={index} 
+              title={t('products.productCard.title', { name: product.name })}
+            >
+              <img 
+                src={product.image} 
+                alt={t('products.productCard.imageAlt', { name: product.name })} 
+                className="product-image" 
+              />
               <div className="product-power">
                 {t('products.productCard.power')} {product.powerKVA} - <span>{product.type}</span>
               </div>

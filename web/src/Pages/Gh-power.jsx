@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { createClient } from '@supabase/supabase-js';
 import { useTranslation } from 'react-i18next';
+import { Helmet } from 'react-helmet-async'; // Added for SEO
 import './Gh-power.css';
 import generator from '../assets/generador.png';
 
@@ -42,9 +43,61 @@ const GHPower = () => {
 
   return (
     <div className="gh-power-container">
+      <Helmet>
+        <title>Generadores GH Power | Soluciones Energéticas</title>
+        <meta
+          name="description"
+          content="Generadores GH Power: alta calidad y eficiencia para industria y construcción. Cotiza ahora en Barcelona."
+        />
+        <meta
+          name="keywords"
+          content="generadores GH Power, generadores diesel, generadores industriales, soluciones energéticas, Barcelona, construcción, industria"
+        />
+        <meta property="og:title" content="Generadores GH Power" />
+        <meta
+          property="og:description"
+          content="Explora generadores GH Power, ideales para industria y construcción con alta calidad. Cotiza hoy en Barcelona."
+        />
+        <meta property="og:image" content="https://gh-power.com/images/generador.png" />
+        <meta property="og:url" content="https://gh-power.com/productos/gh-power" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="robots" content="index, follow" />
+        <link rel="alternate" href="https://gh-power.com/productos/gh-power" hreflang="es" />
+        <link rel="alternate" href="https://gh-power.com/en/productos/gh-power" hreflang="en" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ProductGroup",
+            "name": "Generadores GH Power",
+            "description": "Generadores GH Power, diseñados para alta calidad y eficiencia en aplicaciones industriales y de construcción.",
+            "brand": {
+              "@type": "Brand",
+              "name": "GH Power"
+            },
+            "hasVariant": products.map(product => ({
+              "@type": "Product",
+              "name": product.modelo_motor,
+              "description": `Generador GH Power ${product.modelo_motor} con ${product.prime_power_kva} kVA de potencia principal.`,
+              "additionalProperty": [
+                {
+                  "@type": "PropertyValue",
+                  "name": "Prime Power kW",
+                  "value": product.prime_power_kw
+                },
+                {
+                  "@type": "PropertyValue",
+                  "name": "Standby Power kVA",
+                  "value": product.standby_kva
+                }
+              ]
+            }))
+          })}
+        </script>
+      </Helmet>
+
       <section className="header-section">
         <div className="header-left">
-          <img src={generator} alt="Generador Principal" className="main-image" />
+          <img src={generator} alt={t('ghpower.mainImageAlt')} className="main-image" />
         </div>
         <div className="header-right">
           <h2 className="product-title">{t('ghpower.title')}</h2>

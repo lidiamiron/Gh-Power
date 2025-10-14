@@ -1,6 +1,8 @@
+
 import React, { useEffect, useState } from 'react';
 import { createClient } from '@supabase/supabase-js';
 import { useTranslation } from 'react-i18next';
+import { Helmet } from 'react-helmet-async'; // Added for SEO
 import './Doosan.css';
 import generator from '../assets/generador.png';
 
@@ -42,9 +44,61 @@ const Doosan = () => {
 
   return (
     <div className="gh-power-container">
+      <Helmet>
+        <title>Generadores DOOSAN | GH Power - Soluciones Energéticas</title>
+        <meta
+          name="description"
+          content="Generadores DOOSAN de GH Power: alta potencia y durabilidad para industria, construcción y más. Cotiza ahora."
+        />
+        <meta
+          name="keywords"
+          content="generadores DOOSAN, generadores diesel, generadores industriales, GH Power, soluciones energéticas, construcción, industria"
+        />
+        <meta property="og:title" content="Generadores DOOSAN | GH Power" />
+        <meta
+          property="og:description"
+          content="Explora generadores DOOSAN de GH Power, ideales para industria y construcción con alta durabilidad. Cotiza hoy."
+        />
+        <meta property="og:image" content="https://gh-power.com/images/generador.png" />
+        <meta property="og:url" content="https://gh-power.com/productos/doosan" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="robots" content="index, follow" />
+        <link rel="alternate" href="https://gh-power.com/productos/doosan" hreflang="es" />
+        <link rel="alternate" href="https://gh-power.com/en/productos/doosan" hreflang="en" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ProductGroup",
+            "name": "Generadores DOOSAN",
+            "description": "Generadores DOOSAN de GH Power, diseñados para alta potencia y durabilidad en aplicaciones industriales y de construcción.",
+            "brand": {
+              "@type": "Brand",
+              "name": "GH Power"
+            },
+            "hasVariant": products.map(product => ({
+              "@type": "Product",
+              "name": product.modelo_motor,
+              "description": `Generador DOOSAN ${product.modelo_motor} con ${product.prime_power_kva} kVA de potencia principal.`,
+              "additionalProperty": [
+                {
+                  "@type": "PropertyValue",
+                  "name": "Prime Power kW",
+                  "value": product.prime_power_kw
+                },
+                {
+                  "@type": "PropertyValue",
+                  "name": "Standby Power kVA",
+                  "value": product.standby_kva
+                }
+              ]
+            }))
+          })}
+        </script>
+      </Helmet>
+
       <section className="header-section">
         <div className="header-left">
-          <img src={generator} alt="Generador Principal" className="main-image" />
+          <img src={generator} alt={t('doosan.mainImageAlt')} className="main-image" />
         </div>
         <div className="header-right">
           <h2 className="product-title">{t('doosan.title')}</h2>

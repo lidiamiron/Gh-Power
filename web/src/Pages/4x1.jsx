@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import { useTranslation } from "react-i18next";
+import { Helmet } from 'react-helmet-async'; // Added for SEO
 import "./portatiles.css";
 import { FaFilePdf } from "react-icons/fa";
 import generatormain from "../assets/4x1-1.png";
@@ -90,15 +91,57 @@ const Generador4x1 = () => {
 
   return (
     <section className="gallery-section" ref={sectionRef}>
+      <Helmet>
+        <title>Generador 4x1 | GH Power - Soluciones Energéticas</title>
+        <meta
+          name="description"
+          content="Descubre el generador 4x1 de GH Power: alta eficiencia, multifuncional, ideal para construcción, industria y más. Cotiza ahora."
+        />
+        <meta
+          name="keywords"
+          content="generador 4x1, generadores portátiles, generadores diesel, GH Power, soluciones energéticas, construcción, industria"
+        />
+        <meta property="og:title" content="Generador 4x1 | GH Power" />
+        <meta
+          property="og:description"
+          content="Generador 4x1 de GH Power: eficiente y multifuncional para construcción, industria y más. Descarga la ficha técnica."
+        />
+        <meta property="og:image" content="https://gh-power.com/images/4x1-1.png" />
+        <meta property="og:url" content="https://gh-power.com/productos/generador4x1" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="robots" content="index, follow" />
+        <link rel="alternate" href="https://gh-power.com/productos/generador4x1" hreflang="es" />
+        <link rel="alternate" href="https://gh-power.com/en/productos/generador4x1" hreflang="en" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            "name": "Generador 4x1",
+            "image": "https://gh-power.com/images/4x1-1.png",
+            "description": "Generador 4x1 de GH Power, ideal para construcción, industria y más. Alta eficiencia y multifuncionalidad.",
+            "brand": {
+              "@type": "Brand",
+              "name": "GH Power"
+            },
+            "offers": {
+              "@type": "Offer",
+              "url": "https://gh-power.com/productos/generador4x1",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock"
+            }
+          })}
+        </script>
+      </Helmet>
+
       {/* Galería e info técnica a la izquierda */}
       <div className="gallery-left">
-        <img src={selectedImage} alt="Principal" className="main-image" />
+        <img src={selectedImage} alt={t('generator4x1.mainImageAlt')} className="main-image" />
         <div className="thumbnails">
           {images.map((img, index) => (
             <img
               key={index}
               src={img}
-              alt={`Miniatura ${index + 1}`}
+              alt={t(`generator4x1.thumbnailAlt${index + 1}`)}
               className={`thumbnail ${selectedImage === img ? "active" : ""}`}
               onClick={() => setSelectedImage(img)}
             />

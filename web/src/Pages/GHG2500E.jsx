@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import { useTranslation } from "react-i18next";
+import { Helmet } from 'react-helmet-async'; // Added for SEO
 import "./portatiles.css";
 import { FaFilePdf } from "react-icons/fa";
 import generatormain from "../assets/GHG2500E.png";
@@ -67,18 +68,18 @@ const ProductSpecs = () => {
       <div className="docs-block">
         <h2 className="docs-title">{t('ghg2500e.manuals')}</h2>
         <div className="doc-item">
-          <a href="/docs/LK21B.pdf" className="pdf-icon">
+          <a href="/docs/LK21B.pdf" className="pdf-icon" title={t('ghg2500e.techSheet')}>
             <FaFilePdf />
           </a>
-          <a href="/docs/LK21B.pdf" target="_blank" rel="noreferrer">
+          <a href="/docs/LK21B.pdf" target="_blank" rel="noreferrer" title={t('ghg2500e.techSheet')}>
             <p className="descargas">{t('ghg2500e.techSheet')}</p>
           </a>
         </div>
         <div className="doc-item">
-          <a href="#" className="pdf-icon">
+          <a href="#" className="pdf-icon" title={t('ghg2500e.userManual')}>
             <FaFilePdf />
           </a>
-          <a href="#" target="_blank" rel="noreferrer" className="descargas">
+          <a href="#" target="_blank" rel="noreferrer" className="descargas" title={t('ghg2500e.userManual')}>
             <p className="descargas">{t('ghg2500e.userManual')}</p>
           </a>
         </div>
@@ -96,15 +97,82 @@ const GHG2500E = () => {
 
   return (
     <section className="gallery-section" ref={sectionRef}>
+      <Helmet>
+        <title>Generador GHG2500E | GH Power - Soluciones Energéticas</title>
+        <meta
+          name="description"
+          content="Generador portátil GHG2500E de GH Power: máxima potencia y fiabilidad para uso doméstico y profesional. Cotiza ahora."
+        />
+        <meta
+          name="keywords"
+          content="generador GHG2500E, generadores portátiles, generadores gasolina, GH Power, soluciones energéticas, Barcelona"
+        />
+        <meta property="og:title" content="Generador GHG2500E | GH Power" />
+        <meta
+          property="og:description"
+          content="Descubre el generador portátil GHG2500E de GH Power, ideal para uso doméstico y profesional. Cotiza hoy."
+        />
+        <meta property="og:image" content="https://gh-power.com/images/ghg2500e.png" />
+        <meta property="og:url" content="https://gh-power.com/productos/ghg2500e" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="robots" content="index, follow" />
+        <link rel="alternate" href="https://gh-power.com/productos/ghg2500e" hreflang="es" />
+        <link rel="alternate" href="https://gh-power.com/en/productos/ghg2500e" hreflang="en" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            "name": "Generador GHG2500E",
+            "description": "Generador portátil GHG2500E de GH Power, diseñado para máxima potencia y fiabilidad en aplicaciones domésticas y profesionales.",
+            "brand": {
+              "@type": "Brand",
+              "name": "GH Power"
+            },
+            "image": "https://gh-power.com/images/ghg2500e.png",
+            "offers": {
+              "@type": "Offer",
+              "availability": "https://schema.org/InStock",
+              "priceCurrency": "EUR",
+              "url": "https://gh-power.com/productos/ghg2500e"
+            },
+            "additionalProperty": [
+              {
+                "@type": "PropertyValue",
+                "name": "Power PRP",
+                "value": t('ghg2500e.features.powerPRP')
+              },
+              {
+                "@type": "PropertyValue",
+                "name": "Power ESP",
+                "value": t('ghg2500e.features.powerESP')
+              },
+              {
+                "@type": "PropertyValue",
+                "name": "Weight",
+                "value": t('ghg2500e.features.weight')
+              }
+            ],
+            "hasAttachment": [
+              {
+                "@type": "DigitalDocument",
+                "name": "Ficha Técnica GHG2500E",
+                "url": "https://gh-power.com/docs/LK21B.pdf",
+                "description": "Ficha técnica del generador GHG2500E de GH Power."
+              }
+            ]
+          })}
+        </script>
+      </Helmet>
+
       {/* Galería e info técnica a la izquierda */}
       <div className="gallery-left">
-        <img src={selectedImage} alt="Principal" className="main-image" />
+        <img src={selectedImage} alt={t('ghg2500e.mainImageAlt')} className="main-image" />
         <div className="thumbnails">
           {images.map((img, index) => (
             <img
               key={index}
               src={img}
-              alt={`Miniatura ${index + 1}`}
+              alt={t('ghg2500e.thumbnailAlt', { index: index + 1 })}
               className={`thumbnail ${selectedImage === img ? "active" : ""}`}
               onClick={() => setSelectedImage(img)}
             />

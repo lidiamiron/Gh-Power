@@ -1,10 +1,11 @@
 import { useState, useEffect, useRef } from 'react';
 import { useTranslation } from "react-i18next";
+import { Helmet } from 'react-helmet-async'; // Added for SEO
 import banner from "../assets/banner.svg";
 import generador from "../assets/generador.png"; 
 import { FaTools, FaHammer, FaShieldAlt } from "react-icons/fa";
 import workerImage from "../assets/generadores.jpg";
-import "../Pages/Home.css"
+import "../Pages/Home.css";
 import Acordeon from "../components/Acordeon";
 import Config from "../assets/configuracion.png";
 import FeaturedProducts from '../components/FeaturedProducts';
@@ -70,6 +71,33 @@ export default function Home() {
 
   return (
     <main>
+      {/* SEO Meta Tags */}
+      <Helmet>
+        <title>GH Power | Generadores Portátiles Diesel y Gasolina</title>
+        <meta
+          name="description"
+          content="Generadores portátiles diesel y gasolina de alta calidad en GH Power. Soluciones confiables para tus necesidades de energía."
+        />
+        <meta
+          name="keywords"
+          content="generadores portátiles, generadores diesel, generadores gasolina, GH Power"
+        />
+        <meta property="og:title" content="GH Power | Generadores Portátiles" />
+        <meta
+          property="og:description"
+          content="Descubre generadores portátiles diesel y gasolina en GH Power. Energía confiable para cualquier situación."
+        />
+        <meta property="og:image" content="https://gh-power.com/images/generador.png" />
+        <meta property="og:url" content="https://gh-power.com/" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="robots" content="index, follow" />
+        {/* Multilingual support for i18next */}
+        <link rel="alternate" href="https://gh-power.com/" hreflang="es" />
+        <link rel="alternate" href="https://gh-power.com/en" hreflang="en" />
+        <link rel="alternate" href="https://gh-power.com/en" hreflang="de" />
+        <link rel="alternate" href="https://gh-power.com/en" hreflang="fr" />
+      </Helmet>
+
       {/* HEADER */}
       <section className="header">
         <div className="home-banner">

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { createClient } from '@supabase/supabase-js';
 import { FaDownload } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
+import { Helmet } from 'react-helmet-async'; // Added for SEO
 import "./Descargas.css";
 
 // Configuración de Supabase
@@ -89,6 +90,51 @@ const Descargas = () => {
 
   return (
     <div className="table-container">
+      <Helmet>
+        <title>Descargas | GH Power - Fichas Técnicas y Manuales</title>
+        <meta
+          name="description"
+          content="Descarga fichas técnicas y manuales de generadores GH Power: portátiles, industriales y más."
+        />
+        <meta
+          name="keywords"
+          content="descargas GH Power, fichas técnicas generadores, manuales generadores, generadores portátiles, generadores industriales"
+        />
+        <meta property="og:title" content="Descargas | GH Power" />
+        <meta
+          property="og:description"
+          content="Accede a fichas técnicas y manuales de generadores portátiles e industriales de GH Power."
+        />
+        <meta property="og:image" content="https://gh-power.com/images/logo.jpg" />
+        <meta property="og:url" content="https://gh-power.com/descargas" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="robots" content="index, follow" />
+        <link rel="alternate" href="https://gh-power.com/descargas" hreflang="es" />
+        <link rel="alternate" href="https://gh-power.com/en/descargas" hreflang="en" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": "Descargas GH Power",
+            "description": "Página de descargas de GH Power con fichas técnicas y manuales de generadores portátiles e industriales.",
+            "publisher": {
+              "@type": "Organization",
+              "name": "GH Power",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://gh-power.com/images/logo.jpg"
+              }
+            },
+            "hasPart": generadores.map(item => ({
+              "@type": "DigitalDocument",
+              "name": `Ficha Técnica - ${item.modelo_motor}`,
+              "url": item.ficha_técnica || null,
+              "description": `Ficha técnica del generador ${item.modelo_motor} de GH Power.`
+            })).filter(item => item.url)
+          })}
+        </script>
+      </Helmet>
+
       <table className="custom-table">
         <thead>
           <tr>
@@ -123,7 +169,7 @@ const Descargas = () => {
                 <td className="hide-mobile">{item.phase || t('downloads.status.noData')}</td>
                 <td className="descarga">
                   {esUrlValida(item.ficha_técnica) ? (
-                    <a href={item.ficha_técnica} target="_blank" rel="noreferrer" download>
+                    <a href={item.ficha_técnica} target="_blank" rel="noreferrer" download title={t('downloads.downloadButtons.techSheet')}>
                       <FaDownload /><span className='space'>{t('downloads.downloadButtons.techSheet')}</span>
                     </a>
                   ) : (
@@ -134,7 +180,7 @@ const Descargas = () => {
                 </td>
                 <td className="descarga">
                   {esUrlValida(item.manual) ? (
-                    <a href={item.manual} target="_blank" rel="noreferrer" download>
+                    <a href={item.manual} target="_blank" rel="noreferrer" download title={t('downloads.downloadButtons.userManual')}>
                       <FaDownload /><span className='space'>{t('downloads.downloadButtons.userManual')}</span>
                     </a>
                   ) : (

@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /signup
+Disallow: /login
+Disallow: /homepage
+Sitemap: https://gh-power.com/sitemap.xml

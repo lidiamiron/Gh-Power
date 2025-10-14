@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import { useTranslation } from "react-i18next";
+import { Helmet } from 'react-helmet-async'; // Added for SEO
 import "./portatiles.css";
 import { FaFilePdf } from "react-icons/fa";
 import generatormain from "../assets/ghd12000.png";
@@ -67,18 +68,18 @@ const ProductSpecs = () => {
       <div className="docs-block">
         <h2 className="docs-title">{t('ghd12000e.manuals')}</h2>
         <div className="doc-item">
-          <a href="/docs/LK21B.pdf" className="pdf-icon">
+          <a href="/docs/LK21B.pdf" className="pdf-icon" title={t('ghd12000e.techSheet')}>
             <FaFilePdf />
           </a>
-          <a href="/docs/LK21B.pdf" target="_blank" rel="noreferrer">
+          <a href="/docs/LK21B.pdf" target="_blank" rel="noreferrer" title={t('ghd12000e.techSheet')}>
             <p className="descargas">{t('ghd12000e.techSheet')}</p>
           </a>
         </div>
         <div className="doc-item">
-          <a href="#" className="pdf-icon">
+          <a href="#" className="pdf-icon" title={t('ghd12000e.userManual')}>
             <FaFilePdf />
           </a>
-          <a href="#" target="_blank" rel="noreferrer" className="descargas">
+          <a href="#" target="_blank" rel="noreferrer" className="descargas" title={t('ghd12000e.userManual')}>
             <p className="descargas">{t('ghd12000e.userManual')}</p>
           </a>
         </div>
@@ -96,15 +97,82 @@ const GHD12000E = () => {
 
   return (
     <section className="gallery-section" ref={sectionRef}>
+      <Helmet>
+        <title>Generador GHD12000E | GH Power - Soluciones Energéticas</title>
+        <meta
+          name="description"
+          content="Generador portátil GHD12000E de GH Power: máxima potencia y fiabilidad para uso industrial y doméstico. Cotiza ahora."
+        />
+        <meta
+          name="keywords"
+          content="generador GHD12000E, generadores portátiles, generadores diesel, GH Power, soluciones energéticas, Barcelona"
+        />
+        <meta property="og:title" content="Generador GHD12000E | GH Power" />
+        <meta
+          property="og:description"
+          content="Descubre el generador portátil GHD12000E de GH Power, ideal para uso industrial y doméstico. Cotiza hoy."
+        />
+        <meta property="og:image" content="https://gh-power.com/images/ghd12000.png" />
+        <meta property="og:url" content="https://gh-power.com/productos/ghd12000e" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="robots" content="index, follow" />
+        <link rel="alternate" href="https://gh-power.com/productos/ghd12000e" hreflang="es" />
+        <link rel="alternate" href="https://gh-power.com/en/productos/ghd12000e" hreflang="en" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            "name": "Generador GHD12000E",
+            "description": "Generador portátil GHD12000E de GH Power, diseñado para máxima potencia y fiabilidad en aplicaciones industriales y domésticas.",
+            "brand": {
+              "@type": "Brand",
+              "name": "GH Power"
+            },
+            "image": "https://gh-power.com/images/ghd12000.png",
+            "offers": {
+              "@type": "Offer",
+              "availability": "https://schema.org/InStock",
+              "priceCurrency": "EUR",
+              "url": "https://gh-power.com/productos/ghd12000e"
+            },
+            "additionalProperty": [
+              {
+                "@type": "PropertyValue",
+                "name": "Power PRP",
+                "value": t('ghd12000e.features.powerPRP')
+              },
+              {
+                "@type": "PropertyValue",
+                "name": "Power ESP",
+                "value": t('ghd12000e.features.powerESP')
+              },
+              {
+                "@type": "PropertyValue",
+                "name": "Weight",
+                "value": t('ghd12000e.features.weight')
+              }
+            ],
+            "hasAttachment": [
+              {
+                "@type": "DigitalDocument",
+                "name": "Ficha Técnica GHD12000E",
+                "url": "https://gh-power.com/docs/LK21B.pdf",
+                "description": "Ficha técnica del generador GHD12000E de GH Power."
+              }
+            ]
+          })}
+        </script>
+      </Helmet>
+
       {/* Galería e info técnica a la izquierda */}
       <div className="gallery-left">
-        <img src={selectedImage} alt="Principal" className="main-image" />
+        <img src={selectedImage} alt={t('ghd12000e.mainImageAlt')} className="main-image" />
         <div className="thumbnails">
           {images.map((img, index) => (
             <img
               key={index}
               src={img}
-              alt={`Miniatura ${index + 1}`}
+              alt={t('ghd12000e.thumbnailAlt', { index: index + 1 })}
               className={`thumbnail ${selectedImage === img ? "active" : ""}`}
               onClick={() => setSelectedImage(img)}
             />

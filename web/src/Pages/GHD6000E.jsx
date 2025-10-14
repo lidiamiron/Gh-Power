@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import { useTranslation } from "react-i18next";
+import { Helmet } from 'react-helmet-async'; // Added for SEO
 import "./portatiles.css";
 import { FaFilePdf } from "react-icons/fa";
 import generatormain from "../assets/ghd6000.png";
@@ -67,18 +68,18 @@ const ProductSpecs = () => {
       <div className="docs-block">
         <h2 className="docs-title">{t('ghd6000e.manuals')}</h2>
         <div className="doc-item">
-          <a href="/docs/LK21B.pdf" className="pdf-icon">
+          <a href="/docs/LK21B.pdf" className="pdf-icon" title={t('ghd6000e.techSheet')}>
             <FaFilePdf />
           </a>
-          <a href="/docs/LK21B.pdf" target="_blank" rel="noreferrer">
+          <a href="/docs/LK21B.pdf" target="_blank" rel="noreferrer" title={t('ghd6000e.techSheet')}>
             <p className="descargas">{t('ghd6000e.techSheet')}</p>
           </a>
         </div>
         <div className="doc-item">
-          <a href="#" className="pdf-icon">
+          <a href="#" className="pdf-icon" title={t('ghd6000e.userManual')}>
             <FaFilePdf />
           </a>
-          <a href="#" target="_blank" rel="noreferrer" className="descargas">
+          <a href="#" target="_blank" rel="noreferrer" className="descargas" title={t('ghd6000e.userManual')}>
             <p className="descargas">{t('ghd6000e.userManual')}</p>
           </a>
         </div>
@@ -96,15 +97,82 @@ const GHD6000E = () => {
 
   return (
     <section className="gallery-section" ref={sectionRef}>
+      <Helmet>
+        <title>Generador GHD6000E | GH Power - Soluciones Energéticas</title>
+        <meta
+          name="description"
+          content="Generador portátil GHD6000E de GH Power: alta potencia y eficiencia para uso doméstico e industrial. Cotiza ahora."
+        />
+        <meta
+          name="keywords"
+          content="generador GHD6000E, generadores portátiles, generadores diesel, GH Power, soluciones energéticas, Barcelona"
+        />
+        <meta property="og:title" content="Generador GHD6000E | GH Power" />
+        <meta
+          property="og:description"
+          content="Descubre el generador portátil GHD6000E de GH Power, ideal para uso doméstico e industrial. Cotiza hoy."
+        />
+        <meta property="og:image" content="https://gh-power.com/images/ghd6000.png" />
+        <meta property="og:url" content="https://gh-power.com/productos/ghd6000e" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="robots" content="index, follow" />
+        <link rel="alternate" href="https://gh-power.com/productos/ghd6000e" hreflang="es" />
+        <link rel="alternate" href="https://gh-power.com/en/productos/ghd6000e" hreflang="en" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            "name": "Generador GHD6000E",
+            "description": "Generador portátil GHD6000E de GH Power, diseñado para alta potencia y eficiencia en aplicaciones domésticas e industriales.",
+            "brand": {
+              "@type": "Brand",
+              "name": "GH Power"
+            },
+            "image": "https://gh-power.com/images/ghd6000.png",
+            "offers": {
+              "@type": "Offer",
+              "availability": "https://schema.org/InStock",
+              "priceCurrency": "EUR",
+              "url": "https://gh-power.com/productos/ghd6000e"
+            },
+            "additionalProperty": [
+              {
+                "@type": "PropertyValue",
+                "name": "Power PRP",
+                "value": t('ghd6000e.features.powerPRP')
+              },
+              {
+                "@type": "PropertyValue",
+                "name": "Power ESP",
+                "value": t('ghd6000e.features.powerESP')
+              },
+              {
+                "@type": "PropertyValue",
+                "name": "Weight",
+                "value": t('ghd6000e.features.weight')
+              }
+            ],
+            "hasAttachment": [
+              {
+                "@type": "DigitalDocument",
+                "name": "Ficha Técnica GHD6000E",
+                "url": "https://gh-power.com/docs/LK21B.pdf",
+                "description": "Ficha técnica del generador GHD6000E de GH Power."
+              }
+            ]
+          })}
+        </script>
+      </Helmet>
+
       {/* Galería e info técnica a la izquierda */}
       <div className="gallery-left">
-        <img src={selectedImage} alt="Principal" className="main-image" />
+        <img src={selectedImage} alt={t('ghd6000e.mainImageAlt')} className="main-image" />
         <div className="thumbnails">
           {images.map((img, index) => (
             <img
               key={index}
               src={img}
-              alt={`Miniatura ${index + 1}`}
+              alt={t('ghd6000e.thumbnailAlt', { index: index + 1 })}
               className={`thumbnail ${selectedImage === img ? "active" : ""}`}
               onClick={() => setSelectedImage(img)}
             />

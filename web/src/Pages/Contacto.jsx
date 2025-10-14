@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
-import { FaFacebookSquare, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { FaFacebookSquare, FaLinkedin } from "react-icons/fa"; // Removed FaInstagram as it's not used
 import { useTranslation } from "react-i18next";
+import { Helmet } from 'react-helmet-async'; // Added for SEO
 import emailjs from "@emailjs/browser";
 import "../pages/Contacto.css";
 
@@ -64,6 +65,61 @@ export default function Contact() {
 
   return (
     <section className="contact-section">
+      <Helmet>
+        <title>Contacto | GH Power - Soluciones Energéticas</title>
+        <meta
+          name="description"
+          content="Contacta con GH Power para soluciones de generadores portátiles e industriales. Estamos en Barcelona, disponibles 24/7."
+        />
+        <meta
+          name="keywords"
+          content="contacto GH Power, generadores portátiles, generadores industriales, soluciones energéticas, Barcelona"
+        />
+        <meta property="og:title" content="Contacto | GH Power" />
+        <meta
+          property="og:description"
+          content="Ponte en contacto con GH Power para generadores y soluciones energéticas en Barcelona. Soporte 24/7."
+        />
+        <meta property="og:image" content="https://gh-power.com/images/logo.jpg" />
+        <meta property="og:url" content="https://gh-power.com/contacto" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="robots" content="index, follow" />
+        <link rel="alternate" href="https://gh-power.com/contacto" hreflang="es" />
+        <link rel="alternate" href="https://gh-power.com/en/contacto" hreflang="en" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ContactPage",
+            "name": "Contacto GH Power",
+            "description": "Página de contacto de GH Power para consultas sobre generadores y soluciones energéticas.",
+            "publisher": {
+              "@type": "Organization",
+              "name": "GH Power",
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+34934185173",
+                "contactType": "Customer Service",
+                "email": "info@gh-power.com",
+                "areaServed": "ES",
+                "availableLanguage": ["Spanish", "English"]
+              },
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Calle Ponent, 10 – PI Can Mascaró",
+                "addressLocality": "La Palma de Cervelló",
+                "addressRegion": "Barcelona",
+                "postalCode": "08756",
+                "addressCountry": "ES"
+              },
+              "sameAs": [
+                "https://www.facebook.com/ghpowergenerators",
+                "https://www.linkedin.com/company/gh-power"
+              ]
+            }
+          })}
+        </script>
+      </Helmet>
+
       <div className="contact-form">
         <h2 dangerouslySetInnerHTML={{ __html: t('contact.title') }} />
         <p>{t('contact.description')}</p>
