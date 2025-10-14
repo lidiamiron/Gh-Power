@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { createClient } from '@supabase/supabase-js';
 import { FaDownload } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 import "./Descargas.css";
 
 // Configuración de Supabase
@@ -12,6 +13,7 @@ const Descargas = () => {
   const [generadores, setGeneradores] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const fetchGeneradores = async () => {
@@ -72,7 +74,7 @@ const Descargas = () => {
   if (loading) {
     return (
       <div className="table-container">
-        <div className="loading">Cargando datos...</div>
+        <div className="loading">{t('downloads.loading')}</div>
       </div>
     );
   }
@@ -80,7 +82,7 @@ const Descargas = () => {
   if (error) {
     return (
       <div className="table-container">
-        <div className="error">Error: {error}</div>
+        <div className="error">{t('downloads.error')} {error}</div>
       </div>
     );
   }
@@ -90,14 +92,14 @@ const Descargas = () => {
       <table className="custom-table">
         <thead>
           <tr>
-            <th>MODELO</th>
-            <th className="hide-mobile">STANDBY KVA</th>
-            <th className="hide-mobile">STANDBY KW</th>
-            <th className="hide-mobile">MARCA MOTOR</th>
-            <th className="hide-mobile">MODELO MOTOR</th>
-            <th className="hide-mobile">FASE</th>
-            <th>Descarga</th>
-            <th>Descarga</th>
+            <th>{t('downloads.tableHeaders.model')}</th>
+            <th className="hide-mobile">{t('downloads.tableHeaders.standbyKVA')}</th>
+            <th className="hide-mobile">{t('downloads.tableHeaders.standbyKW')}</th>
+            <th className="hide-mobile">{t('downloads.tableHeaders.engineBrand')}</th>
+            <th className="hide-mobile">{t('downloads.tableHeaders.engineModel')}</th>
+            <th className="hide-mobile">{t('downloads.tableHeaders.phase')}</th>
+            <th>{t('downloads.tableHeaders.download')}</th>
+            <th>{t('downloads.tableHeaders.download2')}</th>
           </tr>
         </thead>
         <tbody>
@@ -113,31 +115,31 @@ const Descargas = () => {
             
             return (
               <tr key={index}>
-                <td>{item.modelo_motor || 'N/A'}</td>
-                <td className="hide-mobile">{item.standby_kva || 'N/A'}</td>
-                <td className="hide-mobile">{item.standby_kw || 'N/A'}</td>
-                <td className="hide-mobile">{item.marca_motor || 'N/A'}</td>
-                <td className="hide-mobile">{item.engine_model || 'N/A'}</td>
-                <td className="hide-mobile">{item.phase || 'N/A'}</td>
+                <td>{item.modelo_motor || t('downloads.status.noData')}</td>
+                <td className="hide-mobile">{item.standby_kva || t('downloads.status.noData')}</td>
+                <td className="hide-mobile">{item.standby_kw || t('downloads.status.noData')}</td>
+                <td className="hide-mobile">{item.marca_motor || t('downloads.status.noData')}</td>
+                <td className="hide-mobile">{item.engine_model || t('downloads.status.noData')}</td>
+                <td className="hide-mobile">{item.phase || t('downloads.status.noData')}</td>
                 <td className="descarga">
                   {esUrlValida(item.ficha_técnica) ? (
                     <a href={item.ficha_técnica} target="_blank" rel="noreferrer" download>
-                      <FaDownload /><span className='space'>Ficha técnica</span>
+                      <FaDownload /><span className='space'>{t('downloads.downloadButtons.techSheet')}</span>
                     </a>
                   ) : (
                     <span className="no-disponible">
-                      {item.ficha_técnica ? 'Enlace inválido' : 'No disponible'}
+                      {item.ficha_técnica ? t('downloads.status.invalidLink') : t('downloads.status.notAvailable')}
                     </span>
                   )}
                 </td>
                 <td className="descarga">
                   {esUrlValida(item.manual) ? (
                     <a href={item.manual} target="_blank" rel="noreferrer" download>
-                      <FaDownload /><span className='space'>Manual de usuario</span>
+                      <FaDownload /><span className='space'>{t('downloads.downloadButtons.userManual')}</span>
                     </a>
                   ) : (
                     <span className="no-disponible">
-                      {item.manual ? 'Enlace inválido' : 'No disponible'}
+                      {item.manual ? t('downloads.status.invalidLink') : t('downloads.status.notAvailable')}
                     </span>
                   )}
                 </td>

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { createClient } from '@supabase/supabase-js';
+import { useTranslation } from "react-i18next";
 import './Yanmar.css';
-import generator from '../assets/generador.png'; // Asegúrate de tener esta imagen en tu proyecto
+import generator from '../assets/generador.png';
 
 const supabaseUrl = 'https://mfbwfvyokxanubyxamim.supabase.co';
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1mYndmdnlva3hhbnVieXhhbWltIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTY4ODI1OTQsImV4cCI6MjA3MjQ1ODU5NH0.oFoatF2o44dic8qIkrPeLpv_Zd6mzoWOnEGGDXILUEo';
@@ -11,6 +12,7 @@ const Yanmar = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -35,8 +37,8 @@ const Yanmar = () => {
     fetchProducts();
   }, []);
 
-  if (loading) return <p className="loading">Cargando productos...</p>;
-  if (error) return <p className="error">Error: {error}</p>;
+  if (loading) return <p className="loading">{t('yanmar.loading')}</p>;
+  if (error) return <p className="error">{t('yanmar.error')} {error}</p>;
 
   return (
     <div className="gh-power-container">
@@ -45,14 +47,12 @@ const Yanmar = () => {
           <img src={generator} alt="Generador Principal" className="main-image" />
         </div>
         <div className="header-right">
-          <h2 className="product-title">Generadores YANMAR</h2>
+          <h2 className="product-title">{t('yanmar.title')}</h2>
           <p className="product-description">
-           Fabricante japonés de motores diésel, maquinaria pesada, agrícola e industrial, además de embarcaciones de recreo, motores comerciales marinos de media y alta velocidad.  Fundada en 1912. Sus equipos cumplen con los estándares de calidad para Europa, cuentan con un gran soporte técnico y una red de servicios oficiales en varios territorios de España y Portugal.
-
-
+            {t('yanmar.description')}
           </p>
           <a href="/Contacto">
-            <button className="contact-button">Contactanos →</button>
+            <button className="contact-button">{t('yanmar.contactButton')}</button>
           </a>
         </div>
       </section>
@@ -60,16 +60,15 @@ const Yanmar = () => {
         <table className="product-table">
           <thead>
             <tr>
-              <th>Modelo</th>
-              <th className='hide-mobile'>Prime Power KW</th>
-              <th className='hide-mobile'>Prime Power KVA</th>
-              <th className='hide-mobile'>Standby Power KW</th>
-              <th>Standby Power KVA</th>
-              <th className='hide-mobile'>Modelo Motor</th>
-              
-              <th>Frecuencia</th>
-              <th>Voltaje</th>
-              <th className='hide-mobile'>Fase</th>
+              <th>{t('yanmar.table.model')}</th>
+              <th className='hide-mobile'>{t('yanmar.table.primePowerKW')}</th>
+              <th className='hide-mobile'>{t('yanmar.table.primePowerKVA')}</th>
+              <th className='hide-mobile'>{t('yanmar.table.standbyKW')}</th>
+              <th>{t('yanmar.table.standbyKVA')}</th>
+              <th className='hide-mobile'>{t('yanmar.table.engineModel')}</th>
+              <th>{t('yanmar.table.frequency')}</th>
+              <th>{t('yanmar.table.voltage')}</th>
+              <th className='hide-mobile'>{t('yanmar.table.phase')}</th>
             </tr>
           </thead>
           <tbody>
@@ -81,7 +80,6 @@ const Yanmar = () => {
                 <td className='hide-mobile'>{product.standby_kw}</td>
                 <td>{product.standby_kva}</td>
                 <td className='hide-mobile'>{product.engine_model}</td>
-                
                 <td>{product.frequencies}</td>
                 <td>{product.voltage}</td>
                 <td className='hide-mobile'>{product.phase}</td>

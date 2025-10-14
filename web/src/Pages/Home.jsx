@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { useTranslation } from "react-i18next";
 import banner from "../assets/banner.svg";
 import generador from "../assets/generador.png"; 
 import { FaTools, FaHammer, FaShieldAlt } from "react-icons/fa";
@@ -9,15 +10,13 @@ import Config from "../assets/configuracion.png";
 import FeaturedProducts from '../components/FeaturedProducts';
 import Contact from './Contacto';
 
-
-
-
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
   const [textAnimationStarted, setTextAnimationStarted] = useState(false);
   const aboutSectionRef = useRef(null);
   const aboutLeftRef = useRef(null);
+  const { t } = useTranslation();
 
   useEffect(() => {
     // Iniciar animación del texto después de un pequeño delay
@@ -54,18 +53,18 @@ export default function Home() {
   const cards = [
     {
       icon: <FaTools className="cardIcon" />,
-      title: "Recambios",
-      text: "Disponemos de los repuestos y recambios que necesitas para la reparación y el mantenimiento de generadores industriales, asegurando la máxima eficiencia y durabilidad de tus equipos.",
+      title: t('home.cards.spareParts.title'),
+      text: t('home.cards.spareParts.text'),
     },
     {
       icon: <FaHammer className="cardIcon" />,
-      title: "Servicio Técnico",
-      text: "Ofrecemos repuestos y recambios originales para todos los productos de la marca LKEnergy, con servicio de reparación y mantenimiento realizado por nuestros mecánicos oficiales certificados.",
+      title: t('home.cards.technicalService.title'),
+      text: t('home.cards.technicalService.text'),
     },
     {
       icon: <FaShieldAlt className="cardIcon" />,
-      title: "Garantías",
-      text: "Garantías completas para todos nuestros productos de hasta 3 años de duración.",
+      title: t('home.cards.warranties.title'),
+      text: t('home.cards.warranties.text'),
     },
   ];
 
@@ -79,19 +78,22 @@ export default function Home() {
             <div className="title-content">
               <h1 className="title">
                 <span className={`title-line title-line-1 ${textAnimationStarted ? 'animate' : ''}`}>
-                  GH POWER 
+                  {t('home.titleLine1')}
                 </span>
                 <br/>
                 <span className={`title-line title-line-2 ${textAnimationStarted ? 'animate' : ''}`}>
-                  GRUPOS ELECTRÓGENOS
+                  {t('home.titleLine2')}
                 </span>
                 <br/>
-                
               </h1>
               <h2 className={`subtitle ${textAnimationStarted ? 'animate' : ''}`}>
-              Soluciones Energéticas para Cada Uso
+                {t('home.subtitle')}
               </h2>
-              <a href="/Contacto"><button className={`presupuesto presupuesto1 ${textAnimationStarted ? 'animate' : ''}`}>Solicita tu presupuesto</button></a>
+              <a href="/Contacto">
+                <button className={`presupuesto presupuesto1 ${textAnimationStarted ? 'animate' : ''}`}>
+                  {t('home.budgetButton')}
+                </button>
+              </a>
             </div>
             <div className="generador-image">
               <img className="generator" src={generador} alt="foto-generador" />
@@ -112,23 +114,24 @@ export default function Home() {
             visibility: isVisible ? 'visible' : 'hidden'
           }}
         >
-          <h2 className="about-title">SOBRE NOSOTROS</h2>
-          <h1 className="about-heading">GH POWER</h1>
-          <h2 className="about-subtitle">Generadores Eléctricos: Soluciones Energéticas Innovadoras y Personalizadas</h2>
-          <p className="contact-us"><a href="/Contacto">CONTACTANÓS</a></p>
+          <h2 className="about-title">{t('home.aboutTitle')}</h2>
+          <h1 className="about-heading">{t('home.aboutHeading')}</h1>
+          <h2 className="about-subtitle">{t('home.aboutSubtitle')}</h2>
+          <p className="contact-us">
+            <a href="/Contacto">{t('home.contactUs')}</a>
+          </p>
         </div>
 
         <div className="about-right">
           <div className="about-description">
             <p>
-             GH POWER es líder en la fabricación de generadores eléctricos y ofrece una amplia gama de soluciones energéticas diseñadas para satisfacer las necesidades de diversos mercados. Con presencia en más de 30 países y una robusta red de distribuidores, expandimos nuestra huella global año tras año, consolidándonos como referente en el sector energético. Nuestra fortaleza radica en la versatilidad para crear productos a medida, adaptados a las demandas específicas de cada mercado. En GH POWER, garantizamos tiempos de respuesta inmediatos y un soporte técnico-comercial de primer nivel, lo que nos ha permitido alcanzar la satisfacción de más de 1000 clientes en todo el mundo. Confíe en GH POWER para soluciones energéticas confiables, innovadoras y respaldadas por un servicio excepcional. ¡Contáctenos hoy y descubra cómo podemos potenciar su energía!
+              {t('home.aboutDescription')}
             </p>
           </div>
           <div className="about-image">
             <img src={workerImage} alt="Generadores industriales" />
           </div>
-          
-    </div>
+        </div>
       </section>
 
       {/* CARDS SECTION */}
@@ -142,22 +145,23 @@ export default function Home() {
         ))}
       </div>
 
-
       {/* ACCORDION SECTION */}
       <section className="acordeon-section">
         <div className="img-acordeon">
           <img className="img-a" src={Config} alt="Power generator" />
         </div>
-        <div className="accordion-box"><Acordeon /></div> 
+        <div className="accordion-box">
+          <Acordeon />
+        </div> 
       </section>
 
-       <section className='featureProducts'> 
-              <FeaturedProducts />
-            </section>
-      <section className='contact'> 
-              <Contact />
-            </section>
+      <section className='featureProducts'> 
+        <FeaturedProducts />
+      </section>
       
+      <section className='contact'> 
+        <Contact />
+      </section>
     </main>
   );
 }

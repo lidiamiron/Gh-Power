@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { supabase } from '../client';
+import { useTranslation } from "react-i18next";
 import './Login.css';
 
 const Login = ({ setToken }) => {
   let navigate = useNavigate();
   let location = useLocation();
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({ email: '', password: '' });
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
@@ -48,7 +50,7 @@ const Login = ({ setToken }) => {
   return (
     <div className="login-container">
       <div className="login-form-wrapper">
-        <h2 className="login-title">Iniciar Sesión</h2>
+        <h2 className="login-title">{t('login.title')}</h2>
         
         {error && <div className="login-error-message">{error}</div>}
         
@@ -56,7 +58,7 @@ const Login = ({ setToken }) => {
           <div className="login-input-group">
             <input 
               className="login-input"
-              placeholder="Email"
+              placeholder={t('login.email')}
               name='email'
               type="email"
               onChange={handleChange}
@@ -68,7 +70,7 @@ const Login = ({ setToken }) => {
           <div className="login-input-group">
             <input 
               className="login-input"
-              placeholder="Contraseña"
+              placeholder={t('login.password')}
               name='password'
               type="password"
               onChange={handleChange}
@@ -82,12 +84,12 @@ const Login = ({ setToken }) => {
             className="login-submit-btn"
             disabled={isLoading}
           >
-            {isLoading ? 'Iniciando Sesión...' : 'Iniciar Sesión'}
+            {isLoading ? t('login.loading') : t('login.submit')}
           </button>
         </form>
 
         <div className="login-link-section">
-          ¿No tienes una cuenta? <Link to='/signup' className="login-link">Regístrate aquí</Link> 
+          {t('login.noAccount')} <Link to='/signup' className="login-link">{t('login.signup')}</Link> 
         </div>
       </div>
     </div>

@@ -1,14 +1,13 @@
 import React, { useState, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import "./portatiles.css";
 import { FaFilePdf } from "react-icons/fa";
-
-
 import generatormain from "../assets/ghd10000.png";
-
 
 // Subcomponente para especificaciones
 const ProductSpecs = () => {
   const [openSection, setOpenSection] = useState("estructura");
+  const { t } = useTranslation();
 
   const toggleSection = (section) => {
     setOpenSection(openSection === section ? null : section);
@@ -16,21 +15,28 @@ const ProductSpecs = () => {
 
   return (
     <div className="specs-container">
-      <h2 className="specs-title">Especificaciones Técnicas</h2>
+      <h2 className="specs-title">{t('ghd10000e.technicalSpecs')}</h2>
 
       <div className="specs-block">
         <div className="specs-header" onClick={() => toggleSection("estructura")}>
-          <h3>Estructura</h3>
+          <h3>{t('ghd10000e.structure')}</h3>
           <span>{openSection === "estructura" ? "↑" : "↓"}</span>
         </div>
         {openSection === "estructura" && (
           <table className="specs-table">
             <tbody>
-              <tr><td>Estructura:</td><td>Abierta</td></tr>
-              <tr><td>Dimensiones:</td><td>741 x 537 x 685 mm</td></tr>
-              <tr><td>Peso neto:</td><td>122 kg</td></tr>
-              
-              
+              <tr>
+                <td>{t('ghd10000e.specs.structure')}</td>
+                <td>{t('ghd10000e.specs.structureValue')}</td>
+              </tr>
+              <tr>
+                <td>{t('ghd10000e.specs.dimensions')}</td>
+                <td>{t('ghd10000e.specs.dimensionsValue')}</td>
+              </tr>
+              <tr>
+                <td>{t('ghd10000e.specs.weight')}</td>
+                <td>{t('ghd10000e.specs.weightValue')}</td>
+              </tr>
             </tbody>
           </table>
         )}
@@ -38,40 +44,42 @@ const ProductSpecs = () => {
 
       <div className="specs-block">
         <div className="specs-header" onClick={() => toggleSection("motor")}>
-          <h3>Motor</h3>
+          <h3>{t('ghd10000e.motor')}</h3>
           <span>{openSection === "motor" ? "↑" : "↓"}</span>
         </div>
         {openSection === "motor" && (
-  <ul className="specs-list">
-    <li>Modelo: GHD10000E</li>
-    <li>Frecuencia (Hz): 50/60</li>
-    <li>Voltaje (V): 230-400</li>
-    <li>Factor de potencia: 1/0.8</li>
-    <li>Capacidad Motor (cc): 499</li>
-    <li>Salida DC (V/A): 12/8.3</li>
-    <li>Fases:1/3</li>
-    <li>Sistema de arranque: Eléctrico</li>
-    <li>Enfriamiento de Motor: Aire</li>
-    <li>Autonomia (h): 8.5</li>
-    <li>Und x 20 ft: 93</li>
-  </ul>
-)}
+          <ul className="specs-list">
+            <li>{t('ghd10000e.specs.model')}</li>
+            <li>{t('ghd10000e.specs.frequency')}</li>
+            <li>{t('ghd10000e.specs.voltage')}</li>
+            <li>{t('ghd10000e.specs.powerFactor')}</li>
+            <li>{t('ghd10000e.specs.engineCapacity')}</li>
+            <li>{t('ghd10000e.specs.dcOutput')}</li>
+            <li>{t('ghd10000e.specs.phases')}</li>
+            <li>{t('ghd10000e.specs.startingSystem')}</li>
+            <li>{t('ghd10000e.specs.engineCooling')}</li>
+            <li>{t('ghd10000e.specs.autonomy')}</li>
+            <li>{t('ghd10000e.specs.unitsPerContainer')}</li>
+          </ul>
+        )}
       </div>
-      
-
 
       <div className="docs-block">
-        <h2 className="docs-title">Manuales y documentos</h2>
-        <div className="doc-item" ><a href="/docs/LK21B.pdf" className="pdf-icon"><FaFilePdf /></a>
-          <a href="/docs/LK21B.pdf" target="_blank" rel="noreferrer" >
-           
- <p className="descargas">Ficha técnica</p>
+        <h2 className="docs-title">{t('ghd10000e.manuals')}</h2>
+        <div className="doc-item">
+          <a href="/docs/LK21B.pdf" className="pdf-icon">
+            <FaFilePdf />
+          </a>
+          <a href="/docs/LK21B.pdf" target="_blank" rel="noreferrer">
+            <p className="descargas">{t('ghd10000e.techSheet')}</p>
           </a>
         </div>
-        <div className="doc-item"><a href="" className="pdf-icon"><FaFilePdf /></a>
+        <div className="doc-item">
+          <a href="#" className="pdf-icon">
+            <FaFilePdf />
+          </a>
           <a href="#" target="_blank" rel="noreferrer" className="descargas">
-          
-            <p className="descargas">Manual de usuario</p>
+            <p className="descargas">{t('ghd10000e.userManual')}</p>
           </a>
         </div>
       </div>
@@ -84,6 +92,7 @@ const GHD10000E = () => {
   const images = [generatormain];
   const [selectedImage, setSelectedImage] = useState(images[0]);
   const sectionRef = useRef(null);
+  const { t } = useTranslation();
 
   return (
     <section className="gallery-section" ref={sectionRef}>
@@ -106,18 +115,22 @@ const GHD10000E = () => {
 
       {/* Parte derecha sticky */}
       <div className="gallery-right">
-        <h2 className="product-title">GHD10000E</h2>
-        <p className="product-subtitle">Monofásico</p>
+        <h2 className="product-title">{t('ghd10000e.title')}</h2>
+        <p className="product-subtitle">{t('ghd10000e.subtitle')}</p>
         <ul className="product-info">
-          <li>⚡ Potencia PRP: 6.5kW / 7.0kVA</li>
-          <li>⚡ Potencia ESP: 7.0kW / 7.7kVA</li>
-          <li>🔌 Monofásico</li>
-          <li>⚖️ 122 Kg</li>
-          <li>✔️ Motor DE192FE</li>
-          <li>✔️ Alternador de alto rendimiento</li>
-          <li>✔️ Capacidad de combustible: 20 L</li>
+          <li>{t('ghd10000e.features.powerPRP')}</li>
+          <li>{t('ghd10000e.features.powerESP')}</li>
+          <li>{t('ghd10000e.features.singlePhase')}</li>
+          <li>{t('ghd10000e.features.weight')}</li>
+          <li>{t('ghd10000e.features.engine')}</li>
+          <li>{t('ghd10000e.features.alternator')}</li>
+          <li>{t('ghd10000e.features.fuelCapacity')}</li>
         </ul>
-        <a href="http://localhost:5173/Contacto"><button className="product-button">Contactanos→</button></a>
+        <a href="/Contacto">
+          <button className="product-button">
+            {t('ghd10000e.contactButton')}
+          </button>
+        </a>
       </div>
     </section>
   );

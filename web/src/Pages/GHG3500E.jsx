@@ -1,14 +1,13 @@
 import React, { useState, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import "./portatiles.css";
 import { FaFilePdf } from "react-icons/fa";
-
-
 import generatormain from "../assets/GHG3500E.png";
-
 
 // Subcomponente para especificaciones
 const ProductSpecs = () => {
   const [openSection, setOpenSection] = useState("estructura");
+  const { t } = useTranslation();
 
   const toggleSection = (section) => {
     setOpenSection(openSection === section ? null : section);
@@ -16,21 +15,28 @@ const ProductSpecs = () => {
 
   return (
     <div className="specs-container">
-      <h2 className="specs-title">Especificaciones Técnicas</h2>
+      <h2 className="specs-title">{t('ghg3500e.technicalSpecs')}</h2>
 
       <div className="specs-block">
         <div className="specs-header" onClick={() => toggleSection("estructura")}>
-          <h3>Estructura</h3>
+          <h3>{t('ghg3500e.structure')}</h3>
           <span>{openSection === "estructura" ? "↑" : "↓"}</span>
         </div>
         {openSection === "estructura" && (
           <table className="specs-table">
             <tbody>
-              <tr><td>Estructura:</td><td>Abierta</td></tr>
-              <tr><td>Dimensiones:</td><td>590 x 442 x 450 mm</td></tr>
-              <tr><td>Peso neto:</td><td>45/47 kg</td></tr>
-              
-              
+              <tr>
+                <td>{t('ghg3500e.specs.structure')}</td>
+                <td>{t('ghg3500e.specs.structureValue')}</td>
+              </tr>
+              <tr>
+                <td>{t('ghg3500e.specs.dimensions')}</td>
+                <td>{t('ghg3500e.specs.dimensionsValue')}</td>
+              </tr>
+              <tr>
+                <td>{t('ghg3500e.specs.weight')}</td>
+                <td>{t('ghg3500e.specs.weightValue')}</td>
+              </tr>
             </tbody>
           </table>
         )}
@@ -38,40 +44,42 @@ const ProductSpecs = () => {
 
       <div className="specs-block">
         <div className="specs-header" onClick={() => toggleSection("motor")}>
-          <h3>Motor</h3>
+          <h3>{t('ghg3500e.motor')}</h3>
           <span>{openSection === "motor" ? "↑" : "↓"}</span>
         </div>
         {openSection === "motor" && (
-  <ul className="specs-list">
-    <li>Modelo: GHG3500E</li>
-    <li>Frecuencia (Hz): 50/60</li>
-    <li>Voltaje (V): 230-400</li>
-    <li>Tipo Sockets: 2 euro</li>
-    <li>Capacidad Motor (cc): 223</li>
-    <li>Salida DC (V/A): 12/8.3</li>
-    <li>Fases: 1</li>
-    <li>Sistema de arranque: Eléctrico</li>
-    <li>Enfriamiento de Motor: Aire</li>
-    <li>Autonomia (h): 7.0</li>
-    <li>Batería(A/H): 9</li>
-  </ul>
-)}
+          <ul className="specs-list">
+            <li>{t('ghg3500e.specs.model')}</li>
+            <li>{t('ghg3500e.specs.frequency')}</li>
+            <li>{t('ghg3500e.specs.voltage')}</li>
+            <li>{t('ghg3500e.specs.socketType')}</li>
+            <li>{t('ghg3500e.specs.engineCapacity')}</li>
+            <li>{t('ghg3500e.specs.dcOutput')}</li>
+            <li>{t('ghg3500e.specs.phases')}</li>
+            <li>{t('ghg3500e.specs.startingSystem')}</li>
+            <li>{t('ghg3500e.specs.engineCooling')}</li>
+            <li>{t('ghg3500e.specs.autonomy')}</li>
+            <li>{t('ghg3500e.specs.battery')}</li>
+          </ul>
+        )}
       </div>
-      
-
 
       <div className="docs-block">
-        <h2 className="docs-title">Manuales y documentos</h2>
-        <div className="doc-item" ><a href="/docs/LK21B.pdf" className="pdf-icon"><FaFilePdf /></a>
-          <a href="/docs/LK21B.pdf" target="_blank" rel="noreferrer" >
-           
- <p className="descargas">Ficha técnica</p>
+        <h2 className="docs-title">{t('ghg3500e.manuals')}</h2>
+        <div className="doc-item">
+          <a href="/docs/LK21B.pdf" className="pdf-icon">
+            <FaFilePdf />
+          </a>
+          <a href="/docs/LK21B.pdf" target="_blank" rel="noreferrer">
+            <p className="descargas">{t('ghg3500e.techSheet')}</p>
           </a>
         </div>
-        <div className="doc-item"><a href="" className="pdf-icon"><FaFilePdf /></a>
+        <div className="doc-item">
+          <a href="#" className="pdf-icon">
+            <FaFilePdf />
+          </a>
           <a href="#" target="_blank" rel="noreferrer" className="descargas">
-          
-            <p className="descargas">Manual de usuario</p>
+            <p className="descargas">{t('ghg3500e.userManual')}</p>
           </a>
         </div>
       </div>
@@ -84,6 +92,7 @@ const GHG3500E = () => {
   const images = [generatormain];
   const [selectedImage, setSelectedImage] = useState(images[0]);
   const sectionRef = useRef(null);
+  const { t } = useTranslation();
 
   return (
     <section className="gallery-section" ref={sectionRef}>
@@ -106,18 +115,22 @@ const GHG3500E = () => {
 
       {/* Parte derecha sticky */}
       <div className="gallery-right">
-        <h2 className="product-title">GHG3500E</h2>
-        <p className="product-subtitle">Monofásico</p>
+        <h2 className="product-title">{t('ghg3500e.title')}</h2>
+        <p className="product-subtitle">{t('ghg3500e.subtitle')}</p>
         <ul className="product-info">
-          <li>⚡ Potencia PRP: 3.0kW / 3.3kVA</li>
-          <li>⚡ Potencia ESP: 3.3kW / 3.5kVA</li>
-          <li>🔌 Monofásico</li>
-          <li>⚖️ 45/47 Kg</li>
-          <li>✔️ Motor GE225E</li>
-          <li>✔️ Alternador de alto rendimiento</li>
-          <li>✔️ Capacidad de combustible: 15 L</li>
+          <li>{t('ghg3500e.features.powerPRP')}</li>
+          <li>{t('ghg3500e.features.powerESP')}</li>
+          <li>{t('ghg3500e.features.singlePhase')}</li>
+          <li>{t('ghg3500e.features.weight')}</li>
+          <li>{t('ghg3500e.features.engine')}</li>
+          <li>{t('ghg3500e.features.alternator')}</li>
+          <li>{t('ghg3500e.features.fuelCapacity')}</li>
         </ul>
-        <a href="http://localhost:5173/Contacto"><button className="product-button">Contactanos→</button></a>
+        <a href="/Contacto">
+          <button className="product-button">
+            {t('ghg3500e.contactButton')}
+          </button>
+        </a>
       </div>
     </section>
   );

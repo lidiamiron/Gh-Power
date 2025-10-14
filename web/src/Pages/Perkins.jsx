@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { createClient } from '@supabase/supabase-js';
+import { useTranslation } from "react-i18next";
 import './Perkins.css';
-import generator from '../assets/generador.png'; // Asegúrate de tener esta imagen en tu proyecto
+import generator from '../assets/generador.png';
 
 const supabaseUrl = 'https://mfbwfvyokxanubyxamim.supabase.co';
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1mYndmdnlva3hhbnVieXhhbWltIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTY4ODI1OTQsImV4cCI6MjA3MjQ1ODU5NH0.oFoatF2o44dic8qIkrPeLpv_Zd6mzoWOnEGGDXILUEo';
@@ -11,6 +12,7 @@ const PERKINS = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -35,8 +37,8 @@ const PERKINS = () => {
     fetchProducts();
   }, []);
 
-  if (loading) return <p className="loading">Cargando productos...</p>;
-  if (error) return <p className="error">Error: {error}</p>;
+  if (loading) return <p className="loading">{t('perkins.loading')}</p>;
+  if (error) return <p className="error">{t('perkins.error')} {error}</p>;
 
   return (
     <div className="gh-power-container">
@@ -45,14 +47,12 @@ const PERKINS = () => {
           <img src={generator} alt="Generador Principal" className="main-image" />
         </div>
         <div className="header-right">
-          <h2 className="product-title">Generadores PERKINS</h2>
+          <h2 className="product-title">{t('perkins.title')}</h2>
           <p className="product-description">
-           Una de las filiales de Caterpillar Inc. Especializadas en la fabricación de motores diésel para diversos mercados internacionales, destacando la construcción, manejo de materiales de gran volumen, agricultura y generación de energía e industria. 
-
-Bajo el lema “El Poder de la colaboración” son uno de los principales proveedores de motores diésel del mundo, apasionados por el servicio y superar las expectativas de sus clientes. Con una historia de más de 90 años y más de 22 millones de motores a sus espaldas.
+            {t('perkins.description')}
           </p>
           <a href="/Contacto">
-            <button className="contact-button">Contactanos →</button>
+            <button className="contact-button">{t('perkins.contactButton')}</button>
           </a>
         </div>
       </section>
@@ -60,16 +60,15 @@ Bajo el lema “El Poder de la colaboración” son uno de los principales prove
         <table className="product-table">
           <thead>
             <tr>
-              <th>Modelo</th>
-              <th className='hide-mobile'>Prime Power KW</th>
-              <th className='hide-mobile'>Prime Power KVA</th>
-              <th className='hide-mobile'>Standby Power KW</th>
-              <th>Standby Power KVA</th>
-              <th className='hide-mobile'>Modelo Motor</th>
-              
-              <th>Frecuencia</th>
-              <th>Voltaje</th>
-              <th className='hide-mobile'>Fase</th>
+              <th>{t('perkins.table.model')}</th>
+              <th className='hide-mobile'>{t('perkins.table.primePowerKW')}</th>
+              <th className='hide-mobile'>{t('perkins.table.primePowerKVA')}</th>
+              <th className='hide-mobile'>{t('perkins.table.standbyKW')}</th>
+              <th>{t('perkins.table.standbyKVA')}</th>
+              <th className='hide-mobile'>{t('perkins.table.engineModel')}</th>
+              <th>{t('perkins.table.frequency')}</th>
+              <th>{t('perkins.table.voltage')}</th>
+              <th className='hide-mobile'>{t('perkins.table.phase')}</th>
             </tr>
           </thead>
           <tbody>
@@ -81,7 +80,6 @@ Bajo el lema “El Poder de la colaboración” son uno de los principales prove
                 <td className='hide-mobile'>{product.standby_kw}</td>
                 <td>{product.standby_kva}</td>
                 <td className='hide-mobile'>{product.engine_model}</td>
-              
                 <td>{product.frequencies}</td>
                 <td>{product.voltage}</td>
                 <td className='hide-mobile'>{product.phase}</td>

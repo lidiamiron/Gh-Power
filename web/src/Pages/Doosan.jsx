@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { createClient } from '@supabase/supabase-js';
+import { useTranslation } from 'react-i18next';
 import './Doosan.css';
-import generator from '../assets/generador.png'; // Asegúrate de tener esta imagen en tu proyecto
+import generator from '../assets/generador.png';
 
 const supabaseUrl = 'https://mfbwfvyokxanubyxamim.supabase.co';
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1mYndmdnlva3hhbnVieXhhbWltIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTY4ODI1OTQsImV4cCI6MjA3MjQ1ODU5NH0.oFoatF2o44dic8qIkrPeLpv_Zd6mzoWOnEGGDXILUEo';
@@ -11,6 +12,7 @@ const Doosan = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -35,8 +37,8 @@ const Doosan = () => {
     fetchProducts();
   }, []);
 
-  if (loading) return <p className="loading">Cargando productos...</p>;
-  if (error) return <p className="error">Error: {error}</p>;
+  if (loading) return <p className="loading">{t('doosan.loading')}</p>;
+  if (error) return <p className="error">{t('doosan.error')} {error}</p>;
 
   return (
     <div className="gh-power-container">
@@ -45,12 +47,12 @@ const Doosan = () => {
           <img src={generator} alt="Generador Principal" className="main-image" />
         </div>
         <div className="header-right">
-          <h2 className="product-title">Generadores DOOSAN</h2>
+          <h2 className="product-title">{t('doosan.title')}</h2>
           <p className="product-description">
-A lo largo de 127 años de historia la marca ha trabajado en el sector industrial, creando equipo especializado para diversas industrias. Con presencia global, desde grandes centrales eléctricas hasta plantas de suministros.
-Además trabajan en sectores de innovación con sistemas no tripulados autónomos, sus fábricas tienen tecnología de última generación. Es una marca que se caracteriza por su gran soporte técnico y su vocación por aportar valor a sus clientes.          </p>
+            {t('doosan.description')}
+          </p>
           <a href="/Contacto">
-            <button className="contact-button">Contactanos →</button>
+            <button className="contact-button">{t('doosan.contactButton')}</button>
           </a>
         </div>
       </section>
@@ -58,16 +60,15 @@ Además trabajan en sectores de innovación con sistemas no tripulados autónomo
         <table className="product-table">
           <thead>
             <tr>
-              <th>Modelo</th>
-              <th className='hide-mobile'>Prime Power KW</th>
-              <th className='hide-mobile'>Prime Power KVA</th>
-              <th className='hide-mobile'>Standby Power KW</th>
-              <th>Standby Power KVA</th>
-              <th className='hide-mobile'>Modelo Motor</th>
-              
-              <th>Frecuencia</th>
-              <th>Voltaje</th>
-              <th className='hide-mobile'>Fase</th>
+              <th>{t('doosan.tableHeaders.model')}</th>
+              <th className='hide-mobile'>{t('doosan.tableHeaders.primePowerKW')}</th>
+              <th className='hide-mobile'>{t('doosan.tableHeaders.primePowerKVA')}</th>
+              <th className='hide-mobile'>{t('doosan.tableHeaders.standbyPowerKW')}</th>
+              <th>{t('doosan.tableHeaders.standbyPowerKVA')}</th>
+              <th className='hide-mobile'>{t('doosan.tableHeaders.engineModel')}</th>
+              <th>{t('doosan.tableHeaders.frequency')}</th>
+              <th>{t('doosan.tableHeaders.voltage')}</th>
+              <th className='hide-mobile'>{t('doosan.tableHeaders.phase')}</th>
             </tr>
           </thead>
           <tbody>
@@ -79,7 +80,6 @@ Además trabajan en sectores de innovación con sistemas no tripulados autónomo
                 <td className='hide-mobile'>{product.standby_kw}</td>
                 <td>{product.standby_kva}</td>
                 <td className='hide-mobile'>{product.engine_model}</td>
-                
                 <td>{product.frequencies}</td>
                 <td>{product.voltage}</td>
                 <td className='hide-mobile'>{product.phase}</td>

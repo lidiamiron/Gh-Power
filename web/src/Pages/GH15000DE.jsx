@@ -1,14 +1,13 @@
 import React, { useState, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import "./portatiles.css";
 import { FaFilePdf } from "react-icons/fa";
-
-
 import generatormain from "../assets/GH15000DE.png";
-
 
 // Subcomponente para especificaciones
 const ProductSpecs = () => {
   const [openSection, setOpenSection] = useState("estructura");
+  const { t } = useTranslation();
 
   const toggleSection = (section) => {
     setOpenSection(openSection === section ? null : section);
@@ -16,21 +15,28 @@ const ProductSpecs = () => {
 
   return (
     <div className="specs-container">
-      <h2 className="specs-title">Especificaciones Técnicas</h2>
+      <h2 className="specs-title">{t('gh15000de.technicalSpecs')}</h2>
 
       <div className="specs-block">
         <div className="specs-header" onClick={() => toggleSection("estructura")}>
-          <h3>Estructura</h3>
+          <h3>{t('gh15000de.structure')}</h3>
           <span>{openSection === "estructura" ? "↑" : "↓"}</span>
         </div>
         {openSection === "estructura" && (
           <table className="specs-table">
             <tbody>
-              <tr><td>Estructura:</td><td>Abierta</td></tr>
-              <tr><td>Dimensiones:</td><td>980 x 650 x 780</td></tr>
-              <tr><td>Peso neto:</td><td>211 kg</td></tr>
-              
-              
+              <tr>
+                <td>{t('gh15000de.specs.structure')}</td>
+                <td>{t('gh15000de.specs.structureValue')}</td>
+              </tr>
+              <tr>
+                <td>{t('gh15000de.specs.dimensions')}</td>
+                <td>{t('gh15000de.specs.dimensionsValue')}</td>
+              </tr>
+              <tr>
+                <td>{t('gh15000de.specs.weight')}</td>
+                <td>{t('gh15000de.specs.weightValue')}</td>
+              </tr>
             </tbody>
           </table>
         )}
@@ -38,40 +44,42 @@ const ProductSpecs = () => {
 
       <div className="specs-block">
         <div className="specs-header" onClick={() => toggleSection("motor")}>
-          <h3>Motor</h3>
+          <h3>{t('gh15000de.motor')}</h3>
           <span>{openSection === "motor" ? "↑" : "↓"}</span>
         </div>
         {openSection === "motor" && (
-  <ul className="specs-list">
-    <li>Modelo: GH15000DE</li>
-    <li>Frecuencia (Hz): 50</li>
-    <li>Voltaje (V): 230</li>
-    <li>Tipo de Motor: Monocilíndrico</li>
-    <li>Capacidad Motor (cc): 997</li>
-    <li>T.H.D: ≤5%</li>
-    <li>Potencia Nominal/ Máxima (kW):11 / 12</li>
-    <li>Capacidad del tanque (L): 40</li>
-    <li>Regulador de voltaje AVR: Arranque eléctrico </li>
-    <li>Nivel sonoro (db@7m): ≤105</li>
-    <li>Certificaciones: CE, EURO V</li>
-  </ul>
-)}
+          <ul className="specs-list">
+            <li>{t('gh15000de.specs.model')}</li>
+            <li>{t('gh15000de.specs.frequency')}</li>
+            <li>{t('gh15000de.specs.voltage')}</li>
+            <li>{t('gh15000de.specs.engineType')}</li>
+            <li>{t('gh15000de.specs.engineCapacity')}</li>
+            <li>{t('gh15000de.specs.thd')}</li>
+            <li>{t('gh15000de.specs.power')}</li>
+            <li>{t('gh15000de.specs.tankCapacity')}</li>
+            <li>{t('gh15000de.specs.voltageRegulator')}</li>
+            <li>{t('gh15000de.specs.soundLevel')}</li>
+            <li>{t('gh15000de.specs.certifications')}</li>
+          </ul>
+        )}
       </div>
-      
-
 
       <div className="docs-block">
-        <h2 className="docs-title">Manuales y documentos</h2>
-        <div className="doc-item" ><a href="/docs/LK21B.pdf" className="pdf-icon"><FaFilePdf /></a>
-          <a href="/docs/LK21B.pdf" target="_blank" rel="noreferrer" >
-           
- <p className="descargas">Ficha técnica</p>
+        <h2 className="docs-title">{t('gh15000de.manuals')}</h2>
+        <div className="doc-item">
+          <a href="/docs/LK21B.pdf" className="pdf-icon">
+            <FaFilePdf />
+          </a>
+          <a href="/docs/LK21B.pdf" target="_blank" rel="noreferrer">
+            <p className="descargas">{t('gh15000de.techSheet')}</p>
           </a>
         </div>
-        <div className="doc-item"><a href="" className="pdf-icon"><FaFilePdf /></a>
+        <div className="doc-item">
+          <a href="#" className="pdf-icon">
+            <FaFilePdf />
+          </a>
           <a href="#" target="_blank" rel="noreferrer" className="descargas">
-          
-            <p className="descargas">Manual de usuario</p>
+            <p className="descargas">{t('gh15000de.userManual')}</p>
           </a>
         </div>
       </div>
@@ -84,6 +92,7 @@ const GH15000DE = () => {
   const images = [generatormain];
   const [selectedImage, setSelectedImage] = useState(images[0]);
   const sectionRef = useRef(null);
+  const { t } = useTranslation();
 
   return (
     <section className="gallery-section" ref={sectionRef}>
@@ -106,18 +115,22 @@ const GH15000DE = () => {
 
       {/* Parte derecha sticky */}
       <div className="gallery-right">
-        <h2 className="product-title">GH15000DE</h2>
-        <p className="product-subtitle">Monofásico</p>
+        <h2 className="product-title">{t('gh15000de.title')}</h2>
+        <p className="product-subtitle">{t('gh15000de.subtitle')}</p>
         <ul className="product-info">
-          <li>⚡ Potencia PRP: 11kW / 11kVA</li>
-          <li>⚡ Potencia ESP: 12kW / 12kVA</li>
-          <li>🔌 Monofásico/Trifásico</li>
-          <li>⚖️ 211 Kg</li>
-          <li>✔️ Motor 2V92FE</li>
-          <li>✔️ Alternador de alto rendimiento</li>
-          <li>✔️ Capacidad de combustible: 40 L</li>
+          <li>{t('gh15000de.features.powerPRP')}</li>
+          <li>{t('gh15000de.features.powerESP')}</li>
+          <li>{t('gh15000de.features.singlePhase')}</li>
+          <li>{t('gh15000de.features.weight')}</li>
+          <li>{t('gh15000de.features.engine')}</li>
+          <li>{t('gh15000de.features.alternator')}</li>
+          <li>{t('gh15000de.features.fuelCapacity')}</li>
         </ul>
-        <a href="http://localhost:5173/Contacto"><button className="product-button">Contactanos→</button></a>
+        <a href="/Contacto">
+          <button className="product-button">
+            {t('gh15000de.contactButton')}
+          </button>
+        </a>
       </div>
     </section>
   );

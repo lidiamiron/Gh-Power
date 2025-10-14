@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import { FaFacebookSquare, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 import emailjs from "@emailjs/browser";
 import "../pages/Contacto.css";
 
@@ -7,6 +8,7 @@ export default function Contact() {
   const form = useRef();
   const [isSending, setIsSending] = useState(false);
   const [status, setStatus] = useState("");
+  const { t } = useTranslation();
 
   const [formData, setFormData] = useState({
     user_name: "",
@@ -25,12 +27,12 @@ export default function Contact() {
     e.preventDefault();
     
     if (!formData.user_name || !formData.user_email || !formData.message) {
-      setStatus("Por favor, completa los campos obligatorios (*)");
+      setStatus(t('contact.form.requiredFields'));
       return;
     }
 
     setIsSending(true);
-    setStatus("Enviando mensaje...");
+    setStatus(t('contact.form.sendingMessage'));
 
     try {
       await emailjs.sendForm(
@@ -40,7 +42,7 @@ export default function Contact() {
         "PCIrH42CmhrTcQhLc"
       );
 
-      setStatus("¡Mensaje enviado correctamente!");
+      setStatus(t('contact.form.success'));
       setFormData({
         user_name: "",
         user_lastname: "",
@@ -51,9 +53,9 @@ export default function Contact() {
       
     } catch (error) {
       if (error.text?.includes('template ID not found')) {
-        setStatus("Error de configuración. Por favor, contacta al administrador.");
+        setStatus(t('contact.form.configError'));
       } else {
-        setStatus("Error al enviar el mensaje. Inténtalo de nuevo.");
+        setStatus(t('contact.form.error'));
       }
     } finally {
       setIsSending(false);
@@ -63,8 +65,8 @@ export default function Contact() {
   return (
     <section className="contact-section">
       <div className="contact-form">
-        <h2>¡HABLEMOS <span>DE ENERGÍA!</span></h2>
-        <p>¿Estás buscando un generador eléctrico y no sabes cuál es el ideal para ti? En GH Power estamos para ayudarte. Déjanos tus datos y te contactaremos con asesoría personalizada o un presupuesto a medida!</p>
+        <h2 dangerouslySetInnerHTML={{ __html: t('contact.title') }} />
+        <p>{t('contact.description')}</p>
 
         <form ref={form} onSubmit={sendEmail}>
           <div className="input-row">
@@ -72,7 +74,7 @@ export default function Contact() {
               <input 
                 type="text" 
                 name="user_name" 
-                placeholder="Nombre *" 
+                placeholder={t('contact.form.name')} 
                 value={formData.user_name}
                 onChange={handleChange}
                 required 
@@ -82,7 +84,7 @@ export default function Contact() {
               <input 
                 type="text" 
                 name="user_lastname" 
-                placeholder="Apellido" 
+                placeholder={t('contact.form.lastname')} 
                 value={formData.user_lastname}
                 onChange={handleChange}
               />
@@ -93,7 +95,7 @@ export default function Contact() {
               <input 
                 type="email" 
                 name="user_email" 
-                placeholder="Email *" 
+                placeholder={t('contact.form.email')} 
                 value={formData.user_email}
                 onChange={handleChange}
                 required 
@@ -103,7 +105,7 @@ export default function Contact() {
               <input 
                 type="text" 
                 name="user_phone" 
-                placeholder="Teléfono" 
+                placeholder={t('contact.form.phone')} 
                 value={formData.user_phone}
                 onChange={handleChange}
               />
@@ -112,7 +114,7 @@ export default function Contact() {
           <div className="textarea-field">
             <textarea 
               name="message" 
-              placeholder="Mensaje *" 
+              placeholder={t('contact.form.message')} 
               value={formData.message}
               onChange={handleChange}
               required
@@ -120,29 +122,29 @@ export default function Contact() {
           </div>
           
           {status && (
-            <div className={`status-message ${status.includes('correctamente') ? 'success' : 'error'}`}>
+            <div className={`status-message ${status.includes(t('contact.form.success')) ? 'success' : 'error'}`}>
               {status}
             </div>
           )}
           
           <button type="submit" disabled={isSending}>
-            {isSending ? "ENVIANDO..." : "ENVIAR"}
+            {isSending ? t('contact.form.sending') : t('contact.form.send')}
           </button>
         </form>
       </div>
 
       <div className="contact-info">
-        <h3>Información de <span>Contacto</span></h3>
-        <p>Carrer del Ponent, 10<br />08756 La Palma de Cervelló,<br /> Barcelona</p>
-        <p><strong>Llámanos</strong> +34 934 185 173</p>
-        <p>Estamos abiertos de Lunes a Viernes<br />09:00 - 18:30</p>
-        <h4>Síguenos</h4>
+        <h3 dangerouslySetInnerHTML={{ __html: t('contact.info.title') }} />
+        <p dangerouslySetInnerHTML={{ __html: t('contact.info.address') }} />
+        <p dangerouslySetInnerHTML={{ __html: t('contact.info.callUs') }} />
+        <p dangerouslySetInnerHTML={{ __html: t('contact.info.hours') }} />
+        <h4>{t('contact.info.followUs')}</h4>
         
         <div className="social-links">
-          <a href="https://www.facebook.com/ghpowergenerators" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.facebook.com/ghpowergenerators" target="_blank" rel="noopener noreferrer" title={t('contact.social.facebook')}>
             <FaFacebookSquare />
           </a>
-          <a href="https://www.linkedin.com/company/gh-power" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.linkedin.com/company/gh-power" target="_blank" rel="noopener noreferrer" title={t('contact.social.linkedin')}>
             <FaLinkedin />
           </a>
         </div>

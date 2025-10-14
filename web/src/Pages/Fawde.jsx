@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { createClient } from '@supabase/supabase-js';
+import { useTranslation } from 'react-i18next';
 import './Fawde.css';
-import generator from '../assets/generador.png'; // Asegúrate de tener esta imagen en tu proyecto
+import generator from '../assets/generador.png';
 
 const supabaseUrl = 'https://mfbwfvyokxanubyxamim.supabase.co';
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1mYndmdnlva3hhbnVieXhhbWltIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTY4ODI1OTQsImV4cCI6MjA3MjQ1ODU5NH0.oFoatF2o44dic8qIkrPeLpv_Zd6mzoWOnEGGDXILUEo';
@@ -11,6 +12,7 @@ const Fawde = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -35,8 +37,8 @@ const Fawde = () => {
     fetchProducts();
   }, []);
 
-  if (loading) return <p className="loading">Cargando productos...</p>;
-  if (error) return <p className="error">Error: {error}</p>;
+  if (loading) return <p className="loading">{t('fawde.loading')}</p>;
+  if (error) return <p className="error">{t('fawde.error')} {error}</p>;
 
   return (
     <div className="gh-power-container">
@@ -45,14 +47,12 @@ const Fawde = () => {
           <img src={generator} alt="Generador Principal" className="main-image" />
         </div>
         <div className="header-right">
-          <h2 className="product-title">Generadores FAWDE</h2>
+          <h2 className="product-title">{t('fawde.title')}</h2>
           <p className="product-description">
-Especializado en la fabricación de motores pesados, medianos, ligeros, vehículos comerciales. Su fábrica de producción tiene unas dimensiones de 870,000 metros cuadrados y más de 5,400 colaboradores.
-Sus principales productos son los motores de diésel, gas, piezas móviles,  productos de re manufacturación y sistemas “Common Rail”. Han obtenido el primer premio al progreso nacional de ciencia y tecnología, sumado a que es el primer proyecto piloto de demostración de fabricación inteligente de MIIT.
-
-</p>
+            {t('fawde.description')}
+          </p>
           <a href="/Contacto">
-            <button className="contact-button">Contactanos →</button>
+            <button className="contact-button">{t('fawde.contactButton')}</button>
           </a>
         </div>
       </section>
@@ -60,16 +60,15 @@ Sus principales productos son los motores de diésel, gas, piezas móviles,  pro
         <table className="product-table">
           <thead>
             <tr>
-              <th>Modelo</th>
-              <th className='hide-mobile'>Prime Power KW</th>
-              <th className='hide-mobile'>Prime Power KVA</th>
-              <th className='hide-mobile'>Standby Power KW</th>
-              <th>Standby Power KVA</th>
-              <th className='hide-mobile'>Modelo Motor</th>
-              
-              <th>Frecuencia</th>
-              <th>Voltaje</th>
-              <th className='hide-mobile'>Fase</th>
+              <th>{t('fawde.tableHeaders.model')}</th>
+              <th className='hide-mobile'>{t('fawde.tableHeaders.primePowerKW')}</th>
+              <th className='hide-mobile'>{t('fawde.tableHeaders.primePowerKVA')}</th>
+              <th className='hide-mobile'>{t('fawde.tableHeaders.standbyPowerKW')}</th>
+              <th>{t('fawde.tableHeaders.standbyPowerKVA')}</th>
+              <th className='hide-mobile'>{t('fawde.tableHeaders.engineModel')}</th>
+              <th>{t('fawde.tableHeaders.frequency')}</th>
+              <th>{t('fawde.tableHeaders.voltage')}</th>
+              <th className='hide-mobile'>{t('fawde.tableHeaders.phase')}</th>
             </tr>
           </thead>
           <tbody>

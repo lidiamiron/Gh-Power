@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import "../pages/Productos.css";
 import { createClient } from '@supabase/supabase-js';
 
@@ -19,6 +20,8 @@ function ProductGrid() {
   const [applyFilters, setApplyFilters] = useState(false);
   const [selectedEngineBrand, setSelectedEngineBrand] = useState("All");
   const [selectedEngineModel, setSelectedEngineModel] = useState("All");
+  
+  const { t } = useTranslation();
 
   // Cargar productos desde Supabase
   useEffect(() => {
@@ -109,24 +112,23 @@ function ProductGrid() {
   });
 
   if (loading) {
-    return <div className="product-wrapper">Cargando productos...</div>;
+    return <div className="product-wrapper">{t('products.loading')}</div>;
   }
 
   return (
     <div className="product-wrapper">
       <div className="product-container">
-        <h2>GENERADORES INDUSTRIALES</h2>
+        <h2>{t('products.title')}</h2>
         <p className="product-description">
-          Especializados en motores de alta gama, generadores de combustible alternativo y diésel. 
-          Nuestros motores entran al mercado a competir gracias a su eficiencia y prestaciones de alto rendimiento.
+          {t('products.description')}
         </p>
 
         {/* FILTROS */}
         <div className="filter-panel">
           <div className="filter-group">
-            <span>Combustible:</span>
+            <span>{t('products.filters.fuel')}</span>
             <button onClick={() => setSelectedFuel("All")} className={selectedFuel === "All" ? "active" : ""}>
-              Todos
+              {t('products.filters.all')}
             </button>
             {fuels.map(fuel => (
               <button 
@@ -140,9 +142,9 @@ function ProductGrid() {
           </div>
 
           <div className="filter-group">
-            <span>Frecuencia:</span>
+            <span>{t('products.filters.frequency')}</span>
             <button onClick={() => setSelectedFrequency("All")} className={selectedFrequency === "All" ? "active" : ""}>
-              Todas
+              {t('products.filters.allFrequencies')}
             </button>
             {frequencies.map(freq => (
               <button 
@@ -156,9 +158,9 @@ function ProductGrid() {
           </div>
 
           <div className="filter-group">
-            <label>Voltaje:</label>
+            <label>{t('products.filters.voltage')}</label>
             <select value={selectedVoltage} onChange={(e) => setSelectedVoltage(e.target.value)}>
-              <option value="All">Todos</option>
+              <option value="All">{t('products.filters.allVoltages')}</option>
               {voltages.map(voltage => (
                 <option key={voltage} value={voltage}>{voltage}</option>
               ))}
@@ -166,9 +168,9 @@ function ProductGrid() {
           </div>
 
           <div className="filter-group">
-            <span>Fase:</span>
+            <span>{t('products.filters.phase')}</span>
             <button onClick={() => setSelectedPhase("All")} className={selectedPhase === "All" ? "active" : ""}>
-              Todas
+              {t('products.filters.allPhases')}
             </button>
             {phases.map(phase => (
               <button 
@@ -182,7 +184,7 @@ function ProductGrid() {
           </div>
 
           <div className="filter-group">
-            <label>Potencia Standby (kVA):</label>
+            <label>{t('products.filters.standbyPower')}</label>
             <select 
               value={selectedStandbyPower} 
               onChange={(e) => {
@@ -190,7 +192,7 @@ function ProductGrid() {
                 setSelectedStandbyPower(e.target.value);
               }}
             >
-              <option value="All">Todos</option>
+              <option value="All">{t('products.filters.allPowers')}</option>
               {standbyPowerValues.map(value => (
                 <option key={value} value={value}>{value} kVA</option>
               ))}
@@ -198,7 +200,7 @@ function ProductGrid() {
           </div>
 
           <div className="filter-group">
-            <label>Marca del Motor:</label>
+            <label>{t('products.filters.engineBrand')}</label>
             <select 
               value={selectedEngineBrand} 
               onChange={(e) => {
@@ -206,7 +208,7 @@ function ProductGrid() {
                 setSelectedEngineModel("All");
               }}
             >
-              <option value="All">Todas</option>
+              <option value="All">{t('products.filters.allBrands')}</option>
               {engineBrands.map(brand => (
                 <option key={brand} value={brand}>{brand}</option>
               ))}
@@ -214,12 +216,12 @@ function ProductGrid() {
           </div>
 
           <div className="filter-group">
-            <label>Modelo del Motor:</label>
+            <label>{t('products.filters.engineModel')}</label>
             <select 
               value={selectedEngineModel} 
               onChange={(e) => setSelectedEngineModel(e.target.value)}
             >
-              <option value="All">Todos</option>
+              <option value="All">{t('products.filters.allModels')}</option>
               {engineModels.map(model => (
                 <option key={model} value={model}>{model}</option>
               ))}
@@ -228,7 +230,7 @@ function ProductGrid() {
 
           <div className="filter-group">
             <button onClick={handleSearch} className="search-button">
-              Buscar
+              {t('products.filters.search')}
             </button>
           </div>
         </div>
@@ -239,10 +241,15 @@ function ProductGrid() {
             <Link to={`/productos/${product.name}`} className="product-card" key={index}>
               <img src={product.image} alt={product.name} className="product-image" />
               <div className="product-power">
-                ⚡ {product.powerKVA} - <span>{product.type}</span>
+                {t('products.productCard.power')} {product.powerKVA} - <span>{product.type}</span>
               </div>
               <h3 className="product-name">{product.name}</h3>
-              <p className="product-subtitle">GRUPOS<br />ELECTROGENOS</p>
+              <p 
+                className="product-subtitle" 
+                dangerouslySetInnerHTML={{ 
+                  __html: t('products.productCard.subtitle') 
+                }} 
+              />
             </Link>
           ))}
         </div>

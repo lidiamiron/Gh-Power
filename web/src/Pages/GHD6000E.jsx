@@ -1,14 +1,13 @@
 import React, { useState, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import "./portatiles.css";
 import { FaFilePdf } from "react-icons/fa";
-
-
 import generatormain from "../assets/ghd6000.png";
-
 
 // Subcomponente para especificaciones
 const ProductSpecs = () => {
   const [openSection, setOpenSection] = useState("estructura");
+  const { t } = useTranslation();
 
   const toggleSection = (section) => {
     setOpenSection(openSection === section ? null : section);
@@ -16,21 +15,28 @@ const ProductSpecs = () => {
 
   return (
     <div className="specs-container">
-      <h2 className="specs-title">Especificaciones Técnicas</h2>
+      <h2 className="specs-title">{t('ghd6000e.technicalSpecs')}</h2>
 
       <div className="specs-block">
         <div className="specs-header" onClick={() => toggleSection("estructura")}>
-          <h3>Estructura</h3>
+          <h3>{t('ghd6000e.structure')}</h3>
           <span>{openSection === "estructura" ? "↑" : "↓"}</span>
         </div>
         {openSection === "estructura" && (
           <table className="specs-table">
             <tbody>
-              <tr><td>Estructura:</td><td>Abierta</td></tr>
-              <tr><td>Dimensiones:</td><td>700 x 480 x 600 mm</td></tr>
-              <tr><td>Peso neto:</td><td>95 kg</td></tr>
-              
-              
+              <tr>
+                <td>{t('ghd6000e.specs.structure')}</td>
+                <td>{t('ghd6000e.specs.structureValue')}</td>
+              </tr>
+              <tr>
+                <td>{t('ghd6000e.specs.dimensions')}</td>
+                <td>{t('ghd6000e.specs.dimensionsValue')}</td>
+              </tr>
+              <tr>
+                <td>{t('ghd6000e.specs.weight')}</td>
+                <td>{t('ghd6000e.specs.weightValue')}</td>
+              </tr>
             </tbody>
           </table>
         )}
@@ -38,40 +44,42 @@ const ProductSpecs = () => {
 
       <div className="specs-block">
         <div className="specs-header" onClick={() => toggleSection("motor")}>
-          <h3>Motor</h3>
+          <h3>{t('ghd6000e.motor')}</h3>
           <span>{openSection === "motor" ? "↑" : "↓"}</span>
         </div>
         {openSection === "motor" && (
-  <ul className="specs-list">
-    <li>Modelo: GHD6000E</li>
-    <li>Frecuencia (Hz): 50/60</li>
-    <li>Voltaje (V): 230-400</li>
-    <li>Factor de potencia: 1</li>
-    <li>Capacidad Motor (cc): 418</li>
-    <li>Salida DC (V/A): 12/8.3</li>
-    <li>Fases:1</li>
-    <li>Sistema de arranque: Eléctrico</li>
-    <li>Enfriamiento de Motor: Aire</li>
-    <li>Autonomia (h): 6.5/6.0</li>
-    <li>Und x 20 ft: 102</li>
-  </ul>
-)}
+          <ul className="specs-list">
+            <li>{t('ghd6000e.specs.model')}</li>
+            <li>{t('ghd6000e.specs.frequency')}</li>
+            <li>{t('ghd6000e.specs.voltage')}</li>
+            <li>{t('ghd6000e.specs.powerFactor')}</li>
+            <li>{t('ghd6000e.specs.engineCapacity')}</li>
+            <li>{t('ghd6000e.specs.dcOutput')}</li>
+            <li>{t('ghd6000e.specs.phases')}</li>
+            <li>{t('ghd6000e.specs.startingSystem')}</li>
+            <li>{t('ghd6000e.specs.engineCooling')}</li>
+            <li>{t('ghd6000e.specs.autonomy')}</li>
+            <li>{t('ghd6000e.specs.unitsPerContainer')}</li>
+          </ul>
+        )}
       </div>
-      
-
 
       <div className="docs-block">
-        <h2 className="docs-title">Manuales y documentos</h2>
-        <div className="doc-item" ><a href="/docs/LK21B.pdf" className="pdf-icon"><FaFilePdf /></a>
-          <a href="/docs/LK21B.pdf" target="_blank" rel="noreferrer" >
-           
- <p className="descargas">Ficha técnica</p>
+        <h2 className="docs-title">{t('ghd6000e.manuals')}</h2>
+        <div className="doc-item">
+          <a href="/docs/LK21B.pdf" className="pdf-icon">
+            <FaFilePdf />
+          </a>
+          <a href="/docs/LK21B.pdf" target="_blank" rel="noreferrer">
+            <p className="descargas">{t('ghd6000e.techSheet')}</p>
           </a>
         </div>
-        <div className="doc-item"><a href="" className="pdf-icon"><FaFilePdf /></a>
+        <div className="doc-item">
+          <a href="#" className="pdf-icon">
+            <FaFilePdf />
+          </a>
           <a href="#" target="_blank" rel="noreferrer" className="descargas">
-          
-            <p className="descargas">Manual de usuario</p>
+            <p className="descargas">{t('ghd6000e.userManual')}</p>
           </a>
         </div>
       </div>
@@ -84,6 +92,7 @@ const GHD6000E = () => {
   const images = [generatormain];
   const [selectedImage, setSelectedImage] = useState(images[0]);
   const sectionRef = useRef(null);
+  const { t } = useTranslation();
 
   return (
     <section className="gallery-section" ref={sectionRef}>
@@ -106,18 +115,22 @@ const GHD6000E = () => {
 
       {/* Parte derecha sticky */}
       <div className="gallery-right">
-        <h2 className="product-title">GHD6000E</h2>
-        <p className="product-subtitle">Monofásico</p>
+        <h2 className="product-title">{t('ghd6000e.title')}</h2>
+        <p className="product-subtitle">{t('ghd6000e.subtitle')}</p>
         <ul className="product-info">
-          <li>⚡ Potencia PRP: 4.5kW / 5.0kVA</li>
-          <li>⚡ Potencia ESP: 5.0kW / 5.5kVA</li>
-          <li>🔌 Monofásico</li>
-          <li>⚖️ 95 Kg</li>
-          <li>✔️ Motor DE186FE</li>
-          <li>✔️ Alternador de alto rendimiento</li>
-          <li>✔️ Capacidad de combustible: 12.5 L</li>
+          <li>{t('ghd6000e.features.powerPRP')}</li>
+          <li>{t('ghd6000e.features.powerESP')}</li>
+          <li>{t('ghd6000e.features.singlePhase')}</li>
+          <li>{t('ghd6000e.features.weight')}</li>
+          <li>{t('ghd6000e.features.engine')}</li>
+          <li>{t('ghd6000e.features.alternator')}</li>
+          <li>{t('ghd6000e.features.fuelCapacity')}</li>
         </ul>
-        <a href="http://localhost:5173/Contacto"><button className="product-button">Contactanos→</button></a>
+        <a href="/Contacto">
+          <button className="product-button">
+            {t('ghd6000e.contactButton')}
+          </button>
+        </a>
       </div>
     </section>
   );
