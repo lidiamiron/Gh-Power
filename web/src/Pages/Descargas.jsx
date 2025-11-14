@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { useAuth } from '../context/AuthContext';   // ← nueva línea
+import { useNavigate } from 'react-router-dom';     // ← nueva línea
 import { createClient } from '@supabase/supabase-js';
 import { FaDownload } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
@@ -15,6 +17,16 @@ const Descargas = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const { t } = useTranslation();
+  const { user } = useAuth();          // ← hook que te dice si hay sesión
+  const navigate = useNavigate(); 
+
+   const protegerDescarga = (url) => {
+    if (!user) {
+      navigate('/login', { state: { from: location.pathname }, replace: true });
+      return;
+    }
+    window.open(url, '_blank');   // o usa <a href...> si prefieres
+  }; 
 
   useEffect(() => {
     const fetchGeneradores = async () => {
@@ -168,27 +180,48 @@ const Descargas = () => {
                 <td className="hide-mobile">{item.engine_model || t('downloads.status.noData')}</td>
                 <td className="hide-mobile">{item.phase || t('downloads.status.noData')}</td>
                 <td className="descarga">
-                  {esUrlValida(item.ficha_técnica) ? (
-                    <a href={item.ficha_técnica} target="_blank" rel="noreferrer" download title={t('downloads.downloadButtons.techSheet')}>
-                      <FaDownload /><span className='space'>{t('downloads.downloadButtons.techSheet')}</span>
-                    </a>
-                  ) : (
-                    <span className="no-disponible">
-                      {item.ficha_técnica ? t('downloads.status.invalidLink') : t('downloads.status.notAvailable')}
-                    </span>
-                  )}
-                </td>
-                <td className="descarga">
-                  {esUrlValida(item.manual) ? (
-                    <a href={item.manual} target="_blank" rel="noreferrer" download title={t('downloads.downloadButtons.userManual')}>
-                      <FaDownload /><span className='space'>{t('downloads.downloadButtons.userManual')}</span>
-                    </a>
-                  ) : (
-                    <span className="no-disponible">
-                      {item.manual ? t('downloads.status.invalidLink') : t('downloads.status.notAvailable')}
-                    </span>
-                  )}
-                </td>
+  {esUrlValida(item.ficha_técnica) ? (
+    <a
+      href="#"
+      onClick={(e) => {
+        e.preventDefault();
+        protegerDescarga(item.ficha_técnica);
+      }}
+      title={t('downloads.downloadButtons.techSheet')}
+    >
+      <FaDownload />
+      <span className="space">{t('downloads.downloadButtons.techSheet')}</span>
+    </a>
+  ) : (
+    <span className="no-disponible">
+      {item.ficha_técnica
+        ? t('downloads.status.invalidLink')
+        : t('downloads.status.notAvailable')}
+    </span>
+  )}
+</td>
+
+<td className="descarga">
+  {esUrlValida(item.manual) ? (
+    <a
+      href="#"
+      onClick={(e) => {
+        e.preventDefault();
+        protegerDescarga(item.manual);
+      }}
+      title={t('downloads.downloadButtons.userManual')}
+    >
+      <FaDownload />
+      <span className="space">{t('downloads.downloadButtons.userManual')}</span>
+    </a>
+  ) : (
+    <span className="no-disponible">
+      {item.manual
+        ? t('downloads.status.invalidLink')
+        : t('downloads.status.notAvailable')}
+    </span>
+  )}
+</td>
               </tr>
             );
           })}

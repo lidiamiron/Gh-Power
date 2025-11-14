@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { FaFacebookSquare, FaLinkedin } from "react-icons/fa"; // Removed FaInstagram as it's not used
+import { FaFacebookSquare, FaLinkedin, FaInstagram } from "react-icons/fa"; 
 import { useTranslation } from "react-i18next";
 import { Helmet } from 'react-helmet-async'; // Added for SEO
 import emailjs from "@emailjs/browser";
@@ -203,6 +203,14 @@ export default function Contact() {
           <a href="https://www.linkedin.com/company/gh-power" target="_blank" rel="noopener noreferrer" title={t('contact.social.linkedin')}>
             <FaLinkedin />
           </a>
+            <a 
+               href="https://www.instagram.com/ghpower_official/" 
+               target="_blank"
+               rel="noopener noreferrer"
+               
+             >
+               <FaInstagram />
+             </a>
         </div>
       </div>
     </section>

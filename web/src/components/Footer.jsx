@@ -2,9 +2,11 @@ import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt, faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { useTranslation } from "react-i18next";
-import logo from "../assets/logo-white.svg";
+import logo from "../assets/blanco_logo.png";
 import { FaFacebookSquare, FaInstagram, FaLinkedin } from "react-icons/fa";
 import "../components/Footer.css";
+import { Link } from "react-router-dom";
+
 
 const Footer = () => {
   const { t } = useTranslation();
@@ -13,7 +15,7 @@ const Footer = () => {
     <footer className="Lk-footer">
       <div className="footer-top">
         <div className="footer-brand">
-          <a href="/"><img src={logo} alt="Logo LK Energy" /></a>
+          <a href="/"><img src={logo} alt="Logo Gh-Power" className="logo-footer" /></a>
           <p className="tagline">{t('footer.tagline')}</p>
           <p className="live-session">{t('footer.liveSession')}</p>
         </div>
@@ -36,6 +38,9 @@ const Footer = () => {
             </a>
             <a href="https://www.linkedin.com/company/gh-power">
               <li><FaLinkedin className="redes" />{t('footer.linkedin')}</li>
+            </a>
+             <a href="https://www.instagram.com/ghpower_official/">
+              <li><FaInstagram className="redes" />{t('footer.instagram')}</li>
             </a>
           </ul>
         </div>
@@ -63,11 +68,13 @@ const Footer = () => {
       </div>
       
       <div className="footer-bottom">
-        <div className="legal-links">
-          <span>{t('footer.privacyTerms')}</span>
+         <div className="legal-links">
+          <Link to="/politica-privacidad" aria-label="Política de privacidad y términos" className="privacy">{t('footer.terms', 'Términos y condiciones de privacidad')}</Link>
         </div>
         <div className="copyright">
-          {t('footer.copyright', { year: new Date().getFullYear() })}
+          {t('footer.copyright', 'Copyright © {{year}} Gh-Power. Todos los derechos reservados.', { 
+            year: new Date().getFullYear() 
+          })}
         </div>
       </div>
     </footer>

@@ -41,6 +41,7 @@
     "followUs": "Síguenos",
     "facebook": "Facebook",
     "linkedin": "LinkedIn",
+    "instagram": "Instagram",
     "contactTitle": "Contacto",
     "address": "Dirección",
     "phone": "Teléfono",
@@ -986,10 +987,10 @@
     "contactButton": "Contáctanos→"
   },
   "home": {
-    "titleLine1": "GH POWER",
-    "titleLine2": "GRUPOS ELECTRÓGENOS",
+    "titleLine1": "GRUPOS",
+    "titleLine2": "ELECTRÓGENOS",
     "subtitle": "Soluciones Energéticas para Cada Uso",
-    "budgetButton": "Solicita tu presupuesto",
+    "budgetButton": "CONTÁCTANOS",
     "aboutTitle": "SOBRE NOSOTROS",
     "aboutHeading": "GH POWER",
     "aboutSubtitle": "Generadores Eléctricos: Soluciones Energéticas Innovadoras y Personalizadas",
@@ -1110,5 +1111,45 @@
       "voltage": "Voltaje",
       "phase": "Fase"
     }
+  },
+  "privacy.title": "Política de Privacidad",
+  "privacy.intro": "La confidencialidad y la seguridad son valores primordiales para Gh-Power. Nos comprometemos a garantizar la privacidad de los usuarios y a no recabar información innecesaria. A continuación, le proporcionamos toda la información necesaria sobre el tratamiento de sus datos personales conforme al Reglamento (UE) 2016/679 (RGPD) y la Ley Orgánica 3/2018 (LOPDGDD).",
+  "privacy.responsible": "Responsable del tratamiento",
+  "privacy.responsibleText": "Generhome International S.L. CIF: B67375550 Domicilio: Calle Ponent, 44, Polígono Can Mascaró, 08756, Barcelona (España) Email: info@gh-power.com Teléfono: +34 936 84 66 35",
+  "privacy.purposes": "Finalidades, legitimación y conservación",
+  "privacy.tableHeader": ["Tratamiento", "Finalidad", "Base legal", "Conservación"],
+  "privacy.table": [
+    ["Registro en la plataforma", "Gestión de cuenta y envío de información comercial", "Consentimiento", "Hasta baja del usuario"],
+    ["Pago de compras", "Gestión comercial y envío de pedidos", "Ejecución de contrato", "Mientras dure la relación contractual"],
+    ["Newsletters", "Envío de información y ofertas", "Consentimiento", "Hasta revocación"],
+    ["Solicitudes de descuento", "Promociones comerciales", "Consentimiento", "Hasta solicitud de baja"],
+    ["Envío de emails / CV", "Atención de consultas y selección de personal", "Consentimiento", "1 año (CV) / hasta atender consulta"]
+  ],
+  "privacy.recipients": "Destinatarios",
+  "privacy.recipientsText": "Terceros que prestan servicios de TI, alojamiento web, marketing o logística. Cuando sea necesario transferir datos fuera del EEE, se aplicarán Cláusulas Contractuales Tipo o decisiones de adecuación de la Comisión Europea.",
+  "privacy.rights": "Derechos",
+  "privacy.rightsText": "Puede ejercer sus derechos de acceso, rectificación, supresión, limitación, oposición y portabilidad enviando un correo electrónico a info@gh-power.com, indicando el derecho que desea ejercer y adjuntando copia de su documento identificativo. También puede presentar una reclamación ante la Agencia Española de Protección de Datos (www.aepd.es).",
+  "privacy.security": "Seguridad",
+  "privacy.securityText": "Gh-Power aplica medidas técnicas y organizativas adecuadas para garantizar la confidencialidad, integridad y disponibilidad de los datos personales tratados.",
+  "privacy.update": "Última actualización: Octubre 2025",
+  "cookies": {
+    "message": "Usamos cookies propias y de terceros para mejorar tu experiencia, analizar el tráfico y ofrecerte contenido personalizado.",
+    "linkText": "Leer política de cookies",
+    "accept": "Aceptar todas",
+    "reject": "Rechazar",
+    "policyTitle": "Política de Cookies",
+    "intro": "En Gh-Power utilizamos cookies para mejorar el funcionamiento de nuestra web y ofrecer una mejor experiencia de usuario.",
+    "whatAre": "¿Qué son las cookies?",
+    "definition": "Las cookies son pequeños archivos que se descargan en tu dispositivo al acceder a ciertos sitios web. Permiten almacenar y recuperar información sobre los hábitos de navegación.",
+    "typesTitle": "Tipos de cookies que utilizamos",
+    "typeTechnical": "Cookies técnicas: necesarias para el correcto funcionamiento del sitio.",
+    "typeAnalytics": "Cookies analíticas: nos ayudan a entender cómo usan los usuarios el sitio para mejorarlo.",
+    "typeAdvertising": "Cookies de publicidad: permiten mostrar anuncios relevantes en función de tus intereses.",
+    "manageTitle": "Cómo gestionar las cookies",
+    "manageText": "Puedes permitir, bloquear o eliminar las cookies a través de la configuración de tu navegador o del panel de preferencias de esta web.",
+    "contactTitle": "Contacto",
+    "contactText": "Si tienes dudas sobre nuestra política de cookies, puedes contactar con nosotros en info@gh-power.com.",
+    "update": "Última actualización: Octubre 2025"
   }
+
 }

@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import { useTranslation } from "react-i18next";
-import { Helmet } from 'react-helmet-async'; // Added for SEO
-import banner from "../assets/banner.svg";
-import generador from "../assets/generador.png"; 
+import { Helmet } from 'react-helmet-async'; 
+import banner from "../assets/banner.png";
+
 import { FaTools, FaHammer, FaShieldAlt } from "react-icons/fa";
 import workerImage from "../assets/generadores.jpg";
 import "../Pages/Home.css";
@@ -123,9 +123,7 @@ export default function Home() {
                 </button>
               </a>
             </div>
-            <div className="generador-image">
-              <img className="generator" src={generador} alt="foto-generador" />
-            </div>
+           
           </div>
         </div>
       </section>
@@ -148,14 +146,14 @@ export default function Home() {
           <p className="contact-us">
             <a href="/Contacto">{t('home.contactUs')}</a>
           </p>
-        </div>
-
-        <div className="about-right">
           <div className="about-description">
             <p>
               {t('home.aboutDescription')}
             </p>
           </div>
+        </div>
+
+        <div className="about-right">
           <div className="about-image">
             <img src={workerImage} alt="Generadores industriales" />
           </div>

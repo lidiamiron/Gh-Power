@@ -41,6 +41,7 @@
     "followUs": "Folgen Sie uns",
     "facebook": "Facebook",
     "linkedin": "LinkedIn",
+    "instagram": "Instagram",
     "contactTitle": "Kontakt",
     "address": "Adresse",
     "phone": "Telefon",
@@ -988,11 +989,11 @@
     "titleLine1": "GH POWER",
     "titleLine2": "GRUPPENSTROMERZEUGER",
     "subtitle": "Energielösungen für jeden Einsatz",
-    "budgetButton": "Anfrage für ein Angebot",
+    "budgetButton": "Kontaktieren Sie uns",
     "aboutTitle": "ÜBER UNS",
     "aboutHeading": "GH POWER",
     "aboutSubtitle": "Stromerzeuger: Innovative und maßgeschneiderte Energielösungen",
-    "contactUs": "KONTAKTIEREN SIE UNS",
+    "contactUs": "Kontaktieren Sie uns",
     "aboutDescription": "GH POWER ist führend in der Herstellung von Stromerzeugern und bietet eine breite Palette von Energielösungen, die auf die Bedürfnisse verschiedener Märkte zugeschnitten sind. Mit Präsenz in mehr als 30 Ländern und einem starken Händlernetzwerk erweitern wir unseren globalen Fußabdruck Jahr für Jahr und festigen unsere Position als Referenz im Energiesektor. Unsere Stärke liegt in der Vielseitigkeit, maßgeschneiderte Produkte zu entwickeln, die an die spezifischen Anforderungen jedes Marktes angepasst sind. Bei GH POWER garantieren wir sofortige Reaktionszeiten und erstklassigen technischen und kommerziellen Support, was uns ermöglicht hat, mehr als 1000 Kunden weltweit zufrieden zu stellen. Vertrauen Sie auf GH POWER für zuverlässige, innovative Energielösungen, die durch einen außergewöhnlichen Service unterstützt werden. Kontaktieren Sie uns noch heute und entdecken Sie, wie wir Ihre Energie steigern können!",
     "cards": {
       "spareParts": {
@@ -1109,6 +1110,45 @@
       "voltage": "Spannung",
       "phase": "Phase"
     }
+  },
+  "privacy.title": "Datenschutzrichtlinie",
+  "privacy.intro": "Vertraulichkeit und Sicherheit sind zentrale Werte für Gh-power. Wir verpflichten uns, die Privatsphäre der Nutzer zu schützen und keine unnötigen Daten zu erheben. Nachfolgend finden Sie alle notwendigen Informationen zur Verarbeitung Ihrer personenbezogenen Daten gemäß der Verordnung (EU) 2016/679 (DSGVO) und dem spanischen Organgesetz 3/2018 (LOPDGDD).",
+  "privacy.responsible": "Verantwortlicher für die Datenverarbeitung",
+  "privacy.responsibleText": "Generhome International S.L. USt-ID: B67375550  Adresse: Calle Ponent, 44, Polígono Can Mascaró, 08756, Barcelona (Spanien) E-Mail: info@gh-power.com Telefon: +34 936 84 66 35",
+  "privacy.purposes": "Zwecke, Rechtsgrundlage und Aufbewahrung",
+  "privacy.tableHeader": ["Verarbeitung", "Zweck", "Rechtsgrundlage", "Aufbewahrung"],
+  "privacy.table": [
+    ["Plattformregistrierung", "Kontoverwaltung und kommerzielle Kommunikation", "Einwilligung", "Bis zur Abmeldung des Nutzers"],
+    ["Zahlungen", "Kaufabwicklung und Lieferung", "Vertragserfüllung", "Solange die vertragliche Beziehung besteht"],
+    ["Newsletter", "Versand von Informationen und Angeboten", "Einwilligung", "Bis zum Widerruf"],
+    ["Rabattanfragen", "Kommerzielle Aktionen", "Einwilligung", "Bis zur Abmeldung"],
+    ["E-Mails / Lebenslauf", "Bearbeitung von Anfragen und Rekrutierung", "Einwilligung", "1 Jahr (Lebenslauf) / bis zur Bearbeitung"]
+  ],
+  "privacy.recipients": "Empfänger",
+  "privacy.recipientsText": "Dritte, die IT-, Hosting-, Marketing- oder Logistikdienste bereitstellen. Bei Datenübertragungen außerhalb des EWR werden Standardvertragsklauseln oder Angemessenheitsbeschlüsse angewendet.",
+  "privacy.rights": "Rechte",
+  "privacy.rightsText": "Sie können Ihre Rechte auf Auskunft, Berichtigung, Löschung, Einschränkung, Widerspruch und Übertragbarkeit per E-Mail an info@gh-power.com ausüben. Fügen Sie bitte eine Kopie Ihres Ausweises bei. Sie können auch eine Beschwerde bei der spanischen Datenschutzbehörde (www.aepd.es) einreichen.",
+  "privacy.security": "Sicherheit",
+  "privacy.securityText": "Gh-power wendet geeignete technische und organisatorische Maßnahmen an, um die Vertraulichkeit, Integrität und Verfügbarkeit personenbezogener Daten sicherzustellen.",
+  "privacy.update": "Letzte Aktualisierung: Oktober 2025",
+  "cookies": {
+    "message": "Wir verwenden eigene und Drittanbieter-Cookies, um Ihre Erfahrung zu verbessern, den Datenverkehr zu analysieren und personalisierte Inhalte anzubieten.",
+    "linkText": "Cookie-Richtlinie lesen",
+    "accept": "Alle akzeptieren",
+    "reject": "Ablehnen",
+    "policyTitle": "Cookie-Richtlinie",
+    "intro": "Bei Gh-power verwenden wir Cookies, um die Leistung unserer Website zu verbessern und das Benutzererlebnis zu optimieren.",
+    "whatAre": "Was sind Cookies?",
+    "definition": "Cookies sind kleine Dateien, die beim Besuch bestimmter Websites auf Ihrem Gerät gespeichert werden. Sie helfen dabei, Informationen über Ihr Surfverhalten zu speichern und abzurufen.",
+    "typesTitle": "Arten von Cookies, die wir verwenden",
+    "typeTechnical": "Technische Cookies: notwendig für das ordnungsgemäße Funktionieren der Website.",
+    "typeAnalytics": "Analyse-Cookies: helfen uns zu verstehen, wie Benutzer die Website nutzen.",
+    "typeAdvertising": "Werbe-Cookies: ermöglichen es, relevante Anzeigen basierend auf Ihren Interessen anzuzeigen.",
+    "manageTitle": "Wie man Cookies verwaltet",
+    "manageText": "Sie können Cookies über Ihre Browsereinstellungen oder das Einstellungsfenster dieser Website zulassen, blockieren oder löschen.",
+    "contactTitle": "Kontakt",
+    "contactText": "Bei Fragen zu unserer Cookie-Richtlinie kontaktieren Sie uns bitte unter info@gh-power.com.",
+    "update": "Letzte Aktualisierung: Oktober 2025"
   }
 
 

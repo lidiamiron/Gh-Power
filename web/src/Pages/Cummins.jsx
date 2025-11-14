@@ -1,210 +1,148 @@
-import React, { useRef, useState } from "react";
-import { FaFacebookSquare, FaLinkedin } from "react-icons/fa"; // Removed FaInstagram as it's not used
-import { useTranslation } from "react-i18next";
+import React, { useEffect, useState } from 'react';
+import { createClient } from '@supabase/supabase-js';
+import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet-async'; // Added for SEO
-import emailjs from "@emailjs/browser";
-import "../pages/Contacto.css";
+import './Cummins.css';
+import generator from '../assets/generador.png';
 
-export default function Contact() {
-  const form = useRef();
-  const [isSending, setIsSending] = useState(false);
-  const [status, setStatus] = useState("");
+const supabaseUrl = 'https://mfbwfvyokxanubyxamim.supabase.co';
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1mYndmdnlva3hhbnVieXhhbWltIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTY4ODI1OTQsImV4cCI6MjA3MjQ1ODU5NH0.oFoatF2o44dic8qIkrPeLpv_Zd6mzoWOnEGGDXILUEo';
+const supabase = createClient(supabaseUrl, supabaseKey);
+
+const Cummins = () => {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const { t } = useTranslation();
 
-  const [formData, setFormData] = useState({
-    user_name: "",
-    user_lastname: "",
-    user_email: "",
-    user_phone: "",
-    message: ""
-  });
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const { data, error } = await supabase
+          .from('generadores')
+          .select('prime_power_kw, prime_power_kva, standby_kw, standby_kva, engine_model, modelo_motor, frequencies, voltage, phase')
+          .eq('marca_motor', 'CUMMINS');
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
+        if (error) {
+          throw error;
+        }
 
-  const sendEmail = async (e) => {
-    e.preventDefault();
-    
-    if (!formData.user_name || !formData.user_email || !formData.message) {
-      setStatus(t('contact.form.requiredFields'));
-      return;
-    }
-
-    setIsSending(true);
-    setStatus(t('contact.form.sendingMessage'));
-
-    try {
-      await emailjs.sendForm(
-        "service_0kk7i59",
-        "template_ol12m5r", 
-        form.current,
-        "PCIrH42CmhrTcQhLc"
-      );
-
-      setStatus(t('contact.form.success'));
-      setFormData({
-        user_name: "",
-        user_lastname: "",
-        user_email: "",
-        user_phone: "",
-        message: ""
-      });
-      
-    } catch (error) {
-      if (error.text?.includes('template ID not found')) {
-        setStatus(t('contact.form.configError'));
-      } else {
-        setStatus(t('contact.form.error'));
+        setProducts(data);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
       }
-    } finally {
-      setIsSending(false);
-    }
-  };
+    };
+
+    fetchProducts();
+  }, []);
+
+  if (loading) return <p className="loading">{t('cummins.loading')}</p>;
+  if (error) return <p className="error">{t('cummins.error')} {error}</p>;
 
   return (
-    <section className="contact-section">
+    <div className="gh-power-container">
       <Helmet>
-        <title>Contacto | GH Power - Soluciones Energéticas</title>
+        <title>Generadores CUMMINS | GH Power - Soluciones Energéticas</title>
         <meta
           name="description"
-          content="Contacta con GH Power para soluciones de generadores portátiles e industriales. Estamos en Barcelona, disponibles 24/7."
+          content="Generadores CUMMINS de GH Power: alta potencia y durabilidad para industria, construcción y más. Cotiza ahora."
         />
         <meta
           name="keywords"
-          content="contacto GH Power, generadores portátiles, generadores industriales, soluciones energéticas, Barcelona"
+          content="generadores CUMMINS, generadores diesel, generadores industriales, GH Power, soluciones energéticas, construcción, industria"
         />
-        <meta property="og:title" content="Contacto | GH Power" />
+        <meta property="og:title" content="Generadores CUMMINS | GH Power" />
         <meta
           property="og:description"
-          content="Ponte en contacto con GH Power para generadores y soluciones energéticas en Barcelona. Soporte 24/7."
+          content="Explora generadores CUMMINS de GH Power, ideales para industria y construcción con alta durabilidad. Cotiza hoy."
         />
-        <meta property="og:image" content="https://gh-power.com/images/logo.jpg" />
-        <meta property="og:url" content="https://gh-power.com/contacto" />
+        <meta property="og:image" content="https://gh-power.com/images/generador.png" />
+        <meta property="og:url" content="https://gh-power.com/productos/cummins" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="robots" content="index, follow" />
-        <link rel="alternate" href="https://gh-power.com/contacto" hreflang="es" />
-        <link rel="alternate" href="https://gh-power.com/en/contacto" hreflang="en" />
+        <link rel="alternate" href="https://gh-power.com/productos/cummins" hreflang="es" />
+        <link rel="alternate" href="https://gh-power.com/en/productos/cummins" hreflang="en" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "ContactPage",
-            "name": "Contacto GH Power",
-            "description": "Página de contacto de GH Power para consultas sobre generadores y soluciones energéticas.",
-            "publisher": {
-              "@type": "Organization",
-              "name": "GH Power",
-              "contactPoint": {
-                "@type": "ContactPoint",
-                "telephone": "+34934185173",
-                "contactType": "Customer Service",
-                "email": "info@gh-power.com",
-                "areaServed": "ES",
-                "availableLanguage": ["Spanish", "English"]
-              },
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "Calle Ponent, 10 – PI Can Mascaró",
-                "addressLocality": "La Palma de Cervelló",
-                "addressRegion": "Barcelona",
-                "postalCode": "08756",
-                "addressCountry": "ES"
-              },
-              "sameAs": [
-                "https://www.facebook.com/ghpowergenerators",
-                "https://www.linkedin.com/company/gh-power"
+            "@type": "ProductGroup",
+            "name": "Generadores CUMMINS",
+            "description": "Generadores CUMMINS de GH Power, diseñados para alta potencia y durabilidad en aplicaciones industriales y de construcción.",
+            "brand": {
+              "@type": "Brand",
+              "name": "GH Power"
+            },
+            "hasVariant": products.map(product => ({
+              "@type": "Product",
+              "name": product.modelo_motor,
+              "description": `Generador CUMMINS ${product.modelo_motor} con ${product.prime_power_kva} kVA de potencia principal.`,
+              "additionalProperty": [
+                {
+                  "@type": "PropertyValue",
+                  "name": "Prime Power kW",
+                  "value": product.prime_power_kw
+                },
+                {
+                  "@type": "PropertyValue",
+                  "name": "Standby Power kVA",
+                  "value": product.standby_kva
+                }
               ]
-            }
+            }))
           })}
         </script>
       </Helmet>
 
-      <div className="contact-form">
-        <h2 dangerouslySetInnerHTML={{ __html: t('contact.title') }} />
-        <p>{t('contact.description')}</p>
-
-        <form ref={form} onSubmit={sendEmail}>
-          <div className="input-row">
-            <div className="input-field">
-              <input 
-                type="text" 
-                name="user_name" 
-                placeholder={t('contact.form.name')} 
-                value={formData.user_name}
-                onChange={handleChange}
-                required 
-              />
-            </div>
-            <div className="input-field">
-              <input 
-                type="text" 
-                name="user_lastname" 
-                placeholder={t('contact.form.lastname')} 
-                value={formData.user_lastname}
-                onChange={handleChange}
-              />
-            </div>
-          </div>
-          <div className="input-row">
-            <div className="input-field">
-              <input 
-                type="email" 
-                name="user_email" 
-                placeholder={t('contact.form.email')} 
-                value={formData.user_email}
-                onChange={handleChange}
-                required 
-              />
-            </div>
-            <div className="input-field">
-              <input 
-                type="text" 
-                name="user_phone" 
-                placeholder={t('contact.form.phone')} 
-                value={formData.user_phone}
-                onChange={handleChange}
-              />
-            </div>
-          </div>
-          <div className="textarea-field">
-            <textarea 
-              name="message" 
-              placeholder={t('contact.form.message')} 
-              value={formData.message}
-              onChange={handleChange}
-              required
-            ></textarea>
-          </div>
-          
-          {status && (
-            <div className={`status-message ${status.includes(t('contact.form.success')) ? 'success' : 'error'}`}>
-              {status}
-            </div>
-          )}
-          
-          <button type="submit" disabled={isSending}>
-            {isSending ? t('contact.form.sending') : t('contact.form.send')}
-          </button>
-        </form>
-      </div>
-
-      <div className="contact-info">
-        <h3 dangerouslySetInnerHTML={{ __html: t('contact.info.title') }} />
-        <p dangerouslySetInnerHTML={{ __html: t('contact.info.address') }} />
-        <p dangerouslySetInnerHTML={{ __html: t('contact.info.callUs') }} />
-        <p dangerouslySetInnerHTML={{ __html: t('contact.info.hours') }} />
-        <h4>{t('contact.info.followUs')}</h4>
-        
-        <div className="social-links">
-          <a href="https://www.facebook.com/ghpowergenerators" target="_blank" rel="noopener noreferrer" title={t('contact.social.facebook')}>
-            <FaFacebookSquare />
-          </a>
-          <a href="https://www.linkedin.com/company/gh-power" target="_blank" rel="noopener noreferrer" title={t('contact.social.linkedin')}>
-            <FaLinkedin />
+      <section className="header-section">
+        <div className="header-left">
+          <img src={generator} alt={t('cummins.mainImageAlt')} className="main-image" />
+        </div>
+        <div className="header-right">
+          <h2 className="product-title">{t('cummins.title')}</h2>
+          <p className="product-description">
+            {t('cummins.description')}
+          </p>
+          <a href="/Contacto">
+            <button className="contact-button">{t('cummins.contactButton')}</button>
           </a>
         </div>
+      </section>
+      <div className="table-container">
+        <table className="product-table">
+          <thead>
+            <tr>
+              <th>{t('cummins.tableHeaders.model')}</th>
+              <th className='hide-mobile'>{t('cummins.tableHeaders.primePowerKW')}</th>
+              <th className='hide-mobile'>{t('cummins.tableHeaders.primePowerKVA')}</th>
+              <th className='hide-mobile'>{t('cummins.tableHeaders.standbyPowerKW')}</th>
+              <th>{t('cummins.tableHeaders.standbyPowerKVA')}</th>
+              <th className='hide-mobile'>{t('cummins.tableHeaders.engineModel')}</th>
+              <th>{t('cummins.tableHeaders.frequency')}</th>
+              <th>{t('cummins.tableHeaders.voltage')}</th>
+              <th className='hide-mobile'>{t('cummins.tableHeaders.phase')}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {products.map((product, index) => (
+              <tr key={index}>
+                <td>{product.modelo_motor}</td>
+                <td className='hide-mobile'>{product.prime_power_kw}</td>
+                <td className='hide-mobile'>{product.prime_power_kva}</td>
+                <td className='hide-mobile'>{product.standby_kw}</td>
+                <td>{product.standby_kva}</td>
+                <td className='hide-mobile'>{product.engine_model}</td>
+                <td>{product.frequencies}</td>
+                <td>{product.voltage}</td>
+                <td className='hide-mobile'>{product.phase}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
-    </section>
+    </div>
   );
-}
+};
+
+export default Cummins;

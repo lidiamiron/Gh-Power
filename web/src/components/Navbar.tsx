@@ -1,10 +1,10 @@
 import { useState, useRef, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { FaBars, FaChevronDown, FaChevronRight, FaUser, FaUserPlus, FaSignOutAlt } from "react-icons/fa";
 import { useAuth } from '../context/AuthContext';
 import { supabase } from '../client';
 import { useTranslation } from "react-i18next";
-import logo from "../assets/logo.svg";
+import logo from "../assets/rojo_logo.png";
 import "../components/Navbar.css";
 
 export default function Navbar() {
@@ -12,8 +12,9 @@ export default function Navbar() {
   const [openDropdown, setOpenDropdown] = useState(null);
   const [openSubDropdown, setOpenSubDropdown] = useState(null);
   const location = useLocation();
+  const navigate = useNavigate();
   const isHomePage = location.pathname === '/' || location.pathname === '/Home';
-  const dropdownRef = useRef(null);
+  const navRef = useRef(null);
   const { t } = useTranslation();
   
   const { user, loading } = useAuth();
@@ -25,7 +26,7 @@ export default function Navbar() {
   };
 
   const toggleDropdown = (dropdownName) => {
-    if (window.innerWidth <= 768) {
+    if (window.innerWidth <= 1024) {
       setOpenDropdown(openDropdown === dropdownName ? null : dropdownName);
       setOpenSubDropdown(null);
     } else {
@@ -35,10 +36,32 @@ export default function Navbar() {
   };
 
   const toggleSubDropdown = (subDropdownName) => {
-    if (window.innerWidth <= 768) {
+    if (window.innerWidth <= 1024) {
       setOpenSubDropdown(openSubDropdown === subDropdownName ? null : subDropdownName);
     } else {
       setOpenSubDropdown(openSubDropdown === subDropdownName ? null : subDropdownName);
+    }
+  };
+
+  const handleMenuClick = (path) => {
+    navigate(path);
+    setOpenDropdown(null);
+    setOpenSubDropdown(null);
+    setIsOpen(false);
+  };
+
+  const handleProductosClick = (e) => {
+    if (window.innerWidth <= 1024) {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      if (openDropdown !== 'productos') {
+        setOpenDropdown('productos');
+      } else {
+        navigate('/productos');
+        setOpenDropdown(null);
+        setIsOpen(false);
+      }
     }
   };
 
@@ -46,6 +69,7 @@ export default function Navbar() {
     try {
       await supabase.auth.signOut();
       sessionStorage.removeItem('token');
+      window.location.href = '/';
     } catch (error) {
       console.error('Error al cerrar sesión:', error);
     }
@@ -65,19 +89,17 @@ export default function Navbar() {
     return t('navbar.user');
   };
 
-  // Cerrar menús al hacer clic fuera
+  // Handle clicks outside the nav to close menu and submenu
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      if (navRef.current && !navRef.current.contains(event.target)) {
+        setIsOpen(false);
         setOpenDropdown(null);
         setOpenSubDropdown(null);
       }
     };
-
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
   }, []);
 
   // Estructura de datos para los productos - Internacionalizada
@@ -136,11 +158,11 @@ export default function Navbar() {
   return (
     <header className={isHomePage ? "fixed-header" : "sticky-header"}>
       <div className="container">
-        <nav>
+        <nav ref={navRef}>
           {/* Logo */}
-          <div className="logo">
+          <div className="nav-logo">
             <a href="/">
-              <img src={logo} alt="Logo" />
+              <img src={logo} className='logo-img' alt="Logo" />
             </a>
           </div>
 
@@ -149,98 +171,190 @@ export default function Navbar() {
             {/* Menú de navegación */}
             <ul className={isOpen ? "nav-link active" : "nav-link"}>
               <li>
-                <a className={location.pathname === '/' ? 'active' : ''} href="/">
+                <a 
+                  className={location.pathname === '/' ? 'active' : ''} 
+                  href="/"
+                  onClick={(e) => {
+                    if (window.innerWidth <= 1024) {
+                      e.preventDefault();
+                      handleMenuClick('/');
+                    }
+                  }}
+                >
                   {t('navbar.company')}
                 </a>
               </li>
               
               <li 
                 className="dropdown-wrapper"
-                ref={dropdownRef}
-                onMouseEnter={() => window.innerWidth > 768 && setOpenDropdown('productos')}
-                onMouseLeave={() => window.innerWidth > 768 && setOpenDropdown(null)}
+                onMouseEnter={() => window.innerWidth > 1024 && setOpenDropdown('productos')}
+                onMouseLeave={() => window.innerWidth > 1024 && setOpenDropdown(null)}
               >
                 <a 
                   href="/productos" 
                   className={`${location.pathname.startsWith('/productos') ? 'active' : ''} ${openDropdown === 'productos' ? 'open' : ''}`}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    toggleDropdown('productos');
-                  }}
+                  onClick={handleProductosClick}
                 >
                   {t('navbar.products')}
-                  <FaChevronDown className="dropdown-icon" />
+                  <FaChevronDown className={`dropdown-icon ${openDropdown === 'productos' ? 'open' : ''}`} />
                 </a>
                 
-                {openDropdown === 'productos' && (
-                  <div className="submenu-container">
-                    <div className="submenu">
-                      {Object.entries(productosMenu).map(([categoria, datos]) => (
+                {/* Submenú de productos */}
+                <div className={`submenu-container ${openDropdown === 'productos' ? 'open' : ''}`}>
+                  <div className="submenu">
+                    {Object.entries(productosMenu).map(([categoria, datos]) => (
+                      <div 
+                        key={categoria} 
+                        className="submenu-item"
+                        onMouseEnter={() => window.innerWidth > 1024 && datos.items && setOpenSubDropdown(categoria)}
+                        onMouseLeave={() => window.innerWidth > 1024 && setOpenSubDropdown(null)}
+                      >
                         <div 
-                          key={categoria} 
-                          className="submenu-item"
-                          onMouseEnter={() => window.innerWidth > 768 && datos.items && setOpenSubDropdown(categoria)}
-                          onMouseLeave={() => window.innerWidth > 768 && setOpenSubDropdown(null)}
+                          className="submenu-title"
+                          onClick={() => {
+                            if (window.innerWidth <= 1024) {
+                              if (datos.items) {
+                                toggleSubDropdown(categoria);
+                              } else {
+                                handleMenuClick(datos.path);
+                              }
+                            }
+                          }}
                         >
-                          <div 
-                            className="submenu-title"
-                            onClick={() => datos.items && toggleSubDropdown(categoria)}
-                          >
-                            <a href={datos.path}>{categoria}</a>
-                            {datos.items && Object.keys(datos.items).length > 0 && (
-                              <FaChevronRight className="dropdown-icon submenu-arrow" />
-                            )}
-                          </div>
-                          
-                          {datos.items && openSubDropdown === categoria && Object.keys(datos.items).length > 0 && (
-                            <div className="subsubmenu">
-                              {Object.entries(datos.items).map(([subcategoria, subdatos]) => (
-                                <div key={subcategoria} className="subsubmenu-item">
-                                  {typeof subdatos === 'string' ? (
-                                    <a href={subdatos}>{subcategoria}</a>
-                                  ) : (
-                                    <>
-                                      <div className="subsubmenu-title">
-                                        <a href={subdatos.path}>{subcategoria}</a>
-                                        {Object.keys(subdatos.items).length > 0 && (
-                                          <FaChevronRight className="dropdown-icon" />
-                                        )}
-                                      </div>
-                                      {Object.keys(subdatos.items).length > 0 && (
-                                        <div className="subsubsubmenu">
-                                          {Object.entries(subdatos.items).map(([producto, ruta]) => (
-                                            <div key={producto} className="subsubsubmenu-item">
-                                              <a href={ruta}>{producto}</a>
-                                            </div>
-                                          ))}
-                                        </div>
-                                      )}
-                                    </>
-                                  )}
-                                </div>
-                              ))}
-                            </div>
+                          {datos.items ? (
+                            <span className="submenu-text">{categoria}</span>
+                          ) : (
+                            <a 
+                              href={datos.path}
+                              onClick={(e) => {
+                                if (window.innerWidth <= 1024) {
+                                  e.preventDefault();
+                                  handleMenuClick(datos.path);
+                                }
+                              }}
+                            >
+                              {categoria}
+                            </a>
+                          )}
+                          {datos.items && Object.keys(datos.items).length > 0 && (
+                            <FaChevronRight className={`dropdown-icon submenu-arrow ${openSubDropdown === categoria ? 'open' : ''}`} />
                           )}
                         </div>
-                      ))}
-                    </div>
+                        
+                        {/* Sub-submenú */}
+                        {datos.items && (openSubDropdown === categoria || window.innerWidth > 1024) && Object.keys(datos.items).length > 0 && (
+                          <div className={`subsubmenu ${openSubDropdown === categoria ? 'open' : ''}`}>
+                            {Object.entries(datos.items).map(([subcategoria, subdatos]) => (
+                              <div key={subcategoria} className="subsubmenu-item">
+                                {typeof subdatos === 'string' ? (
+                                  <a 
+                                    href={subdatos}
+                                    onClick={(e) => {
+                                      if (window.innerWidth <= 1024) {
+                                        e.preventDefault();
+                                        handleMenuClick(subdatos);
+                                      }
+                                    }}
+                                  >
+                                    {subcategoria}
+                                  </a>
+                                ) : (
+                                  <>
+                                    <div 
+                                      className="subsubmenu-title"
+                                      onClick={() => {
+                                        if (window.innerWidth <= 1024 && subdatos.items) {
+                                          // Para subcategorías con items, manejamos el toggle de forma diferente
+                                          const subSubmenu = document.querySelector(`.subsubsubmenu-${subcategoria}`);
+                                          if (subSubmenu) {
+                                            subSubmenu.classList.toggle('open');
+                                          }
+                                        } else if (window.innerWidth <= 1024 && !subdatos.items) {
+                                          handleMenuClick(subdatos.path);
+                                        }
+                                      }}
+                                    >
+                                      {subdatos.items ? (
+                                        <span className="submenu-text">{subcategoria}</span>
+                                      ) : (
+                                        <a 
+                                          href={subdatos.path}
+                                          onClick={(e) => {
+                                            if (window.innerWidth <= 1024) {
+                                              e.preventDefault();
+                                              handleMenuClick(subdatos.path);
+                                            }
+                                          }}
+                                        >
+                                          {subcategoria}
+                                        </a>
+                                      )}
+                                      {subdatos.items && Object.keys(subdatos.items).length > 0 && (
+                                        <FaChevronRight className="dropdown-icon" />
+                                      )}
+                                    </div>
+                                    {subdatos.items && Object.keys(subdatos.items).length > 0 && (
+                                      <div className={`subsubsubmenu subsubsubmenu-${subcategoria} ${window.innerWidth > 1024 ? 'open' : ''}`}>
+                                        {Object.entries(subdatos.items).map(([producto, ruta]) => (
+                                          <div key={producto} className="subsubsubmenu-item">
+                                            <a 
+                                              href={ruta}
+                                              onClick={(e) => {
+                                                if (window.innerWidth <= 1024) {
+                                                  e.preventDefault();
+                                                  handleMenuClick(ruta);
+                                                }
+                                              }}
+                                            >
+                                              {producto}
+                                            </a>
+                                          </div>
+                                        ))}
+                                      </div>
+                                    )}
+                                  </>
+                                )}
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    ))}
                   </div>
-                )}
+                </div>
               </li>
 
               <li>
-                <a className={location.pathname === '/Descargas' ? 'active' : ''} href="/Descargas">
+                <a 
+                  className={location.pathname === '/Descargas' ? 'active' : ''} 
+                  href="/Descargas"
+                  onClick={(e) => {
+                    if (window.innerWidth <= 1024) {
+                      e.preventDefault();
+                      handleMenuClick('/Descargas');
+                    }
+                  }}
+                >
                   {t('navbar.downloads')}
                 </a>
               </li>
               <li>
-                <a className={location.pathname === '/Contacto' ? 'active' : ''} href="/Contacto">
+                <a 
+                  className={location.pathname === '/Contacto' ? 'active' : ''} 
+                  href="/Contacto"
+                  onClick={(e) => {
+                    if (window.innerWidth <= 1024) {
+                      e.preventDefault();
+                      handleMenuClick('/Contacto');
+                    }
+                  }}
+                >
                   {t('navbar.contact')}
                 </a>
               </li>
             </ul>
 
-            {/* Iconos de autenticación - EN LA MISMA LÍNEA */}
+            {/* Iconos de autenticación */}
             <div className="auth-icons">
               {loading ? (
                 <div className="auth-loading">
@@ -263,11 +377,31 @@ export default function Navbar() {
                 </>
               ) : (
                 <>
-                  <a href="/login" className="auth-icon" title={t('navbar.loginTitle')}>
+                  <a 
+                    href="/login" 
+                    className="auth-icon" 
+                    title={t('navbar.loginTitle')}
+                    onClick={(e) => {
+                      if (window.innerWidth <= 1024) {
+                        e.preventDefault();
+                        handleMenuClick('/login');
+                      }
+                    }}
+                  >
                     <FaUser />
                     <span>{t('navbar.login')}</span>
                   </a>
-                  <a href="/signup" className="auth-icon signup" title={t('navbar.signupTitle')}>
+                  <a 
+                    href="/signup" 
+                    className="auth-icon signup" 
+                    title={t('navbar.signupTitle')}
+                    onClick={(e) => {
+                      if (window.innerWidth <= 1024) {
+                        e.preventDefault();
+                        handleMenuClick('/signup');
+                      }
+                    }}
+                  >
                     <FaUserPlus />
                     <span>{t('navbar.signup')}</span>
                   </a>
@@ -277,7 +411,14 @@ export default function Navbar() {
           </div>
 
           {/* Ícono del menú hamburguesa */}
-          <div className="icon" onClick={toggleMenu}>
+          <div 
+            className="icon" 
+            onClick={toggleMenu}
+            role="button"
+            aria-label="Menú de navegación"
+            aria-expanded={isOpen}
+            aria-controls="nav-menu"
+          >
             <FaBars />
           </div>
         </nav>

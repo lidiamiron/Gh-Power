@@ -1,10 +1,15 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import "../components/Acordeon.css";
+import tratamientoAguas from "../assets/tratamientoaguas.jpg"
+import centroDatos from "../assets/centrodedatos.png"
+import sanitario from "../assets/sectordesalud.jpg"
+import industriaPetroliera from "../assets/industriapetrolera.png"
+import construccion from "../assets/sectordelaconstrucion.png"
 
 export default function Acordeon() {
-  const [activeIndex, setActiveIndex] = useState(0);
   const { t } = useTranslation();
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const toggle = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
@@ -12,37 +17,64 @@ export default function Acordeon() {
 
   const data = [
     {
-      title: t("accordion.why_choose"),
+      title: t("accordion.why_choose", ),
       content: t("accordion.why_choose_content"),
     },
     {
       title: t("accordion.energy_efficiency"),
       content: t("accordion.energy_efficiency_content"),
+
     },
     {
       title: t("accordion.water_treatment"),
       content: t("accordion.water_treatment_content"),
+      image: tratamientoAguas 
+
     },
     {
       title: t("accordion.data_center"),
       content: t("accordion.data_center_content"),
+      image: centroDatos
+
     },
     {
       title: t("accordion.health_sector"),
       content: t("accordion.health_sector_content"),
+      image: sanitario
     },
     {
       title: t("accordion.oil_industry"),
       content: t("accordion.oil_industry_content"),
+      image: industriaPetroliera
     },
     {
       title: t("accordion.construction_sector"),
       content: t("accordion.construction_sector_content"),
+      image: construccion
     },
   ];
 
+
+   const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": data.map((item, index) => ({
+      "@type": "Question",
+      "name": item.title,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.content
+      }
+    }))
+  };
+
+
   return (
     <div className="accordion">
+      <script type="application/ld+json">
+        {JSON.stringify(faqSchema)}
+      </script>
+
       {data.map((item, index) => (
         <div className="accordion-item" key={index}>
           <button
@@ -55,11 +87,14 @@ export default function Acordeon() {
             <span aria-hidden="true">{activeIndex === index ? "-" : "+"}</span>
           </button>
           <div 
-            id={`accordion-content-${index}`}
-            className={`accordion-content ${activeIndex === index ? "open" : ""}`}
-          >
-            <p>{item.content}</p>
-          </div>
+  id={`accordion-content-${index}`}
+  className={`accordion-content ${activeIndex === index ? "open" : ""}`}
+>
+  <div className="accordion-inner">
+    <p>{item.content}</p>
+    {item.image && <img src={item.image} alt={item.title} loading="lazy" />}
+  </div>
+</div>
         </div>
       ))}
     </div>

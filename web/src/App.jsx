@@ -40,6 +40,10 @@ import SignUp from './Pages/SignUp.jsx';
 import Login from './Pages/Login.jsx';
 import Homepage from './Pages/Homepage.jsx';
 import LanguageSwitcher from './components/LanguageSwitcher.jsx';
+import ScrollToTop from './components/ScrollToTop';
+import PrivacyPolicy from './Pages/PrivacyPolicy.jsx';
+import CookieConsent from "./components/CookieConsent";
+import PoliticaCookies from './Pages/PoliticaCookies.jsx';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -61,6 +65,7 @@ function App() {
       <AuthProvider>
         <Router>
           <MainLayout>
+            <ScrollToTop />
             <Routes>
               <Route path="/signup" element={<SignUp />} />
               <Route path="/login" element={<Login setToken={setToken} />} />
@@ -96,8 +101,11 @@ function App() {
               <Route path="/productos/generadores-portatiles/gasolina/GHG10000E" element={<GHG10000E />} />
               <Route path="/productos/generador4x1" element={<Generador4x1 />} />
               <Route path="/productos/generadores-portatiles/diesel/GH15000DE" element={<GH15000DE />} />
+              <Route path="/politica-privacidad" element={<PrivacyPolicy />} />
+              <Route path="/politica-cookies" element={<PoliticaCookies />} />
             </Routes>
           </MainLayout>
+          <CookieConsent />
           <LanguageSwitcher />
         </Router>
       </AuthProvider>

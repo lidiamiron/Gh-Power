@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { Helmet } from 'react-helmet-async'; // Added for SEO
+import { Helmet } from 'react-helmet-async';
 import "../pages/Productos.css";
 import { createClient } from '@supabase/supabase-js';
 
@@ -24,6 +24,48 @@ function ProductGrid() {
   
   const { t } = useTranslation();
 
+  // Función para generar la URL correcta según el tipo de producto
+  const getProductUrl = (product) => {
+    const productName = product.name.toLowerCase();
+    
+    // Generador 4x1
+    if (productName.includes('4x1') || productName.includes('4en1') || productName.includes('4 en 1')) {
+      return `/productos/generador4x1`;
+    }
+    
+    // Si tiene marca de motor (engineBrand), es industrial - va a la página de la marca
+    if (product.engineBrand && product.engineBrand.trim() !== '') {
+      const engineBrand = product.engineBrand.toLowerCase().trim();
+      
+      if (engineBrand.includes('cummins')) {
+        return `/productos/cummins`;
+      }
+      
+      if (engineBrand.includes('baudouin')) {
+        return `/productos/baudouin`;
+      }
+      
+      if (engineBrand.includes('perkins')) {
+        return `/productos/perkins`;
+      }
+      
+      if (engineBrand.includes('volvo')) {
+        return `/productos/volvo`;
+      }
+      
+      if (engineBrand.includes('deutz')) {
+        return `/productos/deutz`;
+      }
+      
+      // Si tiene otra marca de motor, usar esa marca
+      return `/productos/${engineBrand.replace(/\s+/g, '-')}`;
+    }
+    
+    // Si NO tiene marca de motor, es portátil - va a su página individual
+    const fuelType = product.fuel.toLowerCase() === 'diesel' ? 'diesel' : 'gasolina';
+    return `/productos/generadores-portatiles/${fuelType}/${product.name}`;
+  };
+
   // Cargar productos desde Supabase
   useEffect(() => {
     const fetchProducts = async () => {
@@ -36,16 +78,16 @@ function ProductGrid() {
           throw error;
         }
         
-        console.log('Raw Supabase data:', data); // Debug: Log raw data
+        console.log('Raw Supabase data:', data);
 
         const transformedData = data.map(item => {
-          const standbyKVA = item.standby_kva != null ? parseFloat(item.standby_kva) : 0; // Handle null/undefined
-          console.log('Raw standby_kva:', item.standby_kva, 'Parsed standbyKVA:', standbyKVA); // Debug: Log raw and parsed standby_kva
+          const standbyKVA = item.standby_kva != null ? parseFloat(item.standby_kva) : 0;
+          console.log('Raw standby_kva:', item.standby_kva, 'Parsed standbyKVA:', standbyKVA);
           const product = {
             id: item.id,
             name: item.modelo_motor || '',
-            powerKVA: standbyKVA ? `${standbyKVA}kVA` : 'N/A', // For card display (standby_kva)
-            standbyPowerKVA: standbyKVA, // For standby power filter
+            powerKVA: standbyKVA ? `${standbyKVA}kVA` : 'N/A',
+            standbyPowerKVA: standbyKVA,
             powerKW: item.prime_power_kw ? `${parseFloat(item.prime_power_kw)}kW` : 'N/A',
             powerValueKW: parseFloat(item.prime_power_kw) || 0,
             powerW: '',
@@ -59,7 +101,7 @@ function ProductGrid() {
             engineBrand: item.marca_motor || '',
             engineModel: item.engine_model || ''
           };
-          console.log('Transformed product:', product); // Debug: Log each transformed product
+          console.log('Transformed product:', product);
           return product;
         });
         
@@ -88,7 +130,7 @@ function ProductGrid() {
     .filter(val => !isNaN(val) && val !== 0)
     .sort((a, b) => a - b);
 
-  console.log('Standby power values:', standbyPowerValues); // Debug: Log standby power values
+  console.log('Standby power values:', standbyPowerValues);
 
   // Obtener modelos de motor según la marca seleccionada
   const engineModels = selectedEngineBrand === "All" 
@@ -106,7 +148,7 @@ function ProductGrid() {
     const matchesEngineBrand = selectedEngineBrand === "All" || product.engineBrand === selectedEngineBrand;
     const matchesEngineModel = selectedEngineModel === "All" || product.engineModel === selectedEngineModel;
 
-    console.log('Filtering product:', product.name, 'Standby matches:', matchesStandbyPower); // Debug: Log filtering matches
+    console.log('Filtering product:', product.name, 'Standby matches:', matchesStandbyPower);
 
     return matchesFuel && matchesFrequency && matchesVoltage && matchesPhase && 
            matchesStandbyPower && matchesEngineBrand && matchesEngineModel;
@@ -155,7 +197,7 @@ function ProductGrid() {
               "name": product.name,
               "description": `Generador portátil ${product.name} con ${product.powerKVA} de potencia standby y ${product.fuel} como combustible.`,
               "image": product.image || "https://gh-power.com/images/generador.png",
-              "url": `https://gh-power.com/productos/${product.name}`,
+              "url": `https://gh-power.com${getProductUrl(product)}`,
               "additionalProperty": [
                 {
                   "@type": "PropertyValue",
@@ -282,7 +324,7 @@ function ProductGrid() {
             <select 
               value={selectedStandbyPower} 
               onChange={(e) => {
-                console.log('Selected Standby Power:', e.target.value); // Debug: Log selected value
+                console.log('Selected Standby Power:', e.target.value);
                 setSelectedStandbyPower(e.target.value);
               }}
               title={t('products.filters.standbyPower')}
@@ -340,7 +382,7 @@ function ProductGrid() {
         <div className="product-grid">
           {filteredProducts.map((product, index) => (
             <Link 
-              to={`/productos/${product.name}`} 
+              to={getProductUrl(product)}
               className="product-card" 
               key={index} 
               title={t('products.productCard.title', { name: product.name })}

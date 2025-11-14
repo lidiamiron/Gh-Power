@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #ce676c 0%, #e32b34 100%);
+  background: linear-gradient(135deg, #b4b3b3 0%, #ffffff 100%);
   padding: 20px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -67,7 +67,7 @@
 
 .login-submit-btn {
   width: 100%;
-  background: linear-gradient(135deg, #ce676c 0%, #e32b34 100%);
+  background: #e32b34;
   color: white;
   border: none;
   padding: 15px;
@@ -80,6 +80,7 @@
 }
 
 .login-submit-btn:hover {
+  background-color: #9e0008;
   transform: translateY(-2px);
   box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
 }
