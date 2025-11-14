@@ -10,6 +10,8 @@ import Acordeon from "../components/Acordeon";
 import Config from "../assets/configuracion.png";
 import FeaturedProducts from '../components/FeaturedProducts';
 import Contact from './Contacto';
+import GeneradoresIndustriales from '../components/GeneradoresIndustriales';
+import GeneradoresPortatiles from '../components/GeneradoresPortatiles';
 
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);
@@ -128,37 +130,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ABOUT SECTION */}
-      <section className="about-section" ref={aboutSectionRef}>
-        <div 
-          ref={aboutLeftRef}
-          className="about-left" 
-          style={{ 
-            transform: `translateY(${offset}px)`,
-            transition: "transform 0.3s ease-out, opacity 0.3s ease-out",
-            opacity: isVisible ? 1 : 0,
-            visibility: isVisible ? 'visible' : 'hidden'
-          }}
-        >
-          <h2 className="about-title">{t('home.aboutTitle')}</h2>
-          <h1 className="about-heading">{t('home.aboutHeading')}</h1>
-          <h2 className="about-subtitle">{t('home.aboutSubtitle')}</h2>
-          <p className="contact-us">
-            <a href="/Contacto">{t('home.contactUs')}</a>
-          </p>
-          <div className="about-description">
-            <p>
-              {t('home.aboutDescription')}
-            </p>
-          </div>
-        </div>
+      <GeneradoresIndustriales />
 
-        <div className="about-right">
-          <div className="about-image">
-            <img src={workerImage} alt="Generadores industriales" />
-          </div>
-        </div>
-      </section>
+       <GeneradoresPortatiles />
+
+     
 
       {/* CARDS SECTION */}
       <div className="cards-container">

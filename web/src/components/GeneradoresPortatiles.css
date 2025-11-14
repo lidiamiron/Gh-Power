@@ -1,0 +1,139 @@
+/* GeneradoresPortatiles.css */
+
+.generadores-portatiles-container {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100%;
+  
+}
+
+.portatiles-seccion {
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  min-height: 500px;
+  position: relative;
+}
+
+.portatiles-seccion.invertido {
+  flex-direction: row-reverse;
+}
+
+.portatiles-imagen {
+  flex: 0 0 40%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+}
+
+.portatiles-info {
+  flex: 1;
+  padding: 60px 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+
+.portatiles-categoria {
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+.portatiles-descripcion {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #555;
+  margin: 0;
+}
+
+.portatiles-modelos-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.portatiles-modelo-btn {
+  background-color: #e22a33;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.portatiles-modelo-btn:hover {
+  background-color: #b61e26;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: white;
+}
+
+.portatiles-modelo-btn:active {
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .portatiles-info {
+    padding: 50px 60px;
+  }
+  
+  .portatiles-modelos-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .portatiles-seccion,
+  .portatiles-seccion.invertido {
+    flex-direction: column !important;
+  }
+
+  .portatiles-imagen {
+    flex: 0 0 300px;
+    width: 100%;
+  }
+
+  .portatiles-info {
+    padding: 40px 30px;
+  }
+
+  .portatiles-modelos-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .portatiles-categoria {
+    font-size: 24px;
+  }
+
+  .portatiles-descripcion {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .portatiles-info {
+    padding: 30px 20px;
+  }
+
+  .portatiles-categoria {
+    font-size: 20px;
+  }
+
+  .portatiles-modelos-grid {
+    grid-template-columns: 1fr;
+  }
+}
