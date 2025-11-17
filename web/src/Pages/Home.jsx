@@ -4,14 +4,14 @@ import { Helmet } from 'react-helmet-async';
 import banner from "../assets/banner.png";
 
 import { FaTools, FaHammer, FaShieldAlt } from "react-icons/fa";
-import workerImage from "../assets/generadores.jpg";
+
 import "../Pages/Home.css";
-import Acordeon from "../components/Acordeon";
-import Config from "../assets/configuracion.png";
+
 import FeaturedProducts from '../components/FeaturedProducts';
 import Contact from './Contacto';
 import GeneradoresIndustriales from '../components/GeneradoresIndustriales';
 import GeneradoresPortatiles from '../components/GeneradoresPortatiles';
+import Sectors from '../components/Sectors';
 
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);
@@ -147,15 +147,7 @@ export default function Home() {
         ))}
       </div>
 
-      {/* ACCORDION SECTION */}
-      <section className="acordeon-section">
-        <div className="img-acordeon">
-          <img className="img-a" src={Config} alt="Power generator" />
-        </div>
-        <div className="accordion-box">
-          <Acordeon />
-        </div> 
-      </section>
+       <Sectors />
 
       <section className='featureProducts'> 
         <FeaturedProducts />

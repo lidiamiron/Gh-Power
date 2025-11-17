@@ -3,7 +3,7 @@ import { createClient } from '@supabase/supabase-js';
 import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet-async'; // Added for SEO
 import './Baudouin.css';
-import generator from '../assets/baudouin.jpg'; 
+import generator from '../assets/boudouin.jpg'; 
 
 const supabaseUrl = 'https://mfbwfvyokxanubyxamim.supabase.co';
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1mYndmdnlva3hhbnVieXhhbWltIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTY4ODI1OTQsImV4cCI6MjA3MjQ1ODU5NH0.oFoatF2o44dic8qIkrPeLpv_Zd6mzoWOnEGGDXILUEo';

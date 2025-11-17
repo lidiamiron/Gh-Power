@@ -1,4 +1,16 @@
 
+@font-face {
+  font-family: "Segoe ui";
+  src: url("./assets/fonts/segoeuithibd.ttf") format("ttf"),
+       url("./assets/fonts/segoeuithis.ttf") format("ttf"),
+       url("./assets/fonts/segoeuithisi.ttf") format("ttf"),
+       url("./assets/fonts/segoeuithisz.ttf") format("ttf");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+
 * {
   padding: 0;
   margin: 0;
@@ -7,7 +19,7 @@
 }
 
 body {
-font-family: "Noto Sans", sans-serif;
+font-family: "Segoe ui", sans-serif;
     margin: 0;
   padding: 0;
   
@@ -18,9 +30,11 @@ a {
   text-decoration: none;
 }
 
-h1{
-  font-family: "Shippori Antique", sans-serif;
+h1, h2, h3{
+ font-family: "Mulish", sans-serif;
+ font-weight: 900;
 }
+
 
 
 

@@ -1,0 +1,250 @@
+.apps-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+.apps-title {
+  text-align: center;
+  margin-bottom: 50px;
+  background-color: #000000;
+   padding: 60px 20px ;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+}
+
+.apps-title h2 {
+  font-size: 2.5rem;
+  
+  color: #ffffff;
+  margin: 0 0 10px 0;
+  letter-spacing: -0.5px;
+}
+
+.apps-title .apps-subtitle {
+  font-size: 1rem;
+  color: rgb(255, 255, 255);
+  font-weight: 400;
+}
+
+.eficiencia-title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.eficiencia-title h2 {
+  font-size: 2.5rem;
+  
+  margin: 0 0 10px 0;
+  letter-spacing: -0.5px;
+}
+
+.eficiencia-title .eficiencia-subtitle {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.carousel-wrapper {
+  position: relative;
+  overflow: hidden;
+  padding: 20px 0 10px 0;
+}
+
+.carousel-container {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.motor-card {
+  min-width: 100%;
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+
+.motor-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07), 0 1px 3px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.motor-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+.motor-card:hover .apps-image {
+  transform: scale(1.08);
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 350px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.card-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  color: white;
+  font-size: 1.8rem;
+  
+  text-align: center;
+  padding: 30px 20px;
+  margin: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 70%, transparent 100%);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  letter-spacing: 0.5px;
+}
+
+.apps-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.card-body {
+  padding: 28px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+}
+
+.card-description {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #4a4a4a;
+  margin: 0 0 20px 0;
+  flex: 1;
+}
+
+.card-link {
+  display: inline-flex;
+  align-items: center;
+  color: #ff0a2b;
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  letter-spacing: 0.3px;
+}
+
+.card-link:hover {
+  color: #c40720;
+  gap: 8px;
+}
+
+.card-link::after {
+  content: '→';
+  margin-left: 6px;
+  transition: margin-left 0.2s ease;
+}
+
+.carousel-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.nav-button {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #333;
+  font-size: 0;
+  position: relative;
+}
+
+.nav-button::before {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-top: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+}
+
+.nav-button.prev::before {
+  transform: rotate(-135deg);
+  left: 20px;
+}
+
+.nav-button.next::before {
+  transform: rotate(45deg);
+  right: 20px;
+}
+
+.nav-button:hover {
+  background: #ff0a2b;
+  border-color: #ff0a2b;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+.nav-button:active {
+  transform: scale(0.95);
+}
+
+.dots-container {
+  display: flex;
+  gap: 10px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #d0d0d0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  background: #ff0a2b;
+  width: 28px;
+  border-radius: 5px;
+}
+
+.dot:hover:not(.active) {
+  background: #a0a0a0;
+}
+
+@media (max-width: 768px) {
+  .apps-title h2 {
+    font-size: 2rem;
+  }
+
+  .image-container {
+    height: 280px;
+  }
+
+  .card-title {
+    font-size: 1.4rem;
+    padding: 20px 15px;
+  }
+
+  .card-body {
+    padding: 20px;
+  }
+}
