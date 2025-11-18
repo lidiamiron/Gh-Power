@@ -6,7 +6,7 @@ import banner from "../assets/banner.png";
 import { FaTools, FaHammer, FaShieldAlt } from "react-icons/fa";
 
 import "../Pages/Home.css";
-
+import CertificationCarousel from '../components/CertificationCarousel';
 import FeaturedProducts from '../components/FeaturedProducts';
 import Contact from './Contacto';
 import GeneradoresIndustriales from '../components/GeneradoresIndustriales';
@@ -70,7 +70,7 @@ export default function Home() {
       text: t('home.cards.warranties.text'),
     },
   ];
-
+  
   return (
     <main>
       {/* SEO Meta Tags */}
@@ -131,6 +131,7 @@ export default function Home() {
       </section>
 
       <GeneradoresIndustriales />
+      <CertificationCarousel />
 
        <GeneradoresPortatiles />
 
@@ -152,6 +153,7 @@ export default function Home() {
       <section className='featureProducts'> 
         <FeaturedProducts />
       </section>
+
       
       <section className='contact'> 
         <Contact />

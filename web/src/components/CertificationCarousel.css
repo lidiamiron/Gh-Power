@@ -1,0 +1,32 @@
+ .carousel-container {
+          overflow: hidden;
+          position: relative;
+          width: 100%;
+          padding: 20px 0;
+          margin-bottom: 40px;
+        }
+
+        .carousel-track {
+          display: flex;
+          gap: 2rem;
+          animation: moveBigText 15s infinite linear;
+          width: fit-content;
+        }
+
+        .carousel-item {
+          flex-shrink: 0;
+          width: 200px;
+        }
+
+        @keyframes moveBigText {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+
+        .carousel-track:hover {
+          animation-play-state: paused;
+        }

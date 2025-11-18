@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import "../components/Sectors.css";
 import Aguas from "../assets/tratamientoaguas.jpg"
 import CentroDatos from "../assets/centrodedatos.png"
@@ -48,6 +48,7 @@ const Sectors = () => {
     },
   ];
 
+  // Función para avanzar al siguiente slide
   const nextSlide = () => {
     if (isAnimating) return;
     setIsAnimating(true);
@@ -55,6 +56,7 @@ const Sectors = () => {
     setTimeout(() => setIsAnimating(false), 500);
   };
 
+  // Función para retroceder al slide anterior
   const prevSlide = () => {
     if (isAnimating) return;
     setIsAnimating(true);
@@ -62,12 +64,22 @@ const Sectors = () => {
     setTimeout(() => setIsAnimating(false), 500);
   };
 
+  // Función para ir a un slide específico
   const goToSlide = (index) => {
     if (isAnimating || index === currentIndex) return;
     setIsAnimating(true);
     setCurrentIndex(index);
     setTimeout(() => setIsAnimating(false), 500);
   };
+
+  // Efecto para el autoplay
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 5000); // Cambia cada 5 segundos
+
+    return () => clearInterval(interval);
+  }, [currentIndex, isAnimating]);
 
   return (
     <div className="apps-container">
@@ -80,52 +92,55 @@ const Sectors = () => {
         <p className="eficiencia-subtitle">La industria moderna opera con altos niveles de eficiencia gracias a tecnologías avanzadas, procesos precisos y trabajadores altamente cualificados. Un factor clave en este rendimiento es el sistema de inventario Just in Time, donde cada componente llega a la línea de producción justo a tiempo para su ensamblaje. Para que este proceso funcione sin interrupciones, es esencial contar con un suministro de energía confiable que mantenga la producción activa incluso durante un apagón. En GH POWER proporcionamos la potencia que su operación necesita. Ofrecemos una amplia gama de soluciones energéticas de respaldo y emergencia, diseñadas para garantizar continuidad operativa en cualquier situación.</p>
       </div>
 
-      <div className="carousel-wrapper">
-        <div 
-          className="carousel-container"
-          style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-        >
-          {apps.map((apps) => (
-            <div key={apps.id} className="motor-card">
-                <div className="image-container">
-                  <h3 className="card-title">{apps.title}</h3>
-                  <img 
-                    src={apps.imagen} 
-                    alt={`Applications ${apps.sector}`}
-                    className="apps-image"
-                  />
-                </div>
-                <div className="card-body">
-                  <p className="card-description">{apps.descripcion}</p>
-                </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <div className="carousel-controls">
+      <div className="carousel-with-arrows">
+        {/* Flecha izquierda */}
         <button 
-          className="nav-button prev" 
+          className="nav-button external prev" 
           onClick={prevSlide}
           aria-label="Anterior"
         />
         
-        <div className="dots-container">
-          {apps.map((_, index) => (
-            <div
-              key={index}
-              className={`dot ${index === currentIndex ? 'active' : ''}`}
-              onClick={() => goToSlide(index)}
-              aria-label={`Ir a diapositiva ${index + 1}`}
-            />
-          ))}
+        <div className="sectors-carousel-wrapper">
+          <div 
+            className="sectors-carousel-container"
+            style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+          >
+            {apps.map((apps) => (
+              <div key={apps.id} className="motor-card">
+                  <div className="image-container">
+                    <h3 className="card-title">{apps.title}</h3>
+                    <img 
+                      src={apps.imagen} 
+                      alt={`Applications ${apps.sector}`}
+                      className="apps-image"
+                    />
+                  </div>
+                  <div className="card-body">
+                    <p className="card-description">{apps.descripcion}</p>
+                  </div>
+              </div>
+            ))}
+          </div>
         </div>
 
+        {/* Flecha derecha */}
         <button 
-          className="nav-button next" 
+          className="nav-button external next" 
           onClick={nextSlide}
           aria-label="Siguiente"
         />
+      </div>
+
+      {/* Indicadores de posición */}
+      <div className="dots-container">
+        {apps.map((_, index) => (
+          <div
+            key={index}
+            className={`dot ${index === currentIndex ? 'active' : ''}`}
+            onClick={() => goToSlide(index)}
+            aria-label={`Ir a diapositiva ${index + 1}`}
+          />
+        ))}
       </div>
     </div>
   );

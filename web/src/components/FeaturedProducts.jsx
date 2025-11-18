@@ -119,7 +119,7 @@ const FeaturedProducts = () => {
 
   return (
     <div className="gallery-container">
-      <h2>{t('featuredProducts.title')}</h2>
+      <h2 className="title-feature-products">{t('featuredProducts.title')}</h2>
       <div className="product-grid">
         {products.length === 0 ? (
           <p>{t('featuredProducts.noProducts')}</p>

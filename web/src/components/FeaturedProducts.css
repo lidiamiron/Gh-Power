@@ -7,15 +7,14 @@
 }
 
 
-.gallery-container h2 {
- font-size: 2.5rem;
+.title-feature-products {
   margin-bottom: 2rem;
   color: #151615;
   position: relative;
   padding-bottom: 0.5rem;
-  font-weight: 700;
 }
-.gallery-container h2::after {
+
+.title-feature-products::after {
   content: '';
   position: absolute;
   bottom: 0;
@@ -24,7 +23,7 @@
   width: 80px;
   height: 4px;
   background: #e22a33;
-  border-radius: 2px;
+  border-radius: 6px;
 }
 
 .product-grid {
@@ -37,7 +36,7 @@
   background: #fff;
   padding: 1rem 1rem 2rem;
   border: 1px solid #ddd;
-  border-radius: 0 0 10px 10px!important;
+  border-radius: 0 0 6px 6px!important;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s;
   position: relative;
@@ -68,7 +67,6 @@
 
 .product-card h3 {
   margin: 0.8rem 0 0.3rem;
-  font-size: 1.1rem;
   color: #151615;
 }
 

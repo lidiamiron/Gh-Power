@@ -14,7 +14,7 @@
 .card {
   background: #f0e5e6!important;
   border: none!important;
-  border-radius: 3px;
+  border-radius: 6px;
   padding: 2rem;
   text-align: center;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -34,7 +34,7 @@
 }
 
 .card h3 {
-  font-size: 1.25rem;
+  font-size: 1.3rem;
   margin-bottom: 0.5rem;
   color: #151615;
   
@@ -42,7 +42,6 @@
 
 .card p {
   color: #151615; 
-  font-size: 0.95rem;
   line-height: 1.4;
 }
 
@@ -92,6 +91,7 @@
 .title {
  
   font-size: 55px;
+  font-weight: 700;
   margin-bottom: 1rem;
   color: #151615;
   text-shadow: 1px 1px 2px rgba(128, 128, 128, 0.7);
@@ -159,7 +159,7 @@
   margin-top: 2rem;
   padding-top: 1rem;
 padding-bottom: 1rem;
-  border-radius: 5px;
+  border-radius: 6px;
 
   font-weight: 600;
   text-transform:uppercase;
