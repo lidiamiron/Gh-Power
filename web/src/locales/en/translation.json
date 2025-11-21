@@ -986,6 +986,7 @@
     "contactButton": "Contact Us→"
   },
   "home": {
+     "banner_alt": "GH Power industrial and portable power generators",
     "titleLine1": "POWER",
     "titleLine2": "GENERATORS",
     "subtitle": "Energy Solutions for Every Use",
@@ -1149,6 +1150,43 @@
     "contactTitle": "Contact",
     "contactText": "If you have any questions about our cookie policy, please contact us at info@gh-power.com.",
     "update": "Last update: October 2025"
+  },
+
+  "portable": {
+  "diesel_category": "PORTABLE DIESEL GENERATORS",
+  "diesel_description": "Our portable diesel generators are designed to deliver reliable power in the most demanding conditions. Equipped with heavy-duty enclosures, ABB circuit breakers and industrial sockets, they guarantee continuous 24/7 operation without interruptions. Ideal choice for projects, mining, construction and industry where durability, robustness and energy efficiency are essential.",
+
+  "gasoline_category": "PORTABLE GASOLINE GENERATORS",
+  "gasoline_description": "Our gasoline generator line offers versatile, compact and easy-to-transport solutions, perfect for domestic, commercial and emergency applications. Built with high-performance engines and reliable starting systems, they provide clean, stable power for tools, equipment and sensitive devices.",
+
+  "4x1_category": "4-IN-1 GENERATOR",
+  "4x1_description": "The 4x1 generator combines four essential functions in a single high-performance unit: power generation, compressor, welder and lighting tower. Equipped with a 7 HP engine and reinforced design, it’s made for professionals who need multiple tools in one rugged, reliable body."
+},
+"industrial": {
+  "title": "INDUSTRIAL GENERATORS",
+  "subtitle1": "Reliable industrial generators with engines from the world’s leading brands. We offer high-quality industrial generators equipped with engines from globally recognized brands: GH-POWER, Cummins, Perkins, Baudouin, Doosan, Fawde, and Yanmar.",
+  "subtitle2": "We provide solutions ranging from compact low-power units to high-capacity equipment, designed for critical applications in industry, commerce, construction, and energy projects.",
+
+  "brands": {
+    "ghpower": { "title": "GH-POWER", "description": "High-performance reliable generators from 10 kVA to 440 kVA, designed for demanding industrial environments." },
+    "cummins": { "title": "Cummins", "description": "Industry-leading engines and generators with power and efficiency for critical operations." },
+    "perkins": { "title": "Perkins", "description": "Durable and efficient power generation solutions, ideal for large-scale industrial applications." },
+    "baudouin": { "title": "Baudouin", "description": "Robust marine and industrial generators with advanced technology and long service life." },
+    "doosan": { "title": "Doosan", "description": "High-performance engines and reliable generators for industries of all sizes." },
+    "fawde": { "title": "Fawde", "description": "Cost-effective and durable industrial power generation solutions." },
+    "yanmar": { "title": "Yanmar", "description": "Compact and efficient engines, perfect for industrial and commercial applications." }
+  },
+
+  "read_more": "READ MORE",
+  "prev": "Previous",
+  "next": "Next"
+},
+"seo": {
+    "home": {
+      "title": "GH Power | Industrial & Portable Power Generators",
+      "description": "Leading manufacturer of diesel and gasoline power generators. Portable and industrial solutions from 2 to 2000 kVA. Over 25 years delivering reliable energy worldwide.",
+      "keywords": "power generators, diesel generators, gasoline generators, portable generators, industrial generators, standby generators, silent generators, GH Power"
+    }
   }
 
 }

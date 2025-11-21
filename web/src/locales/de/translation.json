@@ -986,6 +986,7 @@
     "contactButton": "Kontaktieren Sie uns→"
   },
    "home": {
+   "banner_alt": "GH Power Industrie- und mobile Stromerzeuger",
     "titleLine1": "GH POWER",
     "titleLine2": "GRUPPENSTROMERZEUGER",
     "subtitle": "Energielösungen für jeden Einsatz",
@@ -1149,6 +1150,42 @@
     "contactTitle": "Kontakt",
     "contactText": "Bei Fragen zu unserer Cookie-Richtlinie kontaktieren Sie uns bitte unter info@gh-power.com.",
     "update": "Letzte Aktualisierung: Oktober 2025"
+  },
+  "portable": {
+  "diesel_category": "MOBILE DIESEL-STROMERZEUGER",
+  "diesel_description": "Unsere mobilen Diesel-Stromerzeuger sind für zuverlässige Leistung unter härtesten Bedingungen ausgelegt. Mit robusten Gehäusen, ABB-Schaltern und Industriesteckdosen gewährleisten sie einen unterbrechungsfreien 24/7-Betrieb. Die ideale Wahl für Projekte, Bergbau, Bauwesen und Industrie, wo Langlebigkeit, Robustheit und Energieeffizienz entscheidend sind.",
+
+  "gasoline_category": "MOBILE BENZIN-STROMERZEUGER",
+  "gasoline_description": "Unsere Benzin-Stromerzeuger bieten vielseitige, kompakte und leicht transportierbare Lösungen – perfekt für den privaten, gewerblichen oder Notfalleinsatz. Mit leistungsstarken Motoren und zuverlässigen Startsystemen liefern sie saubere, stabile Energie für Werkzeuge, Geräte und empfindliche Elektronik.",
+
+  "4x1_category": "4-IN-1 STROMERZEUGER",
+  "4x1_description": "Der 4-in-1-Stromerzeuger vereint vier wesentliche Funktionen in einem leistungsstarken Gerät: Stromerzeugung, Kompressor, Schweißgerät und Lichtmast. Mit 7 PS Motor und verstärktem Design entwickelt für Profis, die mehrere Werkzeuge in einem einzigen robusten und zuverlässigen Gerät benötigen."
+},
+"industrial": {
+  "title": "INDUSTRIELLE STROMERZEUGER",
+  "subtitle1": "Zuverlässige Industrie-Stromerzeuger mit Motoren der weltweit führenden Marken. Wir bieten hochwertige Industrieaggregate mit Motoren von renommierten Herstellern wie GH-POWER, Cummins, Perkins, Baudouin, Doosan, Fawde und Yanmar.",
+  "subtitle2": "Von kompakten Niedrigleistungsanlagen bis hin zu Hochleistungsaggregaten – für kritische Anwendungen in Industrie, Handel, Bauwesen und Energieprojekten.",
+
+  "brands": {
+    "ghpower": { "title": "GH-POWER", "description": "Leistungsstarke und zuverlässige Stromerzeuger von 10 bis 440 kVA für anspruchsvolle Industrieumgebungen." },
+    "cummins": { "title": "Cummins", "description": "Branchenführende Motoren und Aggregate mit Leistung und Effizienz für kritische Einsätze." },
+    "perkins": { "title": "Perkins", "description": "Langlebige und effiziente Stromlösungen, ideal für großtechnische Industrieanwendungen." },
+    "baudouin": { "title": "Baudouin", "description": "Robuste Marine- und Industrieaggregate mit modernster Technik und langer Lebensdauer." },
+    "doosan": { "title": "Doosan", "description": "Hochleistungsmotoren und zuverlässige Aggregate für Industrie jeder Größe." },
+    "fawde": { "title": "Fawde", "description": "Wirtschaftliche und langlebige Lösungen für die industrielle Stromversorgung." },
+    "yanmar": { "title": "Yanmar", "description": "Kompakte und effiziente Motoren, ideal für industrielle und gewerbliche Anwendungen." }
+  },
+
+  "read_more": "MEHR ERFAHREN",
+  "prev": "Zurück",
+  "next": "Weiter"
+},
+"seo": {
+    "home": {
+      "title": "GH Power | Industrial & Portable Power Generators",
+      "description": "Leading manufacturer of diesel and gasoline power generators. Portable and industrial solutions from 2 to 2000 kVA. Over 25 years delivering reliable energy worldwide.",
+      "keywords": "power generators, diesel generators, gasoline generators, portable generators, industrial generators, standby generators, silent generators, GH Power"
+    }
   }
 
 

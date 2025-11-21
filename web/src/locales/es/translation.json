@@ -987,6 +987,8 @@
     "contactButton": "Contáctanos→"
   },
   "home": {
+   
+     "banner_alt": "Generadores eléctricos industriales y portátiles GH Power",
     "titleLine1": "GRUPOS",
     "titleLine2": "ELECTRÓGENOS",
     "subtitle": "Soluciones Energéticas para Cada Uso",
@@ -1150,6 +1152,70 @@
     "contactTitle": "Contacto",
     "contactText": "Si tienes dudas sobre nuestra política de cookies, puedes contactar con nosotros en info@gh-power.com.",
     "update": "Última actualización: Octubre 2025"
+  },
+  "portable": {
+    "diesel_category": "GENERADORES PORTÁTILES DE DIÉSEL",
+    "diesel_title": "GENERADORES PORTÁTILES DE DIÉSEL",
+    "diesel_description": "Nuestros generadores portátiles diésel están diseñados para ofrecer potencia confiable en las condiciones más exigentes. Equipados con cabinas heavy-duty, interruptores ABB y enchufes industriales, garantizan un rendimiento continuo 24/7 sin interrupciones. Son la elección ideal para proyectos, minería, construcción e industria donde la durabilidad, la robustez y la eficiencia energética son fundamentales. Su ingeniería avanzada asegura un funcionamiento estable, seguro y preparado para los trabajos más demandantes.",
+
+    "gasoline_category": "GENERADORES PORTÁTILES DE GASOLINA",
+    "gasoline_title": "GENERADORES PORTÁTILES DE GASOLINA",
+    "gasoline_description": "Nuestra línea de generadores a gasolina ofrece soluciones versátiles, compactas y de fácil transporte, perfectas para aplicaciones domésticas, comerciales y de emergencia. Fabricados con motores de alto rendimiento y sistemas de arranque confiables, proporcionan energía limpia y estable para herramientas, equipos y dispositivos sensibles. Su diseño ligero, eficiente y económico los convierte en la alternativa ideal para uso diario, trabajos en campo, eventos, camping y respaldo energético inmediato.",
+
+    "4x1_category": "GENERADOR 4X1",
+    "4x1_title": "GENERADOR 4X1",
+    "4x1_description": "El generador 4x1 combina cuatro funciones esenciales en un solo equipo de alto rendimiento: generación eléctrica, compresor, soldadora y planta de luz. Equipado con un motor de 7 HP y diseño reforzado, está pensado para profesionales que requieren múltiples herramientas en un solo cuerpo robusto y confiable. Su construcción duradera y operación casi libre de mantenimiento lo convierten en la solución integral perfecta para talleres, obras, mantenimiento industrial y trabajos en exteriores donde la versatilidad y la potencia son indispensables."
+  },
+  
+  "industrial": {
+    "title": "GENERADORES INDUSTRIALES",
+    "subtitle1": "Generadores industriales confiables con motores de las principales marcas. En nuestra empresa ofrecemos generadores industriales de alta calidad, equipados con motores de marcas reconocidas mundialmente como GH-POWER, Cummins, Perkins, Baudouin, Doosan, Fawde y Yanmar.",
+    "subtitle2": "Contamos con soluciones que van desde generadores compactos de baja potencia hasta equipos de gran capacidad, diseñados para aplicaciones críticas en la industria, comercio, construcción y proyectos de energía. Nuestra gama garantiza eficiencia, durabilidad y confiabilidad, adaptándose a cualquier necesidad energética. Descubre la potencia y calidad de nuestros generadores para asegurar operaciones continuas y seguras en tu negocio.",
+
+    "brands": {
+      "ghpower": {
+        "title": "GH-POWER",
+        "description": "Generadores confiables de alto rendimiento, desde 10 kVA hasta 440 kVA, diseñados para entornos industriales exigentes."
+      },
+      "cummins": {
+        "title": "Cummins",
+        "description": "Motores y generadores líderes en la industria, con potencia y eficiencia para operaciones críticas."
+      },
+      "perkins": {
+        "title": "Perkins",
+        "description": "Soluciones de generación duraderas y eficientes, ideales para aplicaciones industriales de gran escala."
+      },
+      "baudouin": {
+        "title": "Baudouin",
+        "description": "Generadores marítimos e industriales robustos, con tecnología avanzada y larga vida útil."
+      },
+      "doosan": {
+        "title": "Doosan",
+        "description": "Motores de alto rendimiento y generadores confiables para industrias de cualquier tamaño."
+      },
+      "fawde": {
+        "title": "Fawde",
+        "description": "Soluciones económicas y duraderas en generación de energía industrial."
+      },
+      "yanmar": {
+        "title": "Yanmar",
+        "description": "Motores compactos y eficientes, perfectos para aplicaciones industriales y comerciales."
+      }
+    },
+
+    "read_more": "VER MÁS",
+    "prev": "Anterior",
+    "next": "Siguiente"
+  }, 
+"seo": {
+    "home": {
+      "title": "GH Power | Generadores Eléctricos Industriales y Portátiles",
+      "description": "Fabricante líder de generadores eléctricos diésel y gasolina. Soluciones portátiles e industriales de 2 a 2000 kVA. Más de 25 años ofreciendo energía fiable en todo el mundo.",
+      "keywords": "generadores eléctricos, generadores diésel, generadores gasolina, generadores portátiles, generadores industriales, grupos electrógenos, generadores silenciosos, GH Power"
+    }
   }
+
+  
+
 
 }

@@ -1148,6 +1148,55 @@
     "contactTitle": "Contact",
     "contactText": "Pour toute question sur notre politique de cookies, contactez-nous à info@gh-power.com.",
     "update": "Dernière mise à jour : Octobre 2025"
-  }
+  },
 
+  "portable": {
+  "diesel_category": "GROUPE ÉLECTROGÈNE PORTATIF DIESEL",
+  "diesel_description": "Nos groupes électrogènes portatifs diesel sont conçus pour offrir une puissance fiable dans les conditions les plus exigeantes. Équipés de cabines robustes, disjoncteurs ABB et prises industrielles, ils garantissent un fonctionnement continu 24/7 sans interruption. Choix idéal pour les projets, mines, construction et industrie où durabilité, robustesse et efficacité énergétique sont essentielles.",
+
+  "gasoline_category": "GROUPE ÉLECTROGÈNE PORTATIF ESSENCE",
+  "gasoline_description": "Notre gamme de groupes électrogènes à essence offre des solutions polyvalentes, compactes et faciles à transporter, parfaites pour un usage domestique, commercial ou d’urgence. Fabriqués avec des moteurs haute performance et des systèmes de démarrage fiables, ils fournissent une énergie propre et stable pour outils, équipements et appareils sensibles.",
+
+  "4x1_category": "GROUPE ÉLECTROGÈNE 4X1",
+  "4x1_description": "Le groupe 4x1 combine quatre fonctions essentielles dans un seul équipement haute performance : génération électrique, compresseur, soudeuse et tour d’éclairage. Équipé d’un moteur 7 CV et d’une conception renforcée, il est conçu pour les professionnels ayant besoin de plusieurs outils dans un seul châssis robuste et fiable."
+},
+"industrial": {
+  "title": "GROUPES ÉLECTROGÈNES INDUSTRIELS",
+  "subtitle1": "Groupes électrogènes industriels fiables avec des moteurs des principales marques mondiales. Nous proposons des groupes électrogènes industriels de haute qualité équipés de moteurs des marques reconnues : GH-POWER, Cummins, Perkins, Baudouin, Doosan, Fawde et Yanmar.",
+  "subtitle2": "Nous offrons des solutions allant des groupes compacts basse puissance aux équipements haute capacité, conçus pour les applications critiques dans l’industrie, le commerce, la construction et les projets énergétiques.",
+
+  "brands": {
+    "ghpower": { "title": "GH-POWER", "description": "Groupes électrogènes fiables haute performance, de 10 à 440 kVA, conçus pour les environnements industriels exigeants." },
+    "cummins": { "title": "Cummins", "description": "Moteurs et groupes électrogènes leaders du secteur, puissance et efficacité pour les opérations critiques." },
+    "perkins": { "title": "Perkins", "description": "Solutions de génération durables et efficaces, idéales pour les applications industrielles à grande échelle." },
+    "baudouin": { "title": "Baudouin", "description": "Groupes électrogènes marins et industriels robustes, technologie avancée et longue durée de vie." },
+    "doosan": { "title": "Doosan", "description": "Moteurs haute performance et groupes fiables pour toutes tailles d’industrie." },
+    "fawde": { "title": "Fawde", "description": "Solutions économiques et durables en génération d’énergie industrielle." },
+    "yanmar": { "title": "Yanmar", "description": "Moteurs compacts et efficaces, parfaits pour applications industrielles et commerciales." }
+  },
+
+  "read_more": "VOIR PLUS",
+  "prev": "Précédent",
+  "next": "Suivant"
+
+},
+"seo": {
+    "home": {
+      "title": {
+    
+        "fr": "GH Power | Groupes Électrogènes Industriels et Portables"
+       
+      },
+      "description": {
+        
+        "fr": "Fabricant leader de groupes électrogènes diesel et essence. Solutions portables et industrielles de 2 à 2000 kVA. Plus de 25 ans d'énergie fiable dans le monde entier."
+        
+      },
+      "keywords": {
+        
+        "fr": "groupes électrogènes, générateurs diesel, générateurs essence, générateurs portátiles, générateurs industriels, GH Power"
+       
+      }
+    }
+  }
 }

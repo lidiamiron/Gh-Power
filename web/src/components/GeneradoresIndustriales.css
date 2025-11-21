@@ -219,17 +219,22 @@
 }
 
 @media (max-width: 768px) {
+ .section-title{
+padding: 40px 20px;
+  
+ }
   .section-title h2 {
     font-size: 2rem;
   }
 
   .slideshow-wrapper {
-    flex-direction: column;
+    flex-direction: row;
     padding: 20px;
   }
 
   .generator-card {
     flex: 0 0 100%;
+    margin: 0 10px;
   }
 
   .nav-arrow {
@@ -247,11 +252,12 @@
   }
 
   .prev-arrow {
-    left: 10px;
+    left: 30px;
   }
 
   .next-arrow {
-    right: 10px;
+    right: 30px;
+
   }
 
   .card-image-wrapper {
