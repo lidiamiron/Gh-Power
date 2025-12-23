@@ -47,7 +47,7 @@ const Fawde = () => {
         <title>Generadores FAWDE | GH Power - Soluciones Energéticas</title>
         <meta
           name="description"
-          content="Generadores FAWDE de GH Power: alta eficiencia y fiabilidad para industria y construcción. Cotiza ahora."
+          content="Generadores FAWDE de GH Power: alta eficiencia y fiabilidad para industria y construcción. Pide presupuesto ahora."
         />
         <meta
           name="keywords"
@@ -56,7 +56,7 @@ const Fawde = () => {
         <meta property="og:title" content="Generadores FAWDE | GH Power" />
         <meta
           property="og:description"
-          content="Explora generadores FAWDE de GH Power, ideales para industria y construcción con alta eficiencia. Cotiza hoy."
+          content="Explora generadores FAWDE de GH Power, ideales para industria y construcción con alta eficiencia. Pide presupuesto hoy."
         />
         <meta property="og:image" content="https://gh-power.com/images/generador.png" />
         <meta property="og:url" content="https://gh-power.com/productos/fawde" />

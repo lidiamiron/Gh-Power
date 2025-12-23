@@ -47,7 +47,7 @@ const PERKINS = () => {
         <title>Generadores Cummins | GH Power - Soluciones Energéticas</title>
         <meta
           name="description"
-          content="Explora los generadores Cummins de GH Power: potencia y fiabilidad para aplicaciones industriales y domésticas. Cotiza ahora."
+          content="Explora los generadores Cummins de GH Power: potencia y fiabilidad para aplicaciones industriales y domésticas. Pide presupuesto ahora."
         />
         <meta
           name="keywords"
@@ -56,7 +56,7 @@ const PERKINS = () => {
         <meta property="og:title" content="Generadores Cummins | GH Power" />
         <meta
           property="og:description"
-          content="Descubre los generadores Cummins de GH Power, diseñados para máxima potencia y fiabilidad. Cotiza hoy."
+          content="Descubre los generadores Cummins de GH Power, diseñados para máxima potencia y fiabilidad. Pide presupuesto hoy."
         />
         <meta property="og:image" content="https://gh-power.com/images/generador.png" />
         <meta property="og:url" content="https://gh-power.com/productos/cummins" />

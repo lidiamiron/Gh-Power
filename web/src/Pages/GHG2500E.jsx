@@ -101,7 +101,7 @@ const GHG2500E = () => {
         <title>Generador GHG2500E | GH Power - Soluciones Energéticas</title>
         <meta
           name="description"
-          content="Generador portátil GHG2500E de GH Power: máxima potencia y fiabilidad para uso doméstico y profesional. Cotiza ahora."
+          content="Generador portátil GHG2500E de GH Power: máxima potencia y fiabilidad para uso doméstico y profesional. Pide presupuesto ahora."
         />
         <meta
           name="keywords"
@@ -110,7 +110,7 @@ const GHG2500E = () => {
         <meta property="og:title" content="Generador GHG2500E | GH Power" />
         <meta
           property="og:description"
-          content="Descubre el generador portátil GHG2500E de GH Power, ideal para uso doméstico y profesional. Cotiza hoy."
+          content="Descubre el generador portátil GHG2500E de GH Power, ideal para uso doméstico y profesional. Pide presupuesto hoy."
         />
         <meta property="og:image" content="https://gh-power.com/images/ghg2500e.png" />
         <meta property="og:url" content="https://gh-power.com/productos/ghg2500e" />

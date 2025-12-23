@@ -13,14 +13,16 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 function ProductGrid() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  
   const [selectedFuel, setSelectedFuel] = useState("All");
+  const [selectedEngineBrand, setSelectedEngineBrand] = useState("All");
+  const [selectedEngineModel, setSelectedEngineModel] = useState("All");
+  const [selectedStandbyPower, setSelectedStandbyPower] = useState("All");
   const [selectedFrequency, setSelectedFrequency] = useState("All");
   const [selectedVoltage, setSelectedVoltage] = useState("All");
   const [selectedPhase, setSelectedPhase] = useState("All");
-  const [selectedStandbyPower, setSelectedStandbyPower] = useState("All");
+  
   const [applyFilters, setApplyFilters] = useState(false);
-  const [selectedEngineBrand, setSelectedEngineBrand] = useState("All");
-  const [selectedEngineModel, setSelectedEngineModel] = useState("All");
   
   const { t } = useTranslation();
 
@@ -33,35 +35,20 @@ function ProductGrid() {
       return `/productos/generador4x1`;
     }
     
-    // Si tiene marca de motor (engineBrand), es industrial - va a la página de la marca
+    // Si tiene marca de motor, es industrial → página de la marca
     if (product.engineBrand && product.engineBrand.trim() !== '') {
       const engineBrand = product.engineBrand.toLowerCase().trim();
       
-      if (engineBrand.includes('cummins')) {
-        return `/productos/cummins`;
-      }
+      if (engineBrand.includes('cummins')) return `/productos/cummins`;
+      if (engineBrand.includes('baudouin')) return `/productos/baudouin`;
+      if (engineBrand.includes('perkins')) return `/productos/perkins`;
+      if (engineBrand.includes('volvo')) return `/productos/volvo`;
+      if (engineBrand.includes('deutz')) return `/productos/deutz`;
       
-      if (engineBrand.includes('baudouin')) {
-        return `/productos/baudouin`;
-      }
-      
-      if (engineBrand.includes('perkins')) {
-        return `/productos/perkins`;
-      }
-      
-      if (engineBrand.includes('volvo')) {
-        return `/productos/volvo`;
-      }
-      
-      if (engineBrand.includes('deutz')) {
-        return `/productos/deutz`;
-      }
-      
-      // Si tiene otra marca de motor, usar esa marca
       return `/productos/${engineBrand.replace(/\s+/g, '-')}`;
     }
     
-    // Si NO tiene marca de motor, es portátil - va a su página individual
+    // Si NO tiene marca de motor → portátil
     const fuelType = product.fuel.toLowerCase() === 'diesel' ? 'diesel' : 'gasolina';
     return `/productos/generadores-portatiles/${fuelType}/${product.name}`;
   };
@@ -74,24 +61,17 @@ function ProductGrid() {
           .from('generadores')
           .select('*');
         
-        if (error) {
-          throw error;
-        }
-        
-        console.log('Raw Supabase data:', data);
+        if (error) throw error;
 
         const transformedData = data.map(item => {
           const standbyKVA = item.standby_kva != null ? parseFloat(item.standby_kva) : 0;
-          console.log('Raw standby_kva:', item.standby_kva, 'Parsed standbyKVA:', standbyKVA);
-          const product = {
+          return {
             id: item.id,
             name: item.modelo_motor || '',
             powerKVA: standbyKVA ? `${standbyKVA}kVA` : 'N/A',
             standbyPowerKVA: standbyKVA,
             powerKW: item.prime_power_kw ? `${parseFloat(item.prime_power_kw)}kW` : 'N/A',
             powerValueKW: parseFloat(item.prime_power_kw) || 0,
-            powerW: '',
-            powerValueW: 0,
             type: item.phase || '',
             fuel: item.fuel || '',
             frequencies: item.frequencies ? item.frequencies.split(',') : [],
@@ -101,8 +81,6 @@ function ProductGrid() {
             engineBrand: item.marca_motor || '',
             engineModel: item.engine_model || ''
           };
-          console.log('Transformed product:', product);
-          return product;
         });
         
         setProducts(transformedData);
@@ -116,43 +94,66 @@ function ProductGrid() {
     fetchProducts();
   }, []);
 
-  const handleSearch = () => setApplyFilters(true);
+  // === FILTROS EN CASCADA ===
+  const filteredByFuel = products.filter(p => 
+    selectedFuel === "All" || p.fuel === selectedFuel
+  );
 
-  // Obtener valores únicos para los filtros
-  const fuels = [...new Set(products.map(p => p.fuel))].filter(Boolean);
-  const frequencies = [...new Set(products.flatMap(p => p.frequencies))].filter(Boolean);
-  const voltages = [...new Set(products.flatMap(p => p.voltage))].filter(Boolean);
-  const phases = [...new Set(products.map(p => p.phase))].filter(Boolean);
-  const engineBrands = [...new Set(products.map(p => p.engineBrand))].filter(Boolean);
-  
-  // Obtener valores únicos para Standby Power
-  const standbyPowerValues = [...new Set(products.map(p => p.standbyPowerKVA))]
+  const filteredByEngineBrand = filteredByFuel.filter(p => 
+    selectedEngineBrand === "All" || p.engineBrand === selectedEngineBrand
+  );
+
+  const filteredByEngineModel = filteredByEngineBrand.filter(p => 
+    selectedEngineModel === "All" || p.engineModel === selectedEngineModel
+  );
+
+  const filteredByStandbyPower = filteredByEngineModel.filter(p => 
+    selectedStandbyPower === "All" || p.standbyPowerKVA === parseFloat(selectedStandbyPower)
+  );
+
+  const filteredByFrequency = filteredByStandbyPower.filter(p => 
+    selectedFrequency === "All" || p.frequencies.includes(selectedFrequency)
+  );
+
+  const filteredByVoltage = filteredByFrequency.filter(p => 
+    selectedVoltage === "All" || p.voltage.includes(selectedVoltage)
+  );
+
+  const finalFilteredProducts = filteredByVoltage.filter(p => 
+    selectedPhase === "All" || p.phase === selectedPhase
+  );
+
+  const displayedProducts = applyFilters ? finalFilteredProducts : products;
+
+  // === VALORES DISPONIBLES DINÁMICOS ===
+  const availableFuels = [...new Set(products.map(p => p.fuel))].filter(Boolean);
+
+  const availableEngineBrands = [...new Set(filteredByFuel.map(p => p.engineBrand))].filter(Boolean);
+
+  const availableEngineModels = [...new Set(filteredByEngineBrand.map(p => p.engineModel))].filter(Boolean);
+
+  const availableStandbyPowers = [...new Set(filteredByEngineModel.map(p => p.standbyPowerKVA))]
     .filter(val => !isNaN(val) && val !== 0)
     .sort((a, b) => a - b);
 
-  console.log('Standby power values:', standbyPowerValues);
+  const availableFrequencies = [...new Set(filteredByStandbyPower.flatMap(p => p.frequencies))].filter(Boolean);
 
-  // Obtener modelos de motor según la marca seleccionada
-  const engineModels = selectedEngineBrand === "All" 
-    ? [...new Set(products.map(p => p.engineModel))].filter(Boolean)
-    : [...new Set(products.filter(p => p.engineBrand === selectedEngineBrand).map(p => p.engineModel))].filter(Boolean);
+  const availableVoltages = [...new Set(filteredByFrequency.flatMap(p => p.voltage))].filter(Boolean);
 
-  const filteredProducts = products.filter((product) => {
-    if (!applyFilters) return true;
-    
-    const matchesFuel = selectedFuel === "All" || product.fuel === selectedFuel;
-    const matchesFrequency = selectedFrequency === "All" || product.frequencies.includes(selectedFrequency);
-    const matchesVoltage = selectedVoltage === "All" || product.voltage.includes(selectedVoltage);
-    const matchesPhase = selectedPhase === "All" || product.phase === selectedPhase;
-    const matchesStandbyPower = selectedStandbyPower === "All" || product.standbyPowerKVA === parseFloat(selectedStandbyPower);
-    const matchesEngineBrand = selectedEngineBrand === "All" || product.engineBrand === selectedEngineBrand;
-    const matchesEngineModel = selectedEngineModel === "All" || product.engineModel === selectedEngineModel;
+  const availablePhases = [...new Set(filteredByVoltage.map(p => p.phase))].filter(Boolean);
 
-    console.log('Filtering product:', product.name, 'Standby matches:', matchesStandbyPower);
+  const handleSearch = () => setApplyFilters(true);
 
-    return matchesFuel && matchesFrequency && matchesVoltage && matchesPhase && 
-           matchesStandbyPower && matchesEngineBrand && matchesEngineModel;
-  });
+  // Resetear filtros inferiores al cambiar combustible
+  const handleFuelChange = (fuel) => {
+    setSelectedFuel(fuel);
+    setSelectedEngineBrand("All");
+    setSelectedEngineModel("All");
+    setSelectedStandbyPower("All");
+    setSelectedFrequency("All");
+    setSelectedVoltage("All");
+    setSelectedPhase("All");
+  };
 
   if (loading) {
     return <div className="product-wrapper">{t('products.loading')}</div>;
@@ -181,161 +182,61 @@ function ProductGrid() {
         <meta name="robots" content="index, follow" />
         <link rel="alternate" href="https://gh-power.com/productos" hreflang="es" />
         <link rel="alternate" href="https://gh-power.com/en/productos" hreflang="en" />
+        <link rel="alternate" href="https://gh-power.com/de/productos" hreflang="de" />
+        <link rel="alternate" href="https://gh-power.com/fr/productos" hreflang="fr" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "ProductGroup",
             "name": "Generadores Portátiles GH Power",
             "description": "Gama de generadores portátiles diesel y gasolina de GH Power, con opciones para aplicaciones domésticas e industriales.",
-            "brand": {
-              "@type": "Brand",
-              "name": "GH Power"
-            },
+            "brand": { "@type": "Brand", "name": "GH Power" },
             "image": "https://gh-power.com/images/generador.png",
-            "hasVariant": filteredProducts.map(product => ({
+            "hasVariant": displayedProducts.map(product => ({
               "@type": "Product",
               "name": product.name,
               "description": `Generador portátil ${product.name} con ${product.powerKVA} de potencia standby y ${product.fuel} como combustible.`,
               "image": product.image || "https://gh-power.com/images/generador.png",
               "url": `https://gh-power.com${getProductUrl(product)}`,
               "additionalProperty": [
-                {
-                  "@type": "PropertyValue",
-                  "name": "Standby Power kVA",
-                  "value": product.powerKVA
-                },
-                {
-                  "@type": "PropertyValue",
-                  "name": "Prime Power kW",
-                  "value": product.powerKW
-                },
-                {
-                  "@type": "PropertyValue",
-                  "name": "Fuel",
-                  "value": product.fuel
-                },
-                {
-                  "@type": "PropertyValue",
-                  "name": "Phase",
-                  "value": product.phase
-                },
-                {
-                  "@type": "PropertyValue",
-                  "name": "Engine Brand",
-                  "value": product.engineBrand
-                },
-                {
-                  "@type": "PropertyValue",
-                  "name": "Engine Model",
-                  "value": product.engineModel
-                }
+                { "@type": "PropertyValue", "name": "Standby Power kVA", "value": product.powerKVA },
+                { "@type": "PropertyValue", "name": "Prime Power kW", "value": product.powerKW },
+                { "@type": "PropertyValue", "name": "Fuel", "value": product.fuel },
+                { "@type": "PropertyValue", "name": "Phase", "value": product.phase },
+                { "@type": "PropertyValue", "name": "Engine Brand", "value": product.engineBrand },
+                { "@type": "PropertyValue", "name": "Engine Model", "value": product.engineModel }
               ]
             }))
           })}
         </script>
       </Helmet>
+
       <div className="product-container">
         <h2>{t('products.title')}</h2>
-        <p className="product-description">
-          {t('products.description')}
-        </p>
+        <p className="product-description">{t('products.description')}</p>
 
         {/* FILTROS */}
         <div className="filter-panel">
+
+          {/* Combustible */}
           <div className="filter-group">
             <span>{t('products.filters.fuel')}</span>
             <button 
-              onClick={() => setSelectedFuel("All")} 
-              className={selectedFuel === "All" ? "active" : ""} 
-              title={t('products.filters.all')}
-            >
+              onClick={() => handleFuelChange("All")} 
+              className={selectedFuel === "All" ? "active" : ""}>
               {t('products.filters.all')}
             </button>
-            {fuels.map(fuel => (
+            {availableFuels.map(fuel => (
               <button 
                 key={fuel} 
-                onClick={() => setSelectedFuel(fuel)} 
-                className={selectedFuel === fuel ? "active" : ""} 
-                title={fuel}
-              >
+                onClick={() => handleFuelChange(fuel)} 
+                className={selectedFuel === fuel ? "active" : ""}>
                 {fuel}
               </button>
             ))}
           </div>
 
-          <div className="filter-group">
-            <span>{t('products.filters.frequency')}</span>
-            <button 
-              onClick={() => setSelectedFrequency("All")} 
-              className={selectedFrequency === "All" ? "active" : ""} 
-              title={t('products.filters.allFrequencies')}
-            >
-              {t('products.filters.allFrequencies')}
-            </button>
-            {frequencies.map(freq => (
-              <button 
-                key={freq} 
-                onClick={() => setSelectedFrequency(freq)} 
-                className={selectedFrequency === freq ? "active" : ""} 
-                title={`${freq} Hz`}
-              >
-                {freq} Hz
-              </button>
-            ))}
-          </div>
-
-          <div className="filter-group">
-            <label>{t('products.filters.voltage')}</label>
-            <select 
-              value={selectedVoltage} 
-              onChange={(e) => setSelectedVoltage(e.target.value)}
-              title={t('products.filters.voltage')}
-            >
-              <option value="All">{t('products.filters.allVoltages')}</option>
-              {voltages.map(voltage => (
-                <option key={voltage} value={voltage}>{voltage}</option>
-              ))}
-            </select>
-          </div>
-
-          <div className="filter-group">
-            <span>{t('products.filters.phase')}</span>
-            <button 
-              onClick={() => setSelectedPhase("All")} 
-              className={selectedPhase === "All" ? "active" : ""} 
-              title={t('products.filters.allPhases')}
-            >
-              {t('products.filters.allPhases')}
-            </button>
-            {phases.map(phase => (
-              <button 
-                key={phase} 
-                onClick={() => setSelectedPhase(phase)} 
-                className={selectedPhase === phase ? "active" : ""} 
-                title={phase}
-              >
-                {phase}
-              </button>
-            ))}
-          </div>
-
-          <div className="filter-group">
-            <label>{t('products.filters.standbyPower')}</label>
-            <select 
-              value={selectedStandbyPower} 
-              onChange={(e) => {
-                console.log('Selected Standby Power:', e.target.value);
-                setSelectedStandbyPower(e.target.value);
-              }}
-              title={t('products.filters.standbyPower')}
-            >
-              <option value="All">{t('products.filters.allPowers')}</option>
-              {standbyPowerValues.map(value => (
-                <option key={value} value={value}>{value} kVA</option>
-              ))}
-            </select>
-          </div>
-
+          {/* Marca de motor */}
           <div className="filter-group">
             <label>{t('products.filters.engineBrand')}</label>
             <select 
@@ -343,50 +244,131 @@ function ProductGrid() {
               onChange={(e) => {
                 setSelectedEngineBrand(e.target.value);
                 setSelectedEngineModel("All");
-              }}
-              title={t('products.filters.engineBrand')}
-            >
+                setSelectedStandbyPower("All");
+                setSelectedFrequency("All");
+                setSelectedVoltage("All");
+                setSelectedPhase("All");
+              }}>
               <option value="All">{t('products.filters.allBrands')}</option>
-              {engineBrands.map(brand => (
+              {availableEngineBrands.map(brand => (
                 <option key={brand} value={brand}>{brand}</option>
               ))}
             </select>
           </div>
 
+          {/* Modelo de motor */}
           <div className="filter-group">
             <label>{t('products.filters.engineModel')}</label>
             <select 
               value={selectedEngineModel} 
-              onChange={(e) => setSelectedEngineModel(e.target.value)}
-              title={t('products.filters.engineModel')}
-            >
+              onChange={(e) => {
+                setSelectedEngineModel(e.target.value);
+                setSelectedStandbyPower("All");
+                setSelectedFrequency("All");
+                setSelectedVoltage("All");
+                setSelectedPhase("All");
+              }}>
               <option value="All">{t('products.filters.allModels')}</option>
-              {engineModels.map(model => (
+              {availableEngineModels.map(model => (
                 <option key={model} value={model}>{model}</option>
               ))}
             </select>
           </div>
 
+          {/* Potencia Standby */}
           <div className="filter-group">
+            <label>{t('products.filters.standbyPower')}</label>
+            <select 
+              value={selectedStandbyPower} 
+              onChange={(e) => {
+                setSelectedStandbyPower(e.target.value);
+                setSelectedFrequency("All");
+                setSelectedVoltage("All");
+                setSelectedPhase("All");
+              }}>
+              <option value="All">{t('products.filters.allPowers')}</option>
+              {availableStandbyPowers.map(value => (
+                <option key={value} value={value}>{value} kVA</option>
+              ))}
+            </select>
+          </div>
+
+          {/* Frecuencia */}
+          <div className="filter-group">
+            <span>{t('products.filters.frequency')}</span>
             <button 
-              onClick={handleSearch} 
-              className="search-button" 
-              title={t('products.filters.search')}
-            >
+              onClick={() => {
+                setSelectedFrequency("All");
+                setSelectedVoltage("All");
+                setSelectedPhase("All");
+              }} 
+              className={selectedFrequency === "All" ? "active" : ""}>
+              {t('products.filters.allFrequencies')}
+            </button>
+            {availableFrequencies.map(freq => (
+              <button 
+                key={freq} 
+                onClick={() => {
+                  setSelectedFrequency(freq);
+                  setSelectedVoltage("All");
+                  setSelectedPhase("All");
+                }} 
+                className={selectedFrequency === freq ? "active" : ""}>
+                {freq} Hz
+              </button>
+            ))}
+          </div>
+
+          {/* Voltaje */}
+          <div className="filter-group">
+            <label>{t('products.filters.voltage')}</label>
+            <select 
+              value={selectedVoltage} 
+              onChange={(e) => {
+                setSelectedVoltage(e.target.value);
+                setSelectedPhase("All");
+              }}>
+              <option value="All">{t('products.filters.allVoltages')}</option>
+              {availableVoltages.map(voltage => (
+                <option key={voltage} value={voltage}>{voltage}</option>
+              ))}
+            </select>
+          </div>
+
+          {/* Fase */}
+          <div className="filter-group">
+            <span>{t('products.filters.phase')}</span>
+            <button 
+              onClick={() => setSelectedPhase("All")} 
+              className={selectedPhase === "All" ? "active" : ""}>
+              {t('products.filters.allPhases')}
+            </button>
+            {availablePhases.map(phase => (
+              <button 
+                key={phase} 
+                onClick={() => setSelectedPhase(phase)} 
+                className={selectedPhase === phase ? "active" : ""}>
+                {phase}
+              </button>
+            ))}
+          </div>
+
+          {/* Botón Aplicar */}
+          <div className="filter-group">
+            <button onClick={handleSearch} className="search-button">
               {t('products.filters.search')}
             </button>
           </div>
+
         </div>
 
         {/* PRODUCTOS */}
         <div className="product-grid">
-          {filteredProducts.map((product, index) => (
+          {displayedProducts.map((product, index) => (
             <Link 
               to={getProductUrl(product)}
               className="product-card" 
-              key={index} 
-              title={t('products.productCard.title', { name: product.name })}
-            >
+              key={index}>
               <img 
                 src={product.image} 
                 alt={t('products.productCard.imageAlt', { name: product.name })} 

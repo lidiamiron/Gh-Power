@@ -101,7 +101,7 @@ const GHG3500E = () => {
         <title>Generador GHG3500E | GH Power - Soluciones Energéticas</title>
         <meta
           name="description"
-          content="Generador portátil GHG3500E de GH Power: máxima potencia y fiabilidad para uso doméstico y profesional. Cotiza ahora."
+          content="Generador portátil GHG3500E de GH Power: máxima potencia y fiabilidad para uso doméstico y profesional. Pide presupuesto ahora."
         />
         <meta
           name="keywords"
@@ -110,7 +110,7 @@ const GHG3500E = () => {
         <meta property="og:title" content="Generador GHG3500E | GH Power" />
         <meta
           property="og:description"
-          content="Descubre el generador portátil GHG3500E de GH Power, ideal para uso doméstico y profesional. Cotiza hoy."
+          content="Descubre el generador portátil GHG3500E de GH Power, ideal para uso doméstico y profesional. Pide presupuesto hoy."
         />
         <meta property="og:image" content="https://gh-power.com/images/ghg3500e.png" />
         <meta property="og:url" content="https://gh-power.com/productos/ghg3500e" />

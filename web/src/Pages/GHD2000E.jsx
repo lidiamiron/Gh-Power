@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import { useTranslation } from "react-i18next";
-import { Helmet } from 'react-helmet-async'; // Added for SEO
+import { Helmet } from 'react-helmet-async'; 
 import "./portatiles.css";
 import { FaFilePdf } from "react-icons/fa";
 import generatormain from "../assets/ghd2000.png";
@@ -101,7 +101,7 @@ const GHD2000E = () => {
         <title>Generador GHD2000E | GH Power - Soluciones Energéticas</title>
         <meta
           name="description"
-          content="Generador portátil GHD2000E de GH Power: compacto y eficiente para uso doméstico e industrial. Cotiza ahora."
+          content="Generador portátil GHD2000E de GH Power: compacto y eficiente para uso doméstico e industrial. Pide presupuesto ahora."
         />
         <meta
           name="keywords"
@@ -110,7 +110,7 @@ const GHD2000E = () => {
         <meta property="og:title" content="Generador GHD2000E | GH Power" />
         <meta
           property="og:description"
-          content="Descubre el generador portátil GHD2000E de GH Power, ideal para uso doméstico e industrial. Cotiza hoy."
+          content="Descubre el generador portátil GHD2000E de GH Power, ideal para uso doméstico e industrial. Pide presupuestoa hoy."
         />
         <meta property="og:image" content="https://gh-power.com/images/ghd2000.png" />
         <meta property="og:url" content="https://gh-power.com/productos/ghd2000e" />

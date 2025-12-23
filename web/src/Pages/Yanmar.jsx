@@ -64,6 +64,8 @@ const Yanmar = () => {
         <meta name="robots" content="index, follow" />
         <link rel="alternate" href="https://gh-power.com/productos/yanmar" hreflang="es" />
         <link rel="alternate" href="https://gh-power.com/en/productos/yanmar" hreflang="en" />
+         <link rel="alternate" href="https://gh-power.com/productos/yanmar" hreflang="de" />
+        <link rel="alternate" href="https://gh-power.com/en/productos/yanmar" hreflang="fr" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",

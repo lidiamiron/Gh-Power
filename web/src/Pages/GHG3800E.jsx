@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import { useTranslation } from "react-i18next";
-import { Helmet } from 'react-helmet-async'; // Added for SEO
+import { Helmet } from 'react-helmet-async'; 
 import "./portatiles.css";
 import { FaFilePdf } from "react-icons/fa";
 import generatormain from "../assets/GHG3800E.png";
@@ -101,7 +101,7 @@ const GHG3800E = () => {
         <title>Generador GHG3800E | GH Power - Soluciones Energéticas</title>
         <meta
           name="description"
-          content="Generador portátil GHG3800E de GH Power: máxima potencia y fiabilidad para uso doméstico y profesional. Cotiza ahora."
+          content="Generador portátil GHG3800E de GH Power: máxima potencia y fiabilidad para uso doméstico y profesional. Pide presupuesto ahora."
         />
         <meta
           name="keywords"
@@ -110,7 +110,7 @@ const GHG3800E = () => {
         <meta property="og:title" content="Generador GHG3800E | GH Power" />
         <meta
           property="og:description"
-          content="Descubre el generador portátil GHG3800E de GH Power, ideal para uso doméstico y profesional. Cotiza hoy."
+          content="Descubre el generador portátil GHG3800E de GH Power, ideal para uso doméstico y profesional. Pide presupuesto hoy."
         />
         <meta property="og:image" content="https://gh-power.com/images/ghg3800e.png" />
         <meta property="og:url" content="https://gh-power.com/productos/ghg3800e" />

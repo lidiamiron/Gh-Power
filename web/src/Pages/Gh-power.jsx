@@ -47,7 +47,7 @@ const GHPower = () => {
         <title>Generadores GH Power | Soluciones Energéticas</title>
         <meta
           name="description"
-          content="Generadores GH Power: alta calidad y eficiencia para industria y construcción. Cotiza ahora en Barcelona."
+          content="Generadores GH Power: alta calidad y eficiencia para industria y construcción. Pide presupuesto ahora en Barcelona."
         />
         <meta
           name="keywords"
@@ -56,7 +56,7 @@ const GHPower = () => {
         <meta property="og:title" content="Generadores GH Power" />
         <meta
           property="og:description"
-          content="Explora generadores GH Power, ideales para industria y construcción con alta calidad. Cotiza hoy en Barcelona."
+          content="Explora generadores GH Power, ideales para industria y construcción con alta calidad. Pide presupuesto en Barcelona."
         />
         <meta property="og:image" content="https://gh-power.com/images/generador.png" />
         <meta property="og:url" content="https://gh-power.com/productos/gh-power" />

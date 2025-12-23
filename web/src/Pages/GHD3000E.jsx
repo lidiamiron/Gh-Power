@@ -101,7 +101,7 @@ const GHD3000E = () => {
         <title>Generador GHD3000E | GH Power - Soluciones Energéticas</title>
         <meta
           name="description"
-          content="Generador portátil GHD3000E de GH Power: compacto y eficiente para uso doméstico e industrial. Cotiza ahora."
+          content="Generador portátil GHD3000E de GH Power: compacto y eficiente para uso doméstico e industrial. Pide presupuesto ahora."
         />
         <meta
           name="keywords"
@@ -110,7 +110,7 @@ const GHD3000E = () => {
         <meta property="og:title" content="Generador GHD3000E | GH Power" />
         <meta
           property="og:description"
-          content="Descubre el generador portátil GHD3000E de GH Power, ideal para uso doméstico e industrial. Cotiza hoy."
+          content="Descubre el generador portátil GHD3000E de GH Power, ideal para uso doméstico e industrial. Pide presupuesto hoy."
         />
         <meta property="og:image" content="https://gh-power.com/images/ghd3000.png" />
         <meta property="og:url" content="https://gh-power.com/productos/ghd3000e" />
