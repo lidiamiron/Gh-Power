@@ -36,7 +36,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 80px;
-  align-items: top;
+  align-items: center;
   position: relative;
   z-index: 1;
 }
@@ -161,6 +161,7 @@
   position: relative;
   overflow: hidden;
   border: 1px solid rgba(37, 99, 235, 0.1);
+  text-align: center;
 }
 
 .value-card::before {
@@ -295,7 +296,7 @@
 }
 
 .stat-number {
-  font-family: 'DM Serif Display', serif;
+ 
   font-size: 5rem;
   font-weight: 400;
   background: linear-gradient(135deg, #fb2424 0%, #f50b0b 100%);
