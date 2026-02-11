@@ -5,7 +5,7 @@ const SimpleProtectedLink = ({ href, children, className = '' }) => {
   const navigate = useNavigate();
 
   const handleClick = (e) => {
-    // Verificar si hay token en sessionStorage (como lo guardas en tu App.js)
+   
     const token = sessionStorage.getItem('token');
     
     if (!token) {

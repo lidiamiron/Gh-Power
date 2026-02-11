@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Helmet } from 'react-helmet-async';
 import i18n from "../i18n"; 
 
-import banner from "../assets/banner.png";
+import banner from "../assets/banner.jpg";
 import { FaTools, FaHammer, FaShieldAlt } from "react-icons/fa";
 
 import "../Pages/Home.css";
@@ -13,6 +13,8 @@ import Contact from './Contacto';
 import GeneradoresIndustriales from '../components/GeneradoresIndustriales';
 import GeneradoresPortatiles from '../components/GeneradoresPortatiles';
 import Sectors from '../components/Sectors';
+import Aliados from '../components/Aliados';
+import EmpoweringSection from '../components/EmpoweringSection';
 
 export default function Home() {
   const { t } = useTranslation();
@@ -61,7 +63,7 @@ export default function Home() {
 
   return (
     <main>
-      {/* SEO + META TAGS 10/10 */}
+      
       <Helmet>
   {/* Título y meta descripción dinámicos */}
   <title>{t("seo.home.title")}</title>
@@ -143,33 +145,17 @@ export default function Home() {
             alt={t("home.banner_alt", { defaultValue: "Generadores eléctricos industriales y portátiles GH Power" })} 
             loading="eager"
           />
-          <div className="title-container">
-            <div className="title-content">
-              <h1 className="title">
-                <span className={`title-line title-line-1 ${textAnimationStarted ? 'animate' : ''}`}>
-                  {t('home.titleLine1')}
-                </span>
-                <br />
-                <span className={`title-line title-line-2 ${textAnimationStarted ? 'animate' : ''}`}>
-                  {t('home.titleLine2')}
-                </span>
-              </h1>
-              <h2 className={`subtitle ${textAnimationStarted ? 'animate' : ''}`}>
-                {t('home.subtitle')}
-              </h2>
-              <a href="/contacto">
-                <button className={`presupuesto presupuesto1 ${textAnimationStarted ? 'animate' : ''}`}>
-                  {t('home.budgetButton')}
-                </button>
-              </a>
-            </div>
-          </div>
         </div>
       </section>
 
       <GeneradoresIndustriales />
       <CertificationCarousel />
       <GeneradoresPortatiles />
+
+      <Aliados />
+      <EmpoweringSection />
+      
+
 
       {/* CARDS SECTION */}
       <div className="cards-container">

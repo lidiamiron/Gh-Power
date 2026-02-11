@@ -1,10 +1,10 @@
 {
 "accordion": {
     "why_choose": "Warum GH POWER wählen?",
-    "why_choose_content": "Bei GH POWER bieten wir zuverlässige Energielösungen mit mehr als 25 Jahren Erfahrung in der Branche. Wir bieten technischen Service von hoher Qualität für alle unsere Händler im ganzen Land.",
+    "why_choose_content": "Bei GH POWER bieten wir zuverlässige Energielösungen mit mehr als 25 Jahren Erfahrung in der Branche. Wir bieten technischen Service von hoher Qualität für alle unsere Händler.",
     
     "energy_efficiency": "Energieeffizienz",
-    "energy_efficiency_content": "Die moderne Industrie arbeitet mit hoher Effizienz dank fortschrittlicher Technologien, präziser Prozesse und hochqualifizierter Arbeitskräfte. Ein Schlüsselfaktor für diese Leistung ist das Just-in-Time-Inventarsystem, bei dem jede Komponente genau zum richtigen Zeitpunkt für die Montage am Fließband eintrifft. Damit dieser Prozess ohne Unterbrechungen funktioniert, ist eine zuverlässige Energieversorgung unerlässlich, die die Produktion auch bei einem Stromausfall aufrechterhält. Bei GH POWER liefern wir die Leistung, die Ihr Betrieb benötigt. Wir bieten ein breites Spektrum an Backup- und Notfall-Energielösungen, die entwickelt wurden, um operative Kontinuität in jeder Situation zu gewährleisten.",
+    "energy_efficiency_content": "Die moderne Industrie arbeitet mit einem hohen Maß an Effizienz. Dies ist teilweise den fortschrittlichen Fertigungstechniken und den qualifizierten Arbeitskräften zu verdanken. Ein großer Teil des Verdienstes liegt jedoch im „Just-in-Time“-Bestandskontrollprozess, bei dem die Fertigungskomponenten erst wenige Minuten vor ihrem Einsatz zur Montagelinie geliefert werden. Um diese anspruchsvolle Arbeit leisten zu können, ist eine zuverlässige Energieversorgung erforderlich, um die Produktion während eines Stromausfalls aufrechtzuerhalten. Keine Sorge, GH-POWER liefert die nötige Power und bietet eine breite Palette an Notstrom- und Backup-Energielösungen, um Ihre Anforderungen zu erfüllen.",
     
     "water_treatment": "Wasseraufbereitung",
     "water_treatment_content": "Die Nachfrage nach Wasser wächst rasant. Der weltweite Wasserverbrauch verdoppelt sich alle 20 Jahre. Daher konzentrieren sich Gemeinden und Behörden darauf, diese Ressource effizienter und intelligenter zu verwalten, durch die Reinigung und Wiederverwendung von Abwasser. Heute mehr denn je müssen Kläranlagen große Wassermengen sammeln, transportieren und verarbeiten, um sie dann wieder in die Umwelt zurückzuführen oder für Aktivitäten wie die Bewässerung wiederzuverwenden. Bei längeren Unterbrechungen kann jedoch eine unzureichende Behandlung schwerwiegende ökologische und finanzielle Folgen haben. GH POWER bietet zuverlässige Energielösungen für den Wassersektor. Die Installation eines Stromerzeugers ermöglicht den kontinuierlichen Betrieb der Anlagen in kritischen Situationen wie Stromausfällen oder Abschaltungen und gewährleistet die Wasserversorgung einer ganzen Stadt auch unter unkontrollierbaren Umständen.",
@@ -31,7 +31,7 @@
     "kva": "KVA"
   },
    "footer": {
-    "tagline": "INDUSTRIELLE STROMERZEUGER",
+    "tagline": "STROMERZEUGER FÜR DEN INDUSTRIELLEN EINSATZ",
     "liveSession": "Zuverlässige Energie für Ihr Unternehmen",
     "menu": "Menü",
     "company": "Unternehmen",
@@ -50,7 +50,11 @@
     "phoneNumber": "+34 934 185 173",
     "emailAddress": "info@gh-power.com",
     "privacyTerms": "Datenschutzbestimmungen und Bedingungen",
-    "copyright": "Copyright © {{year}} GH-POWER. Alle Rechte vorbehalten."
+    "copyright": "Copyright © {{year}} GH-POWER. Alle Rechte vorbehalten.",
+    "casosExito":  "Erfolgsgeschichten",
+    "quienesSomos":"Über Uns"
+    
+  
   },
   "navbar": {
     "company": "Unternehmen",
@@ -1003,11 +1007,11 @@
       },
       "technicalService": {
         "title": "Technischer Service",
-        "text": "Wir bieten originale Ersatzteile für alle Produkte der Marke LKEnergy an, mit Reparatur- und Wartungsservice durch unsere zertifizierten Werkstätten."
+        "text": "Wir bieten Reparatur- und Wartungsservices für die gesamte GH-POWER-Produktlinie an, die ausschließlich von unseren zertifizierten Technikern durchgeführt werden."
       },
       "warranties": {
         "title": "Garantien",
-        "text": "Umfassende Garantien für alle unsere Produkte mit einer Laufzeit von bis zu 3 Jahren."
+        "text": "Wir bieten für alle unsere Produkte eine Garantie gemäß den geltenden gesetzlichen Bestimmungen. Verbrauchsgüter verfügen über eine Garantie von 3 Jahren, während für Geräte, die für den professionellen Einsatz bestimmt sind, eine Garantie von 1 Jahr gilt. Die Garantie deckt ausschließlich versteckte Herstellungsfehler ab und schließt Schäden aus, die durch unsachgemäße Nutzung, normalen Verschleiß oder falsche Handhabung verursacht wurden."
       }
     }
   },
@@ -1153,28 +1157,51 @@
   },
   "portable": {
   "diesel_category": "MOBILE DIESEL-STROMERZEUGER",
-  "diesel_description": "Unsere mobilen Diesel-Stromerzeuger sind für zuverlässige Leistung unter härtesten Bedingungen ausgelegt. Mit robusten Gehäusen, ABB-Schaltern und Industriesteckdosen gewährleisten sie einen unterbrechungsfreien 24/7-Betrieb. Die ideale Wahl für Projekte, Bergbau, Bauwesen und Industrie, wo Langlebigkeit, Robustheit und Energieeffizienz entscheidend sind.",
+  "diesel_description": "Unsere tragbaren Dieselgeneratoren bieten eine zuverlässige und effiziente Energieversorgung für professionelle Anwendungen. Sie sind mit verstärkten Strukturen und industriellen Komponenten ausgestattet und gewährleisten einen stabilen Betrieb auch unter anspruchsvollen Bedingungen. Die verschiedenen Leistungsstufen ermöglichen den Einsatz von leichten Arbeiten bis hin zu industriellen Anwendungen. Schutzsysteme und Elektrostart sorgen für Sicherheit, Langlebigkeit und einen kontinuierlichen Betrieb – ideal für Projekte, bei denen Robustheit und Zuverlässigkeit entscheidend sind.",
 
   "gasoline_category": "MOBILE BENZIN-STROMERZEUGER",
-  "gasoline_description": "Unsere Benzin-Stromerzeuger bieten vielseitige, kompakte und leicht transportierbare Lösungen – perfekt für den privaten, gewerblichen oder Notfalleinsatz. Mit leistungsstarken Motoren und zuverlässigen Startsystemen liefern sie saubere, stabile Energie für Werkzeuge, Geräte und empfindliche Elektronik.",
+  "gasoline_description": "Unser Sortiment an tragbaren Benzingeneratoren bietet praktische und zuverlässige Lösungen für eine Vielzahl von Anwendungen. Erhältlich in verschiedenen Leistungsstufen, von kompakten Modellen für den Hausgebrauch bis hin zu leistungsstärkeren Ausführungen für professionelle Arbeiten, Veranstaltungen und Notstromversorgung. Das tragbare Design erleichtert Transport und Installation, während Start- und Schutzsysteme eine stabile und sichere Stromversorgung gewährleisten.",
 
   "4x1_category": "4-IN-1 STROMERZEUGER",
-  "4x1_description": "Der 4-in-1-Stromerzeuger vereint vier wesentliche Funktionen in einem leistungsstarken Gerät: Stromerzeugung, Kompressor, Schweißgerät und Lichtmast. Mit 7 PS Motor und verstärktem Design entwickelt für Profis, die mehrere Werkzeuge in einem einzigen robusten und zuverlässigen Gerät benötigen."
+  "4x1_description": "Der 4-in-1-Generator vereint vier wesentliche Funktionen in einem einzigen Hochleistungsgerät: Stromerzeugung, Luftkompressor, Schweißgerät und Lichtmast. Ausgestattet mit einem leistungsstarken 14 PS Kohler-Motor  und einer verstärkten Konstruktion, wurde er speziell für Profis entwickelt, die mehrere Werkzeuge in einer robusten und zuverlässigen Einheit benötigen."
 },
 "industrial": {
-  "title": "INDUSTRIELLE STROMERZEUGER",
-  "subtitle1": "Zuverlässige Industrie-Stromerzeuger mit Motoren der weltweit führenden Marken. Wir bieten hochwertige Industrieaggregate mit Motoren von renommierten Herstellern wie GH-POWER, Cummins, Perkins, Baudouin, Doosan, Fawde und Yanmar.",
-  "subtitle2": "Von kompakten Niedrigleistungsanlagen bis hin zu Hochleistungsaggregaten – für kritische Anwendungen in Industrie, Handel, Bauwesen und Energieprojekten.",
+  "title": "STROMAGGREGATE",
+  "subtitle1": "GH POWER Stromaggregate bieten zuverlässige und effiziente Energielösungen für den Dauerbetrieb oder als Notstromversorgung. Sie sind für anspruchsvolle Einsatzbereiche konzipiert und gewährleisten eine stabile Stromversorgung.",
+  "subtitle2": "Mit Komponenten führender Marken gefertigt, bieten GH POWER Stromaggregate hohe Leistung, niedrigen Kraftstoffverbrauch und eine lange Lebensdauer. Moderne Technologie reduziert Emissionen und optimiert das Lastmanagement."
+,
 
   "brands": {
-    "ghpower": { "title": "GH-POWER", "description": "Leistungsstarke und zuverlässige Stromerzeuger von 10 bis 440 kVA für anspruchsvolle Industrieumgebungen." },
-    "cummins": { "title": "Cummins", "description": "Branchenführende Motoren und Aggregate mit Leistung und Effizienz für kritische Einsätze." },
-    "perkins": { "title": "Perkins", "description": "Langlebige und effiziente Stromlösungen, ideal für großtechnische Industrieanwendungen." },
-    "baudouin": { "title": "Baudouin", "description": "Robuste Marine- und Industrieaggregate mit modernster Technik und langer Lebensdauer." },
-    "doosan": { "title": "Doosan", "description": "Hochleistungsmotoren und zuverlässige Aggregate für Industrie jeder Größe." },
-    "fawde": { "title": "Fawde", "description": "Wirtschaftliche und langlebige Lösungen für die industrielle Stromversorgung." },
-    "yanmar": { "title": "Yanmar", "description": "Kompakte und effiziente Motoren, ideal für industrielle und gewerbliche Anwendungen." }
+  "ghpower": {
+    "title": "GH-POWER",
+    "description": "von 10 kVA bis 440 kVA"
   },
+  "cummins": {
+    "title": "Cummins",
+    "description": "von 10 kVA bis 3500 kVA"
+  },
+  "perkins": {
+    "title": "Perkins",
+    "description": "von 10 kVA bis 2500 kVA"
+  },
+  "baudouin": {
+    "title": "Baudouin",
+    "description": "von 18 kVA bis 2750 kVA"
+  },
+  "doosan": {
+    "title": "Doosan",
+    "description": "von 50 kVA bis 2500 kVA"
+  },
+  "fawde": {
+    "title": "Fawde",
+    "description": "von 20 kVA bis 1000 kVA"
+  },
+  "yanmar": {
+    "title": "Yanmar",
+    "description": "von 8 kVA bis 3500 kVA"
+  }
+},
+
 
   "read_more": "MEHR ERFAHREN",
   "prev": "Zurück",
@@ -1186,7 +1213,78 @@
       "description": "Leading manufacturer of diesel and gasoline power generators. Portable and industrial solutions from 2 to 2000 kVA. Over 25 years delivering reliable energy worldwide.",
       "keywords": "power generators, diesel generators, gasoline generators, portable generators, industrial generators, standby generators, silent generators, GH Power"
     }
+  },
+   "successStories": {
+    "sectionTitle": "Erfolgsgeschichten",
+    "cards": [
+      {
+        "title": "Expo Ferretera 2024, Mexiko",
+        "subtitle": "28. NOV 2024 | ERFOLGSGESCHICHTEN, NEWS, NEUIGKEITEN",
+        "text": "So haben wir die Expo Ferretera 2024 erlebt: Tage voller Innovation und besonderer Momente. Vielen Dank, dass Sie Teil dieser Erfahrung waren. Bewährte Qualität in über 32 Ländern."
+      },
+      {
+        "title": "Fortschritt",
+        "subtitle": "28. NOV 2024 | ERFOLGSGESCHICHTEN, NEWS, NEUIGKEITEN",
+        "text": "Wir fördern den Fortschritt. GH POWER Stromaggregate sind zuverlässige Partner für jedes Projekt und bieten maßgeschneiderte Energielösungen mit leistungsstarker Technologie."
+      },
+      {
+        "title": "Palacio de los Deportes",
+        "subtitle": "28. NOV 2024 | ERFOLGSGESCHICHTEN, NEWS, NEUIGKEITEN",
+        "text": "Unsere Notstromanlage GH619CSX versorgt eine der bekanntesten Veranstaltungsstätten Mexikos mit Energie und garantiert Zuverlässigkeit und Sicherheit."
+      }
+    ]
+  },
+    "quienesSomos": {
+    "hero": {
+      "title": "Über Uns",
+      "subtitle": "Gegründet in BCN",
+      "description": [
+        "Wir sind ein spanisches Unternehmen, gegründet 2010 in Barcelona.",
+        "Wir zeichnen uns durch unsere Serviceorientierung aus.",
+        "Wir legen Wert auf Preis-Leistung und Vertriebspartner-Betreuung.",
+        "Wir bieten maßgeschneiderte, hochwertige Produkte zu wettbewerbsfähigen Preisen."
+      ]
+    },
+    "values": {
+      "section_title": "Die intelligente Lösung",
+      "items": [
+        {
+          "icon": "💰",
+          "title": "Wettbewerbsfähigkeit",
+          "description": "Beste Preis-Leistung bei Energieerzeugungslösungen."
+        },
+        {
+          "icon": "💡",
+          "title": "Innovation",
+          "description": "Individuell anpassbare Generatorlösungen."
+        },
+        {
+          "icon": "⭐",
+          "title": "Qualität",
+          "description": "Erfüllt höchste Qualitäts- und Zertifizierungsstandards."
+        },
+        {
+          "icon": "🛠️",
+          "title": "Support",
+          "description": "Technische Beratung und After-Sales-Service."
+        }
+      ]
+    },
+    "stats": {
+      "countries": "Länder",
+      "references": "Referenzen",
+      "engine_options": "Motoroptionen"
+    }
+  },
+  "empowering": {
+    "titleLine1": "DIE WELT",
+    "titleLine2": "VORANBRINGEN",
+    "heading": "International geprüfte Qualität:",
+    "description": "Wir sind in mehr als <1>32 Ländern</1> vertreten und bieten Energielösungen für alle Anforderungen.",
+    "points": {
+      "one": "Wir sind motiviert, weiter zu wachsen und Energie in neue Horizonte zu bringen.",
+      "two": "Wir bieten innovative und maßgeschneiderte Lösungen für Industrie-, Gewerbe- und Wohnprojekte weltweit.",
+      "three": "Wir garantieren zuverlässige Produkte und einen außergewöhnlichen Kundendienst, angepasst an die Bedürfnisse jedes Marktes."
+    }
   }
-
-
 }

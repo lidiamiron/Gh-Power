@@ -101,7 +101,7 @@ export default function Contact() {
                 "contactType": "Customer Service",
                 "email": "info@gh-power.com",
                 "areaServed": "ES",
-                "availableLanguage": ["Spanish", "English"]
+                "availableLanguage": ["Spanish", "English", "Deuch", "French"]
               },
               "address": {
                 "@type": "PostalAddress",

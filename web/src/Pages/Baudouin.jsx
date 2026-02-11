@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { createClient } from '@supabase/supabase-js';
 import { useTranslation } from 'react-i18next';
-import { Helmet } from 'react-helmet-async'; // Added for SEO
+import { Helmet } from 'react-helmet-async'; 
 import './Baudouin.css';
 import generator from '../assets/boudouin.jpg'; 
 

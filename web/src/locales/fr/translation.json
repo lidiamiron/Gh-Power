@@ -1,10 +1,10 @@
 {
   "accordion": {
     "why_choose": "Pourquoi choisir GH POWER ?",
-    "why_choose_content": "Chez GH POWER, nous proposons des solutions énergétiques fiables avec plus de 25 ans d'expérience dans le secteur. Nous offrons un service technique de qualité à tous nos distributeurs à travers le pays.",
+    "why_choose_content": "Chez GH POWER, nous proposons des solutions énergétiques fiables avec plus de 25 ans d'expérience dans le secteur. Nous offrons un service technique de qualité à tous nos distributeurs.",
     
     "energy_efficiency": "Efficacité Énergétique",
-    "energy_efficiency_content": "L'industrie moderne fonctionne avec des niveaux d'efficacité élevés grâce aux technologies avancées, aux processus précis et aux travailleurs hautement qualifiés. Un facteur clé de cette performance est le système d'inventaire Juste à Temps, où chaque composant arrive sur la ligne de production juste à temps pour son assemblage. Pour que ce processus fonctionne sans interruption, il est essentiel de disposer d'une alimentation électrique fiable qui maintient la production active même pendant une panne. Chez GH POWER, nous fournissons la puissance dont votre opération a besoin. Nous proposons une large gamme de solutions énergétiques de secours et d'urgence, conçues pour garantir la continuité opérationnelle dans toute situation.",
+    "energy_efficiency_content": "L’industrie moderne fonctionne avec un haut niveau d’efficacité. Cela est rendu possible en partie grâce aux techniques de fabrication avancées et à une main-d’œuvre qualifiée. Cependant, une grande partie du mérite revient au processus de gestion des stocks « Juste à temps », avec des composants de fabrication arrivant sur la ligne de production seulement quelques minutes avant d’être nécessaires pour l’assemblage. Pour accomplir ce travail exigeant, un approvisionnement énergétique fiable est nécessaire afin de maintenir la production en cas de panne de courant. Ne vous inquiétez pas, GH-POWER vous fournit la puissance dont vous avez besoin, en offrant une large gamme de solutions d’alimentation de secours et d’urgence pour répondre à vos besoins.",
     
     "water_treatment": "Traitement des Eaux",
     "water_treatment_content": "La demande en eau croît rapidement. La consommation mondiale d'eau double tous les 20 ans. C'est pourquoi les municipalités et les autorités se concentrent sur la gestion de cette ressource de manière plus efficace et intelligente, grâce à la purification et à la réutilisation des eaux usées. Aujourd'hui plus que jamais, les stations d'épuration doivent collecter, transporter et traiter de grands volumes d'eau, pour ensuite les retourner à l'environnement ou les réutiliser dans des activités comme l'irrigation. Cependant, lors d'interruptions prolongées, un traitement insuffisant peut générer de graves conséquences environnementales et financières. GH POWER propose des solutions énergétiques fiables pour le secteur de l'eau. L'installation d'un groupe électrogène permet de maintenir l'opération continue des usines dans des situations critiques comme les pannes ou les coupures de courant, assurant l'approvisionnement en eau de toute une ville même dans des circonstances incontrôlables.",
@@ -31,7 +31,7 @@
     "kva": "KVA"
   },
   "footer": {
-    "tagline": "GÉNÉRATEURS ÉLECTRIQUES INDUSTRIELS",
+    "tagline": "GROUPES ÉLECTROGÈNES À USAGE INDUSTRIEL",
     "liveSession": "Énergie Fiable pour Votre Entreprise",
     "menu": "Menu",
     "company": "Entreprise",
@@ -50,14 +50,17 @@
     "phoneNumber": "+34 934 185 173",
     "emailAddress": "info@gh-power.com",
     "privacyTerms": "Conditions générales de confidentialité",
-    "copyright": "Copyright © {{year}} GH-POWER. Tous droits réservés."
+    "copyright": "Copyright © {{year}} GH-POWER. Tous droits réservés.",
+    "casosExito":  "Cas de Réussite",
+    "quienesSomos":"Qui Sommes-nous"
+  
   },
   "navbar": {
     "company": "Entreprise",
     "products": "Produits",
     "downloads": "Téléchargements",
     "contact": "Contact",
-    "industrialGenerators": "Générateurs Industriels",
+    "industrialGenerators": "Groupes Électrogènes",
     "portableGenerators": "Générateurs Portables",
     "generator4x1": "Générateur 4x1",
     "diesel": "Diesel",
@@ -72,6 +75,7 @@
     "loginTitle": "Connexion",
     "signupTitle": "S'inscrire"
   },
+  
    "generator4x1": {
     "title": "Générateur 4x1",
     "subtitle": "Monophasé",
@@ -1001,11 +1005,11 @@
       },
       "technicalService": {
         "title": "Service Technique",
-        "text": "Nous proposons des pièces de rechange originales pour tous les produits de la marque LKEnergy, avec un service de réparation et de maintenance effectué par nos mécaniciens officiels certifiés."
+        "text": "Nous proposons des services de réparation et de révision pour toute la gamme de produits GH-POWER, effectués exclusivement par nos techniciens certifiés."
       },
       "warranties": {
         "title": "Garanties",
-        "text": "Garanties complètes pour tous nos produits d'une durée allant jusqu'à 3 ans."
+        "text": "Nous offrons une garantie sur tous nos produits conformément à la réglementation en vigueur. Les biens de consommation bénéficient d’une garantie de 3 ans, tandis que les équipements destinés à un usage professionnel disposent d’une garantie d’un an. La garantie couvre exclusivement les défauts cachés résultant de la fabrication et exclut les dommages causés par une utilisation inappropriée, l’usure normale ou une mauvaise manipulation."
       }
     }
   },
@@ -1152,28 +1156,49 @@
 
   "portable": {
   "diesel_category": "GROUPE ÉLECTROGÈNE PORTATIF DIESEL",
-  "diesel_description": "Nos groupes électrogènes portatifs diesel sont conçus pour offrir une puissance fiable dans les conditions les plus exigeantes. Équipés de cabines robustes, disjoncteurs ABB et prises industrielles, ils garantissent un fonctionnement continu 24/7 sans interruption. Choix idéal pour les projets, mines, construction et industrie où durabilité, robustesse et efficacité énergétique sont essentielles.",
+  "diesel_description": "Nos groupes électrogènes diesel portables offrent une solution énergétique fiable et efficace pour les applications professionnelles. Conçus avec des structures renforcées et des composants industriels, ils garantissent un fonctionnement stable même dans des conditions exigeantes. Leur gamme de puissances permet de s’adapter à différentes applications, des travaux légers aux usages industriels. Ils intègrent des systèmes de protection et un démarrage électrique, assurant sécurité, durabilité et performance continue, ce qui en fait un choix idéal pour les projets où la robustesse et la fiabilité sont essentielles.",
 
   "gasoline_category": "GROUPE ÉLECTROGÈNE PORTATIF ESSENCE",
-  "gasoline_description": "Notre gamme de groupes électrogènes à essence offre des solutions polyvalentes, compactes et faciles à transporter, parfaites pour un usage domestique, commercial ou d’urgence. Fabriqués avec des moteurs haute performance et des systèmes de démarrage fiables, ils fournissent une énergie propre et stable pour outils, équipements et appareils sensibles.",
+  "gasoline_description": "Notre gamme de générateurs portables à essence offre des solutions pratiques et fiables pour une grande variété d’applications. Disponibles en différentes puissances, des modèles compacts pour un usage domestique aux versions plus puissantes pour les travaux professionnels, les événements et l’alimentation de secours. Leur conception portable facilite le transport et l’installation, tandis que leurs systèmes de démarrage et de protection garantissent une alimentation électrique stable et sécurisée.",
 
   "4x1_category": "GROUPE ÉLECTROGÈNE 4X1",
-  "4x1_description": "Le groupe 4x1 combine quatre fonctions essentielles dans un seul équipement haute performance : génération électrique, compresseur, soudeuse et tour d’éclairage. Équipé d’un moteur 7 CV et d’une conception renforcée, il est conçu pour les professionnels ayant besoin de plusieurs outils dans un seul châssis robuste et fiable."
+  "4x1_description": "Ce groupe 4 en 1 combine quatre fonctions essentielles en une seule unité haute performance : production d'électricité, compresseur d'air, poste à souder et tour d'éclairage. Doté d'un puissant moteur Kohler de 14 CV  et d'une conception renforcée, il est conçu pour les professionnels exigeant la polyvalence de plusieurs outils au sein d'une structure robuste et fiable."
 },
 "industrial": {
-  "title": "GROUPES ÉLECTROGÈNES INDUSTRIELS",
-  "subtitle1": "Groupes électrogènes industriels fiables avec des moteurs des principales marques mondiales. Nous proposons des groupes électrogènes industriels de haute qualité équipés de moteurs des marques reconnues : GH-POWER, Cummins, Perkins, Baudouin, Doosan, Fawde et Yanmar.",
-  "subtitle2": "Nous offrons des solutions allant des groupes compacts basse puissance aux équipements haute capacité, conçus pour les applications critiques dans l’industrie, le commerce, la construction et les projets énergétiques.",
+  "title": "GROUPES ÉLECTROGÈNES",
+  "subtitle1": "Les groupes électrogènes GH POWER offrent des solutions énergétiques fiables et efficaces pour un fonctionnement continu ou une alimentation de secours. Conçus pour des secteurs exigeants, ils garantissent une alimentation électrique stable.",
+  "subtitle2": "Fabriqués avec des composants de grandes marques, les groupes électrogènes GH POWER assurent de hautes performances, une faible consommation de carburant et une longue durée de vie. Leur technologie avancée réduit les émissions et optimise la gestion de la charge.",
 
   "brands": {
-    "ghpower": { "title": "GH-POWER", "description": "Groupes électrogènes fiables haute performance, de 10 à 440 kVA, conçus pour les environnements industriels exigeants." },
-    "cummins": { "title": "Cummins", "description": "Moteurs et groupes électrogènes leaders du secteur, puissance et efficacité pour les opérations critiques." },
-    "perkins": { "title": "Perkins", "description": "Solutions de génération durables et efficaces, idéales pour les applications industrielles à grande échelle." },
-    "baudouin": { "title": "Baudouin", "description": "Groupes électrogènes marins et industriels robustes, technologie avancée et longue durée de vie." },
-    "doosan": { "title": "Doosan", "description": "Moteurs haute performance et groupes fiables pour toutes tailles d’industrie." },
-    "fawde": { "title": "Fawde", "description": "Solutions économiques et durables en génération d’énergie industrielle." },
-    "yanmar": { "title": "Yanmar", "description": "Moteurs compacts et efficaces, parfaits pour applications industrielles et commerciales." }
+  "ghpower": {
+    "title": "GH-POWER",
+    "description": "de 10 kVA à 440 kVA"
   },
+  "cummins": {
+    "title": "Cummins",
+    "description": "de 10 kVA à 3500 kVA"
+  },
+  "perkins": {
+    "title": "Perkins",
+    "description": "de 10 kVA à 2500 kVA"
+  },
+  "baudouin": {
+    "title": "Baudouin",
+    "description": "de 18 kVA à 2750 kVA"
+  },
+  "doosan": {
+    "title": "Doosan",
+    "description": "de 50 kVA à 2500 kVA"
+  },
+  "fawde": {
+    "title": "Fawde",
+    "description": "de 20 kVA à 1000 kVA"
+  },
+  "yanmar": {
+    "title": "Yanmar",
+    "description": "de 8 kVA à 3500 kVA"
+  }
+},
 
   "read_more": "VOIR PLUS",
   "prev": "Précédent",
@@ -1198,5 +1223,79 @@
        
       }
     }
+  },
+   "successStories": {
+    "sectionTitle": "Cas de Réussite",
+    "cards": [
+      {
+        "title": "Expo Ferretera 2024, Mexique",
+        "subtitle": "28 NOV 2024 | CAS DE RÉUSSITE, ACTUALITÉS, NOUVEAUTÉS",
+        "text": "Voici comment nous avons vécu l’Expo Ferretera 2024 : des journées riches en innovation et en moments forts. Merci de faire partie de cette expérience. Qualité éprouvée dans plus de 32 pays."
+      },
+      {
+        "title": "Progrès",
+        "subtitle": "28 NOV 2024 | CAS DE RÉUSSITE, ACTUALITÉS, NOUVEAUTÉS",
+        "text": "Nous accompagnons le développement. Les groupes électrogènes GH POWER sont des alliés idéaux pour chaque projet, avec des solutions énergétiques sur mesure et une technologie performante."
+      },
+      {
+        "title": "Palacio de los Deportes",
+        "subtitle": "28 NOV 2024 | CAS DE RÉUSSITE, ACTUALITÉS, NOUVEAUTÉS",
+        "text": "Notre centrale de secours GH619CSX alimente l’un des sites les plus emblématiques du Mexique, garantissant fiabilité et sécurité."
+      }
+    ]
+  },
+  "quienesSomos": {
+    "hero": {
+      "title": "Qui Sommes-nous",
+      "subtitle": "Établis à BCN",
+      "description": [
+        "Entreprise espagnole créée à Barcelone en 2010.",
+        "Nous nous distinguons par notre engagement de service.",
+        "Nous accordons autant d’importance au rapport qualité/prix qu’au service.",
+        "Produits sur mesure, de haute qualité et compétitifs."
+      ]
+    },
+    "values": {
+      "section_title": "La solution intelligente",
+      "items": [
+        {
+          "icon": "💰",
+          "title": "Compétitivité",
+          "description": "Meilleur rapport qualité-prix en solutions énergétiques."
+        },
+        {
+          "icon": "💡",
+          "title": "Innovation",
+          "description": "Solutions personnalisées et innovantes."
+        },
+        {
+          "icon": "⭐",
+          "title": "Qualité",
+          "description": "Certifications européennes et américaines."
+        },
+        {
+          "icon": "🛠️",
+          "title": "Support",
+          "description": "Conseil technique et service après-vente."
+        }
+      ]
+    },
+    "stats": {
+      "countries": "Pays",
+      "references": "Références",
+      "engine_options": "Options de moteur"
+    }
+  },
+  "empowering": {
+    "titleLine1": "PROPULSER",
+    "titleLine2": "LE MONDE",
+    "heading": "Qualité reconnue à l’international :",
+    "description": "Nous sommes présents dans plus de <1>32 pays</1> en proposant des solutions énergétiques adaptées à tous les besoins.",
+    "points": {
+      "one": "Nous sommes motivés à continuer de croître et à apporter de l’énergie vers de nouveaux horizons.",
+      "two": "Nous proposons des solutions innovantes et personnalisées pour des projets industriels, commerciaux et résidentiels dans le monde entier.",
+      "three": "Nous garantissons des produits fiables et un service après-vente exceptionnel, adapté aux besoins de chaque marché."
+    }
   }
+  
 }

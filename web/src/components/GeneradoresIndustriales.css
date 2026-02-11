@@ -2,6 +2,7 @@
   max-width: 1400px;
   margin: 0 auto;
   padding: 0;
+  
 }
 
 .section-title {
@@ -132,6 +133,7 @@
 
 .card-info {
   padding: 24px;
+  
  
 }
 
@@ -148,6 +150,7 @@
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  height: 40px;
 }
 
 .read-more {

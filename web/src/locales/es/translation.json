@@ -1,10 +1,10 @@
 {
     "accordion": {
     "why_choose": "¿Por qué elegir GH POWER?",
-    "why_choose_content": "En GH POWER ofrecemos soluciones energéticas confiables con más de 25 años de experiencia en el sector. Ofrecemos servicio técnico de calidad a todos nuestros distribuidores de todo el país.",
+    "why_choose_content": "En GH POWER ofrecemos soluciones energéticas confiables con más de 25 años de experiencia en el sector. Ofrecemos servicio técnico de calidad a todos nuestros distribuidores.",
     
     "energy_efficiency": "Eficiencia Energética",
-    "energy_efficiency_content": "La industria moderna opera con altos niveles de eficiencia gracias a tecnologías avanzadas, procesos precisos y trabajadores altamente cualificados. Un factor clave en este rendimiento es el sistema de inventario Just in Time, donde cada componente llega a la línea de producción justo a tiempo para su ensamblaje. Para que este proceso funcione sin interrupciones, es esencial contar con un suministro de energía confiable que mantenga la producción activa incluso durante un apagón. En GH POWER proporcionamos la potencia que su operación necesita. Ofrecemos una amplia gama de soluciones energéticas de respaldo y emergencia, diseñadas para garantizar continuidad operativa en cualquier situación.",
+    "energy_efficiency_content": "La industria actual opera con un alto nivel de eficiencia, esto es posible gracias en parte a las avanzadas técnicas de fabricación y a los trabajadores cualificados.Pero gran parte del mérito recae en el proceso de control de inventarios “Just in time”, con los componentes de fabricación llegando a la línea de producción solo unos minutos antes de que sean necesarios para el ensamblaje.Para poder realizar este duro trabajo, necesita un suministro de energía fiable para mantener la producción durante un apagón.No se preocupe GH-POWER le proporciona el músculo que necesita, ofreciendo una amplia gama de soluciones de energía de respaldo y emergencia, para satisfacer sus necesidades.",
     
     "water_treatment": "Tratamiento de Aguas",
     "water_treatment_content": "La demanda de agua está creciendo rápidamente. El consumo de agua a nivel mundial se duplica cada 20 años. Por eso, los municipios y autoridades están enfocados en gestionar este recurso de forma más eficiente e inteligente, mediante la purificación y reutilización de aguas residuales. Hoy más que nunca, las plantas de tratamiento deben recolectar, transportar y procesar grandes volúmenes de agua, para luego devolverla al medio ambiente o reutilizarla en actividades como el regadío. Sin embargo, durante interrupciones prolongadas, un tratamiento insuficiente puede generar consecuencias ambientales y financieras graves. GH POWER ofrece soluciones energéticas confiables para el sector hídrico. La instalación de un grupo electrógeno permite mantener la operación continua de las plantas en situaciones críticas como apagones o cortes de energía, asegurando el suministro de agua a toda una ciudad incluso en circunstancias fuera de control.",
@@ -31,7 +31,7 @@
     "kva": "KVA"
   },
   "footer": {
-    "tagline": "GENERADORES ELECTRICOS INDUSTRIALES",
+    "tagline": "GRUPOS ELECTRÓGENOS PARA USO INDUSTRIAL",
     "liveSession": "Energía Confiable para tu Empresa",
     "menu": "Menú",
     "company": "Empresa",
@@ -50,14 +50,16 @@
     "phoneNumber": "+34 934 185 173",
     "emailAddress": "info@gh-power.com",
     "privacyTerms": "Términos y condiciones de privacidad",
-    "copyright": "Copyright © {{year}} GH-POWER. Todos los derechos reservados."
+    "copyright": "Copyright © {{year}} GH-POWER. Todos los derechos reservados",
+    "casosExito": "Casos de Exíto",
+    "quienesSomos":"¿Quiénes Somos?"
   },
     "navbar": {
-    "company": "Empresa",
+    "company": "Inicio",
     "products": "Productos",
     "downloads": "Descargas",
     "contact": "Contacto",
-    "industrialGenerators": "Generadores Industriales",
+    "industrialGenerators": "Grupos Electrógenos",
     "portableGenerators": "Generadores Portátiles",
     "generator4x1": "Generador 4x1",
     "diesel": "Diesel",
@@ -991,7 +993,7 @@
      "banner_alt": "Generadores eléctricos industriales y portátiles GH Power",
     "titleLine1": "GRUPOS",
     "titleLine2": "ELECTRÓGENOS",
-    "subtitle": "Soluciones Energéticas para Cada Uso",
+    "subtitle": "Soluciones Energéticas para Cada Aplicación",
     "budgetButton": "CONTÁCTANOS",
     "aboutTitle": "SOBRE NOSOTROS",
     "aboutHeading": "GH POWER",
@@ -1005,11 +1007,11 @@
       },
       "technicalService": {
         "title": "Servicio Técnico",
-        "text": "Ofrecemos repuestos y recambios originales para todos los productos de la marca LKEnergy, con servicio de reparación y mantenimiento realizado por nuestros mecánicos oficiales certificados."
+        "text": "Ofrecemos servicios de reparación y revisión para toda la línea de productos GH-POWER, realizados exclusivamente por nuestros técnicos certificados."
       },
       "warranties": {
         "title": "Garantías",
-        "text": "Garantías completas para todos nuestros productos de hasta 3 años de duración."
+        "text": "Ofrecemos garantía en todos nuestros productos conforme a la normativa vigente. Los bienes de consumo cuentan con una garantía de 3 años, mientras que los bienes de equipo destinados a uso profesional disponen de una garantía de 1 año. La garantía cubre exclusivamente los defectos ocultos derivados de la fabricación, quedando excluidos los daños provocados por un uso indebido, desgaste normal o manipulación incorrecta."
       }
     }
   },
@@ -1156,50 +1158,50 @@
   "portable": {
     "diesel_category": "GENERADORES PORTÁTILES DE DIÉSEL",
     "diesel_title": "GENERADORES PORTÁTILES DE DIÉSEL",
-    "diesel_description": "Nuestros generadores portátiles diésel están diseñados para ofrecer potencia confiable en las condiciones más exigentes. Equipados con cabinas heavy-duty, interruptores ABB y enchufes industriales, garantizan un rendimiento continuo 24/7 sin interrupciones. Son la elección ideal para proyectos, minería, construcción e industria donde la durabilidad, la robustez y la eficiencia energética son fundamentales. Su ingeniería avanzada asegura un funcionamiento estable, seguro y preparado para los trabajos más demandantes.",
+    "diesel_description": "Nuestros generadores portátiles diésel ofrecen una solución energética fiable y eficiente para trabajos profesionales. Diseñados con estructuras reforzadas y componentes industriales, garantizan un funcionamiento estable incluso en condiciones exigentes. Su gama de potencias permite adaptarse a distintas aplicaciones, desde trabajos ligeros hasta usos industriales. Incorporan sistemas de protección y arranque eléctrico que aseguran seguridad, durabilidad y un rendimiento continuo, convirtiéndolos en la opción ideal para proyectos donde la robustez y la fiabilidad son esenciales.",
 
     "gasoline_category": "GENERADORES PORTÁTILES DE GASOLINA",
     "gasoline_title": "GENERADORES PORTÁTILES DE GASOLINA",
-    "gasoline_description": "Nuestra línea de generadores a gasolina ofrece soluciones versátiles, compactas y de fácil transporte, perfectas para aplicaciones domésticas, comerciales y de emergencia. Fabricados con motores de alto rendimiento y sistemas de arranque confiables, proporcionan energía limpia y estable para herramientas, equipos y dispositivos sensibles. Su diseño ligero, eficiente y económico los convierte en la alternativa ideal para uso diario, trabajos en campo, eventos, camping y respaldo energético inmediato.",
+    "gasoline_description": "Nuestra gama de generadores portátiles de gasolina ofrece soluciones prácticas y fiables para una amplia variedad de aplicaciones. Disponibles en diferentes potencias, desde modelos compactos para uso doméstico hasta versiones más potentes para trabajos profesionales, eventos y respaldo energético. Su diseño portátil facilita el transporte y la instalación, mientras que sus sistemas de arranque y protección garantizan un suministro eléctrico estable y seguro.",
 
     "4x1_category": "GENERADOR 4X1",
     "4x1_title": "GENERADOR 4X1",
-    "4x1_description": "El generador 4x1 combina cuatro funciones esenciales en un solo equipo de alto rendimiento: generación eléctrica, compresor, soldadora y planta de luz. Equipado con un motor de 7 HP y diseño reforzado, está pensado para profesionales que requieren múltiples herramientas en un solo cuerpo robusto y confiable. Su construcción duradera y operación casi libre de mantenimiento lo convierten en la solución integral perfecta para talleres, obras, mantenimiento industrial y trabajos en exteriores donde la versatilidad y la potencia son indispensables."
+    "4x1_description": "El generador 4x1 combina cuatro funciones esenciales en un solo equipo de alto rendimiento: generación eléctrica, compresor, soldadora y torre de iluminación. Equipado con un potente motor Kohler de 14 HP  y diseño reforzado, está pensado para profesionales que requieren múltiples herramientas en un solo cuerpo robusto y confiable."
   },
   
   "industrial": {
-    "title": "GENERADORES INDUSTRIALES",
-    "subtitle1": "Generadores industriales confiables con motores de las principales marcas. En nuestra empresa ofrecemos generadores industriales de alta calidad, equipados con motores de marcas reconocidas mundialmente como GH-POWER, Cummins, Perkins, Baudouin, Doosan, Fawde y Yanmar.",
-    "subtitle2": "Contamos con soluciones que van desde generadores compactos de baja potencia hasta equipos de gran capacidad, diseñados para aplicaciones críticas en la industria, comercio, construcción y proyectos de energía. Nuestra gama garantiza eficiencia, durabilidad y confiabilidad, adaptándose a cualquier necesidad energética. Descubre la potencia y calidad de nuestros generadores para asegurar operaciones continuas y seguras en tu negocio.",
+  "title": "GRUPOS ELECTRÓGENOS",
+  "subtitle1": "Los grupos electrógenos GH POWER ofrecen soluciones energéticas fiables y eficientes para uso continuo o como respaldo eléctrico. Diseñados para sectores exigentes, garantizan un suministro eléctrico estable incluso en entornos complejos.",
+  "subtitle2": "Fabricados con componentes de primeras marcas, los grupos electrógenos GH POWER aseguran alto rendimiento, bajo consumo de combustible y larga vida útil. Su tecnología avanzada reduce emisiones y optimiza la gestión de la carga.",
 
     "brands": {
       "ghpower": {
         "title": "GH-POWER",
-        "description": "Generadores confiables de alto rendimiento, desde 10 kVA hasta 440 kVA, diseñados para entornos industriales exigentes."
+        "description": "desde 10 kVA hasta 440 kVA"
       },
       "cummins": {
         "title": "Cummins",
-        "description": "Motores y generadores líderes en la industria, con potencia y eficiencia para operaciones críticas."
+        "description": "desde 10 kVA hasta 3500 kVA"
       },
       "perkins": {
         "title": "Perkins",
-        "description": "Soluciones de generación duraderas y eficientes, ideales para aplicaciones industriales de gran escala."
+        "description": "desde 10 kVA hasta 2500 kVA"
       },
       "baudouin": {
         "title": "Baudouin",
-        "description": "Generadores marítimos e industriales robustos, con tecnología avanzada y larga vida útil."
+        "description": "desde 18 kVA hasta 2750 kVA"
       },
       "doosan": {
         "title": "Doosan",
-        "description": "Motores de alto rendimiento y generadores confiables para industrias de cualquier tamaño."
+        "description": "desde 50 kVA hasta 2500 kVA"
       },
       "fawde": {
         "title": "Fawde",
-        "description": "Soluciones económicas y duraderas en generación de energía industrial."
+        "description": "desde 20 kVA hasta 1000 kVA"
       },
       "yanmar": {
         "title": "Yanmar",
-        "description": "Motores compactos y eficientes, perfectos para aplicaciones industriales y comerciales."
+        "description": "desde 8 kVA hasta 3500 kVA"
       }
     },
 
@@ -1212,6 +1214,80 @@
       "title": "GH Power | Generadores Eléctricos Industriales y Portátiles",
       "description": "Fabricante líder de generadores eléctricos diésel y gasolina. Soluciones portátiles e industriales de 2 a 2000 kVA. Más de 25 años ofreciendo energía fiable en todo el mundo.",
       "keywords": "generadores eléctricos, generadores diésel, generadores gasolina, generadores portátiles, generadores industriales, grupos electrógenos, generadores silenciosos, GH Power"
+    }
+  },
+ 
+  "successStories": {
+    "sectionTitle": "Casos de Éxito",
+    "cards": [
+      {
+        "title": "Expo Ferretera 2024, México",
+        "subtitle": "NOV 28, 2024 | CASOS DE ÉXITO, NOTICIAS, NOVEDADES",
+        "text": "Así vivimos la Expo Ferretera 2024: días llenos de innovación y grandes momentos. Gracias por ser parte de esta experiencia con nosotros. Calidad comprobada en más de 32 países."
+      },
+      {
+        "title": "Progreso",
+        "subtitle": "NOV 28, 2024 | CASOS DE ÉXITO, NOTICIAS, NOVEDADES",
+        "text": "Potenciamos el desarrollo. Los equipos GH POWER son aliados clave para cualquier proyecto, con soluciones energéticas a medida y tecnología de alto rendimiento."
+      },
+      {
+        "title": "Palacio de los Deportes",
+        "subtitle": "NOV 28, 2024 | CASOS DE ÉXITO, NOTICIAS, NOVEDADES",
+        "text": "Nuestra planta de emergencia GH619CSX suministra energía a uno de los recintos más icónicos de México, garantizando fiabilidad y seguridad."
+      }
+    ]
+  },
+"quienesSomos": {
+    "hero": {
+      "title": "Quiénes Somos",
+      "subtitle": "Establecidos en BCN",
+      "description": [
+        "Somos una empresa española, creada en Barcelona en el año 2010, especializada en el diseño, fabricación y distribución de soluciones de energía.",
+        "Nos diferenciamos por nuestra vocación de servicio y atención al canal de distribución.",
+        "Atendemos de forma personalizada y damos la misma importancia a la calidad / precio de nuestros equipos como al servicio y atención al distribuidor.",
+        "Conocemos las necesidades específicas de cada mercado, y por ello ofrecemos productos diseñados a medida, de alta calidad y precio competitivo."
+      ]
+    },
+    "values": {
+      "section_title": "La solución inteligente",
+      "items": [
+        {
+          "icon": "💰",
+          "title": "Competitividad",
+          "description": "Ofrecemos soluciones en generación de energía con la mejor relación calidad-precio, garantizando equipos altamente eficientes, duraderos y con un rendimiento óptimo."
+        },
+        {
+          "icon": "💡",
+          "title": "Innovación",
+          "description": "Contamos con una amplia gama de opciones para personalizar nuestros generadores, adaptándolos a las necesidades específicas de cada cliente y ofreciendo soluciones innovadoras y de vanguardia."
+        },
+        {
+          "icon": "⭐",
+          "title": "Calidad",
+          "description": "Cumplimos con las más exigentes normas de calidad y todos nuestros grupos electrógenos tienen las certificaciones para el mercado de Europa y USA."
+        },
+        {
+          "icon": "🛠️",
+          "title": "Soporte",
+          "description": "Brindamos un soporte integral, con asesoramiento técnico especializado y servicio postventa."
+        }
+      ]
+    },
+    "stats": {
+      "countries": "Países",
+      "references": "Referencias",
+      "engine_options": "Opciones de motor"
+    }
+  },
+  "empowering": {
+    "titleLine1": "IMPULSANDO",
+    "titleLine2": "EL MUNDO",
+    "heading": "Calidad comprobada internacionalmente:",
+    "description": "Estamos presentes en más de <1>32 países</1> ofreciendo soluciones energéticas para todas las necesidades.",
+    "points": {
+      "one": "Nos motiva continuar creciendo y llevando energía a nuevos horizontes.",
+      "two": "Ofrecemos soluciones innovadoras y personalizadas que impulsan proyectos industriales, comerciales y residenciales en todo el mundo.",
+      "three": "Garantizamos productos confiables y un servicio postventa excepcional, adaptado a las necesidades de cada mercado."
     }
   }
 

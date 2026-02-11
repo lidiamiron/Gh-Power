@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useAuth } from '../context/AuthContext';   // ← nueva línea
-import { useNavigate } from 'react-router-dom';     // ← nueva línea
+import { useAuth } from '../context/AuthContext';  
+import { useNavigate } from 'react-router-dom';   
 import { createClient } from '@supabase/supabase-js';
 import { FaDownload } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
-import { Helmet } from 'react-helmet-async'; // Added for SEO
+import { Helmet } from 'react-helmet-async'; 
 import "./Descargas.css";
 
 // Configuración de Supabase
@@ -17,7 +17,7 @@ const Descargas = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const { t } = useTranslation();
-  const { user } = useAuth();          // ← hook que te dice si hay sesión
+  const { user } = useAuth();       
   const navigate = useNavigate(); 
 
    const protegerDescarga = (url) => {
@@ -25,7 +25,7 @@ const Descargas = () => {
       navigate('/login', { state: { from: location.pathname }, replace: true });
       return;
     }
-    window.open(url, '_blank');   // o usa <a href...> si prefieres
+    window.open(url, '_blank');  
   }; 
 
   useEffect(() => {
@@ -41,9 +41,8 @@ const Descargas = () => {
           throw error;
         }
 
-        console.log('Datos recibidos de Supabase:', data); // Para depuración
+        console.log('Datos recibidos de Supabase:', data); 
         
-        // Filtrar productos únicos por modelo_motor
         const productosUnicos = filtrarProductosUnicos(data);
         setGeneradores(productosUnicos);
         setLoading(false);
@@ -56,7 +55,7 @@ const Descargas = () => {
     fetchGeneradores();
   }, []);
 
-  // Función para filtrar productos únicos por modelo_motor
+  
   const filtrarProductosUnicos = (data) => {
     const productosUnicos = [];
     const modelosVistos = new Set();
@@ -71,11 +70,11 @@ const Descargas = () => {
     return productosUnicos;
   };
 
-  // Función para verificar si una URL es válida
+  
   const esUrlValida = (url) => {
     if (!url) return false;
     
-    // Verificar si es una URL válida
+  
     try {
       new URL(url);
       return true;
@@ -162,8 +161,8 @@ const Descargas = () => {
         </thead>
         <tbody>
           {generadores.map((item, index) => {
-            // Depuración para ver los valores de los enlaces
-            console.log(`Item ${index}:`, {
+
+console.log(`Item ${index}:`, {
               modelo: item.modelo_motor,
               ficha_técnica: item.ficha_técnica,
               manual: item.manual,
@@ -232,3 +231,4 @@ const Descargas = () => {
 };
 
 export default Descargas;
+

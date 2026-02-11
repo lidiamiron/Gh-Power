@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
-import { HelmetProvider } from 'react-helmet-async'; // Add this import
+import { HelmetProvider } from 'react-helmet-async'; 
 
 import './App.css';
 import MainLayout from './layouts/MainLayout.jsx';
@@ -44,6 +44,9 @@ import ScrollToTop from './components/ScrollToTop';
 import PrivacyPolicy from './Pages/PrivacyPolicy.jsx';
 import CookieConsent from "./components/CookieConsent";
 import PoliticaCookies from './Pages/PoliticaCookies.jsx';
+import CasosDeExito from './Pages/CasosDeExito.jsx';
+import QuienesSomos from './Pages/QuienesSomos.jsx';
+import EmpoweringSection from './components/EmpoweringSection.jsx';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -103,6 +106,9 @@ function App() {
               <Route path="/productos/generadores-portatiles/diesel/GH15000DE" element={<GH15000DE />} />
               <Route path="/politica-privacidad" element={<PrivacyPolicy />} />
               <Route path="/politica-cookies" element={<PoliticaCookies />} />
+              <Route path="/casos-de-exito" element={<CasosDeExito />} />
+              <Route path="/quienes-somos" element={<QuienesSomos />} />
+              <Route path="/empowering-world" element={<EmpoweringSection />} />
             </Routes>
           </MainLayout>
           <CookieConsent />

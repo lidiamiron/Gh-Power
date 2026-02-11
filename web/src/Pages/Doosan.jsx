@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { createClient } from '@supabase/supabase-js';
 import { useTranslation } from 'react-i18next';
-import { Helmet } from 'react-helmet-async'; // Added for SEO
+import { Helmet } from 'react-helmet-async';
 import './Doosan.css';
 import generator from '../assets/generador.png';
 
@@ -48,7 +48,7 @@ const Doosan = () => {
         <title>Generadores DOOSAN | GH Power - Soluciones Energéticas</title>
         <meta
           name="description"
-          content="Generadores DOOSAN de GH Power: alta potencia y durabilidad para industria, construcción y más. Cotiza ahora."
+          content="Generadores DOOSAN de GH Power: alta potencia y durabilidad para industria, construcción y más. Pide presupuesto ahora."
         />
         <meta
           name="keywords"
@@ -57,7 +57,7 @@ const Doosan = () => {
         <meta property="og:title" content="Generadores DOOSAN | GH Power" />
         <meta
           property="og:description"
-          content="Explora generadores DOOSAN de GH Power, ideales para industria y construcción con alta durabilidad. Cotiza hoy."
+          content="Explora generadores DOOSAN de GH Power, ideales para industria y construcción con alta durabilidad. Pide presupuesto hoy."
         />
         <meta property="og:image" content="https://gh-power.com/images/generador.png" />
         <meta property="og:url" content="https://gh-power.com/productos/doosan" />

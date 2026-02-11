@@ -70,7 +70,7 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  min-height: 650px;
+  min-height: 800px;
 }
 
 .motor-card:hover {
@@ -85,7 +85,7 @@
 .image-container {
   position: relative;
   width: 100%;
-  height: 350px;
+  height: 500px;
   overflow: hidden;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }

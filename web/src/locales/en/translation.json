@@ -1,10 +1,10 @@
 {
  "accordion": {
     "why_choose": "Why choose GH POWER?",
-    "why_choose_content": "At GH POWER we offer reliable energy solutions with more than 25 years of experience in the sector. We provide quality technical service to all our distributors throughout the country.",
+    "why_choose_content": "At GH POWER we offer reliable energy solutions with more than 25 years of experience in the sector. We provide quality technical service to all our distributors.",
     
     "energy_efficiency": "Energy Efficiency",
-    "energy_efficiency_content": "The modern industry operates with high levels of efficiency thanks to advanced technologies, precise processes, and highly qualified workers. A key factor in this performance is the Just in Time inventory system, where each component arrives at the production line just in time for assembly. For this process to function without interruptions, it is essential to have a reliable power supply that keeps production active even during a blackout. At GH POWER we provide the power that your operation needs. We offer a wide range of backup and emergency energy solutions, designed to guarantee operational continuity in any situation.",
+    "energy_efficiency_content": "Modern industry operates with a high level of efficiency. This is made possible in part by advanced manufacturing techniques and skilled workers. However, much of the credit lies in the “Just in Time” inventory control process, with manufacturing components arriving at the production line only minutes before they are needed for assembly. To carry out this demanding work, a reliable power supply is required to maintain production during a power outage. Do not worry, GH-POWER provides the muscle you need, offering a wide range of backup and emergency power solutions to meet your needs.",
     
     "water_treatment": "Water Treatment",
     "water_treatment_content": "The demand for water is growing rapidly. Global water consumption doubles every 20 years. That's why municipalities and authorities are focused on managing this resource more efficiently and intelligently, through the purification and reuse of wastewater. Today more than ever, treatment plants must collect, transport, and process large volumes of water, to then return it to the environment or reuse it in activities such as irrigation. However, during prolonged interruptions, insufficient treatment can generate serious environmental and financial consequences. GH POWER offers reliable energy solutions for the water sector. The installation of a generator allows maintaining the continuous operation of plants in critical situations such as blackouts or power cuts, ensuring water supply to an entire city even in uncontrollable circumstances.",
@@ -31,7 +31,7 @@
     "kva": "KVA"
   },
   "footer": {
-    "tagline": "INDUSTRIAL ELECTRIC GENERATORS",
+    "tagline": "INDUSTRIAL GENERATOR SETS",
     "liveSession": "Reliable Energy for Your Business",
     "menu": "Menu",
     "company": "Company",
@@ -50,14 +50,18 @@
     "phoneNumber": "+34 934 185 173",
     "emailAddress": "info@gh-power.com",
     "privacyTerms": "Privacy terms and conditions",
-    "copyright": "Copyright © {{year}} GH-POWER. All rights reserved."
+    "copyright": "Copyright © {{year}} GH-POWER. All rights reserved.",
+    "casosExito": "Success Stories",
+    "quienesSomos":"About Us"
+    
+  
   },
     "navbar": {
-    "company": "Company",
+    "company": "Home",
     "products": "Products",
     "downloads": "Downloads",
     "contact": "Contact",
-    "industrialGenerators": "Industrial Generators",
+    "industrialGenerators": "Industrial Generator Sets",
     "portableGenerators": "Portable Generators",
     "generator4x1": "Generator 4x1",
     "diesel": "Diesel",
@@ -1002,12 +1006,11 @@
         "text": "We have the spare parts and components you need for the repair and maintenance of industrial generators, ensuring maximum efficiency and durability of your equipment."
       },
       "technicalService": {
-        "title": "Technical Service",
-        "text": "We offer original spare parts for all LKEnergy brand products, with repair and maintenance service performed by our certified official mechanics."
+        "title": "We offer repair and maintenance services for the entire GH-POWER product line, performed exclusively by our certified technicians."
       },
       "warranties": {
         "title": "Warranties",
-        "text": "Complete warranties for all our products with durations of up to 3 years."
+        "text": "We offer a warranty on all our products in accordance with current regulations. Consumer goods are covered by a 3-year warranty, while equipment intended for professional use is covered by a 1-year warranty. The warranty exclusively covers hidden defects arising from manufacturing and does not include damage caused by improper use, normal wear and tear, or incorrect handling."
       }
     }
   },
@@ -1154,27 +1157,28 @@
 
   "portable": {
   "diesel_category": "PORTABLE DIESEL GENERATORS",
-  "diesel_description": "Our portable diesel generators are designed to deliver reliable power in the most demanding conditions. Equipped with heavy-duty enclosures, ABB circuit breakers and industrial sockets, they guarantee continuous 24/7 operation without interruptions. Ideal choice for projects, mining, construction and industry where durability, robustness and energy efficiency are essential.",
+  "diesel_description": "Our portable diesel generators provide a reliable and efficient power solution for professional applications. Designed with reinforced structures and industrial-grade components, they ensure stable operation even in demanding conditions. Their range of power outputs allows adaptation to different applications, from light-duty tasks to industrial use. They incorporate protection systems and electric start, ensuring safety, durability, and continuous performance, making them the ideal choice for projects where robustness and reliability are essential.",
 
   "gasoline_category": "PORTABLE GASOLINE GENERATORS",
-  "gasoline_description": "Our gasoline generator line offers versatile, compact and easy-to-transport solutions, perfect for domestic, commercial and emergency applications. Built with high-performance engines and reliable starting systems, they provide clean, stable power for tools, equipment and sensitive devices.",
+  "gasoline_description": "Our range of portable gasoline generators offers practical and reliable solutions for a wide variety of applications. Available in different power outputs, from compact models for domestic use to more powerful versions for professional work, events, and backup power. Their portable design allows easy transport and installation, while their starting and protection systems ensure a stable and safe power supply.",
 
   "4x1_category": "4-IN-1 GENERATOR",
-  "4x1_description": "The 4x1 generator combines four essential functions in a single high-performance unit: power generation, compressor, welder and lighting tower. Equipped with a 7 HP engine and reinforced design, it’s made for professionals who need multiple tools in one rugged, reliable body."
+  "4x1_description": "The 4-in-1 generator combines four essential functions into a single high-performance unit: power generation, air compressor, welder, and lighting tower. Equipped with a powerful 14 HP Kohler engine  and a reinforced design, it is engineered for professionals who require multiple tools within a single, robust, and reliable body."
 },
 "industrial": {
-  "title": "INDUSTRIAL GENERATORS",
-  "subtitle1": "Reliable industrial generators with engines from the world’s leading brands. We offer high-quality industrial generators equipped with engines from globally recognized brands: GH-POWER, Cummins, Perkins, Baudouin, Doosan, Fawde, and Yanmar.",
-  "subtitle2": "We provide solutions ranging from compact low-power units to high-capacity equipment, designed for critical applications in industry, commerce, construction, and energy projects.",
+  "title": "GENERATOR SETS",
+  "subtitle1": "GH POWER generator sets provide reliable and efficient power solutions for continuous operation or backup supply. Designed for demanding sectors, they ensure stable power even in complex environments.",
+  "subtitle2": "Built with top-brand components, GH POWER generator sets deliver high performance, low fuel consumption, and long service life. Advanced technology reduces emissions and optimizes load management."
+,
 
   "brands": {
-    "ghpower": { "title": "GH-POWER", "description": "High-performance reliable generators from 10 kVA to 440 kVA, designed for demanding industrial environments." },
-    "cummins": { "title": "Cummins", "description": "Industry-leading engines and generators with power and efficiency for critical operations." },
-    "perkins": { "title": "Perkins", "description": "Durable and efficient power generation solutions, ideal for large-scale industrial applications." },
-    "baudouin": { "title": "Baudouin", "description": "Robust marine and industrial generators with advanced technology and long service life." },
-    "doosan": { "title": "Doosan", "description": "High-performance engines and reliable generators for industries of all sizes." },
-    "fawde": { "title": "Fawde", "description": "Cost-effective and durable industrial power generation solutions." },
-    "yanmar": { "title": "Yanmar", "description": "Compact and efficient engines, perfect for industrial and commercial applications." }
+    "ghpower": { "title": "GH-POWER", "description": "from 10 kVA to 440 kVA" },
+    "cummins": { "title": "Cummins", "description": "from 10 kVA to 3500 kVA" },
+    "perkins": { "title": "Perkins", "description": "from 10 kVA to 2500 kVA" },
+    "baudouin": { "title": "Baudouin", "description": "from 18 kVA to 2750 kVA" },
+    "doosan": { "title": "Doosan", "description": "from 50 kVA to 2500 kVA" },
+    "fawde": { "title": "Fawde", "description": "from 20 kVA to 1000 kVA" },
+    "yanmar": { "title": "Yanmar", "description": "from 8 kVA to 3500 kVA" }
   },
 
   "read_more": "READ MORE",
@@ -1186,6 +1190,79 @@
       "title": "GH Power | Industrial & Portable Power Generators",
       "description": "Leading manufacturer of diesel and gasoline power generators. Portable and industrial solutions from 2 to 2000 kVA. Over 25 years delivering reliable energy worldwide.",
       "keywords": "power generators, diesel generators, gasoline generators, portable generators, industrial generators, standby generators, silent generators, GH Power"
+    }
+  },
+    "successStories": {
+    "sectionTitle": "Success Stories",
+    "cards": [
+      {
+        "title": "Expo Ferretera 2024, Mexico",
+        "subtitle": "NOV 28, 2024 | SUCCESS STORIES, NEWS, UPDATES",
+        "text": "This is how we experienced Expo Ferretera 2024: days full of innovation and great moments. Thank you for being part of this journey with us. Proven quality in over 32 countries."
+      },
+      {
+        "title": "Progress",
+        "subtitle": "NOV 28, 2024 | SUCCESS STORIES, NEWS, UPDATES",
+        "text": "We drive progress forward. GH POWER generator sets are the perfect partners for any project, offering tailor-made energy solutions and high-performance technology."
+      },
+      {
+        "title": "Palacio de los Deportes",
+        "subtitle": "NOV 28, 2024 | SUCCESS STORIES, NEWS, UPDATES",
+        "text": "Our GH619CSX emergency power system supplies energy to one of Mexico’s most iconic venues, ensuring reliability and safety."
+      }
+    ]
+  },
+ "quienesSomos": {
+    "hero": {
+      "title": "About Us",
+      "subtitle": "Established in BCN",
+      "description": [
+        "We are a Spanish company founded in Barcelona in 2010, specialized in the design, manufacturing and distribution of energy solutions.",
+        "We stand out for our strong service commitment and dedication to distribution channels.",
+        "We provide personalized attention and give equal importance to quality/price ratio and distributor service.",
+        "We understand each market’s needs and offer tailor-made, high-quality products at competitive prices."
+      ]
+    },
+    "values": {
+      "section_title": "The Smart Solution",
+      "items": [
+        {
+          "icon": "💰",
+          "title": "Competitiveness",
+          "description": "We offer power generation solutions with the best quality-price ratio, ensuring efficient and durable equipment."
+        },
+        {
+          "icon": "💡",
+          "title": "Innovation",
+          "description": "We provide customization options to adapt our generators to each client’s needs."
+        },
+        {
+          "icon": "⭐",
+          "title": "Quality",
+          "description": "All our generator sets meet the highest quality standards and certifications."
+        },
+        {
+          "icon": "🛠️",
+          "title": "Support",
+          "description": "Comprehensive technical advice and after-sales service."
+        }
+      ]
+    },
+    "stats": {
+      "countries": "Countries",
+      "references": "References",
+      "engine_options": "Engine Options"
+    }
+  },
+  "empowering": {
+    "titleLine1": "EMPOWERING",
+    "titleLine2": "THE WORLD",
+    "heading": "Internationally proven quality:",
+    "description": "We are present in more than <1>32 countries</1> providing energy solutions for every need.",
+    "points": {
+      "one": "We are driven to keep growing and bringing energy to new horizons.",
+      "two": "We offer innovative and customized solutions that power industrial, commercial, and residential projects worldwide.",
+      "three": "We guarantee reliable products and exceptional after-sales service tailored to each market’s needs."
     }
   }
 

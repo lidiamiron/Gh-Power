@@ -14,14 +14,15 @@ function ProductGrid() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   
-  const [selectedFuel, setSelectedFuel] = useState("All");
+  // Estados de los filtros en el nuevo orden
   const [selectedEngineBrand, setSelectedEngineBrand] = useState("All");
-  const [selectedEngineModel, setSelectedEngineModel] = useState("All");
-  const [selectedStandbyPower, setSelectedStandbyPower] = useState("All");
   const [selectedFrequency, setSelectedFrequency] = useState("All");
-  const [selectedVoltage, setSelectedVoltage] = useState("All");
   const [selectedPhase, setSelectedPhase] = useState("All");
-  
+  const [selectedStandbyPower, setSelectedStandbyPower] = useState("All");
+  const [selectedVoltage, setSelectedVoltage] = useState("All");
+  const [selectedEngineModel, setSelectedEngineModel] = useState("All");
+  const [selectedFuel, setSelectedFuel] = useState("All");
+
   const [applyFilters, setApplyFilters] = useState(false);
   
   const { t } = useTranslation();
@@ -30,12 +31,10 @@ function ProductGrid() {
   const getProductUrl = (product) => {
     const productName = product.name.toLowerCase();
     
-    // Generador 4x1
     if (productName.includes('4x1') || productName.includes('4en1') || productName.includes('4 en 1')) {
       return `/productos/generador4x1`;
     }
     
-    // Si tiene marca de motor, es industrial → página de la marca
     if (product.engineBrand && product.engineBrand.trim() !== '') {
       const engineBrand = product.engineBrand.toLowerCase().trim();
       
@@ -48,7 +47,6 @@ function ProductGrid() {
       return `/productos/${engineBrand.replace(/\s+/g, '-')}`;
     }
     
-    // Si NO tiene marca de motor → portátil
     const fuelType = product.fuel.toLowerCase() === 'diesel' ? 'diesel' : 'gasolina';
     return `/productos/generadores-portatiles/${fuelType}/${product.name}`;
   };
@@ -74,8 +72,8 @@ function ProductGrid() {
             powerValueKW: parseFloat(item.prime_power_kw) || 0,
             type: item.phase || '',
             fuel: item.fuel || '',
-            frequencies: item.frequencies ? item.frequencies.split(',') : [],
-            voltage: item.voltage ? item.voltage.split(',') : [],
+            frequencies: item.frequencies ? item.frequencies.split(',').map(v => v.trim()) : [],
+            voltage: item.voltage ? item.voltage.split(',').map(v => v.trim()) : [],
             phase: item.phase || '',
             image: item.image_url || '',
             engineBrand: item.marca_motor || '',
@@ -94,65 +92,104 @@ function ProductGrid() {
     fetchProducts();
   }, []);
 
-  // === FILTROS EN CASCADA ===
-  const filteredByFuel = products.filter(p => 
-    selectedFuel === "All" || p.fuel === selectedFuel
-  );
-
-  const filteredByEngineBrand = filteredByFuel.filter(p => 
+  // ────────────────────────────────────────────────
+  //                 FILTROS EN CASCADA
+  // ────────────────────────────────────────────────
+  const filteredByEngineBrand = products.filter(p => 
     selectedEngineBrand === "All" || p.engineBrand === selectedEngineBrand
   );
 
-  const filteredByEngineModel = filteredByEngineBrand.filter(p => 
-    selectedEngineModel === "All" || p.engineModel === selectedEngineModel
-  );
-
-  const filteredByStandbyPower = filteredByEngineModel.filter(p => 
-    selectedStandbyPower === "All" || p.standbyPowerKVA === parseFloat(selectedStandbyPower)
-  );
-
-  const filteredByFrequency = filteredByStandbyPower.filter(p => 
+  const filteredByFrequency = filteredByEngineBrand.filter(p => 
     selectedFrequency === "All" || p.frequencies.includes(selectedFrequency)
   );
 
-  const filteredByVoltage = filteredByFrequency.filter(p => 
+  const filteredByPhase = filteredByFrequency.filter(p => 
+    selectedPhase === "All" || p.phase === selectedPhase
+  );
+
+  const filteredByStandbyPower = filteredByPhase.filter(p => 
+    selectedStandbyPower === "All" || p.standbyPowerKVA === parseFloat(selectedStandbyPower)
+  );
+
+  const filteredByVoltage = filteredByStandbyPower.filter(p => 
     selectedVoltage === "All" || p.voltage.includes(selectedVoltage)
   );
 
-  const finalFilteredProducts = filteredByVoltage.filter(p => 
-    selectedPhase === "All" || p.phase === selectedPhase
+  const filteredByEngineModel = filteredByVoltage.filter(p => 
+    selectedEngineModel === "All" || p.engineModel === selectedEngineModel
+  );
+
+  const finalFilteredProducts = filteredByEngineModel.filter(p => 
+    selectedFuel === "All" || p.fuel === selectedFuel
   );
 
   const displayedProducts = applyFilters ? finalFilteredProducts : products;
 
-  // === VALORES DISPONIBLES DINÁMICOS ===
-  const availableFuels = [...new Set(products.map(p => p.fuel))].filter(Boolean);
+  // ────────────────────────────────────────────────
+  //            OPCIONES DISPONIBLES (dinámicas)
+  // ────────────────────────────────────────────────
+  const availableEngineBrands = [...new Set(products.map(p => p.engineBrand))].filter(Boolean);
 
-  const availableEngineBrands = [...new Set(filteredByFuel.map(p => p.engineBrand))].filter(Boolean);
+  const availableFrequencies = [...new Set(filteredByEngineBrand.flatMap(p => p.frequencies))].filter(Boolean);
 
-  const availableEngineModels = [...new Set(filteredByEngineBrand.map(p => p.engineModel))].filter(Boolean);
+  const availablePhases = [...new Set(filteredByFrequency.map(p => p.phase))].filter(Boolean);
 
-  const availableStandbyPowers = [...new Set(filteredByEngineModel.map(p => p.standbyPowerKVA))]
+  const availableStandbyPowers = [...new Set(filteredByPhase.map(p => p.standbyPowerKVA))]
     .filter(val => !isNaN(val) && val !== 0)
     .sort((a, b) => a - b);
 
-  const availableFrequencies = [...new Set(filteredByStandbyPower.flatMap(p => p.frequencies))].filter(Boolean);
+  const availableVoltages = [...new Set(filteredByStandbyPower.flatMap(p => p.voltage))].filter(Boolean);
 
-  const availableVoltages = [...new Set(filteredByFrequency.flatMap(p => p.voltage))].filter(Boolean);
+  const availableEngineModels = [...new Set(filteredByVoltage.map(p => p.engineModel))].filter(Boolean);
 
-  const availablePhases = [...new Set(filteredByVoltage.map(p => p.phase))].filter(Boolean);
+  const availableFuels = [...new Set(filteredByEngineModel.map(p => p.fuel))].filter(Boolean);
 
   const handleSearch = () => setApplyFilters(true);
 
-  // Resetear filtros inferiores al cambiar combustible
-  const handleFuelChange = (fuel) => {
-    setSelectedFuel(fuel);
-    setSelectedEngineBrand("All");
-    setSelectedEngineModel("All");
-    setSelectedStandbyPower("All");
+  // Resetear filtros inferiores cuando cambian los superiores
+  const handleEngineBrandChange = (value) => {
+    setSelectedEngineBrand(value);
     setSelectedFrequency("All");
-    setSelectedVoltage("All");
     setSelectedPhase("All");
+    setSelectedStandbyPower("All");
+    setSelectedVoltage("All");
+    setSelectedEngineModel("All");
+    setSelectedFuel("All");
+  };
+
+  const handleFrequencyChange = (value) => {
+    setSelectedFrequency(value);
+    setSelectedPhase("All");
+    setSelectedStandbyPower("All");
+    setSelectedVoltage("All");
+    setSelectedEngineModel("All");
+    setSelectedFuel("All");
+  };
+
+  const handlePhaseChange = (value) => {
+    setSelectedPhase(value);
+    setSelectedStandbyPower("All");
+    setSelectedVoltage("All");
+    setSelectedEngineModel("All");
+    setSelectedFuel("All");
+  };
+
+  const handleStandbyPowerChange = (value) => {
+    setSelectedStandbyPower(value);
+    setSelectedVoltage("All");
+    setSelectedEngineModel("All");
+    setSelectedFuel("All");
+  };
+
+  const handleVoltageChange = (value) => {
+    setSelectedVoltage(value);
+    setSelectedEngineModel("All");
+    setSelectedFuel("All");
+  };
+
+  const handleEngineModelChange = (value) => {
+    setSelectedEngineModel(value);
+    setSelectedFuel("All");
   };
 
   if (loading) {
@@ -215,40 +252,15 @@ function ProductGrid() {
         <h2>{t('products.title')}</h2>
         <p className="product-description">{t('products.description')}</p>
 
-        {/* FILTROS */}
+        {/* FILTROS – nuevo orden */}
         <div className="filter-panel">
 
-          {/* Combustible */}
-          <div className="filter-group">
-            <span>{t('products.filters.fuel')}</span>
-            <button 
-              onClick={() => handleFuelChange("All")} 
-              className={selectedFuel === "All" ? "active" : ""}>
-              {t('products.filters.all')}
-            </button>
-            {availableFuels.map(fuel => (
-              <button 
-                key={fuel} 
-                onClick={() => handleFuelChange(fuel)} 
-                className={selectedFuel === fuel ? "active" : ""}>
-                {fuel}
-              </button>
-            ))}
-          </div>
-
-          {/* Marca de motor */}
+          {/* 1. Marca de motor */}
           <div className="filter-group">
             <label>{t('products.filters.engineBrand')}</label>
             <select 
               value={selectedEngineBrand} 
-              onChange={(e) => {
-                setSelectedEngineBrand(e.target.value);
-                setSelectedEngineModel("All");
-                setSelectedStandbyPower("All");
-                setSelectedFrequency("All");
-                setSelectedVoltage("All");
-                setSelectedPhase("All");
-              }}>
+              onChange={(e) => handleEngineBrandChange(e.target.value)}>
               <option value="All">{t('products.filters.allBrands')}</option>
               {availableEngineBrands.map(brand => (
                 <option key={brand} value={brand}>{brand}</option>
@@ -256,36 +268,48 @@ function ProductGrid() {
             </select>
           </div>
 
-          {/* Modelo de motor */}
+          {/* 2. Frecuencia */}
           <div className="filter-group">
-            <label>{t('products.filters.engineModel')}</label>
-            <select 
-              value={selectedEngineModel} 
-              onChange={(e) => {
-                setSelectedEngineModel(e.target.value);
-                setSelectedStandbyPower("All");
-                setSelectedFrequency("All");
-                setSelectedVoltage("All");
-                setSelectedPhase("All");
-              }}>
-              <option value="All">{t('products.filters.allModels')}</option>
-              {availableEngineModels.map(model => (
-                <option key={model} value={model}>{model}</option>
-              ))}
-            </select>
+            <span>{t('products.filters.frequency')}</span>
+            <button 
+              onClick={() => handleFrequencyChange("All")} 
+              className={selectedFrequency === "All" ? "active" : ""}>
+              {t('products.filters.allFrequencies')}
+            </button>
+            {availableFrequencies.map(freq => (
+              <button 
+                key={freq} 
+                onClick={() => handleFrequencyChange(freq)} 
+                className={selectedFrequency === freq ? "active" : ""}>
+                {freq} Hz
+              </button>
+            ))}
           </div>
 
-          {/* Potencia Standby */}
+          {/* 3. Fase */}
+          <div className="filter-group">
+            <span>{t('products.filters.phase')}</span>
+            <button 
+              onClick={() => handlePhaseChange("All")} 
+              className={selectedPhase === "All" ? "active" : ""}>
+              {t('products.filters.allPhases')}
+            </button>
+            {availablePhases.map(phase => (
+              <button 
+                key={phase} 
+                onClick={() => handlePhaseChange(phase)} 
+                className={selectedPhase === phase ? "active" : ""}>
+                {phase}
+              </button>
+            ))}
+          </div>
+
+          {/* 4. Potencia Standby */}
           <div className="filter-group">
             <label>{t('products.filters.standbyPower')}</label>
             <select 
               value={selectedStandbyPower} 
-              onChange={(e) => {
-                setSelectedStandbyPower(e.target.value);
-                setSelectedFrequency("All");
-                setSelectedVoltage("All");
-                setSelectedPhase("All");
-              }}>
+              onChange={(e) => handleStandbyPowerChange(e.target.value)}>
               <option value="All">{t('products.filters.allPowers')}</option>
               {availableStandbyPowers.map(value => (
                 <option key={value} value={value}>{value} kVA</option>
@@ -293,41 +317,12 @@ function ProductGrid() {
             </select>
           </div>
 
-          {/* Frecuencia */}
-          <div className="filter-group">
-            <span>{t('products.filters.frequency')}</span>
-            <button 
-              onClick={() => {
-                setSelectedFrequency("All");
-                setSelectedVoltage("All");
-                setSelectedPhase("All");
-              }} 
-              className={selectedFrequency === "All" ? "active" : ""}>
-              {t('products.filters.allFrequencies')}
-            </button>
-            {availableFrequencies.map(freq => (
-              <button 
-                key={freq} 
-                onClick={() => {
-                  setSelectedFrequency(freq);
-                  setSelectedVoltage("All");
-                  setSelectedPhase("All");
-                }} 
-                className={selectedFrequency === freq ? "active" : ""}>
-                {freq} Hz
-              </button>
-            ))}
-          </div>
-
-          {/* Voltaje */}
+          {/* 5. Voltaje */}
           <div className="filter-group">
             <label>{t('products.filters.voltage')}</label>
             <select 
               value={selectedVoltage} 
-              onChange={(e) => {
-                setSelectedVoltage(e.target.value);
-                setSelectedPhase("All");
-              }}>
+              onChange={(e) => handleVoltageChange(e.target.value)}>
               <option value="All">{t('products.filters.allVoltages')}</option>
               {availableVoltages.map(voltage => (
                 <option key={voltage} value={voltage}>{voltage}</option>
@@ -335,20 +330,33 @@ function ProductGrid() {
             </select>
           </div>
 
-          {/* Fase */}
+          {/* 6. Modelo de motor */}
           <div className="filter-group">
-            <span>{t('products.filters.phase')}</span>
+            <label>{t('products.filters.engineModel')}</label>
+            <select 
+              value={selectedEngineModel} 
+              onChange={(e) => handleEngineModelChange(e.target.value)}>
+              <option value="All">{t('products.filters.allModels')}</option>
+              {availableEngineModels.map(model => (
+                <option key={model} value={model}>{model}</option>
+              ))}
+            </select>
+          </div>
+
+          {/* 7. Combustible */}
+          <div className="filter-group">
+            <span>{t('products.filters.fuel')}</span>
             <button 
-              onClick={() => setSelectedPhase("All")} 
-              className={selectedPhase === "All" ? "active" : ""}>
-              {t('products.filters.allPhases')}
+              onClick={() => setSelectedFuel("All")} 
+              className={selectedFuel === "All" ? "active" : ""}>
+              {t('products.filters.all')}
             </button>
-            {availablePhases.map(phase => (
+            {availableFuels.map(fuel => (
               <button 
-                key={phase} 
-                onClick={() => setSelectedPhase(phase)} 
-                className={selectedPhase === phase ? "active" : ""}>
-                {phase}
+                key={fuel} 
+                onClick={() => setSelectedFuel(fuel)} 
+                className={selectedFuel === fuel ? "active" : ""}>
+                {fuel}
               </button>
             ))}
           </div>
