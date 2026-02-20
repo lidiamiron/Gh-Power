@@ -9,12 +9,13 @@ import "../components/Navbar.css";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState(null);
-  const [openSubDropdown, setOpenSubDropdown] = useState(null);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [openSubDropdown, setOpenSubDropdown] = useState<string | null>(null);
+  const [openSubSubDropdown, setOpenSubSubDropdown] = useState<string | null>(null); // Nuevo estado para tercer nivel
   const location = useLocation();
   const navigate = useNavigate();
   const isHomePage = location.pathname === '/' || location.pathname === '/Home';
-  const navRef = useRef(null);
+  const navRef = useRef<HTMLElement | null>(null);
   const { t } = useTranslation();
   
   const { user, loading } = useAuth();
@@ -23,46 +24,30 @@ export default function Navbar() {
     setIsOpen(!isOpen);
     setOpenDropdown(null);
     setOpenSubDropdown(null);
+    setOpenSubSubDropdown(null);
   };
 
-  const toggleDropdown = (dropdownName) => {
-    if (window.innerWidth <= 1024) {
-      setOpenDropdown(openDropdown === dropdownName ? null : dropdownName);
-      setOpenSubDropdown(null);
-    } else {
-      setOpenDropdown(openDropdown === dropdownName ? null : dropdownName);
-      setOpenSubDropdown(null);
-    }
+  const toggleDropdown = (dropdownName: string) => {
+    setOpenDropdown(openDropdown === dropdownName ? null : dropdownName);
+    setOpenSubDropdown(null);
+    setOpenSubSubDropdown(null);
   };
 
-  const toggleSubDropdown = (subDropdownName) => {
-    if (window.innerWidth <= 1024) {
-      setOpenSubDropdown(openSubDropdown === subDropdownName ? null : subDropdownName);
-    } else {
-      setOpenSubDropdown(openSubDropdown === subDropdownName ? null : subDropdownName);
-    }
+  const toggleSubDropdown = (subDropdownName: string) => {
+    setOpenSubDropdown(openSubDropdown === subDropdownName ? null : subDropdownName);
+    setOpenSubSubDropdown(null);
   };
 
-  const handleMenuClick = (path) => {
+  const toggleSubSubDropdown = (subSubDropdownName: string) => {
+    setOpenSubSubDropdown(openSubSubDropdown === subSubDropdownName ? null : subSubDropdownName);
+  };
+
+  const handleMenuClick = (path: string) => {
     navigate(path);
     setOpenDropdown(null);
     setOpenSubDropdown(null);
+    setOpenSubSubDropdown(null);
     setIsOpen(false);
-  };
-
-  const handleProductosClick = (e) => {
-    if (window.innerWidth <= 1024) {
-      e.preventDefault();
-      e.stopPropagation();
-      
-      if (openDropdown !== 'productos') {
-        setOpenDropdown('productos');
-      } else {
-        navigate('/productos');
-        setOpenDropdown(null);
-        setIsOpen(false);
-      }
-    }
   };
 
   const handleLogout = async () => {
@@ -77,32 +62,24 @@ export default function Navbar() {
 
   const getUserName = () => {
     if (!user) return '';
-    
-    if (user.user_metadata?.full_name) {
-      return user.user_metadata.full_name;
-    }
-    
-    if (user.email) {
-      return user.email.split('@')[0];
-    }
-    
+    if (user.user_metadata?.full_name) return user.user_metadata.full_name;
+    if (user.email) return user.email.split('@')[0];
     return t('navbar.user');
   };
 
-  // Handle clicks outside the nav to close menu and submenu
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (navRef.current && !navRef.current.contains(event.target)) {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (navRef.current && !navRef.current.contains(event.target as Node)) {
         setIsOpen(false);
         setOpenDropdown(null);
         setOpenSubDropdown(null);
+        setOpenSubSubDropdown(null);
       }
     };
     document.addEventListener('click', handleClickOutside);
     return () => document.removeEventListener('click', handleClickOutside);
   }, []);
 
-  // Estructura de datos para los productos - Internacionalizada
   const productosMenu = {
     [t('navbar.industrialGenerators')]: {
       path: "/productos/generadores-industriales",
@@ -159,20 +136,17 @@ export default function Navbar() {
     <header className={isHomePage ? "fixed-header" : "sticky-header"}>
       <div className="container">
         <nav ref={navRef}>
-          {/* Logo */}
           <div className="nav-logo">
             <a href="/">
-              <img src={logo} className='logo-img' alt="Logo" />
+              <img src={logo} className="logo-img" alt="Logo" />
             </a>
           </div>
 
-          {/* Contenedor principal del menú */}
           <div className="nav-main">
-            {/* Menú de navegación */}
             <ul className={isOpen ? "nav-link active" : "nav-link"}>
               <li>
                 <a 
-                  className={location.pathname === '/' ? 'active' : ''} 
+                  className={location.pathname === '/' || location.pathname === '/Home' ? 'active' : ''} 
                   href="/"
                   onClick={(e) => {
                     if (window.innerWidth <= 1024) {
@@ -185,23 +159,43 @@ export default function Navbar() {
                 </a>
               </li>
               
+              {/* PRODUCTOS */}
               <li 
                 className="dropdown-wrapper"
                 onMouseEnter={() => window.innerWidth > 1024 && setOpenDropdown('productos')}
                 onMouseLeave={() => window.innerWidth > 1024 && setOpenDropdown(null)}
               >
                 <a 
-                  href="/productos" 
+                  href="#"
                   className={`${location.pathname.startsWith('/productos') ? 'active' : ''} ${openDropdown === 'productos' ? 'open' : ''}`}
-                  onClick={handleProductosClick}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    toggleDropdown('productos');
+                  }}
                 >
                   {t('navbar.products')}
                   <FaChevronDown className={`dropdown-icon ${openDropdown === 'productos' ? 'open' : ''}`} />
                 </a>
                 
-                {/* Submenú de productos */}
                 <div className={`submenu-container ${openDropdown === 'productos' ? 'open' : ''}`}>
                   <div className="submenu">
+
+                    {/* Buscador de productos - primera opción */}
+                    <div className="submenu-item">
+                      <a
+                        href="/productos"
+                        className="submenu-title"
+                        onClick={(e) => {
+                          if (window.innerWidth <= 1024) {
+                            e.preventDefault();
+                            handleMenuClick('/productos');
+                          }
+                        }}
+                      >
+                        {t('navbar.productSearch') || 'Buscador de productos'}
+                      </a>
+                    </div>
+
                     {Object.entries(productosMenu).map(([categoria, datos]) => (
                       <div 
                         key={categoria} 
@@ -240,79 +234,66 @@ export default function Navbar() {
                             <FaChevronRight className={`dropdown-icon submenu-arrow ${openSubDropdown === categoria ? 'open' : ''}`} />
                           )}
                         </div>
-                        
-                        {/* Sub-submenú */}
-                        {datos.items && (openSubDropdown === categoria || window.innerWidth > 1024) && Object.keys(datos.items).length > 0 && (
+
+                        {datos.items && (openSubDropdown === categoria) && (
                           <div className={`subsubmenu ${openSubDropdown === categoria ? 'open' : ''}`}>
                             {Object.entries(datos.items).map(([subcategoria, subdatos]) => (
-                              <div key={subcategoria} className="subsubmenu-item">
-                                {typeof subdatos === 'string' ? (
-                                  <a 
-                                    href={subdatos}
-                                    onClick={(e) => {
-                                      if (window.innerWidth <= 1024) {
-                                        e.preventDefault();
-                                        handleMenuClick(subdatos);
+                              <div 
+                                key={subcategoria} 
+                                className="subsubmenu-item"
+                                onMouseEnter={() => window.innerWidth > 1024 && subdatos.items && setOpenSubSubDropdown(subcategoria)}
+                                onMouseLeave={() => window.innerWidth > 1024 && setOpenSubSubDropdown(null)}
+                              >
+                                <div 
+                                  className="subsubmenu-title"
+                                  onClick={() => {
+                                    if (window.innerWidth <= 1024) {
+                                      if (subdatos.items) {
+                                        toggleSubSubDropdown(subcategoria);
+                                      } else {
+                                        handleMenuClick(subdatos.path || subdatos);
                                       }
-                                    }}
-                                  >
-                                    {subcategoria}
-                                  </a>
-                                ) : (
-                                  <>
-                                    <div 
-                                      className="subsubmenu-title"
-                                      onClick={() => {
-                                        if (window.innerWidth <= 1024 && subdatos.items) {
-                                          // Para subcategorías con items, manejamos el toggle de forma diferente
-                                          const subSubmenu = document.querySelector(`.subsubsubmenu-${subcategoria}`);
-                                          if (subSubmenu) {
-                                            subSubmenu.classList.toggle('open');
-                                          }
-                                        } else if (window.innerWidth <= 1024 && !subdatos.items) {
-                                          handleMenuClick(subdatos.path);
+                                    }
+                                  }}
+                                >
+                                  {subdatos.items ? (
+                                    <span className="subsubmenu-text">{subcategoria}</span>
+                                  ) : (
+                                    <a 
+                                      href={typeof subdatos === 'string' ? subdatos : subdatos.path}
+                                      onClick={(e) => {
+                                        if (window.innerWidth <= 1024) {
+                                          e.preventDefault();
+                                          handleMenuClick(typeof subdatos === 'string' ? subdatos : subdatos.path);
                                         }
                                       }}
                                     >
-                                      {subdatos.items ? (
-                                        <span className="submenu-text">{subcategoria}</span>
-                                      ) : (
+                                      {subcategoria}
+                                    </a>
+                                  )}
+                                  {subdatos.items && Object.keys(subdatos.items).length > 0 && (
+                                    <FaChevronRight className={`dropdown-icon subsubmenu-arrow ${openSubSubDropdown === subcategoria ? 'open' : ''}`} />
+                                  )}
+                                </div>
+
+                                {subdatos.items && (openSubSubDropdown === subcategoria) && (
+                                  <div className={`subsubsubmenu ${openSubSubDropdown === subcategoria ? 'open' : ''}`}>
+                                    {Object.entries(subdatos.items).map(([modelo, modelPath]) => (
+                                      <div key={modelo} className="subsubsubmenu-item">
                                         <a 
-                                          href={subdatos.path}
+                                          href={modelPath}
                                           onClick={(e) => {
                                             if (window.innerWidth <= 1024) {
                                               e.preventDefault();
-                                              handleMenuClick(subdatos.path);
+                                              handleMenuClick(modelPath);
                                             }
                                           }}
                                         >
-                                          {subcategoria}
+                                          {modelo}
                                         </a>
-                                      )}
-                                      {subdatos.items && Object.keys(subdatos.items).length > 0 && (
-                                        <FaChevronRight className="dropdown-icon" />
-                                      )}
-                                    </div>
-                                    {subdatos.items && Object.keys(subdatos.items).length > 0 && (
-                                      <div className={`subsubsubmenu subsubsubmenu-${subcategoria} ${window.innerWidth > 1024 ? 'open' : ''}`}>
-                                        {Object.entries(subdatos.items).map(([producto, ruta]) => (
-                                          <div key={producto} className="subsubsubmenu-item">
-                                            <a 
-                                              href={ruta}
-                                              onClick={(e) => {
-                                                if (window.innerWidth <= 1024) {
-                                                  e.preventDefault();
-                                                  handleMenuClick(ruta);
-                                                }
-                                              }}
-                                            >
-                                              {producto}
-                                            </a>
-                                          </div>
-                                        ))}
                                       </div>
-                                    )}
-                                  </>
+                                    ))}
+                                  </div>
                                 )}
                               </div>
                             ))}
@@ -325,100 +306,31 @@ export default function Navbar() {
               </li>
 
               <li>
-                <a 
-                  className={location.pathname === '/Descargas' ? 'active' : ''} 
-                  href="/Descargas"
-                  onClick={(e) => {
-                    if (window.innerWidth <= 1024) {
-                      e.preventDefault();
-                      handleMenuClick('/Descargas');
-                    }
-                  }}
-                >
-                  {t('navbar.downloads')}
-                </a>
+                <a href="/Descargas">{t('navbar.downloads')}</a>
               </li>
               <li>
-                <a 
-                  className={location.pathname === '/Contacto' ? 'active' : ''} 
-                  href="/Contacto"
-                  onClick={(e) => {
-                    if (window.innerWidth <= 1024) {
-                      e.preventDefault();
-                      handleMenuClick('/Contacto');
-                    }
-                  }}
-                >
-                  {t('navbar.contact')}
-                </a>
+                <a href="/Contacto">{t('navbar.contact')}</a>
               </li>
             </ul>
 
-            {/* Iconos de autenticación */}
             <div className="auth-icons">
-              {loading ? (
-                <div className="auth-loading">
-                  <span>{t('navbar.loading')}</span>
-                </div>
-              ) : user ? (
+              {loading ? null : user ? (
                 <>
-                  <div className="user-welcome">
-                    <FaUser className="user-icon" />
-                    <span className="user-name">{t('navbar.hello')}, {getUserName()}</span>
-                  </div>
-                  <button 
-                    onClick={handleLogout}
-                    className="auth-icon logout"
-                    title={t('navbar.logoutTitle')}
-                  >
-                    <FaSignOutAlt />
-                    <span>{t('navbar.logout')}</span>
+                  <span>{t('navbar.hello')}, {getUserName()}</span>
+                  <button onClick={handleLogout}>
+                    <FaSignOutAlt /> {t('navbar.logout')}
                   </button>
                 </>
               ) : (
                 <>
-                  <a 
-                    href="/login" 
-                    className="auth-icon" 
-                    title={t('navbar.loginTitle')}
-                    onClick={(e) => {
-                      if (window.innerWidth <= 1024) {
-                        e.preventDefault();
-                        handleMenuClick('/login');
-                      }
-                    }}
-                  >
-                    <FaUser />
-                    <span>{t('navbar.login')}</span>
-                  </a>
-                  <a 
-                    href="/signup" 
-                    className="auth-icon signup" 
-                    title={t('navbar.signupTitle')}
-                    onClick={(e) => {
-                      if (window.innerWidth <= 1024) {
-                        e.preventDefault();
-                        handleMenuClick('/signup');
-                      }
-                    }}
-                  >
-                    <FaUserPlus />
-                    <span>{t('navbar.signup')}</span>
-                  </a>
+                  <a href="/login"><FaUser /> {t('navbar.login')}</a>
+                  <a href="/signup"><FaUserPlus /> {t('navbar.signup')}</a>
                 </>
               )}
             </div>
           </div>
 
-          {/* Ícono del menú hamburguesa */}
-          <div 
-            className="icon" 
-            onClick={toggleMenu}
-            role="button"
-            aria-label="Menú de navegación"
-            aria-expanded={isOpen}
-            aria-controls="nav-menu"
-          >
+          <div className="icon" onClick={toggleMenu}>
             <FaBars />
           </div>
         </nav>

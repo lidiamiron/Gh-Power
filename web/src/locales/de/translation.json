@@ -19,7 +19,9 @@
     "oil_industry_content": "Die Erdöl- und Gasindustrie bewegt täglich milliardenschwere Projekte, die Exploration, Bohrungen, Betrieb, Raffination und Vertrieb umfassen. Nach Jahren hoher Kosten steht sie unter starkem Druck, ihre Effizienz, Produktivität zu steigern und ihre Umweltauswirkungen zu reduzieren. GH POWER bietet zuverlässige Lösungen für Stromerzeuger, die für extreme Bedingungen ausgelegt sind. Unsere Geräte gewährleisten kontinuierliche Energie in anspruchsvollen Betriebsumgebungen, ideal für die Anforderungen des Energiesektors.",
     
     "construction_sector": "Bausektor",
-    "construction_sector_content": "Die Bauindustrie ist ein wettbewerbsintensiver, dynamischer und wesentlicher Sektor für die wirtschaftliche Entwicklung. Sie treibt das Wachstum durch den Bau von Wohnungen, Tiefbauprojekten und gewerblichen Projekten voran und schafft in jedem Land eine große Anzahl von Arbeitsplätzen. GH POWER ist der ideale Partner, um alle Energieversorgungsbedürfnisse in diesem Sektor zu decken. Wir bieten spezifische und maßgeschneiderte Stromgeneratoren für jede Art von Baustelle, die sich an deren Bedingungen und Anforderungen anpassen. Wir sind ein auf Innovation ausgerichteter Anbieter mit Energielösungen, die einen echten Unterschied auf dem Markt machen. Unsere Erfahrung umfasst zahlreiche erfolgreiche Projekte im globalen Bauwesen."
+    "construction_sector_content": "Die Bauindustrie ist ein wettbewerbsintensiver, dynamischer und wesentlicher Sektor für die wirtschaftliche Entwicklung. Sie treibt das Wachstum durch den Bau von Wohnungen, Tiefbauprojekten und gewerblichen Projekten voran und schafft in jedem Land eine große Anzahl von Arbeitsplätzen. GH POWER ist der ideale Partner, um alle Energieversorgungsbedürfnisse in diesem Sektor zu decken. Wir bieten spezifische und maßgeschneiderte Stromgeneratoren für jede Art von Baustelle, die sich an deren Bedingungen und Anforderungen anpassen. Wir sind ein auf Innovation ausgerichteter Anbieter mit Energielösungen, die einen echten Unterschied auf dem Markt machen. Unsere Erfahrung umfasst zahlreiche erfolgreiche Projekte im globalen Bauwesen.",
+     "centros_comerciales": "Einkaufszentren und Geschäftsräume",
+    "centros_comerciales_content": "Einkaufszentren sind ein wichtiger Bestandteil unseres Lebens, den wir oft als selbstverständlich ansehen. Heute bieten sie weit mehr als nur Lebensmittel an. Ein Stromausfall kann alle Geschäfte erheblich beeinträchtigen, Kunden stören und gekühlte sowie tiefgekühlte Waren beschädigen. Mit einem Generator bleibt das Einkaufszentrum betriebsbereit und Verluste werden vermieden. Unabhängig von Ihrem Bedarf ist es das Ziel von GH POWER, Ihr Unternehmen vor schädlichen Stromausfällen zu schützen. Unsere Generatoren für Dauer- und Notstrom sichern den Betrieb aller Geschäfte bei Netzausfällen und gewährleisten den gewohnten hohen Kundenservice."
   },
   "featuredProducts": {
     "title": "Empfohlene Produkte",
@@ -74,7 +76,8 @@
     "signup": "Registrieren",
     "logoutTitle": "Abmelden",
     "loginTitle": "Anmelden",
-    "signupTitle": "Registrieren"
+    "signupTitle": "Registrieren",
+    "productSearch": "Produktsuche"
   },
    "generator4x1": {
     "title": "Generator 4x1",
@@ -1011,8 +1014,8 @@
       },
       "warranties": {
         "title": "Garantien",
-        "text": "Wir bieten für alle unsere Produkte eine Garantie gemäß den geltenden gesetzlichen Bestimmungen. Verbrauchsgüter verfügen über eine Garantie von 3 Jahren, während für Geräte, die für den professionellen Einsatz bestimmt sind, eine Garantie von 1 Jahr gilt. Die Garantie deckt ausschließlich versteckte Herstellungsfehler ab und schließt Schäden aus, die durch unsachgemäße Nutzung, normalen Verschleiß oder falsche Handhabung verursacht wurden."
-      }
+        "text": "Wir gewähren auf alle unsere Produkte eine Garantie gemäß den geltenden gesetzlichen Vorschriften. Die Garantie deckt ausschließlich versteckte Mängel ab, die auf Herstellungsfehler zurückzuführen sind, und schließt Schäden aus, die durch unsachgemäße Verwendung, normalen Verschleiß oder fehlerhafte Handhabung verursacht wurden."
+    }
     }
   },
     "dashboard": {
@@ -1052,31 +1055,77 @@
     }
   },
   "products": {
-    "title": "INDUSTRIEGENERATOREN",
-    "description": "Spezialisiert auf High-End-Motoren, Alternative Kraftstoff- und Dieselgeneratoren. Unsere Motoren sind auf dem Markt wettbewerbsfähig dank ihrer Effizienz und Hochleistungsfähigkeiten.",
-    "loading": "Produkte werden geladen...",
-    "filters": {
-      "fuel": "Kraftstoff:",
-      "frequency": "Frequenz:",
-      "voltage": "Spannung:",
-      "phase": "Phase:",
-      "standbyPower": "Standby-Leistung (kVA):",
-      "engineBrand": "Motormarke:",
-      "engineModel": "Motormodell:",
-      "all": "Alle",
-      "allFrequencies": "Alle",
-      "allVoltages": "Alle",
-      "allPhases": "Alle",
-      "allPowers": "Alle",
-      "allBrands": "Alle",
-      "allModels": "Alle",
-      "search": "Suchen"
-    },
-    "productCard": {
-      "power": "⚡",
-      "subtitle": "STROMERZEUGER"
-    }
-  },
+"loading": "Laden...",
+"title": "Produkte",
+"description": "Entdecken Sie unser Sortiment an Generatoren. Filtern Sie nach Kategorie, Motormarke, Frequenz und mehr.",
+"filters": {
+"category": "Kategorie",
+"all_categories": "Alle Kategorien",
+"engineBrand": "Motormarke",
+"allBrands": "Alle Marken",
+"frequency": "Frequenz",
+"allFrequencies": "Alle",
+"hz": "Hz",
+"phase": "Phase",
+"allPhases": "Alle",
+"standbyPower": "Standby-Leistung (kVA)",
+"allPowers": "Alle Leistungen",
+"voltage": "Spannung",
+"allVoltages": "Alle Spannungen",
+"engineModel": "Motormodell",
+"allModels": "Alle Modelle",
+"fuel": "Kraftstoff",
+"all": "Alle",
+"allFuels": "Alle Kraftstoffe",
+
+"search": "Suchen"
+},
+"categories": {
+"generadores industriales": "Industriegeneratoren",
+"generadores portátiles": "Tragbare Generatoren",
+"sin categoría": "Keine Kategorie"
+},
+"engine_brands": {
+"gh-power": "GH-Power",
+"cummins": "Cummins",
+"perkins": "Perkins",
+"baudouin": "Baudouin",
+"doosan": "Doosan",
+"fawde": "Fawde",
+"yanmar": "Yanmar"
+},
+"fuel": {
+"diesel": "Diesel",
+"gasolina": "Benzin"
+},
+"kva_prp": "kVA PRP",
+"kva_esp": "kVA ESP",
+"productCard": {
+"imageAlt": "Produktbild {{name}}"
+},
+"helmet": {
+"title": "Tragbare Generatoren | GH Power - Energielösungen",
+"description": "Entdecken Sie unser Sortiment an Diesel- und Benzingeneratoren bei GH Power. Filtern Sie nach Kraftstoff, Leistung, Spannung und mehr. Jetzt anfragen.",
+"keywords": "tragbare Generatoren, Dieselgeneratoren, Benzingeneratoren, GH Power, Energielösungen, Barcelona",
+"og_title": "Tragbare Generatoren | GH Power",
+"og_description": "Entdecken Sie Diesel- und Benzingeneratoren von GH Power. Filtern Sie nach Leistung, Kraftstoff und mehr. Heute anfragen.",
+"schema_name": "Tragbare Generatoren von GH Power",
+"schema_description": "Sortiment an Diesel- und Benzingeneratoren von GH Power mit Optionen für häusliche und industrielle Anwendungen.",
+"schema_product_description": "Tragbarer Generator {{name}} mit {{powerKVA}} Standby-Leistung und {{fuel}} als Kraftstoff.",
+"schema_standby_power_kva": "Standby-Leistung kVA",
+"schema_prime_power_kw": "Prime-Leistung kW",
+"schema_fuel": "Kraftstoff",
+"schema_phase": "Phase",
+"schema_engine_brand": "Motormarke",
+"schema_engine_model": "Motormodell"
+},
+"phases": {
+    "monofásico": "Einphasig",
+    "trifásico": "Dreiphasig",
+    "single phase": "Einphasig",
+    "three phase": "Dreiphasig"
+  }
+},
   "signup": {
     "title": "Konto Erstellen",
     "fullName": "Vollständiger Name",
@@ -1286,5 +1335,7 @@
       "two": "Wir bieten innovative und maßgeschneiderte Lösungen für Industrie-, Gewerbe- und Wohnprojekte weltweit.",
       "three": "Wir garantieren zuverlässige Produkte und einen außergewöhnlichen Kundendienst, angepasst an die Bedürfnisse jedes Marktes."
     }
-  }
+  },
+  "aliadoTitle": "Unsere Partner",
+  "aliadoSubtitle": "Wir arbeiten mit strategischen Partnern bei Motoren und Alternatoren zusammen, die perfekte Effizienz und Leistung garantieren, um Produkte von hoher Qualität mit hervorragenden Eigenschaften zu liefern."
 }

@@ -101,7 +101,7 @@ const GeneradoresPortatiles = () => {
 
           <div className="portatiles-info">
             <h2 className="portatiles-categoria">{producto.categoria}</h2>
-            <p className="portatiles-descripcion">{producto.descripcion}</p>
+           
 
             {producto.modelos.length > 0 && (
               <div className="portatiles-modelos-grid">

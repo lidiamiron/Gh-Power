@@ -19,7 +19,9 @@
     "oil_industry_content": "The oil and gas industry moves multi-billion dollar projects daily that encompass exploration, drilling, operation, refining, and distribution. After years of high costs, it faces strong pressure to increase its efficiency, productivity, and reduce its environmental impact. GH POWER offers reliable solutions in generator sets designed to withstand extreme conditions. Our equipment guarantees continuous energy in demanding operational environments, ideal for the needs of the energy sector.",
     
     "construction_sector": "Construction Sector",
-    "construction_sector_content": "The construction industry is a competitive, dynamic, and essential sector for economic development. It drives growth through the construction of housing, civil engineering works, and commercial projects, generating a large amount of employment in each country. GH POWER is the ideal ally to cover all energy supply needs in this sector. We offer specific and customized electrical generators for each type of construction project, adapting to their conditions and requirements. We are a provider focused on innovation, with energy solutions that make a real difference in the market. Our experience includes numerous successful projects in the construction field globally."
+    "construction_sector_content": "The construction industry is a competitive, dynamic, and essential sector for economic development. It drives growth through the construction of housing, civil engineering works, and commercial projects, generating a large amount of employment in each country. GH POWER is the ideal ally to cover all energy supply needs in this sector. We offer specific and customized electrical generators for each type of construction project, adapting to their conditions and requirements. We are a provider focused on innovation, with energy solutions that make a real difference in the market. Our experience includes numerous successful projects in the construction field globally.",
+     "centros_comerciales": "Shopping centers and retail premises",
+    "centros_comerciales_content": "Shopping centers are an essential part of our daily lives, yet we often take them for granted. Today, they offer much more than groceries. A power outage can seriously affect all businesses inside, not only inconveniencing customers but also damaging refrigerated and frozen goods. Installing a generator ensures the shopping center remains operational and prevents losses. Whatever your needs, GH POWER’s goal is to protect your business from harmful power outages. Our continuous and emergency power generators keep all stores running during grid failures, maintaining the usual high level of customer service."
   },
   "featuredProducts": {
     "title": "Featured Products",
@@ -74,7 +76,8 @@
     "signup": "Sign Up",
     "logoutTitle": "Logout",
     "loginTitle": "Login",
-    "signupTitle": "Sign Up"
+    "signupTitle": "Sign Up",
+    "productSearch": "Product Search"
   },
   "generator4x1": {
     "title": "Generator 4x1",
@@ -1006,11 +1009,13 @@
         "text": "We have the spare parts and components you need for the repair and maintenance of industrial generators, ensuring maximum efficiency and durability of your equipment."
       },
       "technicalService": {
-        "title": "We offer repair and maintenance services for the entire GH-POWER product line, performed exclusively by our certified technicians."
+        "title": "Technical Service",
+         "text": "We offer repair and maintenance services for the entire GH-POWER product line, performed exclusively by our certified technicians."
       },
       "warranties": {
         "title": "Warranties",
-        "text": "We offer a warranty on all our products in accordance with current regulations. Consumer goods are covered by a 3-year warranty, while equipment intended for professional use is covered by a 1-year warranty. The warranty exclusively covers hidden defects arising from manufacturing and does not include damage caused by improper use, normal wear and tear, or incorrect handling."
+        
+        "text": "We offer a warranty on all our products in accordance with the applicable regulations. The warranty covers exclusively hidden defects resulting from manufacturing, excluding damage caused by improper use, normal wear and tear, or incorrect handling."
       }
     }
   },
@@ -1051,31 +1056,76 @@
     }
   },
   "products": {
-    "title": "INDUSTRIAL GENERATORS",
-    "description": "Specialized in high-end engines, alternative fuel and diesel generators. Our engines compete in the market thanks to their efficiency and high-performance capabilities.",
-    "loading": "Loading products...",
-    "filters": {
-      "fuel": "Fuel:",
-      "frequency": "Frequency:",
-      "voltage": "Voltage:",
-      "phase": "Phase:",
-      "standbyPower": "Standby Power (kVA):",
-      "engineBrand": "Engine Brand:",
-      "engineModel": "Engine Model:",
-      "all": "All",
-      "allFrequencies": "All",
-      "allVoltages": "All",
-      "allPhases": "All",
-      "allPowers": "All",
-      "allBrands": "All",
-      "allModels": "All",
-      "search": "Search"
-    },
-    "productCard": {
-      "power": "⚡",
-      "subtitle": "POWER<br />GENERATORS"
-    }
-  },
+"loading": "Loading...",
+"title": "Products",
+"description": "Explore our range of generators. Filter by category, engine brand, frequency and more.",
+"filters": {
+"category": "Category",
+"all_categories": "All categories",
+"engineBrand": "Engine Brand",
+"allBrands": "All brands",
+"frequency": "Frequency",
+"allFrequencies": "All",
+"hz": "Hz",
+"phase": "Phase",
+"allPhases": "All",
+"standbyPower": "Standby Power (kVA)",
+"allPowers": "All powers",
+"voltage": "Voltage",
+"allVoltages": "All voltages",
+"engineModel": "Engine Model",
+"allModels": "All models",
+"fuel": "Fuel",
+"all": "All",
+"search": "Search",
+"allFuels": "All fuels"
+},
+"categories": {
+"generadores industriales": "Industrial Generators",
+"generadores portátiles": "Portable Generators",
+"sin categoría": "No category"
+},
+"engine_brands": {
+"gh-power": "GH-Power",
+"cummins": "Cummins",
+"perkins": "Perkins",
+"baudouin": "Baudouin",
+"doosan": "Doosan",
+"fawde": "Fawde",
+"yanmar": "Yanmar"
+},
+"fuel": {
+"diesel": "Diesel",
+"gasolina": "Gasoline"
+},
+"kva_prp": "kVA PRP",
+"kva_esp": "kVA ESP",
+"productCard": {
+"imageAlt": "Product image {{name}}"
+},
+"helmet": {
+"title": "Portable Generators | GH Power - Energy Solutions",
+"description": "Explore our range of diesel and gasoline portable generators at GH Power. Filter by fuel, power, voltage and more. Quote now.",
+"keywords": "portable generators, diesel generators, gasoline generators, GH Power, energy solutions, Barcelona",
+"og_title": "Portable Generators | GH Power",
+"og_description": "Discover GH Power's diesel and gasoline portable generators. Filter by power, fuel and more. Quote today.",
+"schema_name": "GH Power Portable Generators",
+"schema_description": "Range of diesel and gasoline portable generators from GH Power, with options for domestic and industrial applications.",
+"schema_product_description": "Portable generator {{name}} with {{powerKVA}} standby power and {{fuel}} as fuel.",
+"schema_standby_power_kva": "Standby Power kVA",
+"schema_prime_power_kw": "Prime Power kW",
+"schema_fuel": "Fuel",
+"schema_phase": "Phase",
+"schema_engine_brand": "Engine Brand",
+"schema_engine_model": "Engine Model"
+},
+"phases": {
+    "monofásico": "Single phase",
+    "trifásico": "Three phase",
+    "single phase": "Single phase",
+    "three phase": "Three phase"
+  }
+},
   "signup": {
     "title": "Create Account",
     "fullName": "Full Name",
@@ -1260,10 +1310,13 @@
     "heading": "Internationally proven quality:",
     "description": "We are present in more than <1>32 countries</1> providing energy solutions for every need.",
     "points": {
-      "one": "We are driven to keep growing and bringing energy to new horizons.",
+      "one": "We keep growing and bringing energy to new horizons.",
       "two": "We offer innovative and customized solutions that power industrial, commercial, and residential projects worldwide.",
       "three": "We guarantee reliable products and exceptional after-sales service tailored to each market’s needs."
     }
-  }
+  },
+
+  "aliadoTitle": "Our Partners",
+  "aliadoSubtitle": "We have strategic partners in engines and alternators that guarantee perfect efficiency and performance to deliver high-quality products with excellent features."
 
 }

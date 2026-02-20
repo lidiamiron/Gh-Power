@@ -15,7 +15,6 @@ export default function LanguageSwitcher() {
     i18n.changeLanguage(lng);
     setIsOpen(false);
     
-    // SOLO SE AÑADE ESTO: Actualizar el atributo lang del HTML para SEO
     document.documentElement.lang = lng;
   };
 
@@ -24,7 +23,8 @@ export default function LanguageSwitcher() {
       'es': 'ES',
       'en': 'EN',
       'fr': 'FR',
-      'de': 'DE' // ✅ Agregar alemán
+      'de': 'DE',
+      'ru': 'RU'  
     };
     return languages[i18n.language] || 'ES';
   };
@@ -34,7 +34,8 @@ export default function LanguageSwitcher() {
       'es': 'Español',
       'en': 'English',
       'fr': 'Français',
-      'de': 'Deutsch' // ✅ Agregar alemán
+      'de': 'Deutsch',
+      'ru': 'Русский'  
     };
     return languages[i18n.language] || 'Español';
   };
@@ -43,10 +44,10 @@ export default function LanguageSwitcher() {
   const languageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "LK Energy - Generadores Eléctricos",
-    "description": "Fabricantes de generadores eléctricos industriales LK Energy",
+    "name": "GH POWER - Grupos Electrógenos",
+    "description": "Fabricantes de generadores eléctricos industriales GH POWER",
     "inLanguage": i18n.language,
-    "availableLanguage": ["es", "en", "fr", "de"],
+    "availableLanguage": ["es", "en", "fr", "de", "ru"],
     "url": window.location.href
   };
 
@@ -116,6 +117,16 @@ export default function LanguageSwitcher() {
           >
             <span className="language-code-fixed">DE</span>
             <span className="language-name-fixed">Deutsch</span>
+          </button>
+           <button 
+            onClick={() => changeLanguage('ru')}
+            className={`language-option-fixed ${i18n.language === 'ru' ? 'active' : ''}`}
+            role="menuitem"
+            aria-label="Переключиться на русский"
+            lang="ru"
+          >
+            <span className="language-code-fixed">RU</span>
+            <span className="language-name-fixed">Русский</span>
           </button>
         </div>
       </div>

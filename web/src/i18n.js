@@ -5,8 +5,8 @@ import { initReactI18next } from 'react-i18next';
 import en from './locales/en/translation.json';
 import es from './locales/es/translation.json';
 import fr from './locales/fr/translation.json';
-import de from './locales/de/translation.json'; // ✅ Agregar alemán
-
+import de from './locales/de/translation.json'; 
+import ru from './locales/ru/translation.json'; 
 const resources = {
   en: {
     translation: en
@@ -18,13 +18,16 @@ const resources = {
     translation: fr
   },
   de: {
-    translation: de // ✅ Agregar alemán
+    translation: de
+  },
+  ru: {
+    translation: ru
   }
 };
 
 // Función para obtener el idioma preferido
 const getPreferredLanguage = () => {
-  // 1. Primero verificar si hay un idioma guardado en localStorage
+  // 1.  verificar si hay un idioma guardado en localStorage
   const savedLanguage = localStorage.getItem('preferred-language');
   if (savedLanguage) return savedLanguage;
 

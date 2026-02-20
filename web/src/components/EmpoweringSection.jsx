@@ -10,17 +10,12 @@ const EmpoweringSection = () => {
     <section className="empowering-section">
       <div className="left-side">
         <img src={worldMap} alt="World Map" className="background-map" />
-        <div className="overlay">
-          <h1>
-            {t("empowering.titleLine1")} <br />
-            {t("empowering.titleLine2")}
-          </h1>
-        </div>
+        
       </div>
 
       <div className="right-side">
         <h2>{t("empowering.heading")}</h2>
-
+        
         <p>
           <Trans i18nKey="empowering.description">
             Estamos presentes en más de <strong>32 países</strong> ofreciendo

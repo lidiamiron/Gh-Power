@@ -3,10 +3,11 @@ import { useTranslation } from "react-i18next";
 import "../components/Sectors.css";
 
 import Aguas from "../assets/tratamientoaguas.jpg";
-import CentroDatos from "../assets/centrodedatos.png";
-import SectorSanitario from "../assets/sectordesalud.jpg";
-import IndustriaPetrolera from "../assets/industriapetrolera.png";
-import SectorConstruccion from "../assets/sectordelaconstrucion.png";
+import CentroDatos from "../assets/centrodedatos.jpg";
+import SectorSanitario from "../assets/sectordesalud.png";
+import IndustriaPetrolera from "../assets/industriapetrolera.jpg";
+import SectorConstruccion from "../assets/sectordelaconstrucion.jpg";
+import CentroComercial from "../assets/centrocomercial.png";
 
 const Sectors = () => {
   const { t } = useTranslation();
@@ -27,7 +28,7 @@ const Sectors = () => {
       imagen: CentroDatos,
     },
     {
-      id: 3,
+      id: 3, 
       title: t("accordion.health_sector"),
       descripcion: t("accordion.health_sector_content"),
       imagen: SectorSanitario,
@@ -40,9 +41,9 @@ const Sectors = () => {
     },
     {
       id: 5,
-      title: t("accordion.construction_sector"),
-      descripcion: t("accordion.construction_sector_content"),
-      imagen: SectorConstruccion,
+      title: t("accordion.centros_comerciales"),
+      descripcion: t("accordion.centros_comerciales_content"),
+      imagen: CentroComercial,
     },
   ];
 

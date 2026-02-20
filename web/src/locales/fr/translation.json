@@ -19,7 +19,9 @@
     "oil_industry_content": "L'industrie pétrolière et gazière déplace quotidiennement des projets de plusieurs milliards de dollars qui englobent l'exploration, le forage, l'opération, le raffinage et la distribution. Après des années de coûts élevés, elle est soumise à une forte pression pour augmenter son efficacité, sa productivité et réduire son impact environnemental. GH POWER propose des solutions fiables en groupes électrogènes conçus pour résister à des conditions extrêmes. Nos équipements garantissent une énergie continue dans des environnements opérationnels exigeants, idéaux pour les besoins du secteur énergétique.",
     
     "construction_sector": "Secteur de la Construction",
-    "construction_sector_content": "L'industrie de la construction est un secteur compétitif, dynamique et essentiel au développement économique. Elle stimule la croissance grâce à la construction de logements, d'ouvrages de génie civil et de projets commerciaux, générant une grande quantité d'emplois dans chaque pays. GH POWER est l'allié idéal pour couvrir tous les besoins d'approvisionnement en énergie dans ce secteur. Nous proposons des générateurs électriques spécifiques et personnalisés pour chaque type de chantier, en nous adaptant à leurs conditions et exigences. Nous sommes un fournisseur axé sur l'innovation, avec des solutions énergétiques qui font une réelle différence sur le marché. Notre expérience comprend de nombreux projets réussis dans le domaine de la construction à l'échelle mondiale."
+    "construction_sector_content": "L'industrie de la construction est un secteur compétitif, dynamique et essentiel au développement économique. Elle stimule la croissance grâce à la construction de logements, d'ouvrages de génie civil et de projets commerciaux, générant une grande quantité d'emplois dans chaque pays. GH POWER est l'allié idéal pour couvrir tous les besoins d'approvisionnement en énergie dans ce secteur. Nous proposons des générateurs électriques spécifiques et personnalisés pour chaque type de chantier, en nous adaptant à leurs conditions et exigences. Nous sommes un fournisseur axé sur l'innovation, avec des solutions énergétiques qui font une réelle différence sur le marché. Notre expérience comprend de nombreux projets réussis dans le domaine de la construction à l'échelle mondiale.",
+     "centros_comerciales": "Centres commerciaux et locaux commerciaux",
+    "centros_comerciales_content": "Les centres commerciaux font partie intégrante de notre quotidien, même si nous les considérons souvent comme acquis. Aujourd’hui, ils offrent bien plus que des produits alimentaires. Une coupure de courant peut fortement perturber les commerces, gêner les clients et endommager les produits réfrigérés ou surgelés. L’installation d’un générateur permet de maintenir l’activité et d’éviter des pertes. Quel que soit votre besoin, l’objectif de GH POWER est de protéger votre entreprise contre les coupures de courant. Nos générateurs en service continu et en secours garantissent le fonctionnement des magasins en cas d’interruption du réseau, tout en maintenant un service client de haut niveau."
   },
    "featuredProducts": {
     "title": "Produits en Vedette",
@@ -73,7 +75,8 @@
     "signup": "S'inscrire",
     "logoutTitle": "Déconnexion",
     "loginTitle": "Connexion",
-    "signupTitle": "S'inscrire"
+    "signupTitle": "S'inscrire",
+    "productSearch": "Recherche de produits"
   },
   
    "generator4x1": {
@@ -1009,7 +1012,7 @@
       },
       "warranties": {
         "title": "Garanties",
-        "text": "Nous offrons une garantie sur tous nos produits conformément à la réglementation en vigueur. Les biens de consommation bénéficient d’une garantie de 3 ans, tandis que les équipements destinés à un usage professionnel disposent d’une garantie d’un an. La garantie couvre exclusivement les défauts cachés résultant de la fabrication et exclut les dommages causés par une utilisation inappropriée, l’usure normale ou une mauvaise manipulation."
+        "text": "Nous offrons une garantie sur tous nos produits conformément à la réglementation en vigueur. La garantie couvre exclusivement les défauts cachés résultant de la fabrication, à l'exclusion des dommages causés par une utilisation inappropriée, l'usure normale ou une mauvaise manipulation."
       }
     }
   },
@@ -1049,32 +1052,77 @@
       "phase": "Phase"
     }
   },
-    "products": {
-    "title": "GÉNÉRATEURS INDUSTRIELS",
-    "description": "Spécialisés dans les moteurs haut de gamme, les générateurs à carburant alternatif et diesel. Nos moteurs sont compétitifs sur le marché grâce à leur efficacité et leurs performances élevées.",
-    "loading": "Chargement des produits...",
-    "filters": {
-      "fuel": "Carburant :",
-      "frequency": "Fréquence :",
-      "voltage": "Tension :",
-      "phase": "Phase :",
-      "standbyPower": "Puissance de Secours (kVA) :",
-      "engineBrand": "Marque du Moteur :",
-      "engineModel": "Modèle du Moteur :",
-      "all": "Tous",
-      "allFrequencies": "Toutes",
-      "allVoltages": "Toutes",
-      "allPhases": "Toutes",
-      "allPowers": "Toutes",
-      "allBrands": "Toutes",
-      "allModels": "Tous",
-      "search": "Rechercher"
-    },
-    "productCard": {
-      "power": "⚡",
-      "subtitle": "GROUPES<br />ÉLECTROGÈNES"
-    }
-  },
+   "products": {
+"loading": "Chargement...",
+"title": "Produits",
+"description": "Explorez notre gamme de générateurs. Filtrez par catégorie, marque de moteur, fréquence et plus encore.",
+"filters": {
+"allFuels": "Tous les carburants",
+"category": "Catégorie",
+"all_categories": "Toutes les catégories",
+"engineBrand": "Marque du moteur",
+"allBrands": "Toutes les marques",
+"frequency": "Fréquence",
+"allFrequencies": "Toutes",
+"hz": "Hz",
+"phase": "Phase",
+"allPhases": "Toutes",
+"standbyPower": "Puissance de secours (kVA)",
+"allPowers": "Toutes les puissances",
+"voltage": "Tension",
+"allVoltages": "Toutes les tensions",
+"engineModel": "Modèle de moteur",
+"allModels": "Tous les modèles",
+"fuel": "Carburant",
+"all": "Tous",
+"search": "Rechercher"
+},
+"categories": {
+"generadores industriales": "Générateurs industriels",
+"generadores portátiles": "Générateurs portables",
+"sin categoría": "Sans catégorie"
+},
+"engine_brands": {
+"gh-power": "GH-Power",
+"cummins": "Cummins",
+"perkins": "Perkins",
+"baudouin": "Baudouin",
+"doosan": "Doosan",
+"fawde": "Fawde",
+"yanmar": "Yanmar"
+},
+"fuel": {
+"diesel": "Diesel",
+"gasolina": "Essence"
+},
+"kva_prp": "kVA PRP",
+"kva_esp": "kVA ESP",
+"productCard": {
+"imageAlt": "Image du produit {{name}}"
+},
+"helmet": {
+"title": "Générateurs Portables | GH Power - Solutions Énergétiques",
+"description": "Explorez notre gamme de générateurs portables diesel et essence chez GH Power. Filtrez par carburant, puissance, tension et plus. Demandez un devis maintenant.",
+"keywords": "générateurs portables, générateurs diesel, générateurs essence, GH Power, solutions énergétiques, Barcelone",
+"og_title": "Générateurs Portables | GH Power",
+"og_description": "Découvrez les générateurs portables diesel et essence de GH Power. Filtrez par puissance, carburant et plus. Demandez un devis aujourd'hui.",
+"schema_name": "Générateurs Portables GH Power",
+"schema_description": "Gamme de générateurs portables diesel et essence de GH Power, avec options pour applications domestiques et industrielles.",
+"schema_product_description": "Générateur portable {{name}} avec {{powerKVA}} de puissance de secours et {{fuel}} comme carburant.",
+"schema_standby_power_kva": "Puissance de Secours kVA",
+"schema_prime_power_kw": "Puissance Prime kW",
+"schema_fuel": "Carburant",
+"schema_phase": "Phase",
+"schema_engine_brand": "Marque du Moteur",
+"schema_engine_model": "Modèle du Moteur"
+},
+"phases": {
+    "monofásico": "Monophasé",
+    "trifásico": "Triphasé",
+    "single phase": "Monophasé",
+    "three phase": "Triphasé"
+  }
+},
   "signup": {
     "title": "Créer un Compte",
     "fullName": "Nom Complet",
@@ -1296,6 +1344,8 @@
       "two": "Nous proposons des solutions innovantes et personnalisées pour des projets industriels, commerciaux et résidentiels dans le monde entier.",
       "three": "Nous garantissons des produits fiables et un service après-vente exceptionnel, adapté aux besoins de chaque marché."
     }
-  }
+  },
+  "aliadoTitle": "Nos partenaires",
+  "aliadoSubtitle": "Nous collaborons avec des partenaires stratégiques en moteurs et alternateurs qui garantissent une efficacité et des performances parfaites pour offrir des produits de haute qualité et d’excellentes caractéristiques."
   
 }

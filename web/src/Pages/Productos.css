@@ -67,7 +67,7 @@
   text-align: center;
 }
   
-.product-description {
+.product-filter-description {
   margin-bottom: 30px;
   line-height: 1.6;
   text-align: center;
@@ -88,6 +88,8 @@
   background-color: #fff;
   transition: transform 0.2s;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  color: inherit;
 }
 
 .product-card:hover {
@@ -95,29 +97,79 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.product-image {
-  height: 120px;
-  object-fit: contain;
-  margin-bottom: 12px;
-}
-
-.product-power {
-  color: #d50000;
+.product-type {
+  font-size: 14px;
+  color: #000;
   font-weight: bold;
-  margin-bottom: 6px;
+  text-align: center;
 }
 
 .product-name {
   font-size: 18px;
-  font-weight: bold;
+  color: #007bff;
+  text-align: center;
+  margin-bottom: 10px;
 }
 
-.product-name:hover{
-  color:#e22a33;
-
+.product-image {
+  height: auto;
+  max-height: 100px;
+  object-fit: contain;
+  margin-bottom: 10px;
 }
 
-.product-subtitle {
+.product-details {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  text-align: left;
+}
+
+.power-details{
+ display: flex;
+ flex-direction: column;
+ 
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+
+
+.product-detail {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  font-size: 14px;
+  color: #333;
+}
+
+.power-detail{
+  display: flex;
+  
+  justify-content: space-between;
+
+  font-size: 14px;
+  color: #333;
+}
+
+.product-detail svg {
+  margin-right: 5px;
+  color: #666;
+}
+
+.available-versions {
+  text-align: left;
   font-size: 12px;
-  color: #777;
+  color: #666;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.versions-icon {
+  width: 20px;
+  height: 10px;
+  background: #000;
+  margin-left: 5px;
 }
