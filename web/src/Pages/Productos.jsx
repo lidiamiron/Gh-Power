@@ -45,8 +45,10 @@ function ProductGrid() {
       if (engineBrand.includes('cummins')) return `/productos/cummins`;
       if (engineBrand.includes('baudouin')) return `/productos/baudouin`;
       if (engineBrand.includes('perkins')) return `/productos/perkins`;
-      if (engineBrand.includes('volvo')) return `/productos/volvo`;
-      if (engineBrand.includes('deutz')) return `/productos/deutz`;
+      if (engineBrand.includes('yanmar')) return `/productos/yanmar`;
+      if (engineBrand.includes('fawde')) return `/productos/fawde`;
+      if (engineBrand.includes('gh-power')) return `/productos/gh-power`;
+      if (engineBrand.includes('doosan')) return `/productos/doosan`;
 
       return `/productos/${engineBrand.replace(/\s+/g, '-')}`;
     }
@@ -61,7 +63,7 @@ function ProductGrid() {
       try {
         const { data, error } = await supabase
           .from('generadores')
-          .select('id, modelo_motor, standby_kva, prime_power_kw, phase, fuel, frequencies, voltage, image_url, marca_motor, engine_model, category, prime_power_kva');
+          .select('id, modelo_motor, standby_kva, prime_power_kw, phase, fuel, frequencies, voltage, image_url, marca_motor, engine_model, category, prime_power_kva, ficha_tecnica');
 
         if (error) throw error;
 
@@ -84,7 +86,8 @@ function ProductGrid() {
             image: item.image_url || '',
             engineBrand: item.marca_motor || '',
             engineModel: item.engine_model || '',
-            category: item.category || 'Sin categoría'
+            category: item.category || 'Sin categoría',
+            fichaTecnica: item.ficha_tecnica || ''
           };
         });
 
@@ -455,6 +458,17 @@ function ProductGrid() {
                   </div>
                 )}
               </div>
+              {product.fichaTecnica && (
+                <a
+                  href={product.fichaTecnica}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="ficha-tecnica-button"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  {t('products.fichaTecnica')}
+                </a>
+              )}
             </Link>
           ))}
         </div>

@@ -19,12 +19,12 @@ const FeaturedProducts = () => {
   const generateProductUrl = (productName) => {
     // Mapeo de nombres de productos a URLs específicas
     const urlMappings = {
-      'GH1856CSX': '/productos/cummins',
-      'GH2200BSX': '/productos/baudouin',
-      'GHD14000E': '/productos/generadores-portatiles/diesel/GHD14000E',
+      'GH88BSX': '/productos/baudouin',
+      'GH44CSX': '/productos/cummins',
+      'GH1650BSX': '/productos/baudouin',
       '4x1': '/productos/generador4x1',
       'GH15000DE': '/productos/generadores-portatiles/diesel/GH15000DE',
-      'GH165DSX': '/productos/doosan'
+      'GDG8500SE': '/productos/generadores-portatiles/diesel/GDG8500SE'
     };
     
     // Si existe un mapeo específico, usarlo, sino generar una URL por defecto
@@ -39,12 +39,12 @@ const FeaturedProducts = () => {
         
         // Lista de modelos específicos a buscar
         const targetModels = [
-          'GH1856CSX', 
-          'GH2200BSX', 
-          'GHD14000E', 
+          'GH88BSX', 
+          'GH44CSX', 
+          'GH1650BSX', 
           '4x1', 
           'GH15000DE',
-          'GH165DSX' 
+          'GDG8500SE' 
         ];
         
         // Buscar cada producto individualmente

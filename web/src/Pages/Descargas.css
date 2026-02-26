@@ -1,7 +1,6 @@
 .table-container {
   padding-top: 50px;
   padding-bottom: 50px;
-  font-family: Arial, sans-serif;
   max-width: 1400px;
   margin: 0 auto;
   min-height: 400px;
@@ -17,7 +16,7 @@
 .custom-table td {
   border: 1px solid #ddd;
   padding: 12px;
-  text-align: left;
+  text-align: center;
 }
 
 .custom-table th {

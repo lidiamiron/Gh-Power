@@ -71,7 +71,7 @@ const ProductSpecs = () => {
           <a href="/docs/LK21B.pdf" className="pdf-icon" title={t('gh15000de.techSheet')}>
             <FaFilePdf />
           </a>
-          <a href="/docs/LK21B.pdf" target="_blank" rel="noreferrer" title={t('gh15000de.techSheet')}>
+          <a href="https://mfbwfvyokxanubyxamim.supabase.co/storage/v1/object/sign/Fichas%20Tecnicas/Ficha-tecnica-GH15000DE.pdf?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV84YjE0MGYwNC01ZTNkLTRhYzItOGQ3OS02ZWI3YzMzNjNjNDUiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGaWNoYXMgVGVjbmljYXMvRmljaGEtdGVjbmljYS1HSDE1MDAwREUucGRmIiwiaWF0IjoxNzcxODUwMDQ3LCJleHAiOjIwODcyMTAwNDd9.D3UFHGkX77sfuXW-xvsMXUXOOvG9wlcjx2SL7ZbDxz0" target="_blank" rel="noreferrer" title={t('gh15000de.techSheet')}>
             <p className="descargas">{t('gh15000de.techSheet')}</p>
           </a>
         </div>

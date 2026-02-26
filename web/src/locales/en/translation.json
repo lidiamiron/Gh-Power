@@ -112,7 +112,7 @@
     "contactButton": "Contact Us→"
   },
   "baudouin": {
-    "title": "BAUDOUIN Generators",
+    "title": "BAUDOUIN Engine",
     "description": "One of the most important French manufacturers of natural gas and diesel engines for the naval and industrial sector. Founded in 1918, they have modern production facilities with state-of-the-art technology, a fully mechanized system, CNC machines, laser tools and test benches, which allow perfect technical control.",
     "loading": "Loading products...",
     "error": "Error:",
@@ -159,17 +159,17 @@
     }
   },
   "cummins": {
-    "title": "CUMMINS Generators",
+    "title": "CUMMINS Engine",
     "description": "Specialized in high-end engines, alternative fuel and diesel generators. Cummins has worked for over 100 years, creating energy solutions, 14 consecutive years on the list of the world's most ethical companies, with a workforce of over 73,600 employees.",
     "loading": "Loading products...",
     "error": "Error:",
     "contactButton": "Contact Us →",
     "tableHeaders": {
       "model": "Model",
-      "primePowerKW": "Prime Power KW",
-      "primePowerKVA": "Prime Power KVA",
-      "standbyPowerKW": "Standby Power KW",
-      "standbyPowerKVA": "Standby Power KVA",
+      "primePowerKW": "Prime Power (KW)",
+      "primePowerKVA": "Prime Power (KVA)",
+      "standbyPowerKW": "Standby Power (KW)",
+      "standbyPowerKVA": "Standby Power (KVA)",
       "engineModel": "Engine Model",
       "frequency": "Frequency",
       "voltage": "Voltage",
@@ -181,8 +181,8 @@
     "error": "Error:",
     "tableHeaders": {
       "model": "MODEL",
-      "standbyKVA": "STANDBY KVA",
-      "standbyKW": "STANDBY KW",
+      "standbyKVA": "STANDBY (KVA)",
+      "standbyKW": "STANDBY (KW)",
       "engineBrand": "ENGINE BRAND",
       "engineModel": "ENGINE MODEL",
       "phase": "PHASE",
@@ -200,17 +200,17 @@
     }
   },
   "doosan": {
-    "title": "DOOSAN Generators",
+    "title": "DOOSAN Engine",
     "description": "Throughout its 127-year history, the brand has worked in the industrial sector, creating specialized equipment for various industries. With global presence, from large power plants to supply facilities. They also work in innovation sectors with autonomous unmanned systems, their factories have state-of-the-art technology. It is a brand characterized by its great technical support and its vocation to add value to its customers.",
     "loading": "Loading products...",
     "error": "Error:",
     "contactButton": "Contact Us →",
     "tableHeaders": {
       "model": "Model",
-      "primePowerKW": "Prime Power KW",
-      "primePowerKVA": "Prime Power KVA",
-      "standbyPowerKW": "Standby Power KW",
-      "standbyPowerKVA": "Standby Power KVA",
+      "primePowerKW": "Prime Power (KW)",
+      "primePowerKVA": "Prime Power (KVA)",
+      "standbyPowerKW": "Standby Power (KW)",
+      "standbyPowerKVA": "Standby Power (KVA)",
       "engineModel": "Engine Model",
       "frequency": "Frequency",
       "voltage": "Voltage",
@@ -218,17 +218,17 @@
     }
   },
    "fawde": {
-    "title": "FAWDE Generators",
+    "title": "FAWDE Engine",
     "description": "Specialized in the manufacturing of heavy, medium, and light engines, commercial vehicles. Their production factory covers 870,000 square meters and has over 5,400 employees. Their main products are diesel and gas engines, moving parts, remanufacturing products and Common Rail systems. They have obtained the first prize for national progress in science and technology, in addition to being the first pilot demonstration project for intelligent manufacturing by MIIT.",
     "loading": "Loading products...",
     "error": "Error:",
     "contactButton": "Contact Us →",
     "tableHeaders": {
       "model": "Model",
-      "primePowerKW": "Prime Power KW",
-      "primePowerKVA": "Prime Power KVA",
-      "standbyPowerKW": "Standby Power KW",
-      "standbyPowerKVA": "Standby Power KVA",
+      "primePowerKW": "Prime Power (KW)",
+      "primePowerKVA": "Prime Power (KVA)",
+      "standbyPowerKW": "Standby Power (KW)",
+      "standbyPowerKVA": "Standby Power (KVA)",
       "engineModel": "Engine Model",
       "frequency": "Frequency",
       "voltage": "Voltage",
@@ -236,23 +236,62 @@
     }
   },
    "ghpower": {
-    "title": "GH-POWER Generators",
+    "title": "GH-POWER Engine",
     "description": "Specialized in high-end engines, alternative fuel and diesel generators. Our engines compete in the market thanks to their efficiency and high-performance capabilities.",
     "loading": "Loading products...",
     "error": "Error:",
     "contactButton": "Contact Us →",
     "tableHeaders": {
       "model": "Model",
-      "primePowerKW": "Prime Power KW",
-      "primePowerKVA": "Prime Power KVA",
-      "standbyPowerKW": "Standby Power KW",
-      "standbyPowerKVA": "Standby Power KVA",
+      "primePowerKW": "Prime Power (KW)",
+      "primePowerKVA": "Prime Power (KVA)",
+      "standbyPowerKW": "Standby Power (KW)",
+      "standbyPowerKVA": "Standby Power (KVA)",
       "engineModel": "Engine Model",
       "frequency": "Frequency",
       "voltage": "Voltage",
       "phase": "Phase"
     }
   },
+  "gdg8500se": {
+  "title": "GDG8500SE",
+  "subtitle": "Single Phase",
+  "technicalSpecs": "Technical Specifications",
+  "structure": "Structure",
+  "motor": "Engine",
+  "manuals": "Manuals and Documents",
+  "techSheet": "Technical Sheet",
+  "userManual": "User Manual",
+  "features": {
+    "powerPRP": "⚡ Rated Power (PRP): 6.0 kW / 7.5 kVA",
+    "powerESP": "⚡ Maximum Power (ESP): 6.5 kW / 8.1 kVA",
+    "singlePhase": "🔌 Single Phase",
+    "weight": "⚖️ 166 kg",
+    "engine": "✔️ DE188F Engine",
+    "alternator": "✔️ High-performance alternator",
+    "fuelCapacity": "✔️ Fuel capacity: 18 L"
+  },
+  "specs": {
+    "structure": "Structure:",
+    "structureValue": "Canopied / Soundproof",
+    "dimensions": "Dimensions:",
+    "dimensionsValue": "930 x 580 x 690 mm",
+    "weight": "Net weight:",
+    "weightValue": "166 kg",
+    "model": "Model: PDG8500SE",
+    "frequency": "Frequency (Hz): 50",
+    "voltage": "Voltage (V): 230",
+    "powerFactor": "Power factor: 0.8",
+    "engineCapacity": "Engine capacity (cc): 474",
+    "dcOutput": "DC Output (V/A): 5 V / 1.5 A",
+    "phases": "Phases: 1",
+    "startingSystem": "Starting system: Electric",
+    "engineCooling": "Engine cooling: Forced air",
+    "autonomy": "Autonomy (h): 12 h",
+    "unitsPerContainer": "Units per 20 ft container: Not specified"
+  },
+  "contactButton": "Contact us →"
+},
   "gh15000de": {
     "title": "GH15000DE",
     "subtitle": "Single Phase",
@@ -1038,17 +1077,17 @@
     }
   },
   "perkins": {
-    "title": "PERKINS Generators",
+    "title": "PERKINS Engine",
     "description": "A subsidiary of Caterpillar Inc. Specialized in the manufacturing of diesel engines for various international markets, highlighting construction, bulk material handling, agriculture, power generation and industry. Under the motto 'The Power of Collaboration' they are one of the world's leading providers of diesel engines, passionate about service and exceeding customer expectations. With a history of over 90 years and more than 22 million engines to their credit.",
     "contactButton": "Contact Us →",
     "loading": "Loading products...",
     "error": "Error:",
     "table": {
       "model": "Model",
-      "primePowerKW": "Prime Power KW",
-      "primePowerKVA": "Prime Power KVA",
-      "standbyKW": "Standby Power KW",
-      "standbyKVA": "Standby Power KVA",
+      "primePowerKW": "Prime Power (KW)",
+      "primePowerKVA": "Prime Power (KVA)",
+      "standbyKW": "Standby Power (KW)",
+      "standbyKVA": "Standby Power (KVA)",
       "engineModel": "Engine Model",
       "frequency": "Frequency",
       "voltage": "Voltage",
@@ -1056,6 +1095,7 @@
     }
   },
   "products": {
+    "fichaTecnica": "Technical Sheet",
 "loading": "Loading...",
 "title": "Products",
 "description": "Explore our range of generators. Filter by category, engine brand, frequency and more.",
@@ -1081,7 +1121,7 @@
 "allFuels": "All fuels"
 },
 "categories": {
-"generadores industriales": "Industrial Generators",
+"generadores industriales": "Generator sets",
 "generadores portátiles": "Portable Generators",
 "sin categoría": "No category"
 },
@@ -1148,17 +1188,17 @@
     }
   },
   "yanmar": {
-    "title": "YANMAR Generators",
+    "title": "YANMAR Engine",
     "description": "Japanese manufacturer of diesel engines, heavy machinery, agricultural and industrial equipment, as well as recreational boats, medium and high-speed commercial marine engines. Founded in 1912. Their equipment meets European quality standards, has great technical support and a network of official services in several territories of Spain and Portugal.",
     "contactButton": "Contact Us →",
     "loading": "Loading products...",
     "error": "Error:",
     "table": {
       "model": "Model",
-      "primePowerKW": "Prime Power KW",
-      "primePowerKVA": "Prime Power KVA",
-      "standbyKW": "Standby Power KW",
-      "standbyKVA": "Standby Power KVA",
+      "primePowerKW": "Prime Power (KW)",
+      "primePowerKVA": "Prime Power (KVA)",
+      "standbyKW": "Standby Power (KW)",
+      "standbyKVA": "Standby Power (KVA)",
       "engineModel": "Engine Model",
       "frequency": "Frequency",
       "voltage": "Voltage",

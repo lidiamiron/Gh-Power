@@ -34,6 +34,7 @@ import GHG7000E from './Pages/GHG7000E.jsx';
 import GHG7500E from './Pages/GHG7500E.jsx';
 import GHG9000E from './Pages/GHG9000E.jsx';
 import GHG10000E from './Pages/GHG10000E.jsx';
+import GDG8500SE from './Pages/GDG8500SE.jsx';
 import Generador4x1 from './Pages/4x1.jsx';
 import GH15000DE from './Pages/GH15000DE.jsx';
 import SignUp from './Pages/SignUp.jsx';
@@ -93,6 +94,7 @@ function App() {
               <Route path="/productos/generadores-portatiles/diesel/GHD13000E" element={<GHD13000E />} />
               <Route path="/productos/generadores-portatiles/diesel/GHD13500E" element={<GHD13500E />} />
               <Route path="/productos/generadores-portatiles/diesel/GHD14000E" element={<GHD14000E />} />
+              <Route path="/productos/generadores-portatiles/diesel/GDG8500SE" element={<GDG8500SE />} />
               <Route path="/productos/generadores-portatiles/gasolina/GHG2500E" element={<GHG2500E />} />
               <Route path="/productos/generadores-portatiles/gasolina/GHG3000E" element={<GHG3000E />} />
               <Route path="/productos/generadores-portatiles/gasolina/GHG3500E" element={<GHG3500E />} />

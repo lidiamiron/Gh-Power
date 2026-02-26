@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { createClient } from '@supabase/supabase-js';
 import { useTranslation } from 'react-i18next';
@@ -14,6 +13,7 @@ const Doosan = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [selectedFrequency, setSelectedFrequency] = useState('50');
   const { t } = useTranslation();
 
   useEffect(() => {
@@ -22,7 +22,8 @@ const Doosan = () => {
         const { data, error } = await supabase
           .from('generadores')
           .select('prime_power_kw, prime_power_kva, standby_kw, standby_kva, engine_model, modelo_motor, frequencies, voltage, phase')
-          .eq('marca_motor', 'DOOSAN');
+          .eq('marca_motor', 'DOOSAN')
+          .order('standby_kva', { ascending: true });
 
         if (error) {
           throw error;
@@ -41,6 +42,8 @@ const Doosan = () => {
 
   if (loading) return <p className="loading">{t('doosan.loading')}</p>;
   if (error) return <p className="error">{t('doosan.error')} {error}</p>;
+
+  const filteredProducts = products.filter(product => product.frequencies.includes(selectedFrequency));
 
   return (
     <div className="gh-power-container">
@@ -110,6 +113,22 @@ const Doosan = () => {
           </a>
         </div>
       </section>
+      <div className="filter-panel">
+        <div className="filter-group">
+          <button 
+            className={selectedFrequency === '50' ? 'active' : ''} 
+            onClick={() => setSelectedFrequency('50')}
+          >
+            50HZ
+          </button>
+          <button 
+            className={selectedFrequency === '60' ? 'active' : ''} 
+            onClick={() => setSelectedFrequency('60')}
+          >
+            60HZ
+          </button>
+        </div>
+      </div>
       <div className="table-container">
         <table className="product-table">
           <thead>
@@ -126,7 +145,7 @@ const Doosan = () => {
             </tr>
           </thead>
           <tbody>
-            {products.map((product, index) => (
+            {filteredProducts.map((product, index) => (
               <tr key={index}>
                 <td>{product.modelo_motor}</td>
                 <td className='hide-mobile'>{product.prime_power_kw}</td>

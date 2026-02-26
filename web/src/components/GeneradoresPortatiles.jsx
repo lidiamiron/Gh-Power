@@ -37,6 +37,7 @@ const GeneradoresPortatiles = () => {
         "GHD13500E",
         "GHD14000E",
         "GH15000DE",
+        "GDG8500SE",
       ],
       bgColor: "#e8e8e8",
       invertido: false,

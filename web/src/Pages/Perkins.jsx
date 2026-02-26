@@ -13,6 +13,7 @@ const PERKINS = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [selectedFrequency, setSelectedFrequency] = useState('50');
   const { t } = useTranslation();
 
   useEffect(() => {
@@ -21,7 +22,8 @@ const PERKINS = () => {
         const { data, error } = await supabase
           .from('generadores')
           .select('prime_power_kw, prime_power_kva, standby_kw, standby_kva, engine_model, modelo_motor, frequencies, voltage, phase')
-          .eq('marca_motor', 'CUMMINS');
+          .eq('marca_motor', 'PERKINS')
+          .order('standby_kva', { ascending: true });
 
         if (error) {
           throw error;
@@ -41,35 +43,37 @@ const PERKINS = () => {
   if (loading) return <p className="loading">{t('perkins.loading')}</p>;
   if (error) return <p className="error">{t('perkins.error')} {error}</p>;
 
+  const filteredProducts = products.filter(product => product.frequencies.includes(selectedFrequency));
+
   return (
     <div className="gh-power-container">
       <Helmet>
-        <title>Generadores Cummins | GH Power - Soluciones Energéticas</title>
+        <title>Generadores Perkins | GH Power - Soluciones Energéticas</title>
         <meta
           name="description"
-          content="Explora los generadores Cummins de GH Power: potencia y fiabilidad para aplicaciones industriales y domésticas. Pide presupuesto ahora."
+          content="Explora los generadores Perkins de GH Power: potencia y fiabilidad para aplicaciones industriales y domésticas. Pide presupuesto ahora."
         />
         <meta
           name="keywords"
-          content="generadores Cummins, generadores portátiles, generadores diesel, GH Power, soluciones energéticas, Barcelona"
+          content="generadores Perkins, generadores portátiles, generadores diesel, GH Power, soluciones energéticas, Barcelona"
         />
-        <meta property="og:title" content="Generadores Cummins | GH Power" />
+        <meta property="og:title" content="Generadores Perkins | GH Power" />
         <meta
           property="og:description"
-          content="Descubre los generadores Cummins de GH Power, diseñados para máxima potencia y fiabilidad. Pide presupuesto hoy."
+          content="Descubre los generadores Perkins de GH Power, diseñados para máxima potencia y fiabilidad. Pide presupuesto hoy."
         />
         <meta property="og:image" content="https://gh-power.com/images/generador.png" />
-        <meta property="og:url" content="https://gh-power.com/productos/cummins" />
+        <meta property="og:url" content="https://gh-power.com/productos/perkins" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="robots" content="index, follow" />
-        <link rel="alternate" href="https://gh-power.com/productos/cummins" hreflang="es" />
-        <link rel="alternate" href="https://gh-power.com/en/productos/cummins" hreflang="en" />
+        <link rel="alternate" href="https://gh-power.com/productos/perkins" hreflang="es" />
+        <link rel="alternate" href="https://gh-power.com/en/productos/perkins" hreflang="en" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "ProductGroup",
-            "name": "Generadores Cummins",
-            "description": "Línea de generadores Cummins de GH Power, diseñados para aplicaciones industriales y domésticas con alta fiabilidad.",
+            "name": "Generadores Perkins",
+            "description": "Línea de generadores Perkins de GH Power, diseñados para aplicaciones industriales y domésticas con alta fiabilidad.",
             "brand": {
               "@type": "Brand",
               "name": "GH Power"
@@ -78,7 +82,7 @@ const PERKINS = () => {
             "hasVariant": products.map(product => ({
               "@type": "Product",
               "name": product.modelo_motor,
-              "description": `Generador Cummins ${product.modelo_motor} con ${product.prime_power_kw} kW de potencia prime y ${product.standby_kva} kVA de potencia standby.`,
+              "description": `Generador Perkins ${product.modelo_motor} con ${product.prime_power_kw} kW de potencia prime y ${product.standby_kva} kVA de potencia standby.`,
               "additionalProperty": [
                 {
                   "@type": "PropertyValue",
@@ -141,6 +145,22 @@ const PERKINS = () => {
           </a>
         </div>
       </section>
+      <div className="filter-panel">
+        <div className="filter-group">
+          <button 
+            className={selectedFrequency === '50' ? 'active' : ''} 
+            onClick={() => setSelectedFrequency('50')}
+          >
+            50HZ
+          </button>
+          <button 
+            className={selectedFrequency === '60' ? 'active' : ''} 
+            onClick={() => setSelectedFrequency('60')}
+          >
+            60HZ
+          </button>
+        </div>
+      </div>
       <div className="table-container">
         <table className="product-table">
           <thead>
@@ -157,7 +177,7 @@ const PERKINS = () => {
             </tr>
           </thead>
           <tbody>
-            {products.map((product, index) => (
+            {filteredProducts.map((product, index) => (
               <tr key={index}>
                 <td>{product.modelo_motor}</td>
                 <td className='hide-mobile'>{product.prime_power_kw}</td>

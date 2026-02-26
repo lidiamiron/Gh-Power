@@ -173,3 +173,21 @@
   background: #000;
   margin-left: 5px;
 }
+
+.ficha-tecnica-button {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 8px 16px;
+  background-color: #e22a33;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.ficha-tecnica-button:hover {
+  background-color: #bd252c;
+  color: white;
+}

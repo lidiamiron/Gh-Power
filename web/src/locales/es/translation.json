@@ -110,17 +110,17 @@
     "contactButton": "Contactanos→"
   },
    "baudouin": {
-    "title": "Generadores BAUDOUIN",
+    "title": "Motor BAUDOUIN",
     "description": "Es uno de los más importantes fabricantes franceses de motores de gas natural, diésel, para el sector naval e industrial. Fundada en 1918, cuentan con unas modernas instalaciones de producción, con tecnología de última generación, con un sistema totalmente mecanizado, con máquinas de control numérico, herramientas láser y banco de pruebas, que permiten obtener un control técnico perfecto.",
     "loading": "Cargando productos...",
     "error": "Error:",
     "contactButton": "Contactanos →",
     "tableHeaders": {
       "model": "Modelo",
-      "primePowerKW": "Prime Power KW",
-      "primePowerKVA": "Prime Power KVA",
-      "standbyPowerKW": "Standby Power KW",
-      "standbyPowerKVA": "Standby Power KVA",
+      "primePowerKW": "Prime Power (KW)",
+      "primePowerKVA": "Prime Power (KVA)",
+      "standbyPowerKW": "Standby Power (KW)",
+      "standbyPowerKVA": "Standby Power (KVA)",
       "engineModel": "Modelo Motor",
       "frequency": "Frecuencia",
       "voltage": "Voltaje",
@@ -157,17 +157,17 @@
     }
   },
   "cummins": {
-    "title": "Generadores CUMMINS",
+    "title": "Motor CUMMINS",
     "description": "Especializados en motores de alta gama, generadores de combustible alternativo y diésel. Cummins ha trabajado durante más de 100 años, creando soluciones de energía, 14 años consecutivos en la lista de las empresas más éticas del mundo, cuentan con una plantilla que supera los 73.600 colaboradores.",
     "loading": "Cargando productos...",
     "error": "Error:",
     "contactButton": "Contactanos →",
     "tableHeaders": {
       "model": "Modelo",
-      "primePowerKW": "Prime Power KW",
-      "primePowerKVA": "Prime Power KVA",
-      "standbyPowerKW": "Standby Power KW",
-      "standbyPowerKVA": "Standby Power KVA",
+      "primePowerKW": "Prime Power (KW)",
+      "primePowerKVA": "Prime Power (KVA)",
+      "standbyPowerKW": "Standby Power (KW)",
+      "standbyPowerKVA": "Standby Power (KVA)",
       "engineModel": "Modelo Motor",
       "frequency": "Frecuencia",
       "voltage": "Voltaje",
@@ -179,8 +179,8 @@
     "error": "Error:",
     "tableHeaders": {
       "model": "MODELO",
-      "standbyKVA": "STANDBY KVA",
-      "standbyKW": "STANDBY KW",
+      "standbyKVA": "STANDBY (KVA)",
+      "standbyKW": "STANDBY (KW)",
       "engineBrand": "MARCA MOTOR",
       "engineModel": "MODELO MOTOR",
       "phase": "FASE",
@@ -198,17 +198,17 @@
     }
   },
    "doosan": {
-    "title": "Generadores DOOSAN",
+    "title": "Motor DOOSAN",
     "description": "A lo largo de 127 años de historia la marca ha trabajado en el sector industrial, creando equipo especializado para diversas industrias. Con presencia global, desde grandes centrales eléctricas hasta plantas de suministros. Además trabajan en sectores de innovación con sistemas no tripulados autónomos, sus fábricas tienen tecnología de última generación. Es una marca que se caracteriza por su gran soporte técnico y su vocación por aportar valor a sus clientes.",
     "loading": "Cargando productos...",
     "error": "Error:",
     "contactButton": "Contactanos →",
     "tableHeaders": {
       "model": "Modelo",
-      "primePowerKW": "Prime Power KW",
-      "primePowerKVA": "Prime Power KVA",
-      "standbyPowerKW": "Standby Power KW",
-      "standbyPowerKVA": "Standby Power KVA",
+      "primePowerKW": "Prime Power (KW)",
+      "primePowerKVA": "Prime Power (KVA)",
+      "standbyPowerKW": "Standby Power (KW)",
+      "standbyPowerKVA": "Standby Power (KVA)",
       "engineModel": "Modelo Motor",
       "frequency": "Frecuencia",
       "voltage": "Voltaje",
@@ -216,17 +216,17 @@
     }
   },
   "fawde": {
-    "title": "Generadores FAWDE",
+    "title": "Motor FAWDE",
     "description": "Especializado en la fabricación de motores pesados, medianos, ligeros, vehículos comerciales. Su fábrica de producción tiene unas dimensiones de 870,000 metros cuadrados y más de 5,400 colaboradores. Sus principales productos son los motores de diésel, gas, piezas móviles, productos de re manufacturación y sistemas 'Common Rail'. Han obtenido el primer premio al progreso nacional de ciencia y tecnología, sumado a que es el primer proyecto piloto de demostración de fabricación inteligente de MIIT.",
     "loading": "Cargando productos...",
     "error": "Error:",
     "contactButton": "Contactanos →",
     "tableHeaders": {
       "model": "Modelo",
-      "primePowerKW": "Prime Power KW",
-      "primePowerKVA": "Prime Power KVA",
-      "standbyPowerKW": "Standby Power KW",
-      "standbyPowerKVA": "Standby Power KVA",
+      "primePowerKW": "Prime Power (KW)",
+      "primePowerKVA": "Prime Power (KVA)",
+      "standbyPowerKW": "Standby Power (KW)",
+      "standbyPowerKVA": "Standby Power (KVA)",
       "engineModel": "Modelo Motor",
       "frequency": "Frecuencia",
       "voltage": "Voltaje",
@@ -234,17 +234,17 @@
     }
   },
   "ghpower": {
-    "title": "Generadores GH-POWER",
+    "title": "Motor GH-POWER",
     "description": "Especializados en motores de alta gama, generadores de combustible alternativo y diésel. Nuestros motores entran al mercado a competir gracias a su eficiencia y prestaciones de alto rendimiento.",
     "loading": "Cargando productos...",
     "error": "Error:",
     "contactButton": "Contactanos →",
     "tableHeaders": {
       "model": "Modelo",
-      "primePowerKW": "Prime Power KW",
-      "primePowerKVA": "Prime Power KVA",
-      "standbyPowerKW": "Standby Power KW",
-      "standbyPowerKVA": "Standby Power KVA",
+      "primePowerKW": "Prime Power (KW)",
+      "primePowerKVA": "Prime Power (KVA)",
+      "standbyPowerKW": "Standby Power (KW)",
+      "standbyPowerKVA": "Standby Power (KVA)",
       "engineModel": "Modelo Motor",
       "frequency": "Frecuencia",
       "voltage": "Voltaje",
@@ -327,6 +327,45 @@
       "autonomy": "Autonomia (h): 17/14.5",
       "unitsPerContainer": "Und x 20 ft: 150"
     },
+    "contactButton": "Contactanos→"
+  },
+  "gdg8500se": {
+    "title": "GDG8500SE",
+     "subtitle": "Monofásico",
+  "technicalSpecs": "Especificaciones Técnicas",
+  "structure": "Estructura",
+  "motor": "Motor",
+  "manuals": "Manuales y documentos",
+  "techSheet": "Ficha técnica",
+  "userManual": "Manual de usuario",
+  "features": {
+    "powerPRP": "⚡ Potencia nominal (PRP): 6.0 kW / 7.5 kVA",
+    "powerESP": "⚡ Potencia máxima (ESP): 6.5 kW / 8.1 kVA",
+    "singlePhase": "🔌 Monofásico",
+    "weight": "⚖️ 166 kg",
+    "engine": "✔️ Motor DE188F",
+    "alternator": "✔️ Alternador de alto rendimiento",
+    "fuelCapacity": "✔️ Capacidad de combustible: 18 L"
+  },
+  "specs": {
+    "structure": "Estructura:",
+    "structureValue": "Cabinada / Insonorizada",
+    "dimensions": "Dimensiones:",
+    "dimensionsValue": "930 x 580 x 690 mm",
+    "weight": "Peso neto:",
+    "weightValue": "166 kg",
+    "model": "Modelo: PDG8500SE",
+    "frequency": "Frecuencia (Hz): 50",
+    "voltage": "Voltaje (V): 230",
+    "powerFactor": "Factor de potencia: 0.8",
+    "engineCapacity": "Capacidad Motor (cc): 474",
+    "dcOutput": "Salida DC (V/A): 5 V / 1.5 A",
+    "phases": "Fases: 1",
+    "startingSystem": "Sistema de arranque: Eléctrico",
+    "engineCooling": "Enfriamiento de Motor: Aire forzado",
+    "autonomy": "Autonomía (h): 12 h",
+    "unitsPerContainer": "Und x 20 ft: No especificado"
+  },
     "contactButton": "Contactanos→"
   },
   "ghd3000e": {
@@ -756,6 +795,7 @@
       "autonomia": "Autonomia (h): 7.0",
       "battery": "Batería(A/H): 9"
     },
+
     "contactButton": "Contactanos→"
   },
   "ghg3800e": {
@@ -1037,17 +1077,17 @@
     }
   },
    "perkins": {
-    "title": "Generadores PERKINS",
+    "title": "Motor PERKINS",
     "description": "Una de las filiales de Caterpillar Inc. Especializadas en la fabricación de motores diésel para diversos mercados internacionales, destacando la construcción, manejo de materiales de gran volumen, agricultura y generación de energía e industria. Bajo el lema 'El Poder de la colaboración' son uno de los principales proveedores de motores diésel del mundo, apasionados por el servicio y superar las expectativas de sus clientes. Con una historia de más de 90 años y más de 22 millones de motores a sus espaldas.",
     "contactButton": "Contáctanos →",
     "loading": "Cargando productos...",
     "error": "Error:",
     "table": {
       "model": "Modelo",
-      "primePowerKW": "Prime Power KW",
-      "primePowerKVA": "Prime Power KVA",
-      "standbyKW": "Standby Power KW",
-      "standbyKVA": "Standby Power KVA",
+      "primePowerKW": "Prime Power (KW)",
+      "primePowerKVA": "Prime Power (KVA)",
+      "standbyKW": "Standby Power (KW)",
+      "standbyKVA": "Standby Power (KVA)",
       "engineModel": "Modelo Motor",
       "frequency": "Frecuencia",
       "voltage": "Voltaje",
@@ -1055,6 +1095,7 @@
     }
   },
   "products": {
+"fichaTecnica": "Ficha Técnica",
 "loading": "Cargando...",
 "title": "Productos",
 "description": "Explora nuestra gama de generadores. Filtra por categoría, marca del motor, frecuencia y más.",
@@ -1080,7 +1121,7 @@
 "search": "Buscar"
 },
 "categories": {
-"generadores industriales": "Generadores industriales",
+"generadores industriales": "Grupos electrógenos",
 "generadores portátiles": "Generadores portátiles",
 "sin categoría": "Sin categoría"
 },
@@ -1147,17 +1188,17 @@
     }
   },
    "yanmar": {
-    "title": "Generadores YANMAR",
+    "title": "Motor YANMAR",
     "description": "Fabricante japonés de motores diésel, maquinaria pesada, agrícola e industrial, además de embarcaciones de recreo, motores comerciales marinos de media y alta velocidad. Fundada en 1912. Sus equipos cumplen con los estándares de calidad para Europa, cuentan con un gran soporte técnico y una red de servicios oficiales en varios territorios de España y Portugal.",
     "contactButton": "Contáctanos →",
     "loading": "Cargando productos...",
     "error": "Error:",
     "table": {
       "model": "Modelo",
-      "primePowerKW": "Prime Power KW",
-      "primePowerKVA": "Prime Power KVA",
-      "standbyKW": "Standby Power KW",
-      "standbyKVA": "Standby Power KVA",
+      "primePowerKW": "Prime Power (KW)",
+      "primePowerKVA": "Prime Power (KVA)",
+      "standbyKW": "Standby Power (KW)",
+      "standbyKVA": "Standby Power (KVA)",
       "engineModel": "Modelo Motor",
       "frequency": "Frecuencia",
       "voltage": "Voltaje",

@@ -62,10 +62,10 @@ const ProductSpecs = () => {
       <div className="docs-block">
         <h2 className="docs-title">{t('generator4x1.manuals')}</h2>
         <div className="doc-item">
-          <a href="/docs/LK21B.pdf" className="pdf-icon">
+          <a href="https://mfbwfvyokxanubyxamim.supabase.co/storage/v1/object/sign/Fichas%20Tecnicas/ghd2000e.pdf?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV84YjE0MGYwNC01ZTNkLTRhYzItOGQ3OS02ZWI3YzMzNjNjNDUiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGaWNoYXMgVGVjbmljYXMvZ2hkMjAwMGUucGRmIiwiaWF0IjoxNzU4MDIzNDk0LCJleHAiOjIzODg3NDM0OTR9.mgL9HC9acn9oEPMalufhH7k1_3kzrX-fkwIdI-0s8Bc" className="pdf-icon">
             <FaFilePdf />
           </a>
-          <a href="/docs/LK21B.pdf" target="_blank" rel="noreferrer">
+          <a href="https://mfbwfvyokxanubyxamim.supabase.co/storage/v1/object/sign/Fichas%20Tecnicas/ghd2000e.pdf?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV84YjE0MGYwNC01ZTNkLTRhYzItOGQ3OS02ZWI3YzMzNjNjNDUiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGaWNoYXMgVGVjbmljYXMvZ2hkMjAwMGUucGRmIiwiaWF0IjoxNzU4MDIzNDk0LCJleHAiOjIzODg3NDM0OTR9.mgL9HC9acn9oEPMalufhH7k1_3kzrX-fkwIdI-0s8Bc" target="_blank" rel="noreferrer">
             <p className="descargas">{t('generator4x1.techSheet')}</p>
           </a>
         </div>

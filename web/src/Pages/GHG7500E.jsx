@@ -67,10 +67,10 @@ const ProductSpecs = () => {
       <div className="docs-block">
         <h2 className="docs-title">{t('ghg7500e.manuals')}</h2>
         <div className="doc-item">
-          <a href="/docs/LK21B.pdf" className="pdf-icon" title={t('ghg7500e.techSheet')}>
+          <a href="https://mfbwfvyokxanubyxamim.supabase.co/storage/v1/object/sign/Fichas%20Tecnicas/Fichas-GH7500E.pdf?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV84YjE0MGYwNC01ZTNkLTRhYzItOGQ3OS02ZWI3YzMzNjNjNDUiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGaWNoYXMgVGVjbmljYXMvRmljaGFzLUdINzUwMEUucGRmIiwiaWF0IjoxNzU4MDI0MTEyLCJleHAiOjIzODg3NDQxMTJ9.YA6ZJD3qAS9G3x12oaB0VTaKO-HvfDdTooxnoyQ-Roc" className="pdf-icon" title={t('ghg7500e.techSheet')}>
             <FaFilePdf />
           </a>
-          <a href="/docs/LK21B.pdf" target="_blank" rel="noreferrer" title={t('ghg7500e.techSheet')}>
+          <a href="https://mfbwfvyokxanubyxamim.supabase.co/storage/v1/object/sign/Fichas%20Tecnicas/Fichas-GH7500E.pdf?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV84YjE0MGYwNC01ZTNkLTRhYzItOGQ3OS02ZWI3YzMzNjNjNDUiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGaWNoYXMgVGVjbmljYXMvRmljaGFzLUdINzUwMEUucGRmIiwiaWF0IjoxNzU4MDI0MTEyLCJleHAiOjIzODg3NDQxMTJ9.YA6ZJD3qAS9G3x12oaB0VTaKO-HvfDdTooxnoyQ-Roc" target="_blank" rel="noreferrer" title={t('ghg7500e.techSheet')}>
             <p className="descargas">{t('ghg7500e.techSheet')}</p>
           </a>
         </div>

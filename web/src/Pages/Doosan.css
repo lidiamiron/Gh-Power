@@ -108,6 +108,12 @@
   color: red;
 }
 
+.product-table th,
+.product-table td {
+  text-align: center!important;
+}
+
+
 @media (max-width: 768px) {
   .gh-power-container {
     padding: 1.5rem;
@@ -150,4 +156,5 @@
   .hide-mobile {
     display: none;
   }
+  
 }
